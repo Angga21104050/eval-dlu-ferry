@@ -1,16 +1,36 @@
-# dlu_project
+# Evaluasi Aplikasi Mobile DLU Ferry
 
-A new Flutter project.
+## Deskripsi Proyek
+Proyek ini merupakan evaluasi terhadap aplikasi mobile **DLU Ferry**, dengan fokus pada aspek **UI/UX** serta **front-end development**. Evaluasi ini bertujuan untuk menganalisis pengalaman pengguna dalam menggunakan aplikasi dan memberikan rekomendasi perbaikan untuk meningkatkan kemudahan navigasi, estetika desain, serta interaksi pengguna.
 
-## Getting Started
+## Tujuan Evaluasi
+Evaluasi ini dilakukan sebagai bagian dari tugas akhir/skripsi, dengan tujuan:
+- Menganalisis keefektifan desain antarmuka pengguna (UI) dalam memberikan pengalaman yang intuitif.
+- Mengevaluasi aspek pengalaman pengguna (UX) dalam proses pemesanan tiket, pencarian jadwal, dan fitur lainnya.
+- Mengidentifikasi kelemahan dan memberikan saran perbaikan untuk meningkatkan usability.
+- Memvalidasi implementasi front-end terhadap standar desain dan best practice dalam pengembangan aplikasi mobile.
 
-This project is a starting point for a Flutter application.
+## Metodologi
+Evaluasi dilakukan melalui:
+<!-- 1. **Analisis Heuristik** - Menggunakan prinsip-prinsip UI/UX untuk menilai efektivitas desain aplikasi.
+2. **Uji Pengguna (User Testing)** - Melibatkan pengguna untuk mendapatkan umpan balik langsung.
+3. **Komparasi dengan Aplikasi Sejenis** - Membandingkan UI/UX DLU Ferry dengan aplikasi serupa untuk menilai keunggulan dan kekurangannya.
+4. **Evaluasi Kinerja Front-End** - Meninjau kode dan struktur aplikasi untuk memastikan efisiensi dan keterbacaan. -->
 
-A few resources to get you started if this is your first Flutter project:
+## Teknologi yang Digunakan
+- **Flutter** - Framework utama untuk pengembangan front-end.
+- **Dart** - Bahasa pemrograman utama.
+- **Figma** - Untuk perancangan dan prototipe UI.
+- **Google Material Design/Flutter Documentation** - Panduan dalam membangun UI yang responsif dan modern.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Harapan dan Output
+Hasil dari evaluasi ini diharapkan dapat memberikan:
+- Laporan rekomendasi perbaikan UI/UX berdasarkan hasil analisis.
+- Panduan peningkatan front-end untuk pengembang aplikasi DLU Ferry.
+- Kontribusi akademik dalam bentuk skripsi/tugas akhir yang mendukung pengembangan aplikasi mobile yang lebih baik.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+**Penulis:** _Airlangga Maulana Anwar_  
+**Repositori:** [GitHub Project](https://github.com/Angga21104050/eval-dlu-ferry)  
+**Kontak:** _airlanggamaualana07@gmail.com_
+
