@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../data/port_city.dart';
 
 class CitySwitcher extends StatefulWidget {
   const CitySwitcher({super.key});
@@ -8,8 +9,17 @@ class CitySwitcher extends StatefulWidget {
 }
 
 class _CitySwitcherState extends State<CitySwitcher> {
-  String _fromCity = 'Jakarta';
-  String _toCity = 'Bandung';
+  late String _fromCity;
+  late String _toCity;
+  final List<String> _cities = portCityList;
+  String _searchQuery = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _fromCity = _cities.isNotEmpty ? _cities[0] : 'DefaultCity';
+    _toCity = _cities.length > 1 ? _cities[1] : 'DefaultCity';
+  }
 
   void swapCities() {
     setState(() {
@@ -17,6 +27,112 @@ class _CitySwitcherState extends State<CitySwitcher> {
       _fromCity = _toCity;
       _toCity = temp;
     });
+  }
+
+  void _showCitySelection(BuildContext context, bool isFromCity) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      barrierColor: Colors.black.withOpacity(0.5),
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setModal) {
+            List<String> filteredCities =
+                _cities
+                    .where(
+                      (city) => city.toLowerCase().contains(
+                        _searchQuery.toLowerCase(),
+                      ),
+                    )
+                    .toList();
+            return AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              curve: Curves.easeOut,
+              height: 800,
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    isFromCity
+                        ? "Pilih Kota Keberangkatan"
+                        : "Pilih Kota Tujuan",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Divider(color: Colors.blue),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 8,
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Cari Pelabuhan...',
+                        prefixIcon: Icon(Icons.search_outlined),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(color: Colors.blue),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setModal(() {
+                          _searchQuery = value;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      shrinkWrap: true,
+                      children:
+                          filteredCities.map((String city) {
+                            return ListTile(
+                              title: Text(
+                                city,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color:
+                                      (isFromCity ? _fromCity : _toCity) == city
+                                          ? Colors.blue
+                                          : Colors.black,
+                                ),
+                              ),
+                              trailing:
+                                  (isFromCity ? _fromCity : _toCity) == city
+                                      ? Icon(Icons.check, color: Colors.blue)
+                                      : null,
+                              onTap: () {
+                                setState(() {
+                                  if (isFromCity) {
+                                    _fromCity = city;
+                                  } else {
+                                    _toCity = city;
+                                  }
+                                });
+                                Navigator.pop(context);
+                              },
+                            );
+                          }).toList(),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -35,7 +151,6 @@ class _CitySwitcherState extends State<CitySwitcher> {
             children: [
               Column(
                 children: [
-                  // Dropdown Kota Keberangkatan
                   Row(
                     children: [
                       Padding(
@@ -47,44 +162,33 @@ class _CitySwitcherState extends State<CitySwitcher> {
                         ),
                       ),
                       Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 6, right: 10),
-                          child: DropdownButtonFormField<String>(
-                            decoration: InputDecoration(
-                              labelText: 'Dari',
-                              border: InputBorder.none,
+                        child: InkWell(
+                          onTap: () => _showCitySelection(context, true),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 6, right: 50),
+                            child: InputDecorator(
+                              decoration: InputDecoration(
+                                labelText: 'Dari',
+                                border: InputBorder.none,
+                              ),
+                              child: Text(
+                                _fromCity,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                ),
+                                overflow:
+                                    TextOverflow.ellipsis, // Tambahkan ini
+                                maxLines: 1, // Pastikan hanya satu baris
+                              ),
                             ),
-                            value: _fromCity,
-                            items: [
-                              DropdownMenuItem(
-                                value: 'Jakarta',
-                                child: Text('Jakarta'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Bandung',
-                                child: Text('Bandung'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Surabaya',
-                                child: Text('Surabaya'),
-                              ),
-                            ],
-                            onChanged: (String? value) {
-                              setState(() {
-                                _fromCity = value!;
-                              });
-                            },
                           ),
                         ),
                       ),
                     ],
                   ),
-                  Divider(
-                    color: Colors.grey.shade300, // Warna garis
-                    thickness: 1, // Ketebalan garis
-                    height: 1, // Mengurangi ruang kosong di atas & bawah garis
-                  ),
-                  // Dropdown Kota Tujuan
+                  Divider(color: Colors.grey.shade300, thickness: 1, height: 1),
                   Row(
                     children: [
                       Padding(
@@ -96,33 +200,27 @@ class _CitySwitcherState extends State<CitySwitcher> {
                         ),
                       ),
                       Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 6, right: 10),
-                          child: DropdownButtonFormField<String>(
-                            decoration: InputDecoration(
-                              labelText: 'Ke',
-                              border: InputBorder.none,
+                        child: InkWell(
+                          onTap: () => _showCitySelection(context, false),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 6, right: 50),
+                            child: InputDecorator(
+                              decoration: InputDecoration(
+                                labelText: 'Ke',
+                                border: InputBorder.none,
+                              ),
+                              child: Text(
+                                _toCity,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                ),
+                                overflow:
+                                    TextOverflow.ellipsis, // Tambahkan ini
+                                maxLines: 1, // Pastikan hanya satu baris
+                              ),
                             ),
-                            value: _toCity,
-                            items: [
-                              DropdownMenuItem(
-                                value: 'Jakarta',
-                                child: Text('Jakarta'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Bandung',
-                                child: Text('Bandung'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Surabaya',
-                                child: Text('Surabaya'),
-                              ),
-                            ],
-                            onChanged: (String? value) {
-                              setState(() {
-                                _toCity = value!;
-                              });
-                            },
                           ),
                         ),
                       ),
@@ -130,10 +228,8 @@ class _CitySwitcherState extends State<CitySwitcher> {
                   ),
                 ],
               ),
-              // Tombol Tukar Posisi di Tengah
               Positioned(
-                right: 50,
-                // Posisikan tombol di tengah kedua dropdown
+                right: 15,
                 child: Container(
                   height: 44,
                   width: 44,

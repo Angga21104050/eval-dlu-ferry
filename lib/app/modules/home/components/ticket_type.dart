@@ -146,7 +146,7 @@ class _TicketTypeState extends State<TicketType> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, bottom: 10),
+      margin: EdgeInsets.only(top: 0, bottom: 10),
       child: InkWell(
         onTap: () => _showMultiSelectDialog(context),
         child: InputDecorator(
