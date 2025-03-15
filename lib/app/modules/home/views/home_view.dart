@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
+import '../components/app_bar.dart';
 import 'input_form_ticket.dart';
 import '../components/navigation_bar.dart' as custom;
 
@@ -39,160 +40,9 @@ class HomeView extends GetView<HomeController> {
               child: Column(
                 children: [
                   // container 1 AppBar
-                  Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(0, 255, 255, 255),
-                    ),
-                    child: Stack(
-                      children: [
-                        Transform.translate(
-                          offset: Offset(0, 50),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('assets/img/map-global.png'),
-                                fit: BoxFit.contain,
-                                alignment: Alignment.topCenter,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 50,
-                                left: 20,
-                                right: 20,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SizedBox(
-                                    width: 150,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Selamat Malam',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Airlangga Maulana Anwar',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        height: 35,
-                                        width: 35,
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromARGB(
-                                            63,
-                                            255,
-                                            255,
-                                            255,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            35,
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.notifications,
-                                              color: Colors.white,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Container(
-                                        height: 35,
-                                        width: 35,
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromARGB(
-                                            63,
-                                            255,
-                                            255,
-                                            255,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            35,
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.info,
-                                              color: Colors.white,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Container(
-                                        height: 35,
-                                        width: 90,
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromARGB(
-                                            63,
-                                            255,
-                                            255,
-                                            255,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            35,
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.headset_mic,
-                                              color: Colors.white,
-                                            ),
-                                            SizedBox(width: 3),
-                                            Text(
-                                              'Bantuan',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                  CustomAppBar(
+                    greeting: "Selamat Malam",
+                    userName: "Airlangga Maulana Anwar",
                   ),
                   // container 2 form ticket
                   InputFormTicket(),
