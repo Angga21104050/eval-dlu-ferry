@@ -15,9 +15,10 @@ class NavigationBar extends GetView<HomeController> {
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
-              offset: const Offset(0, -5),
-              blurRadius: 10,
+              offset: const Offset(0, -2),
+              blurRadius: 1,
               spreadRadius: 0,
+              blurStyle: BlurStyle.outer,
             ),
           ],
         ),
