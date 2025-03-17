@@ -29,6 +29,7 @@ class HomeView extends GetView<HomeController> {
                 end: Alignment.bottomCenter,
                 colors: [
                   const Color(0xFF0064D2),
+                  const Color(0xFF3798FF),
                   Colors.white, // Warna biru di atas
                   Colors.white, // Warna putih di bawah
                 ],

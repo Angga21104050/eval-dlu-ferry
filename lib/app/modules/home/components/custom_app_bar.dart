@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String greeting;
   final String username;
-  
-  const CustomAppBar({
-    Key? key,
-    required this.greeting,
-    required this.username,
-  }) : super(key: key);
+
+  const CustomAppBar({Key? key, required this.greeting, required this.username})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
