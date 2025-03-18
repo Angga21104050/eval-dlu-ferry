@@ -36,23 +36,30 @@ class MyTicketView extends GetView<MyTicketController> {
             ),
           ),
           Positioned(
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              child: TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Masukan Kode Pemesanan...',
-                  prefixIcon: Icon(Icons.search_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'Masukan Kode Pemesanan...',
+                        prefixIcon: Icon(Icons.search_outlined),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(color: Colors.blue),
+                        ),
+                      ),
+                      onChanged: (value) {},
+                    ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(color: Colors.blue),
-                  ),
-                ),
-                onChanged: (value) {},
+                  Container(),
+                ],
               ),
             ),
           ),
