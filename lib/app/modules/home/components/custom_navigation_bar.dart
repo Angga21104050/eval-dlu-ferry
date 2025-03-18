@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 
-class NavigationBar extends GetView<HomeController> {
-  const NavigationBar({Key? key}) : super(key: key);
+class CustomNavigationBar extends GetView<HomeController> {
+  const CustomNavigationBar({super.key});
 
   @override
   Widget build(BuildContext context) {

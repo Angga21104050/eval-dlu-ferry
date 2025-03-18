@@ -11,7 +11,7 @@ class HomeController extends GetxController {
         Get.offNamed('/home'); // Gunakan `offNamed` agar tidak menumpuk halaman
         break;
       case 1:
-        Get.offNamed('/');
+        Get.offNamed('/my-ticket');
         break;
       case 2:
         Get.offNamed('/history');

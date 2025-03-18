@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dlu_project/app/modules/home/controllers/home_controller.dart';
 import '../controllers/history_controller.dart';
-import '../../home/components/navigation_bar.dart' as custom;
+import '../../home/components/custom_navigation_bar.dart';
 
 class HistoryView extends GetView<HistoryController> {
   const HistoryView({super.key});
@@ -172,7 +172,7 @@ class HistoryView extends GetView<HistoryController> {
           ),
         ],
       ),
-      bottomNavigationBar: custom.NavigationBar(),
+      bottomNavigationBar: CustomNavigationBar(),
     );
   }
 }

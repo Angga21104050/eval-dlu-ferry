@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../components/city_switcher.dart';
-import '../components/date_picker.dart';
-import '../components/round_trip_switch.dart';
-import '../components/ticket_type.dart';
-import '../components/ticket_class.dart';
+import 'city_switcher.dart';
+import 'date_picker.dart';
+import 'round_trip_switch.dart';
+import 'ticket_type.dart';
+import 'ticket_class.dart';
 
 // membuat form input tiket
 class InputFormTicket extends StatefulWidget {
@@ -84,7 +84,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
                     });
                   },
                 ),
-              // membuat dropdown untuk memilih jenis tiket
+              // jenis tiket
               TicketType(
                 selectedItemsType: _selectedTicketTypes,
                 onSelectionChanged: (List<String> selected) {

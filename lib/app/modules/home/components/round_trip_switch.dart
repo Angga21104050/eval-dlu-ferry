@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RoundTripSwitch extends StatelessWidget {
@@ -12,25 +13,33 @@ class RoundTripSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SwitchListTile(
-      visualDensity: VisualDensity.compact,
-      activeColor: Colors.blue,
-      inactiveTrackColor: Colors.white,
-      title: Align(
-        alignment: Alignment.centerRight,
-        child: Text(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
           'Pulang Pergi',
           style: TextStyle(
             color: Colors.red.shade500,
-            fontSize: 12,
+            fontSize: 10,
             fontWeight: FontWeight.w600,
             fontStyle: FontStyle.italic,
           ),
         ),
-      ),
-      contentPadding: EdgeInsets.only(right: 0, top: 0),
-      value: isRoundTrip,
-      onChanged: onChanged,
+        const SizedBox(width: 3),
+        SizedBox(
+          height: 38,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Switch(
+              value: isRoundTrip,
+              activeColor: Colors.blue.shade500,
+              inactiveTrackColor: Colors.white,
+              focusColor: Colors.blue.shade900,
+              onChanged: onChanged,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

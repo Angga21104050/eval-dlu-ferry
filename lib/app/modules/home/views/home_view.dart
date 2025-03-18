@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 import '../components/custom_app_bar.dart';
-import 'input_form_ticket.dart';
-import '../components/navigation_bar.dart' as custom;
+import '../components/input_form_ticket.dart';
+import '../components/custom_navigation_bar.dart';
 import '../components/custom_carousel.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -62,7 +62,7 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-      bottomNavigationBar: custom.NavigationBar(),
+      bottomNavigationBar: CustomNavigationBar(),
     );
   }
 }
