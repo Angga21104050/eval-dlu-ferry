@@ -7,6 +7,7 @@ import '../../home/components/custom_navigation_bar.dart';
 
 class MyTicketView extends GetView<MyTicketController> {
   const MyTicketView({super.key});
+
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
@@ -21,12 +22,7 @@ class MyTicketView extends GetView<MyTicketController> {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-                  Color(0xFF0064D2),
-                  Color(0xFF1D8AFF),
-                  Colors.white,
-                  Colors.white,
-                ],
+                colors: [Color(0xFF0064D2), Colors.white, Colors.white],
               ),
               image: DecorationImage(
                 image: AssetImage("assets/img/map-global.png"),
@@ -58,7 +54,16 @@ class MyTicketView extends GetView<MyTicketController> {
                       onChanged: (value) {},
                     ),
                   ),
-                  Container(),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    child: CustomPaint(
+                      size: const Size(
+                        double.infinity,
+                        350,
+                      ), // Lebar menyesuaikan, tinggi 350
+                      painter: RoundedCutoutPainter(),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -68,4 +73,36 @@ class MyTicketView extends GetView<MyTicketController> {
       bottomNavigationBar: const CustomNavigationBar(),
     );
   }
+}
+
+class RoundedCutoutPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()..color = Colors.white; // Warna latar belakang
+
+    RRect rect = RRect.fromRectAndRadius(
+      Rect.fromLTWH(0, 0, size.width, size.height),
+      const Radius.circular(30), // Sudut melengkung
+    );
+
+    Path path = Path()..addRRect(rect);
+
+    // Potongan kecil di sisi kiri dan kanan
+    double cutoutSize = 20;
+    path.addOval(
+      Rect.fromCircle(center: Offset(0, size.height / 2), radius: cutoutSize),
+    );
+    path.addOval(
+      Rect.fromCircle(
+        center: Offset(size.width, size.height / 2),
+        radius: cutoutSize,
+      ),
+    );
+
+    canvas.drawShadow(path, Colors.black, 5.0, false);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
