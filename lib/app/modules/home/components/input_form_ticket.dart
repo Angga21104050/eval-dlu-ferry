@@ -142,11 +142,39 @@ class _InputFormTicketState extends State<InputFormTicket> {
                     backgroundColor: Colors.blue.shade400,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                   onPressed: () {
                     // Proses pemesanan tiket
+                    // Mengumpulkan semua data input
+                    final ticketData = {
+                      'departureDate': _selectedDate,
+                      'returnDate': _isRoundTrip ? _selectedReturnDate : null,
+                      'isRoundTrip': _isRoundTrip,
+                      'selectedTicketTypes': _selectedTicketTypes,
+                      'selectedPassengerClass':
+                          _selectedTicketTypes.contains('Penumpang')
+                              ? _selectedPassengerClass
+                              : null,
+                      'selectedVehicleClass':
+                          _selectedTicketTypes.contains('Kendaraan')
+                              ? _selectedVehicleClass
+                              : null,
+                      'selectedVipRoomClass':
+                          _selectedTicketTypes.contains('Kamar VIP')
+                              ? _selectedVipRoomClass
+                              : null,
+                    };
+
+                    // Debugging: Print hasil input
+                    print('=== DATA PENCARIAN TIKET ===');
+                    ticketData.forEach((key, value) {
+                      print('$key: $value');
+                    });
+
+                    // Lanjutkan dengan proses pencarian tiket (misalnya, kirim ke API atau tampilkan hasil)
+                    // Get.toNamed('/searchResults', arguments: ticketData);
                   },
                   child: Text(
                     'Cari Tiket',

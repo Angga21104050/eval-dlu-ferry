@@ -62,6 +62,79 @@ class HomeController extends GetxController {
     'VIP Room 2 (2 Kasur)',
   ];
 
+  // Variabel untuk menyimpan input pengguna
+  // DateTime selectedDepartureDate = DateTime.now();
+  // DateTime? selectedReturnDate;
+  // bool isRoundTrip = false;
+  // List<String> selectedTicketTypes = [];
+  // String selectedPassengerClass = 'Semua Kelas';
+  // String selectedVehicleClass = 'Semua Kelas';
+  // String selectedVipRoomClass = 'Semua Kelas';
+
+  // // Method untuk mengupdate tanggal keberangkatan
+  // void updateDepartureDate(DateTime date) {
+  //   selectedDepartureDate = date;
+  //   update(); // Memberi tahu GetX bahwa ada perubahan
+  // }
+
+  // // Method untuk mengupdate tanggal pulang
+  // void updateReturnDate(DateTime? date) {
+  //   selectedReturnDate = date;
+  //   update();
+  // }
+
+  // // Method untuk mengupdate status pulang pergi
+  // void toggleRoundTrip(bool value) {
+  //   isRoundTrip = value;
+  //   if (!value) {
+  //     selectedReturnDate = null;
+  //   }
+  //   update();
+  // }
+
+  // // Method untuk mengupdate jenis tiket yang dipilih
+  // void updateTicketTypes(List<String> types) {
+  //   selectedTicketTypes = types;
+  //   update();
+  // }
+
+  // // Method untuk mengupdate kelas tiket sesuai jenisnya
+  // void updatePassengerClass(String? value) {
+  //   if (value != null) selectedPassengerClass = value;
+  //   update();
+  // }
+
+  // void updateVehicleClass(String? value) {
+  //   if (value != null) selectedVehicleClass = value;
+  //   update();
+  // }
+
+  // void updateVipRoomClass(String? value) {
+  //   if (value != null) selectedVipRoomClass = value;
+  //   update();
+  // }
+
+  // // Method untuk menangani pencarian tiket
+  // void searchTickets() {
+  //   final ticketData = {
+  //     'departureDate': selectedDepartureDate,
+  //     'returnDate': isRoundTrip ? selectedReturnDate : null,
+  //     'isRoundTrip': isRoundTrip,
+  //     'selectedTicketTypes': selectedTicketTypes,
+  //     'selectedPassengerClass':
+  //         selectedTicketTypes.contains('Penumpang') ? selectedPassengerClass : null,
+  //     'selectedVehicleClass':
+  //         selectedTicketTypes.contains('Kendaraan') ? selectedVehicleClass : null,
+  //     'selectedVipRoomClass':
+  //         selectedTicketTypes.contains('Kamar VIP') ? selectedVipRoomClass : null,
+  //   };
+
+  //   // Debugging: Cek data yang dikirim
+  //   print('Pencarian Tiket dengan Data: $ticketData');
+
+  //   // Navigasi ke halaman hasil pencarian (bisa diganti dengan API call)
+  //   Get.toNamed('/searchResults', arguments: ticketData);
+  // }
   @override
   void onInit() {
     super.onInit();
