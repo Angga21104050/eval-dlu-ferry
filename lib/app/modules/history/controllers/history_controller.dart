@@ -14,6 +14,7 @@ class HistoryController extends GetxController {
           'arrivalPort': 'Lombok (Pel. Lembar/Gilimas)',
           'ferryName': 'KM. Kirana 7',
           'status': 'TELAH TERBIT',
+          'ticketType': 'Penumpang'
         },
         {
           'id': 2,
@@ -23,6 +24,7 @@ class HistoryController extends GetxController {
           'arrivalPort': 'Batam (Pel. Batu Ampar)',
           'ferryName': 'KM. Bukit Raya',
           'status': 'BELUM TERBIT',
+          'ticketType': 'Penumpang, Kendaraan'
         },
         {
           'id': 3,
@@ -32,6 +34,7 @@ class HistoryController extends GetxController {
           'arrivalPort': 'Balikpapan (Pel. Semayang)',
           'ferryName': 'KM. Labobar',
           'status': 'TELAH TERBIT',
+          'ticketType': 'Kamar VIP, Kendaraan'
         },
         {
           'id': 4,
@@ -41,6 +44,7 @@ class HistoryController extends GetxController {
           'arrivalPort': 'Surabaya (Pel. Tanjung Perak)',
           'ferryName': 'KM. Nggapulu',
           'status': 'GAGAL',
+          'ticketType': 'Penumpang'
         },
         {
           'id': 5,
@@ -50,6 +54,7 @@ class HistoryController extends GetxController {
           'arrivalPort': 'Batam (Pel. Batu Ampar)',
           'ferryName': 'KM. Dorolonda',
           'status': 'GAGAL',
+          'ticketType': 'Kamar VIP'
         },
       ].obs;
 

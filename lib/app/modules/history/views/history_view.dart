@@ -72,7 +72,7 @@ class HistoryView extends GetView<HistoryController> {
                           horizontal: 20,
                           vertical: 10,
                         ),
-                        padding: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),

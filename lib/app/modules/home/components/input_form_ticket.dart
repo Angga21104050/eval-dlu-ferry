@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'city_switcher.dart';
 import 'date_picker.dart';
 import 'round_trip_switch.dart';
 import 'ticket_type.dart';
 import 'ticket_class.dart';
+import '../controllers/home_controller.dart';
 
 // membuat form input tiket
 class InputFormTicket extends StatefulWidget {
@@ -23,6 +25,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
   // mengontrol fungsi jenis tiket
   List<String> _selectedTicketTypes = [];
   // mengontrol class tiket
+  final HomeController homeController = Get.find<HomeController>();
   String _selectedPassengerClass = 'Semua Kelas';
   String _selectedVehicleClass = 'Semua Kelas';
   String _selectedVipRoomClass = 'Semua Kelas';
@@ -97,21 +100,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
               if (_selectedTicketTypes.contains('Penumpang'))
                 TicketClassDropdown(
                   label: 'Kelas Penumpang',
-                  items: [
-                    'Semua Kelas',
-                    'Kelas I',
-                    'Kelas II',
-                    'Kelas III',
-                    'Ekonomi',
-                    'Ekonomi Tidur',
-                    'Ekonomi Duduk',
-                    'Executive Seat',
-                    'Cabin',
-                    'Double Cabin',
-                    'Single Cabin',
-                    'Vip Suites',
-                    'Ekonomi - Non Seat',
-                  ],
+                  items: homeController.passengerClasses,
                   selectedValue: _selectedPassengerClass,
                   onChanged: (String? newValue) {
                     setState(() {
@@ -123,22 +112,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
               if (_selectedTicketTypes.contains('Kendaraan'))
                 TicketClassDropdown(
                   label: 'Kelas Kendaraan',
-                  items: [
-                    'Semua Kelas',
-                    'Sepeda Motor 2.A (s.d 249CC)',
-                    'Sepeda Motor 2.B (250CC s.d 1000CC / Roda 3)'
-                        'Sepeda Motor >1001CC',
-                    'Kend. Kecil 3.A (s.d 2000CC)',
-                    'Kend. Kecil 3.B (2001CC ke Atas)',
-                    'Kend. Kecil 3.C >3001CC',
-                    'Truk Sedang 4.A',
-                    'Truk Sedang 4.B',
-                    'Truk Sedang 4.C',
-                    'Truk Besar 5.A',
-                    'Truk Besar 5.B',
-                    'Truk Besar 5.C',
-                    'Alat Berat 7.AB',
-                  ],
+                  items: homeController.vehicleClasses,
                   selectedValue: _selectedVehicleClass,
                   onChanged: (String? newValue) {
                     setState(() {
@@ -150,12 +124,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
               if (_selectedTicketTypes.contains('Kamar VIP'))
                 TicketClassDropdown(
                   label: 'Kelas Kamar VIP',
-                  items: [
-                    'Semua Kelas',
-                    'VIP Suites (2 Kasur)',
-                    'VIP Room 1 (1 Kasur)',
-                    'VIP Room 2 (2 Kasur)',
-                  ],
+                  items: homeController.vipRoomClasses,
                   selectedValue: _selectedVipRoomClass,
                   onChanged: (String? newValue) {
                     setState(() {
