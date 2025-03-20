@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "772211819850",
+    "project_id": "dlu-ferry-c7cb5",
+    "storage_bucket": "dlu-ferry-c7cb5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772211819850:android:b4c88d4d502f9f0988edb3",
+        "android_client_info": {
+          "package_name": "com.example.dlu_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt2BVzkp6bU6TkycucVKJjOGakqVK4eQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
