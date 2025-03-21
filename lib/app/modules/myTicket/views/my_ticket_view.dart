@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/my_ticket_controller.dart';
 import '../../history/controllers/history_controller.dart';
-import '../../home/components/custom_app_bar.dart';
+import '../components/secondary_appbar.dart';
 import '../../home/components/custom_navigation_bar.dart';
 import '../components/search_input.dart';
 import '../components/my_ticket_list.dart';
@@ -17,7 +17,7 @@ class MyTicketView extends GetView<MyTicketController> {
     Get.put(HistoryController());
 
     return Scaffold(
-      appBar: const CustomAppBar(greeting: '', username: 'My Ticket'),
+      appBar: const SecCustomAppBar(page: 'My Ticket'),
       body: Stack(
         children: [
           Container(

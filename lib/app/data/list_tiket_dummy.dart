@@ -1,0 +1,42 @@
+List<Map<String, dynamic>> ferryTickets = [
+  {
+    'imageUrl': 'https://example.com/ferry1.jpg',
+    'ferryName': 'KM. Kirana 7',
+    'departurePort': 'Surabaya (Pel. Tanjung Perak)',
+    'arrivalPort': 'Lombok (Pel. Lembar/Gilimas)',
+    'departureTime': '08:00',
+    'arrivalTime': '18:00',
+    'duration': '10j 00m',
+    'ticketType': 'Penumpang',
+    'classes': ['Semua Kelas', 'Kelas 1', 'Kelas 2', 'Kelas Ekonomi'],
+    'price': '150.000',
+  },
+  {
+    'imageUrl': 'https://example.com/ferry2.jpg',
+    'ferryName': 'KM. Dharma Kencana',
+    'departurePort': 'Makassar (Pel. Soekarno Hatta)',
+    'arrivalPort': 'Balikpapan (Pel. Semayang)',
+    'departureTime': '12:00',
+    'arrivalTime': '22:30',
+    'duration': '10j 30m',
+    'ticketType': 'Kendaraan',
+    'classes': ['Motor', 'Mobil', 'Truck', 'Bus'],
+    'price': '300.000',
+  },
+  {
+    'imageUrl': 'https://example.com/ferry3.jpg',
+    'ferryName': 'KM. Bukit Siguntang',
+    'departurePort': 'Tanjung Priok (Jakarta)',
+    'arrivalPort': 'Belawan (Medan)',
+    'departureTime': '15:00',
+    'arrivalTime': '10:00 (H+1)',
+    'duration': '19j 00m',
+    'ticketType': 'Kamar VIP',
+    'classes': [
+      'VIP Suites (2 tempat tidur)',
+      'VIP Room 1 (1 tempat tidur)',
+      'VIP Room 2 (2 tempat tidur)'
+    ],
+    'price': '1.200.000',
+  },
+];

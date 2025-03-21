@@ -7,6 +7,7 @@ abstract class Routes {
   static const HISTORY = _Paths.HISTORY;
   static const MY_TICKET = _Paths.MY_TICKET;
   static const PROFILE = _Paths.PROFILE;
+  static const TICKET_SEARCH_RESULTS = _Paths.TICKET_SEARCH_RESULTS;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const HISTORY = '/history';
   static const MY_TICKET = '/my-ticket';
   static const PROFILE = '/profile';
+  static const TICKET_SEARCH_RESULTS = '/ticket-search-results';
 }

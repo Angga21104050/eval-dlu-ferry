@@ -14,7 +14,7 @@ class ProfileView extends GetView<ProfileController> {
     Get.put(HomeController());
     return Scaffold(
       appBar: const CustomProfileAppBar(
-        profileImage: '',
+        profileImage: 'assets/img/contoh.jpeg',
         name: 'Airlangga',
         email: 'airlangga@example.com',
         phone: '08564346745',

@@ -5,6 +5,7 @@ import 'date_picker.dart';
 import 'round_trip_switch.dart';
 import 'ticket_type.dart';
 import 'ticket_class.dart';
+import 'search_ticket_button.dart';
 import '../controllers/home_controller.dart';
 
 // membuat form input tiket
@@ -132,55 +133,35 @@ class _InputFormTicketState extends State<InputFormTicket> {
                     });
                   },
                 ),
+              // button cari tiket
+              SearchTicketButton(
+                onPressed: () {
+                  final ticketData = {
+                    'departureDate': _selectedDate,
+                    'returnDate': _isRoundTrip ? _selectedReturnDate : null,
+                    'isRoundTrip': _isRoundTrip,
+                    'selectedTicketTypes': _selectedTicketTypes,
+                    'selectedPassengerClass':
+                        _selectedTicketTypes.contains('Penumpang')
+                            ? _selectedPassengerClass
+                            : null,
+                    'selectedVehicleClass':
+                        _selectedTicketTypes.contains('Kendaraan')
+                            ? _selectedVehicleClass
+                            : null,
+                    'selectedVipRoomClass':
+                        _selectedTicketTypes.contains('Kamar VIP')
+                            ? _selectedVipRoomClass
+                            : null,
+                  };
 
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    backgroundColor: Colors.blue.shade400,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  onPressed: () {
-                    // Proses pemesanan tiket
-                    // Mengumpulkan semua data input
-                    final ticketData = {
-                      'departureDate': _selectedDate,
-                      'returnDate': _isRoundTrip ? _selectedReturnDate : null,
-                      'isRoundTrip': _isRoundTrip,
-                      'selectedTicketTypes': _selectedTicketTypes,
-                      'selectedPassengerClass':
-                          _selectedTicketTypes.contains('Penumpang')
-                              ? _selectedPassengerClass
-                              : null,
-                      'selectedVehicleClass':
-                          _selectedTicketTypes.contains('Kendaraan')
-                              ? _selectedVehicleClass
-                              : null,
-                      'selectedVipRoomClass':
-                          _selectedTicketTypes.contains('Kamar VIP')
-                              ? _selectedVipRoomClass
-                              : null,
-                    };
+                  print('=== DATA PENCARIAN TIKET ===');
+                  ticketData.forEach((key, value) {
+                    print('$key: $value');
+                  });
 
-                    // Debugging: Print hasil input
-                    print('=== DATA PENCARIAN TIKET ===');
-                    ticketData.forEach((key, value) {
-                      print('$key: $value');
-                    });
-
-                    // Lanjutkan dengan proses pencarian tiket (misalnya, kirim ke API atau tampilkan hasil)
-                    // Get.toNamed('/searchResults', arguments: ticketData);
-                  },
-                  child: Text(
-                    'Cari Tiket',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
+                  Get.toNamed('/ticket-search-results', arguments: ticketData);
+                },
               ),
             ],
           ),
