@@ -11,53 +11,62 @@ class TicketList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: 20),
         child: Column(
           children: [
             ...controller.ticketHistory.map((ticket) {
               return Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(16),
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: const EdgeInsets.all(18),
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 10,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(color: Colors.grey.shade300),
-                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(color: Colors.grey.shade200, width: 1),
+                  borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      offset: const Offset(0, 3),
-                      blurRadius: 5,
+                      color: const Color(
+                        0xFF0064D2,
+                      ).withOpacity(0.15), // 🔹 Shadow Biru
+                      offset: const Offset(0, 4),
+                      blurRadius: 8,
                     ),
                   ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Nama Kapal
+                    // 🔹 Nama Kapal
                     Text(
-                      ticket['ferryName'],
+                      ticket['ferryName'] ?? 'UNKNOWN FERRY',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        color: Color(0xFF0064D2), // 🔹 Warna Biru Elegan
                       ),
                     ),
 
-                    // Jenis Tiket dan Kategori
+                    const SizedBox(height: 6),
+
+                    // 🔹 Jenis Tiket & Kategori
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          ticket['ticketType'],
-                          style: const TextStyle(
-                            fontSize: 16,
+                          ticket['ticketType'] ?? 'UNKNOWN TYPE',
+                          style: TextStyle(
+                            fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            color: Colors.grey,
+                            color: Colors.grey.shade700,
                           ),
                         ),
-                        Text(
+                        const Text(
                           'Dewasa',
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style: TextStyle(
+                            fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey,
                           ),
@@ -65,104 +74,102 @@ class TicketList extends StatelessWidget {
                       ],
                     ),
 
-                    // Nama Penumpang
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        'Nama Penumpang',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    const SizedBox(height: 12),
+
+                    // 🔹 Nama Penumpang
+                    Text(
+                      'Nama Penumpang',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey.shade800,
                       ),
                     ),
 
-                    // Keberangkatan & Tujuan
+                    const SizedBox(height: 6),
+
+                    // 🔹 Keberangkatan & Tujuan
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
                           child: Text(
-                            ticket['departurePort'],
+                            ticket['departurePort'] ?? 'UNKNOWN',
                             textAlign: TextAlign.start,
-                            softWrap: true,
-                            overflow: TextOverflow.visible,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
-                              color: const Color(0xFF4785FF),
+                              color: Color(0xFF0064D2), // 🔹 Warna Biru
                             ),
                           ),
                         ),
-                        Container(
-                          width: 40,
-                          height: 1,
+                        const Icon(
+                          Icons.arrow_forward,
                           color: Colors.grey,
-                          margin: EdgeInsets.symmetric(horizontal: 8),
-                        ),
+                          size: 18,
+                        ), // 🔹 Icon Modern
                         Flexible(
                           child: Text(
-                            ticket['arrivalPort'],
+                            ticket['arrivalPort'] ?? 'UNKNOWN',
                             textAlign: TextAlign.end,
-                            softWrap: true,
-                            overflow: TextOverflow.visible,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
-                              color: const Color(0xFF4785FF),
+                              color: Color(0xFF0064D2),
                             ),
                           ),
                         ),
                       ],
                     ),
 
-                    // Garis Putus-putus
+                    // 🔹 Garis Putus-Putus Soft
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(
-                          20,
-                          (index) => Expanded(
-                            child: Container(
-                              height: 2,
-                              margin: EdgeInsets.symmetric(horizontal: 3),
-                              color: Colors.grey,
-                            ),
+                          31,
+                          (index) => Container(
+                            width: 6,
+                            height: 2,
+                            margin: const EdgeInsets.symmetric(horizontal: 2),
+                            color: Colors.grey.shade400,
                           ),
                         ),
                       ),
                     ),
 
-                    // Kode Booking
+                    // 🔹 Kode Booking
                     Text(
                       'Kode Booking',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: Colors.grey.shade800,
                       ),
                     ),
 
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            ticket['transactionCode'],
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
+                    const SizedBox(height: 6),
+
+                    // 🔹 Kode & Barcode
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          ticket['transactionCode'] ?? 'XXXXXX',
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF0064D2),
                           ),
-                          Image.asset(
-                            'assets/img/barcode.png',
-                            fit: BoxFit.contain,
-                            width: 80,
-                            height: 40,
-                          ),
-                        ],
-                      ),
+                        ),
+                        Image.asset(
+                          'assets/img/barcode.png',
+                          fit: BoxFit.contain,
+                          width: 90,
+                          height: 40,
+                        ),
+                      ],
                     ),
                   ],
                 ),
