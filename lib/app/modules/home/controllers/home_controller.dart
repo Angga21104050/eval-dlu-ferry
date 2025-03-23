@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../../data/list_tiket_dummy.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
@@ -23,118 +24,87 @@ class HomeController extends GetxController {
   }
 
   final List<String> passengerClasses = [
-    'Semua Kelas',
-    'Kelas I',
-    'Kelas II',
-    'Kelas III',
-    'Ekonomi',
-    'Ekonomi Tidur',
-    'Ekonomi Duduk',
-    'Executive Seat',
-    'Cabin',
-    'Double Cabin',
-    'Single Cabin',
-    'Vip Suites',
-    'Ekonomi - Non Seat',
+    'Semua Kelas', // Tambahkan "Semua Kelas" sebagai opsi default
+    ...dummyTicketTypes
+        .firstWhere(
+          (ticket) => ticket.type == 'Penumpang',
+          orElse: () => Ticket(type: '', categories: []),
+        )
+        .categories
+        .map((category) => category.categoryName),
   ];
 
   final List<String> vehicleClasses = [
-    'Semua Kelas',
-    'Sepeda Motor 2.A (s.d 249CC)',
-    'Sepeda Motor 2.B (250CC s.d 1000CC / Roda 3)',
-    'Sepeda Motor >1001CC',
-    'Kend. Kecil 3.A (s.d 2000CC)',
-    'Kend. Kecil 3.B (2001CC ke Atas)',
-    'Kend. Kecil 3.C >3001CC',
-    'Truk Sedang 4.A',
-    'Truk Sedang 4.B',
-    'Truk Sedang 4.C',
-    'Truk Besar 5.A',
-    'Truk Besar 5.B',
-    'Truk Besar 5.C',
-    'Alat Berat 7.AB',
+    'Semua Kelas', // Tambahkan "Semua Kelas" sebagai opsi default
+    ...dummyTicketTypes
+        .firstWhere(
+          (ticket) => ticket.type == 'Kendaraan',
+          orElse: () => Ticket(type: '', categories: []),
+        )
+        .categories
+        .map((category) => category.categoryName),
   ];
 
   final List<String> vipRoomClasses = [
-    'Semua Kelas',
-    'VIP Suites (2 Kasur)',
-    'VIP Room 1 (1 Kasur)',
-    'VIP Room 2 (2 Kasur)',
+    'Semua Kelas', // Tambahkan "Semua Kelas" sebagai opsi default
+    ...dummyTicketTypes
+        .firstWhere(
+          (ticket) => ticket.type == 'Kamar VIP',
+          orElse: () => Ticket(type: '', categories: []),
+        )
+        .categories
+        .map((category) => category.categoryName),
   ];
 
-  // Variabel untuk menyimpan input pengguna
-  // DateTime selectedDepartureDate = DateTime.now();
-  // DateTime? selectedReturnDate;
-  // bool isRoundTrip = false;
-  // List<String> selectedTicketTypes = [];
-  // String selectedPassengerClass = 'Semua Kelas';
-  // String selectedVehicleClass = 'Semua Kelas';
-  // String selectedVipRoomClass = 'Semua Kelas';
+  // Tambahkan variabel untuk menyimpan kota keberangkatan & tujuan
+  var fromCity = ''.obs;
+  var toCity = ''.obs;
 
-  // // Method untuk mengupdate tanggal keberangkatan
-  // void updateDepartureDate(DateTime date) {
-  //   selectedDepartureDate = date;
-  //   update(); // Memberi tahu GetX bahwa ada perubahan
+  void setFromCity(String city) {
+    fromCity.value = city;
+  }
+
+  void setToCity(String city) {
+    toCity.value = city;
+  }
+
+  void swapCities() {
+    var temp = fromCity.value;
+    fromCity.value = toCity.value;
+    toCity.value = temp;
+  }
+
+  // ✅ Tambahkan variabel untuk menyimpan hasil pencarian
+  // RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
+
+  // // 🔍 Fungsi pencarian tiket
+  // void searchTickets({
+  //   required String departurePort,
+  //   required String arrivalPort,
+  //   required List<String> selectedTicketTypes,
+  //   String? selectedClass,
+  // }) {
+  //   filteredTickets.value =
+  //       ferryTickets.where((ticket) {
+  //         bool matchesDeparture = ticket['departurePort'] == departurePort;
+  //         bool matchesArrival = ticket['arrivalPort'] == arrivalPort;
+  //         bool matchesTicketType = selectedTicketTypes.contains(
+  //           ticket['ticketType'],
+  //         );
+  //         bool matchesClass =
+  //             selectedClass == null ||
+  //             ticket['classes'].contains(selectedClass);
+
+  //         return matchesDeparture &&
+  //             matchesArrival &&
+  //             matchesTicketType &&
+  //             matchesClass;
+  //       }).toList();
+
+  //   // Navigasi ke halaman hasil pencarian
+  //   Get.toNamed('/ticket-search-results', arguments: filteredTickets);
   // }
 
-  // // Method untuk mengupdate tanggal pulang
-  // void updateReturnDate(DateTime? date) {
-  //   selectedReturnDate = date;
-  //   update();
-  // }
-
-  // // Method untuk mengupdate status pulang pergi
-  // void toggleRoundTrip(bool value) {
-  //   isRoundTrip = value;
-  //   if (!value) {
-  //     selectedReturnDate = null;
-  //   }
-  //   update();
-  // }
-
-  // // Method untuk mengupdate jenis tiket yang dipilih
-  // void updateTicketTypes(List<String> types) {
-  //   selectedTicketTypes = types;
-  //   update();
-  // }
-
-  // // Method untuk mengupdate kelas tiket sesuai jenisnya
-  // void updatePassengerClass(String? value) {
-  //   if (value != null) selectedPassengerClass = value;
-  //   update();
-  // }
-
-  // void updateVehicleClass(String? value) {
-  //   if (value != null) selectedVehicleClass = value;
-  //   update();
-  // }
-
-  // void updateVipRoomClass(String? value) {
-  //   if (value != null) selectedVipRoomClass = value;
-  //   update();
-  // }
-
-  // // Method untuk menangani pencarian tiket
-  // void searchTickets() {
-  //   final ticketData = {
-  //     'departureDate': selectedDepartureDate,
-  //     'returnDate': isRoundTrip ? selectedReturnDate : null,
-  //     'isRoundTrip': isRoundTrip,
-  //     'selectedTicketTypes': selectedTicketTypes,
-  //     'selectedPassengerClass':
-  //         selectedTicketTypes.contains('Penumpang') ? selectedPassengerClass : null,
-  //     'selectedVehicleClass':
-  //         selectedTicketTypes.contains('Kendaraan') ? selectedVehicleClass : null,
-  //     'selectedVipRoomClass':
-  //         selectedTicketTypes.contains('Kamar VIP') ? selectedVipRoomClass : null,
-  //   };
-
-  //   // Debugging: Cek data yang dikirim
-  //   print('Pencarian Tiket dengan Data: $ticketData');
-
-  //   // Navigasi ke halaman hasil pencarian (bisa diganti dengan API call)
-  //   Get.toNamed('/searchResults', arguments: ticketData);
-  // }
   @override
   void onInit() {
     super.onInit();

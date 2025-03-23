@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../data/list_tiket_dummy.dart'; // Pastikan import sesuai path
 
 class TicketType extends StatefulWidget {
   final List<String> selectedItemsType;
@@ -16,7 +17,6 @@ class TicketType extends StatefulWidget {
 
 class _TicketTypeState extends State<TicketType> {
   List<String> _selectedItemsType = [];
-  final List<String> _ticketTypes = ["Penumpang", "Kendaraan", "Kamar VIP"];
 
   @override
   void initState() {
@@ -33,17 +33,11 @@ class _TicketTypeState extends State<TicketType> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
-      transitionAnimationController: AnimationController(
-        vsync: Navigator.of(context),
-        duration: Duration(milliseconds: 500), // Durasi animasi
-      ),
       builder: (context) {
         return StatefulBuilder(
           builder: (context, setState) {
-            return AnimatedContainer(
-              duration: Duration(milliseconds: 500), // Animasi transisi
-              curve: Curves.easeOut, // Efek animasi lebih halus
-              height: 350, // Tinggi modal kalender
+            return Container(
+              height: 350,
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -61,10 +55,9 @@ class _TicketTypeState extends State<TicketType> {
                     child: ListView(
                       shrinkWrap: true,
                       children:
-                          _ticketTypes.map((String ticket) {
+                          dummyTicketTypes.map((ticket) {
                             IconData iconData;
-                            // Tentukan ikon berdasarkan jenis tiket
-                            switch (ticket) {
+                            switch (ticket.type) {
                               case "Penumpang":
                                 iconData = Icons.person_2_outlined;
                                 break;
@@ -75,38 +68,31 @@ class _TicketTypeState extends State<TicketType> {
                                 iconData = Icons.hotel_outlined;
                                 break;
                               default:
-                                iconData =
-                                    Icons
-                                        .airplane_ticket; // Default ikon jika ada tambahan
+                                iconData = Icons.airplane_ticket;
                             }
                             return Padding(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 4.0,
-                              ), // Atur jarak antar item
+                              ),
                               child: CheckboxListTile(
                                 activeColor: Colors.blue,
                                 contentPadding: EdgeInsets.symmetric(
                                   horizontal: 8,
-                                ), // Kurangi padding bawaan
+                                ),
                                 title: Row(
                                   children: [
-                                    Icon(
-                                      iconData,
-                                      color: Colors.blue,
-                                    ), // Tambahkan ikon sesuai jenis tiket
-                                    SizedBox(
-                                      width: 10,
-                                    ), // Jarak antara ikon dan teks
-                                    Expanded(child: Text(ticket)),
+                                    Icon(iconData, color: Colors.blue),
+                                    SizedBox(width: 10),
+                                    Expanded(child: Text(ticket.type)),
                                   ],
                                 ),
-                                value: _selectedItemsType.contains(ticket),
+                                value: _selectedItemsType.contains(ticket.type),
                                 onChanged: (bool? value) {
                                   setState(() {
                                     if (value == true) {
-                                      _selectedItemsType.add(ticket);
+                                      _selectedItemsType.add(ticket.type);
                                     } else {
-                                      _selectedItemsType.remove(ticket);
+                                      _selectedItemsType.remove(ticket.type);
                                     }
                                   });
                                 },
@@ -126,9 +112,9 @@ class _TicketTypeState extends State<TicketType> {
                       textStyle: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                      ), // Gaya teks
+                      ),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8), // Sudut tombol
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       elevation: 5,
                     ),

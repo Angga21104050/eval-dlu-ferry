@@ -1,44 +1,65 @@
-import 'dart:math';
+class Ticket {
+  String type;
+  List<TicketCategory> categories;
 
-List<String> availableClasses = [
-  'Kelas I',
-  'Kelas II',
-  'Kelas III',
-  'Ekonomi',
-  'Ekonomi Tidur',
-  'Ekonomi Duduk',
-  'Executive Seat',
-  'Cabin',
-  'Double Cabin',
-  'Single Cabin',
-  'Vip Suites',
-  'Ekonomi - Non Seat',
-  'VIP Suites (2 Kasur)',
-  'VIP Room 1 (1 Kasur)',
-  'VIP Room 2 (2 Kasur)',
-  'Sepeda Motor 2.A (s.d 249CC)',
-  'Sepeda Motor 2.B (250CC s.d 1000CC / Roda 3)',
-  'Sepeda Motor >1001CC',
-  'Kend. Kecil 3.A (s.d 2000CC)',
-  'Kend. Kecil 3.B (2001CC ke Atas)',
-  'Kend. Kecil 3.C >3001CC',
-  'Truk Sedang 4.A',
-  'Truk Sedang 4.B',
-  'Truk Sedang 4.C',
-  'Truk Besar 5.A',
-  'Truk Besar 5.B',
-  'Truk Besar 5.C',
-  'Alat Berat 7.AB',
-];
-
-List<String> getRandomClasses() {
-  final random = Random();
-  List<String> shuffledClasses = List.from(availableClasses)..shuffle(random);
-  return shuffledClasses.sublist(
-    0,
-    random.nextInt(5) + 1,
-  ); // Ambil 1-5 kelas secara acak
+  Ticket({required this.type, required this.categories});
 }
+
+class TicketCategory {
+  String categoryName;
+  // double price;
+
+  TicketCategory({required this.categoryName});
+}
+
+List<Ticket> dummyTicketTypes = [
+  Ticket(
+    type: 'Penumpang',
+    categories: [
+      TicketCategory(categoryName: 'Kelas I'),
+      TicketCategory(categoryName: 'Kelas II'),
+      TicketCategory(categoryName: 'Kelas III'),
+      TicketCategory(categoryName: 'Ekonomi'),
+      TicketCategory(categoryName: 'Ekonomi Tidur'),
+      TicketCategory(categoryName: 'Ekonomi Duduk'),
+      TicketCategory(categoryName: 'Executive Seat'),
+      TicketCategory(categoryName: 'Cabin'),
+      TicketCategory(categoryName: 'Double Cabin'),
+      TicketCategory(categoryName: 'Single Cabin'),
+      TicketCategory(categoryName: 'VIP Suites'),
+      TicketCategory(categoryName: 'Ekonomi - Non Seat'),
+    ],
+  ),
+  Ticket(
+    type: 'Kendaraan',
+    categories: [
+      TicketCategory(categoryName: 'Sepeda'),
+      TicketCategory(categoryName: 'Sepeda Motor 2.A (s.d 249CC)'),
+      TicketCategory(
+        categoryName: 'Sepeda Motor 2.B (250CC s.d 1000CC / Roda 3)',
+      ),
+      TicketCategory(categoryName: 'Sepeda Motor >1001CC'),
+      TicketCategory(categoryName: 'Kend. Kecil 3.A (s.d 2000CC)'),
+      TicketCategory(categoryName: 'Kend. Kecil 3.B (2001CC ke Atas)'),
+      TicketCategory(categoryName: 'Kend. Kecil 3.C >3001CC'),
+      TicketCategory(categoryName: 'Truk Sedang 4.A'),
+      TicketCategory(categoryName: 'Truk Sedang 4.B'),
+      TicketCategory(categoryName: 'Truk Sedang 4.C'),
+      TicketCategory(categoryName: 'Truk Besar 5.A'),
+      TicketCategory(categoryName: 'Truk Besar 5.B'),
+      TicketCategory(categoryName: 'Truk Besar 5.C'),
+      TicketCategory(categoryName: 'Alat Berat 7.AB'),
+    ],
+  ),
+  Ticket(
+    type: 'Kamar VIP',
+    categories: [
+      TicketCategory(categoryName: 'VIP Suites (2 Kasur)'),
+      TicketCategory(categoryName: 'VIP Room 1 (1 Kasur)'),
+      TicketCategory(categoryName: 'VIP Room 2 (2 Kasur)'),
+    ],
+  ),
+];
 
 List<Map<String, dynamic>> ferryTickets = [
   {
@@ -49,8 +70,16 @@ List<Map<String, dynamic>> ferryTickets = [
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
+    // memanggil ticket type
     'ticketType': 'Penumpang',
-    'classes': getRandomClasses(),
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Penumpang')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
+
+    // memanggil category sesuai tickettype
     'price': '150.000',
   },
   {
@@ -62,7 +91,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'arrivalTime': '22:30',
     'duration': '10j 30m',
     'ticketType': 'Kendaraan',
-    'classes': getRandomClasses(),
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Kendaraan')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
     'price': '300.000',
   },
   {
@@ -74,7 +108,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'arrivalTime': '10:00 (H+1)',
     'duration': '19j 00m',
     'ticketType': 'Kamar VIP',
-    'classes': getRandomClasses(),
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Kamar VIP')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
     'price': '1.200.000',
   },
   {
@@ -86,7 +125,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'arrivalTime': '20:00',
     'duration': '10j 00m',
     'ticketType': 'Penumpang',
-    'classes': getRandomClasses(),
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Penumpang')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
     'price': '250.000',
   },
   {
@@ -98,7 +142,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'arrivalTime': '08:00 (H+1)',
     'duration': '18j 00m',
     'ticketType': 'Kendaraan',
-    'classes': getRandomClasses(),
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Kendaraan')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
     'price': '500.000',
   },
   {
@@ -110,7 +159,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'arrivalTime': '09:00 (H+1)',
     'duration': '16j 00m',
     'ticketType': 'Penumpang',
-    'classes': getRandomClasses(),
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Penumpang')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
     'price': '350.000',
   },
   {
@@ -122,43 +176,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'arrivalTime': '07:00 (H+1)',
     'duration': '18j 00m',
     'ticketType': 'Penumpang',
-    'classes': getRandomClasses(),
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Penumpang')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
     'price': '400.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry8/200/200',
-    'ferryName': 'KM. Lestari Maju',
-    'departurePort': 'Kendari (Pelabuhan Nusantara)',
-    'arrivalPort': 'Bau-Bau (Pelabuhan Murhum)',
-    'departureTime': '06:00',
-    'arrivalTime': '16:00',
-    'duration': '10j 00m',
-    'ticketType': 'Penumpang',
-    'classes': getRandomClasses(),
-    'price': '200.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry9/200/200',
-    'ferryName': 'KM. Laut Teduh',
-    'departurePort': 'Palembang (Boom Baru)',
-    'arrivalPort': 'Bangka (Pelabuhan Tanjung Kalian)',
-    'departureTime': '05:30',
-    'arrivalTime': '11:00',
-    'duration': '5j 30m',
-    'ticketType': 'Penumpang',
-    'classes': getRandomClasses(),
-    'price': '150.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry10/200/200',
-    'ferryName': 'KM. Samudera Jaya',
-    'departurePort': 'Ambon (Pelabuhan Yos Sudarso)',
-    'arrivalPort': 'Sorong (Pelabuhan Sorong)',
-    'departureTime': '20:00',
-    'arrivalTime': '10:00 (H+1)',
-    'duration': '14j 00m',
-    'ticketType': 'Kendaraan',
-    'classes': getRandomClasses(),
-    'price': '450.000',
   },
 ];

@@ -58,52 +58,53 @@ class _TicketSelectionState extends State<TicketSelection> {
         ],
       ),
       child: Column(
-        children: widget.ticketClasses.map<Widget>((String value) {
-          return Container(
-            padding: const EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 16,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Text(
-                    value,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 14),
-                  ),
+        children:
+            widget.ticketClasses.map<Widget>((String value) {
+              return Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 16,
                 ),
-                Row(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.remove_circle_outline,
-                        color: Colors.red,
-                      ),
-                      onPressed: () => decrementTicket(value),
-                    ),
-                    Text(
-                      ticketCounts[value].toString(),
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        value,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontSize: 14),
                       ),
                     ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.add_circle_outline_outlined,
-                        color: Colors.blue,
-                      ),
-                      onPressed: () => incrementTicket(value),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.remove_circle_outline,
+                            color: Colors.red,
+                          ),
+                          onPressed: () => decrementTicket(value),
+                        ),
+                        Text(
+                          ticketCounts[value].toString(),
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.add_circle_outline_outlined,
+                            color: Colors.blue,
+                          ),
+                          onPressed: () => incrementTicket(value),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          );
-        }).toList(),
+              );
+            }).toList(),
       ),
     );
   }

@@ -35,6 +35,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
   };
 
   static const Set<String> vehicleKeywords = {
+    'Sepeda',
     'Sepeda Motor',
     'Kend.',
     'Truk',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../data/port_city.dart';
+import '../controllers/home_controller.dart';
 
 class CitySwitcher extends StatefulWidget {
   const CitySwitcher({super.key});
@@ -9,24 +11,21 @@ class CitySwitcher extends StatefulWidget {
 }
 
 class _CitySwitcherState extends State<CitySwitcher> {
-  late String _fromCity;
-  late String _toCity;
+  final HomeController homeController = Get.find();
   final List<String> _cities = portCityList;
   String _searchQuery = '';
 
   @override
   void initState() {
     super.initState();
-    _fromCity = _cities.isNotEmpty ? _cities[0] : 'DefaultCity';
-    _toCity = _cities.length > 1 ? _cities[1] : 'DefaultCity';
+    if (_cities.isNotEmpty) {
+      homeController.setFromCity(_cities[0]);
+      homeController.setToCity(_cities.length > 1 ? _cities[1] : _cities[0]);
+    }
   }
 
   void swapCities() {
-    setState(() {
-      String temp = _fromCity;
-      _fromCity = _toCity;
-      _toCity = temp;
-    });
+    homeController.swapCities();
   }
 
   void _showCitySelection(BuildContext context, bool isFromCity) {
@@ -103,21 +102,21 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                 style: TextStyle(
                                   fontSize: 14,
                                   color:
-                                      (isFromCity ? _fromCity : _toCity) == city
+                                      (isFromCity ? homeController.fromCity.value : homeController.toCity.value) == city
                                           ? Colors.blue
                                           : Colors.black,
                                 ),
                               ),
                               trailing:
-                                  (isFromCity ? _fromCity : _toCity) == city
+                                  (isFromCity ? homeController.fromCity.value : homeController.toCity.value) == city
                                       ? Icon(Icons.check, color: Colors.blue)
                                       : null,
                               onTap: () {
                                 setState(() {
                                   if (isFromCity) {
-                                    _fromCity = city;
+                                    homeController.fromCity.value = city;
                                   } else {
-                                    _toCity = city;
+                                    homeController.toCity.value = city;
                                   }
                                 });
                                 Navigator.pop(context);
@@ -172,7 +171,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                 border: InputBorder.none,
                               ),
                               child: Text(
-                                _fromCity,
+                                homeController.fromCity.value,
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
@@ -210,7 +209,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                 border: InputBorder.none,
                               ),
                               child: Text(
-                                _toCity,
+                                homeController.toCity.value,
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,

@@ -137,6 +137,8 @@ class _InputFormTicketState extends State<InputFormTicket> {
               SearchTicketButton(
                 onPressed: () {
                   final ticketData = {
+                    'formCity': homeController.fromCity.value,
+                    'toCity': homeController.toCity.value,
                     'departureDate': _selectedDate,
                     'returnDate': _isRoundTrip ? _selectedReturnDate : null,
                     'isRoundTrip': _isRoundTrip,
