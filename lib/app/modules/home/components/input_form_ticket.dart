@@ -56,11 +56,12 @@ class _InputFormTicketState extends State<InputFormTicket> {
             children: <Widget>[
               CitySwitcher(),
               DatePickerWidget(
-                initialDate: _selectedDate,
+                initialDate: _selectedDepartureDate,
                 labelText: "Tangal Pergi",
                 onDateSelected: (DateTime newDate) {
                   setState(() {
-                    _selectedDate = newDate;
+                    _selectedDepartureDate = newDate;
+                    print("Tanggal Pergi dipilih: $_selectedDepartureDate");
                   });
                 },
               ),
@@ -85,6 +86,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
                   onDateSelected: (DateTime newDate) {
                     setState(() {
                       _selectedReturnDate = newDate;
+                      print("Tanggal Pulang dipilih: $_selectedReturnDate");
                     });
                   },
                 ),
@@ -136,33 +138,51 @@ class _InputFormTicketState extends State<InputFormTicket> {
               // button cari tiket
               SearchTicketButton(
                 onPressed: () {
-                  final ticketData = {
-                    'formCity': homeController.fromCity.value,
-                    'toCity': homeController.toCity.value,
-                    'departureDate': _selectedDate,
-                    'returnDate': _isRoundTrip ? _selectedReturnDate : null,
-                    'isRoundTrip': _isRoundTrip,
-                    'selectedTicketTypes': _selectedTicketTypes,
-                    'selectedPassengerClass':
+                  final HomeController homeController =
+                      Get.find<HomeController>();
+                  // Memanggil fungsi pencarian tiket
+                  homeController.searchTickets(
+                    selectedDepartureDate: _selectedDepartureDate,
+                    selectedTicketTypes: _selectedTicketTypes,
+                    selectedPassengerClass:
                         _selectedTicketTypes.contains('Penumpang')
                             ? _selectedPassengerClass
                             : null,
-                    'selectedVehicleClass':
+                    selectedVehicleClass:
                         _selectedTicketTypes.contains('Kendaraan')
                             ? _selectedVehicleClass
                             : null,
-                    'selectedVipRoomClass':
+                    selectedVipRoomClass:
                         _selectedTicketTypes.contains('Kamar VIP')
                             ? _selectedVipRoomClass
                             : null,
-                  };
+                    filteredTickets: homeController.filteredTickets,
+                  );
 
-                  print('=== DATA PENCARIAN TIKET ===');
-                  ticketData.forEach((key, value) {
-                    print('$key: $value');
-                  });
+                  // Debugging
+                  print("Pencarian tiket dengan:");
+                  print("Dari: ${homeController.fromCity.value}");
+                  print("Ke: ${homeController.toCity.value}");
+                  print("tanggal berangkat: ${_selectedDepartureDate}");
+                  print("Tiket Dipilih: $_selectedTicketTypes");
+                  if (_selectedTicketTypes.contains('Penumpang')) {
+                    print("Kelas Penumpang: $_selectedPassengerClass");
+                  }
+                  if (_selectedTicketTypes.contains('Kendaraan')) {
+                    print("Kelas Kendaraan: $_selectedVehicleClass");
+                  }
+                  if (_selectedTicketTypes.contains('Kamar VIP')) {
+                    print("Kelas Kamar VIP: $_selectedVipRoomClass");
+                  }
+                  print(
+                    "Jumlah Tiket Ditemukan: ${homeController.filteredTickets.length}",
+                  );
 
-                  Get.toNamed('/ticket-search-results', arguments: ticketData);
+                  // Navigasi ke halaman hasil pencarian
+                  Get.toNamed(
+                    '/ticket-search-results',
+                    arguments: homeController.filteredTickets,
+                  );
                 },
               ),
             ],

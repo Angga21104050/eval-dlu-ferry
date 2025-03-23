@@ -5,6 +5,7 @@ class HomeController extends GetxController {
   //TODO: Implement HomeController
   var selectedIndex = 0.obs; // Gunakan observable untuk menyimpan index aktif
 
+  // navigationbarBottom
   void changeIndex(int index) {
     selectedIndex.value = index;
     switch (index) {
@@ -23,6 +24,7 @@ class HomeController extends GetxController {
     }
   }
 
+  // data dummy kelas tiket
   final List<String> passengerClasses = [
     'Semua Kelas', // Tambahkan "Semua Kelas" sebagai opsi default
     ...dummyTicketTypes
@@ -75,35 +77,52 @@ class HomeController extends GetxController {
   }
 
   // ✅ Tambahkan variabel untuk menyimpan hasil pencarian
-  // RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
-
+  RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
   // // 🔍 Fungsi pencarian tiket
-  // void searchTickets({
-  //   required String departurePort,
-  //   required String arrivalPort,
-  //   required List<String> selectedTicketTypes,
-  //   String? selectedClass,
-  // }) {
-  //   filteredTickets.value =
-  //       ferryTickets.where((ticket) {
-  //         bool matchesDeparture = ticket['departurePort'] == departurePort;
-  //         bool matchesArrival = ticket['arrivalPort'] == arrivalPort;
-  //         bool matchesTicketType = selectedTicketTypes.contains(
-  //           ticket['ticketType'],
-  //         );
-  //         bool matchesClass =
-  //             selectedClass == null ||
-  //             ticket['classes'].contains(selectedClass);
+  void searchTickets({
+    required List<String> selectedTicketTypes,
+    DateTime? selectedDepartureDate,
+    String? selectedClass,
+    String? selectedPassengerClass,
+    String? selectedVehicleClass,
+    String? selectedVipRoomClass,
+    required dynamic filteredTickets,
+  }) {
+    filteredTickets.value =
+        ferryTickets.where((ticket) {
+          bool matchesDepartureDate =
+              ticket['departureDate'] == selectedDepartureDate;
+          bool matchesDeparture = ticket['departurePort'] == fromCity.value;
+          bool matchesArrival = ticket['arrivalPort'] == toCity.value;
+          bool matchesTicketType = selectedTicketTypes.contains(
+            ticket['ticketType'],
+          );
+          // Menyesuaikan kelas berdasarkan tipe tiket
+          bool matchesClass = false;
+          if (ticket['ticketType'] == 'Penumpang') {
+            matchesClass =
+                selectedPassengerClass == null ||
+                ticket['classes'].contains(selectedPassengerClass);
+          } else if (ticket['ticketType'] == 'Kendaraan') {
+            matchesClass =
+                selectedVehicleClass == null ||
+                ticket['classes'].contains(selectedVehicleClass);
+          } else if (ticket['ticketType'] == 'Kamar VIP') {
+            matchesClass =
+                selectedVipRoomClass == null ||
+                ticket['classes'].contains(selectedVipRoomClass);
+          }
 
-  //         return matchesDeparture &&
-  //             matchesArrival &&
-  //             matchesTicketType &&
-  //             matchesClass;
-  //       }).toList();
+          return matchesDepartureDate &&
+              matchesDeparture &&
+              matchesArrival &&
+              matchesTicketType &&
+              matchesClass;
+        }).toList();
 
-  //   // Navigasi ke halaman hasil pencarian
-  //   Get.toNamed('/ticket-search-results', arguments: filteredTickets);
-  // }
+    //   // Navigasi ke halaman hasil pencarian
+    //   Get.toNamed('/ticket-search-results', arguments: filteredTickets);
+  }
 
   @override
   void onInit() {
