@@ -80,11 +80,20 @@ class HomeController extends GetxController {
   RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
 
   // 🔍 Fungsi pencarian tiket
-  void searchTickets({required RxList<Map<String, dynamic>> filteredTickets}) {
+  void searchTickets({
+    required RxList<Map<String, dynamic>> filteredTickets,
+    required List<String> selectedTicketTypes,
+  }) {
     filteredTickets.value =
         ferryTickets.where((ticket) {
-          return ticket['departurePort'] == fromCity.value &&
+          final bool matchesPort =
+              ticket['departurePort'] == fromCity.value &&
               ticket['arrivalPort'] == toCity.value;
+          final bool matchesType =
+              selectedTicketTypes.isEmpty ||
+              selectedTicketTypes.contains(ticket['ticketType']);
+
+          return matchesPort && matchesType;
         }).toList();
   }
 

@@ -81,6 +81,156 @@ List<Map<String, dynamic>> ferryTickets = [
     'price': '150.000',
   },
   {
+    'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
+    'ferryName': 'KM. Kirana 7',
+    'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
+    'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
+    'departureDate': DateTime(2025, 3, 24),
+    'departureTime': '08:00',
+    'arrivalTime': '18:00',
+    'duration': '10j 00m',
+    'ticketType': ['Penumpang', 'Kendaraan'], // Bisa lebih dari satu tipe
+    'classes': {
+      'Penumpang':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Penumpang')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+      'Kendaraan':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Kendaraan')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+    },
+    'price': '150.000',
+  },
+  {
+    'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
+    'ferryName': 'KM. Kirana 7',
+    'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
+    'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
+    'departureDate': DateTime(2025, 3, 24),
+    'departureTime': '08:00',
+    'arrivalTime': '18:00',
+    'duration': '10j 00m',
+    'ticketType': ['Penumpang', 'Kamar VIP'], // Bisa lebih dari satu tipe
+    'classes': {
+      'Penumpang':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Penumpang')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+      'Kamar VIP':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+    },
+    'price': '150.000',
+  },
+  {
+    'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
+    'ferryName': 'KM. Kirana 7',
+    'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
+    'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
+    'departureDate': DateTime(2025, 3, 24),
+    'departureTime': '08:00',
+    'arrivalTime': '18:00',
+    'duration': '10j 00m',
+    'ticketType': ['Kamar VIP', 'Kendaraan'], // Bisa lebih dari satu tipe
+    'classes': {
+      'Kamar VIP':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+      'Kendaraan':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Kendaraan')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+    },
+    'price': '150.000',
+  },
+  {
+    'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
+    'ferryName': 'KM. Kirana 7',
+    'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
+    'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
+    'departureDate': DateTime(2025, 3, 24),
+    'departureTime': '08:00',
+    'arrivalTime': '18:00',
+    'duration': '10j 00m',
+    'ticketType': [
+      'Penumpang',
+      'Kendaraan',
+      'Kamar VIP',
+    ], // Bisa lebih dari satu tipe
+    'classes': {
+      'Penumpang':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Penumpang')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+      'Kendaraan':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Kendaraan')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+      'Kamar VIP':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+    },
+    'price': '150.000',
+  },
+  {
+    'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
+    'ferryName': 'KM. Kirana 7',
+    'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
+    'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
+    'departureDate': DateTime(2025, 3, 24),
+    'departureTime': '08:00',
+    'arrivalTime': '18:00',
+    'duration': '10j 00m',
+    'ticketType': 'Kendaraan',
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Kendaraan')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
+    'price': '150.000',
+  },
+  {
+    'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
+    'ferryName': 'KM. Kirana 7',
+    'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
+    'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
+    'departureDate': DateTime(2025, 3, 24),
+    'departureTime': '08:00',
+    'arrivalTime': '18:00',
+    'duration': '10j 00m',
+    'ticketType': 'Kamar VIP',
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Kamar VIP')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
+    'price': '150.000',
+  },
+  {
     'imageUrl': 'https://picsum.photos/seed/ferry2/200/200',
     'ferryName': 'KM. Dharma Kencana',
     'departurePort': 'Semarang - Pelabuhan Tanjung Emas - SRG',

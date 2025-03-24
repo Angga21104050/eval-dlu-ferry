@@ -132,6 +132,22 @@ class _TicketCardState extends State<TicketCard> {
                                         Alignment
                                             .centerRight, // Menyelaraskan teks ke kanan
                                     child: Text(
+                                      '${widget.ticket['ticketType']}',
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 4),
+                                Expanded(
+                                  child: Align(
+                                    alignment:
+                                        Alignment
+                                            .centerRight, // Menyelaraskan teks ke kanan
+                                    child: Text(
                                       'Pilih Tiket',
                                       style: const TextStyle(
                                         fontSize: 14,
