@@ -28,6 +28,58 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     _selectedDate = widget.initialDate;
   }
 
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      height: 56,
+      margin: EdgeInsets.only(bottom: 0),
+      child: InkWell(
+        onTap: () {
+          _showCalendarDialog(context); // Menampilkan pop-up kalender
+        },
+        child: InputDecorator(
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+            labelText: widget.labelText,
+            labelStyle: TextStyle(color: Colors.grey.shade600),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+            ),
+            suffixIcon: Icon(Icons.arrow_drop_down),
+          ),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 3),
+                child: Icon(
+                  Icons.calendar_month_outlined,
+                  size: 25,
+                  color: Colors.blue,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Text(
+                  DateFormat('dd MMMM yyyy').format(_selectedDate),
+                  style: TextStyle(
+                    fontSize: 14, // Ukuran font
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black, // Tebal
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   void _showCalendarDialog(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -85,56 +137,6 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           ),
         );
       },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 56,
-      margin: EdgeInsets.only(bottom: 0),
-      child: InkWell(
-        onTap: () {
-          _showCalendarDialog(context); // Menampilkan pop-up kalender
-        },
-        child: InputDecorator(
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-            labelText: widget.labelText,
-            labelStyle: TextStyle(color: Colors.grey.shade600),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
-            ),
-            suffixIcon: Icon(Icons.arrow_drop_down),
-          ),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 3),
-                child: Icon(
-                  Icons.calendar_month_outlined,
-                  size: 25,
-                  color: Colors.blue,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Text(
-                  DateFormat('dd MMMM yyyy').format(_selectedDate),
-                  style: TextStyle(
-                    fontSize: 14, // Ukuran font
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black, // Tebal
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

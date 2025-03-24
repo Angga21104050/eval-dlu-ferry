@@ -142,41 +142,41 @@ class _InputFormTicketState extends State<InputFormTicket> {
                       Get.find<HomeController>();
                   // Memanggil fungsi pencarian tiket
                   homeController.searchTickets(
-                    selectedDepartureDate: _selectedDepartureDate,
-                    selectedTicketTypes: _selectedTicketTypes,
-                    selectedPassengerClass:
-                        _selectedTicketTypes.contains('Penumpang')
-                            ? _selectedPassengerClass
-                            : null,
-                    selectedVehicleClass:
-                        _selectedTicketTypes.contains('Kendaraan')
-                            ? _selectedVehicleClass
-                            : null,
-                    selectedVipRoomClass:
-                        _selectedTicketTypes.contains('Kamar VIP')
-                            ? _selectedVipRoomClass
-                            : null,
+                    // selectedDepartureDate: _selectedDepartureDate,
+                    // selectedTicketTypes: _selectedTicketTypes,
+                    // selectedPassengerClass:
+                    //     _selectedTicketTypes.contains('Penumpang')
+                    //         ? _selectedPassengerClass
+                    //         : null,
+                    // selectedVehicleClass:
+                    //     _selectedTicketTypes.contains('Kendaraan')
+                    //         ? _selectedVehicleClass
+                    //         : null,
+                    // selectedVipRoomClass:
+                    //     _selectedTicketTypes.contains('Kamar VIP')
+                    //         ? _selectedVipRoomClass
+                    //         : null,
                     filteredTickets: homeController.filteredTickets,
                   );
 
                   // Debugging
-                  print("Pencarian tiket dengan:");
-                  print("Dari: ${homeController.fromCity.value}");
-                  print("Ke: ${homeController.toCity.value}");
-                  print("tanggal berangkat: ${_selectedDepartureDate}");
-                  print("Tiket Dipilih: $_selectedTicketTypes");
-                  if (_selectedTicketTypes.contains('Penumpang')) {
-                    print("Kelas Penumpang: $_selectedPassengerClass");
-                  }
-                  if (_selectedTicketTypes.contains('Kendaraan')) {
-                    print("Kelas Kendaraan: $_selectedVehicleClass");
-                  }
-                  if (_selectedTicketTypes.contains('Kamar VIP')) {
-                    print("Kelas Kamar VIP: $_selectedVipRoomClass");
-                  }
-                  print(
-                    "Jumlah Tiket Ditemukan: ${homeController.filteredTickets.length}",
-                  );
+                  // print("Pencarian tiket dengan:");
+                  // print("Dari: ${homeController.fromCity.value}");
+                  // print("Ke: ${homeController.toCity.value}");
+                  // print("tanggal berangkat: ${_selectedDepartureDate}");
+                  // print("Tiket Dipilih: $_selectedTicketTypes");
+                  // if (_selectedTicketTypes.contains('Penumpang')) {
+                  //   print("Kelas Penumpang: $_selectedPassengerClass");
+                  // }
+                  // if (_selectedTicketTypes.contains('Kendaraan')) {
+                  //   print("Kelas Kendaraan: $_selectedVehicleClass");
+                  // }
+                  // if (_selectedTicketTypes.contains('Kamar VIP')) {
+                  //   print("Kelas Kamar VIP: $_selectedVipRoomClass");
+                  // }
+                  // print(
+                  //   "Jumlah Tiket Ditemukan: ${homeController.filteredTickets.length}",
+                  // );
 
                   // Navigasi ke halaman hasil pencarian
                   Get.toNamed(

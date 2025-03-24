@@ -78,50 +78,14 @@ class HomeController extends GetxController {
 
   // ✅ Tambahkan variabel untuk menyimpan hasil pencarian
   RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
-  // // 🔍 Fungsi pencarian tiket
-  void searchTickets({
-    required List<String> selectedTicketTypes,
-    DateTime? selectedDepartureDate,
-    String? selectedClass,
-    String? selectedPassengerClass,
-    String? selectedVehicleClass,
-    String? selectedVipRoomClass,
-    required dynamic filteredTickets,
-  }) {
+
+  // 🔍 Fungsi pencarian tiket
+  void searchTickets({required RxList<Map<String, dynamic>> filteredTickets}) {
     filteredTickets.value =
         ferryTickets.where((ticket) {
-          bool matchesDepartureDate =
-              ticket['departureDate'] == selectedDepartureDate;
-          bool matchesDeparture = ticket['departurePort'] == fromCity.value;
-          bool matchesArrival = ticket['arrivalPort'] == toCity.value;
-          bool matchesTicketType = selectedTicketTypes.contains(
-            ticket['ticketType'],
-          );
-          // Menyesuaikan kelas berdasarkan tipe tiket
-          bool matchesClass = false;
-          if (ticket['ticketType'] == 'Penumpang') {
-            matchesClass =
-                selectedPassengerClass == null ||
-                ticket['classes'].contains(selectedPassengerClass);
-          } else if (ticket['ticketType'] == 'Kendaraan') {
-            matchesClass =
-                selectedVehicleClass == null ||
-                ticket['classes'].contains(selectedVehicleClass);
-          } else if (ticket['ticketType'] == 'Kamar VIP') {
-            matchesClass =
-                selectedVipRoomClass == null ||
-                ticket['classes'].contains(selectedVipRoomClass);
-          }
-
-          return matchesDepartureDate &&
-              matchesDeparture &&
-              matchesArrival &&
-              matchesTicketType &&
-              matchesClass;
+          return ticket['departurePort'] == fromCity.value &&
+              ticket['arrivalPort'] == toCity.value;
         }).toList();
-
-    //   // Navigasi ke halaman hasil pencarian
-    //   Get.toNamed('/ticket-search-results', arguments: filteredTickets);
   }
 
   @override

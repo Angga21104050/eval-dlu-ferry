@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/ticket_search_results_controller.dart';
+import '../../home/controllers/home_controller.dart';
 import '../../myTicket/components/secondary_appbar.dart';
 import '../../../data/list_tiket_dummy.dart';
 import '../components/ticket_card.dart';
@@ -10,6 +11,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
 
   @override
   Widget build(BuildContext context) {
+    final homeController = Get.find<HomeController>();
     return Scaffold(
       appBar: const SecCustomAppBar(page: 'Tiket'),
       body: Stack(
@@ -30,15 +32,21 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
               ),
             ),
           ),
-          ListView.builder(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            itemCount: ferryTickets.length,
-            itemBuilder: (context, index) {
-              final ticket = ferryTickets[index];
-
-              return TicketCard(ticket: ticket);
-            },
-          ),
+          Obx(() {
+            if (homeController.filteredTickets.isEmpty) {
+              return const Center(
+                child: Text("Tidak ada tiket yang tersedia."),
+              );
+            }
+            return ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              itemCount: homeController.filteredTickets.length,
+              itemBuilder: (context, index) {
+                final ticket = homeController.filteredTickets[index];
+                return TicketCard(ticket: ticket);
+              },
+            );
+          }),
         ],
       ),
     );

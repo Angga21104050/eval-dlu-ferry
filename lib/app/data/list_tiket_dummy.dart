@@ -65,13 +65,12 @@ List<Map<String, dynamic>> ferryTickets = [
   {
     'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
     'ferryName': 'KM. Kirana 7',
-    'departurePort': 'Surabaya (Pel. Tanjung Perak)',
-    'arrivalPort': 'Lombok (Pel. Lembar/Gilimas)',
+    'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
+    'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
     'departureDate': DateTime(2025, 3, 24),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    // memanggil ticket type
     'ticketType': 'Penumpang',
     'classes':
         dummyTicketTypes
@@ -79,18 +78,17 @@ List<Map<String, dynamic>> ferryTickets = [
             .categories
             .map((cat) => cat.categoryName)
             .toList(),
-
-    // memanggil category sesuai tickettype
     'price': '150.000',
   },
   {
     'imageUrl': 'https://picsum.photos/seed/ferry2/200/200',
     'ferryName': 'KM. Dharma Kencana',
-    'departurePort': 'Makassar (Pel. Soekarno Hatta)',
-    'arrivalPort': 'Balikpapan (Pel. Semayang)',
-    'departureTime': '12:00',
-    'arrivalTime': '22:30',
-    'duration': '10j 30m',
+    'departurePort': 'Semarang - Pelabuhan Tanjung Emas - SRG',
+    'arrivalPort': 'Pontianak - Pelabuhan Dwikora - PNK',
+    'departureDate': DateTime(2025, 3, 26),
+    'departureTime': '10:00',
+    'arrivalTime': '22:00',
+    'duration': '12j 00m',
     'ticketType': 'Kendaraan',
     'classes':
         dummyTicketTypes
@@ -98,16 +96,35 @@ List<Map<String, dynamic>> ferryTickets = [
             .categories
             .map((cat) => cat.categoryName)
             .toList(),
-    'price': '300.000',
+    'price': '200.000',
   },
   {
     'imageUrl': 'https://picsum.photos/seed/ferry3/200/200',
-    'ferryName': 'KM. Bukit Siguntang',
-    'departurePort': 'Tanjung Priok (Jakarta)',
-    'arrivalPort': 'Belawan (Medan)',
-    'departureTime': '15:00',
-    'arrivalTime': '10:00 (H+1)',
-    'duration': '19j 00m',
+    'ferryName': 'KM. Wilis',
+    'departurePort': 'Makassar - Pelabuhan Soekarno Hatta - MAK',
+    'arrivalPort': 'Baubau - Pelabuhan Murhum - BUW',
+    'departureDate': DateTime(2025, 3, 28),
+    'departureTime': '14:00',
+    'arrivalTime': '04:00',
+    'duration': '14j 00m',
+    'ticketType': 'Penumpang',
+    'classes':
+        dummyTicketTypes
+            .firstWhere((ticket) => ticket.type == 'Penumpang')
+            .categories
+            .map((cat) => cat.categoryName)
+            .toList(),
+    'price': '180.000',
+  },
+  {
+    'imageUrl': 'https://picsum.photos/seed/ferry4/200/200',
+    'ferryName': 'KM. Egon',
+    'departurePort': 'Kupang - Pelabuhan Tenau - KOE',
+    'arrivalPort': 'Ende - Pelabuhan Ippi - ENE',
+    'departureDate': DateTime(2025, 3, 30),
+    'departureTime': '06:00',
+    'arrivalTime': '16:00',
+    'duration': '10j 00m',
     'ticketType': 'Kamar VIP',
     'classes':
         dummyTicketTypes
@@ -115,15 +132,16 @@ List<Map<String, dynamic>> ferryTickets = [
             .categories
             .map((cat) => cat.categoryName)
             .toList(),
-    'price': '1.200.000',
+    'price': '500.000',
   },
   {
-    'imageUrl': 'https://picsum.photos/seed/ferry4/200/200',
-    'ferryName': 'KM. Pelita Jaya',
-    'departurePort': 'Bali (Pelabuhan Benoa)',
-    'arrivalPort': 'Labuan Bajo (Nusa Tenggara Timur)',
-    'departureTime': '10:00',
-    'arrivalTime': '20:00',
+    'imageUrl': 'https://picsum.photos/seed/ferry5/200/200',
+    'ferryName': 'KM. Kelimutu',
+    'departurePort': 'Labuan Bajo - Pelabuhan Wae Kelambu - LBO',
+    'arrivalPort': 'Waingapu - Pelabuhan Waingapu - WGP',
+    'departureDate': DateTime(2025, 4, 2),
+    'departureTime': '07:30',
+    'arrivalTime': '17:30',
     'duration': '10j 00m',
     'ticketType': 'Penumpang',
     'classes':
@@ -132,169 +150,17 @@ List<Map<String, dynamic>> ferryTickets = [
             .categories
             .map((cat) => cat.categoryName)
             .toList(),
-    'price': '250.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry5/200/200',
-    'ferryName': 'KM. Nusantara Indah',
-    'departurePort': 'Padang (Teluk Bayur)',
-    'arrivalPort': 'Batam (Pelabuhan Batu Ampar)',
-    'departureTime': '14:00',
-    'arrivalTime': '08:00 (H+1)',
-    'duration': '18j 00m',
-    'ticketType': 'Kendaraan',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kendaraan')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '500.000',
+    'price': '160.000',
   },
   {
     'imageUrl': 'https://picsum.photos/seed/ferry6/200/200',
-    'ferryName': 'KM. Rajawali',
-    'departurePort': 'Semarang (Tanjung Mas)',
-    'arrivalPort': 'Pontianak (Pelabuhan Dwikora)',
-    'departureTime': '17:00',
-    'arrivalTime': '09:00 (H+1)',
-    'duration': '16j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '350.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry7/200/200',
-    'ferryName': 'KM. Ciremai',
-    'departurePort': 'Surabaya (Tanjung Perak)',
-    'arrivalPort': 'Makassar (Soekarno Hatta)',
-    'departureTime': '13:00',
-    'arrivalTime': '07:00 (H+1)',
-    'duration': '18j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '400.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry2/200/200',
-    'ferryName': 'KM. Dharma Kencana',
-    'departurePort': 'Makassar (Pel. Soekarno Hatta)',
-    'arrivalPort': 'Balikpapan (Pel. Semayang)',
-    'departureTime': '12:00',
-    'arrivalTime': '22:30',
-    'duration': '10j 30m',
-    'ticketType': 'Kendaraan',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kendaraan')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '300.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry3/200/200',
-    'ferryName': 'KM. Bukit Siguntang',
-    'departurePort': 'Tanjung Priok (Jakarta)',
-    'arrivalPort': 'Belawan (Medan)',
-    'departureTime': '15:00',
-    'arrivalTime': '10:00 (H+1)',
-    'duration': '19j 00m',
-    'ticketType': 'Kamar VIP',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '1.200.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry4/200/200',
-    'ferryName': 'KM. Pelita Jaya',
-    'departurePort': 'Bali (Pelabuhan Benoa)',
-    'arrivalPort': 'Labuan Bajo (Nusa Tenggara Timur)',
-    'departureTime': '10:00',
-    'arrivalTime': '20:00',
-    'duration': '10j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '250.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry5/200/200',
-    'ferryName': 'KM. Nusantara Indah',
-    'departurePort': 'Padang (Teluk Bayur)',
-    'arrivalPort': 'Batam (Pelabuhan Batu Ampar)',
-    'departureTime': '14:00',
-    'arrivalTime': '08:00 (H+1)',
-    'duration': '18j 00m',
-    'ticketType': 'Kendaraan',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kendaraan')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '500.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry6/200/200',
-    'ferryName': 'KM. Rajawali',
-    'departurePort': 'Semarang (Tanjung Mas)',
-    'arrivalPort': 'Pontianak (Pelabuhan Dwikora)',
-    'departureTime': '17:00',
-    'arrivalTime': '09:00 (H+1)',
-    'duration': '16j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '350.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry7/200/200',
-    'ferryName': 'KM. Ciremai',
-    'departurePort': 'Surabaya (Tanjung Perak)',
-    'arrivalPort': 'Makassar (Soekarno Hatta)',
-    'departureTime': '13:00',
-    'arrivalTime': '07:00 (H+1)',
-    'duration': '18j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '400.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry8/200/200',
-    'ferryName': 'KM. Samudra Jaya',
-    'departurePort': 'Baubau (Pel. Murhum)',
-    'arrivalPort': 'Kupang (Pel. Tenau)',
+    'ferryName': 'KM. Nggapulu',
+    'departurePort': 'Benoa - BNA',
+    'arrivalPort': 'Batulicin - Pelabuhan Samudra - BTW',
+    'departureDate': DateTime(2025, 4, 5),
     'departureTime': '09:00',
-    'arrivalTime': '21:00',
-    'duration': '12j 00m',
+    'arrivalTime': '23:00',
+    'duration': '14j 00m',
     'ticketType': 'Kendaraan',
     'classes':
         dummyTicketTypes
@@ -302,40 +168,6 @@ List<Map<String, dynamic>> ferryTickets = [
             .categories
             .map((cat) => cat.categoryName)
             .toList(),
-    'price': '600.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry9/200/200',
-    'ferryName': 'KM. Laut Nusantara',
-    'departurePort': 'Gresik',
-    'arrivalPort': 'Benoa',
-    'departureTime': '11:00',
-    'arrivalTime': '23:00',
-    'duration': '12j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '320.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry10/200/200',
-    'ferryName': 'KM. Bahari Jaya',
-    'departurePort': 'Parepare (Pel. Nusantara)',
-    'arrivalPort': 'Ende (Pel. Ippi)',
-    'departureTime': '07:00',
-    'arrivalTime': '19:00',
-    'duration': '12j 00m',
-    'ticketType': 'Kamar VIP',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '900.000',
+    'price': '210.000',
   },
 ];

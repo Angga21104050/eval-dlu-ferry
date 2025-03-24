@@ -100,6 +100,13 @@ class _TicketCardState extends State<TicketCard> {
                           ),
                         ),
                         Text(
+                          '${widget.ticket['departureDate']})',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Text(
                           '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']} (${widget.ticket['duration']})',
                           style: const TextStyle(
                             fontSize: 12,
