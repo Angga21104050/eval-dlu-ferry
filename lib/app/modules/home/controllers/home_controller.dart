@@ -76,7 +76,7 @@ class HomeController extends GetxController {
     toCity.value = temp;
   }
 
-  // ✅ Tambahkan variabel untuk menyimpan hasil pencarian
+  // Tambahkan variabel untuk menyimpan hasil pencarian
   RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
 
   // 🔍 Fungsi pencarian tiket
@@ -89,9 +89,13 @@ class HomeController extends GetxController {
           final bool matchesPort =
               ticket['departurePort'] == fromCity.value &&
               ticket['arrivalPort'] == toCity.value;
+          // Gunakan casting as List<String> untuk memastikan tipe data benar sebelum menerapkan .any().
           final bool matchesType =
               selectedTicketTypes.isEmpty ||
-              selectedTicketTypes.contains(ticket['ticketType']);
+              (ticket['ticketType'] is List<String> &&
+                  (ticket['ticketType'] as List<String>).any(
+                    (type) => selectedTicketTypes.contains(type),
+                  ));
 
           return matchesPort && matchesType;
         }).toList();

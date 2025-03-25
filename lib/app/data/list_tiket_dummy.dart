@@ -60,7 +60,8 @@ List<Ticket> dummyTicketTypes = [
     ],
   ),
 ];
-
+List<String> availableTicketTypes =
+    dummyTicketTypes.map((e) => e.type).toList();
 List<Map<String, dynamic>> ferryTickets = [
   {
     'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
@@ -71,7 +72,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    'ticketType': 'Penumpang',
+    'ticketType': ['Penumpang'],
     'classes':
         dummyTicketTypes
             .firstWhere((ticket) => ticket.type == 'Penumpang')
@@ -203,7 +204,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    'ticketType': 'Kendaraan',
+    'ticketType': ['Kendaraan'],
     'classes':
         dummyTicketTypes
             .firstWhere((ticket) => ticket.type == 'Kendaraan')

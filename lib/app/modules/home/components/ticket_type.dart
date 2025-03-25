@@ -55,9 +55,9 @@ class _TicketTypeState extends State<TicketType> {
                     child: ListView(
                       shrinkWrap: true,
                       children:
-                          dummyTicketTypes.map((ticket) {
+                          availableTicketTypes.map((type) {
                             IconData iconData;
-                            switch (ticket.type) {
+                            switch (type) {
                               case "Penumpang":
                                 iconData = Icons.person_2_outlined;
                                 break;
@@ -83,16 +83,16 @@ class _TicketTypeState extends State<TicketType> {
                                   children: [
                                     Icon(iconData, color: Colors.blue),
                                     SizedBox(width: 10),
-                                    Expanded(child: Text(ticket.type)),
+                                    Expanded(child: Text(type)),
                                   ],
                                 ),
-                                value: _selectedItemsType.contains(ticket.type),
+                                value: _selectedItemsType.contains(type),
                                 onChanged: (bool? value) {
                                   setState(() {
                                     if (value == true) {
-                                      _selectedItemsType.add(ticket.type);
+                                      _selectedItemsType.add(type);
                                     } else {
-                                      _selectedItemsType.remove(ticket.type);
+                                      _selectedItemsType.remove(type);
                                     }
                                   });
                                 },
