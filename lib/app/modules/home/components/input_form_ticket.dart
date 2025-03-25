@@ -139,17 +139,27 @@ class _InputFormTicketState extends State<InputFormTicket> {
                 onPressed: () {
                   final HomeController homeController =
                       Get.find<HomeController>();
+
+                  // Debug: Print input sebelum filter
+                  // print('Selected Departure Date: $_selectedDepartureDate');
+                  // print('Selected Return Date: $_selectedReturnDate');
                   // Memanggil fungsi pencarian tiket
                   homeController.searchTickets(
                     filteredTickets: homeController.filteredTickets,
                     selectedTicketTypes: _selectedTicketTypes,
+                    departureDate: _selectedDepartureDate,
                   );
 
                   // Navigasi ke halaman hasil pencarian
-                  Get.toNamed(
-                    '/ticket-search-results',
-                    arguments: homeController.filteredTickets,
-                  );
+                  // Navigasi hanya jika ada hasil
+                  if (homeController.filteredTickets.isNotEmpty) {
+                    Get.toNamed(
+                      '/ticket-search-results',
+                      arguments: homeController.filteredTickets,
+                    );
+                  } else {
+                    Get.snackbar('Oops', 'Tidak ada tiket yang sesuai.');
+                  }
                 },
               ),
             ],

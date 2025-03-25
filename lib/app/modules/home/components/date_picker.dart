@@ -28,8 +28,6 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     _selectedDate = widget.initialDate;
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -79,13 +79,25 @@ class HomeController extends GetxController {
   // Tambahkan variabel untuk menyimpan hasil pencarian
   RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
 
+  // Helper untuk normalisasi tanggal (abaikan komponen waktu)
+  DateTime _normalizeDate(DateTime date) {
+    return DateTime(date.year, date.month, date.day);
+  }
+
   // 🔍 Fungsi pencarian tiket
   void searchTickets({
     required RxList<Map<String, dynamic>> filteredTickets,
     required List<String> selectedTicketTypes,
+    required DateTime departureDate,
   }) {
+    // Debug: Print data untuk verifikasi
+    // print('Filtering with:');
+    // print('- From City: ${fromCity.value}');
+    // print('- To City: ${toCity.value}');
+    // print('- Departure Date: $departureDate');
     filteredTickets.value =
         ferryTickets.where((ticket) {
+          // print('Checking ticket: ${ticket['ferryName']} on ${ticket['departureDate']}');
           final bool matchesPort =
               ticket['departurePort'] == fromCity.value &&
               ticket['arrivalPort'] == toCity.value;
@@ -96,9 +108,16 @@ class HomeController extends GetxController {
                   (ticket['ticketType'] as List<String>).any(
                     (type) => selectedTicketTypes.contains(type),
                   ));
+          // Filter tanggal keberangkatan
+          // Gunakan _normalizeDate untuk perbandingan
+          final bool matchesDepartureDate =
+              _normalizeDate(ticket['departureDate']) ==
+              _normalizeDate(departureDate);
 
-          return matchesPort && matchesType;
+          return matchesPort && matchesType && matchesDepartureDate;
         }).toList();
+
+    // print('Total tickets found: ${filteredTickets.length}');
   }
 
   @override

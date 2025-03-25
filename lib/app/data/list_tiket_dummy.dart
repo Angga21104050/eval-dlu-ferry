@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Ticket {
   String type;
   List<TicketCategory> categories;
@@ -60,25 +62,38 @@ List<Ticket> dummyTicketTypes = [
     ],
   ),
 ];
+
 List<String> availableTicketTypes =
     dummyTicketTypes.map((e) => e.type).toList();
+
+// fungsi random classes untuk dammy
+List<String> getRandomCategories(String type) {
+  List<String> allCategories =
+      dummyTicketTypes
+          .firstWhere(
+            (ticket) => ticket.type == type,
+            orElse: () => Ticket(type: '', categories: []), // Tambahkan default
+          )
+          .categories
+          .map((cat) => cat.categoryName)
+          .toList();
+
+  allCategories.shuffle(Random());
+  return allCategories.take(6).toList();
+}
+
 List<Map<String, dynamic>> ferryTickets = [
   {
     'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 3, 27),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
     'ticketType': ['Penumpang'],
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
+    'classes': {'Penumpang': getRandomCategories('Penumpang')},
     'price': '150.000',
   },
   {
@@ -86,24 +101,14 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 3, 27),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
     'ticketType': ['Penumpang', 'Kendaraan'], // Bisa lebih dari satu tipe
     'classes': {
-      'Penumpang':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Penumpang')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
-      'Kendaraan':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Kendaraan')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
+      'Penumpang': getRandomCategories('Penumpang'),
+      'Kendaraan': getRandomCategories('Kendaraan'),
     },
     'price': '150.000',
   },
@@ -112,24 +117,14 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 3, 28),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
     'ticketType': ['Penumpang', 'Kamar VIP'], // Bisa lebih dari satu tipe
     'classes': {
-      'Penumpang':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Penumpang')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
-      'Kamar VIP':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
+      'Penumpang': getRandomCategories('Penumpang'),
+      'Kamar VIP': getRandomCategories('Kamar VIP'),
     },
     'price': '150.000',
   },
@@ -138,24 +133,14 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 3, 27),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
     'ticketType': ['Kendaraan', 'Kamar VIP'], // Bisa lebih dari satu tipe
     'classes': {
-      'Kendaraan':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Kendaraan')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
-      'Kamar VIP':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
+      'Kendaraan': getRandomCategories('Kendaraan'),
+      'Kamar VIP': getRandomCategories('Kamar VIP'),
     },
     'price': '150.000',
   },
@@ -164,7 +149,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 3, 27),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -174,24 +159,9 @@ List<Map<String, dynamic>> ferryTickets = [
       'Kamar VIP',
     ], // Bisa lebih dari satu tipe
     'classes': {
-      'Penumpang':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Penumpang')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
-      'Kendaraan':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Kendaraan')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
-      'Kamar VIP':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
+      'Penumpang': getRandomCategories('Penumpang'),
+      'Kendaraan': getRandomCategories('Kendaraan'),
+      'Kamar VIP': getRandomCategories('Kamar VIP'),
     },
     'price': '150.000',
   },
@@ -200,17 +170,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 3, 27),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
     'ticketType': ['Kendaraan'],
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kendaraan')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
+    'classes': {'Kendaraan': getRandomCategories('Kendaraan')},
     'price': '150.000',
   },
   {
@@ -218,107 +183,12 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 3, 27),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    'ticketType': 'Kamar VIP',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
+    'ticketType': ['Kamar VIP'],
+    'classes': {'Kamar VIP': getRandomCategories('Kamar VIP')},
     'price': '150.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry2/200/200',
-    'ferryName': 'KM. Dharma Kencana',
-    'departurePort': 'Semarang - Pelabuhan Tanjung Emas - SRG',
-    'arrivalPort': 'Pontianak - Pelabuhan Dwikora - PNK',
-    'departureDate': DateTime(2025, 3, 26),
-    'departureTime': '10:00',
-    'arrivalTime': '22:00',
-    'duration': '12j 00m',
-    'ticketType': 'Kendaraan',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kendaraan')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '200.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry3/200/200',
-    'ferryName': 'KM. Wilis',
-    'departurePort': 'Makassar - Pelabuhan Soekarno Hatta - MAK',
-    'arrivalPort': 'Baubau - Pelabuhan Murhum - BUW',
-    'departureDate': DateTime(2025, 3, 28),
-    'departureTime': '14:00',
-    'arrivalTime': '04:00',
-    'duration': '14j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '180.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry4/200/200',
-    'ferryName': 'KM. Egon',
-    'departurePort': 'Kupang - Pelabuhan Tenau - KOE',
-    'arrivalPort': 'Ende - Pelabuhan Ippi - ENE',
-    'departureDate': DateTime(2025, 3, 30),
-    'departureTime': '06:00',
-    'arrivalTime': '16:00',
-    'duration': '10j 00m',
-    'ticketType': 'Kamar VIP',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '500.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry5/200/200',
-    'ferryName': 'KM. Kelimutu',
-    'departurePort': 'Labuan Bajo - Pelabuhan Wae Kelambu - LBO',
-    'arrivalPort': 'Waingapu - Pelabuhan Waingapu - WGP',
-    'departureDate': DateTime(2025, 4, 2),
-    'departureTime': '07:30',
-    'arrivalTime': '17:30',
-    'duration': '10j 00m',
-    'ticketType': 'Penumpang',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Penumpang')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '160.000',
-  },
-  {
-    'imageUrl': 'https://picsum.photos/seed/ferry6/200/200',
-    'ferryName': 'KM. Nggapulu',
-    'departurePort': 'Benoa - BNA',
-    'arrivalPort': 'Batulicin - Pelabuhan Samudra - BTW',
-    'departureDate': DateTime(2025, 4, 5),
-    'departureTime': '09:00',
-    'arrivalTime': '23:00',
-    'duration': '14j 00m',
-    'ticketType': 'Kendaraan',
-    'classes':
-        dummyTicketTypes
-            .firstWhere((ticket) => ticket.type == 'Kendaraan')
-            .categories
-            .map((cat) => cat.categoryName)
-            .toList(),
-    'price': '210.000',
   },
 ];
