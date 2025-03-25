@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import '../controllers/ticket_search_results_controller.dart';
 import '../../home/controllers/home_controller.dart';
 import '../../myTicket/components/secondary_appbar.dart';
-import '../../../data/list_tiket_dummy.dart';
 import '../components/ticket_card.dart';
 
 class TicketSearchResultsView extends GetView<TicketSearchResultsController> {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TicketSelection extends StatefulWidget {
-  final List<String> ticketClasses;
+  final Map<String, List<String>> ticketClasses;
   final Function(String, int) onUpdateCart;
 
   const TicketSelection({
@@ -20,9 +20,11 @@ class _TicketSelectionState extends State<TicketSelection> {
   @override
   void initState() {
     super.initState();
-    for (String cls in widget.ticketClasses) {
-      ticketCounts[cls] = 0;
-    }
+    widget.ticketClasses.forEach((type, classes) {
+      for (String cls in classes) {
+        ticketCounts[cls] = 0;
+      }
+    });
   }
 
   void incrementTicket(String ticketClass) {
@@ -39,6 +41,19 @@ class _TicketSelectionState extends State<TicketSelection> {
         widget.onUpdateCart(ticketClass, ticketCounts[ticketClass]!);
       }
     });
+  }
+
+  Color getBackgroundColor(String type) {
+    switch (type) {
+      case 'Penumpang':
+        return Colors.grey.shade100;
+      case 'Kendaraan':
+        return Colors.blue.shade100;
+      case 'Kamar VIP':
+        return Colors.blue.shade300;
+      default:
+        return Colors.white;
+    }
   }
 
   @override
@@ -59,51 +74,65 @@ class _TicketSelectionState extends State<TicketSelection> {
       ),
       child: Column(
         children:
-            widget.ticketClasses.map<Widget>((String value) {
-              return Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 8,
-                  horizontal: 16,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        value,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(fontSize: 14),
+            widget.ticketClasses.entries.expand<Widget>((entry) {
+              String type = entry.key;
+              List<String> classes = entry.value;
+              Color bgColor = getBackgroundColor(type);
+
+              return classes.map((String value) {
+                return Container(
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 4,
+                    horizontal: 8,
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 16,
+                  ),
+                  decoration: BoxDecoration(
+                    color: bgColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          value,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 14),
+                        ),
                       ),
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(
-                            Icons.remove_circle_outline,
-                            color: Colors.red,
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(
+                              Icons.remove_circle_outline,
+                              color: Colors.red,
+                            ),
+                            onPressed: () => decrementTicket(value),
                           ),
-                          onPressed: () => decrementTicket(value),
-                        ),
-                        Text(
-                          ticketCounts[value].toString(),
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                          Text(
+                            ticketCounts[value].toString(),
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        IconButton(
-                          icon: const Icon(
-                            Icons.add_circle_outline_outlined,
-                            color: Colors.blue,
+                          IconButton(
+                            icon: const Icon(
+                              Icons.add_circle_outline_outlined,
+                              color: Color.fromARGB(255, 28, 128, 209),
+                            ),
+                            onPressed: () => incrementTicket(value),
                           ),
-                          onPressed: () => incrementTicket(value),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              );
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              }).toList();
             }).toList(),
       ),
     );

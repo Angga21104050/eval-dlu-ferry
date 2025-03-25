@@ -142,17 +142,17 @@ List<Map<String, dynamic>> ferryTickets = [
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    'ticketType': ['Kamar VIP', 'Kendaraan'], // Bisa lebih dari satu tipe
+    'ticketType': ['Kendaraan', 'Kamar VIP'], // Bisa lebih dari satu tipe
     'classes': {
-      'Kamar VIP':
-          dummyTicketTypes
-              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
-              .categories
-              .map((cat) => cat.categoryName)
-              .toList(),
       'Kendaraan':
           dummyTicketTypes
               .firstWhere((ticket) => ticket.type == 'Kendaraan')
+              .categories
+              .map((cat) => cat.categoryName)
+              .toList(),
+      'Kamar VIP':
+          dummyTicketTypes
+              .firstWhere((ticket) => ticket.type == 'Kamar VIP')
               .categories
               .map((cat) => cat.categoryName)
               .toList(),

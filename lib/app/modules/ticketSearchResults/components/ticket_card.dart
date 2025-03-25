@@ -177,7 +177,16 @@ class _TicketCardState extends State<TicketCard> {
               // Dropdown Content
               if (isExpanded)
                 TicketSelection(
-                  ticketClasses: List<String>.from(widget.ticket['classes']),
+                  ticketClasses:
+                      widget.ticket['classes'] is Map<String, List<String>>
+                          ? widget.ticket['classes']
+                              as Map<String, List<String>>
+                          : {
+                            'default': List<String>.from(
+                              widget.ticket['classes'],
+                            ),
+                          },
+
                   onUpdateCart: updateCart,
                 ),
               // Keranjang
