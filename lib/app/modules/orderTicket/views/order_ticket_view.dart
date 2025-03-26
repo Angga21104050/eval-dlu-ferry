@@ -12,6 +12,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
   const OrderTicketView({super.key});
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> cart = Get.arguments ?? [];
     return Scaffold(
       appBar: const SecCustomAppBar(page: 'Pesan Tiket'),
       body: Stack(
@@ -103,7 +104,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           ),
                         ),
                       ),
-                      const PassengerForm(),
+                      PassengerForm(cartItems: cart),
                       const VehicleForm(),
                     ],
                   ),

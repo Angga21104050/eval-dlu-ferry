@@ -33,7 +33,9 @@ class HomeController extends GetxController {
           orElse: () => Ticket(type: '', categories: []),
         )
         .categories
-        .map((category) => category.categoryName),
+        .map((category) => category.categoryName)
+        .toList()
+        .sublist(1, 12),
   ];
 
   final List<String> vehicleClasses = [
@@ -44,7 +46,9 @@ class HomeController extends GetxController {
           orElse: () => Ticket(type: '', categories: []),
         )
         .categories
-        .map((category) => category.categoryName),
+        .map((category) => category.categoryName)
+        .toList()
+        .sublist(1, 14),
   ];
 
   final List<String> vipRoomClasses = [
@@ -55,7 +59,9 @@ class HomeController extends GetxController {
           orElse: () => Ticket(type: '', categories: []),
         )
         .categories
-        .map((category) => category.categoryName),
+        .map((category) => category.categoryName)
+        .toList()
+        .sublist(1, 3),
   ];
 
   // Tambahkan variabel untuk menyimpan kota keberangkatan & tujuan

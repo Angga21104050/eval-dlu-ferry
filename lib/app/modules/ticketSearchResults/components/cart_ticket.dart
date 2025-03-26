@@ -69,7 +69,7 @@ class CartWidget extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: ElevatedButton(
               onPressed: () {
-                Get.toNamed(Routes.ORDER_TICKET);
+                Get.toNamed(Routes.ORDER_TICKET, arguments: cart);
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
