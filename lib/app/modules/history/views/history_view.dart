@@ -12,26 +12,25 @@ class HistoryView extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF0064D2),
-        elevation: 0,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'History',
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80),
+        child: AppBar(
+          backgroundColor: const Color(0xFF0064D2),
+          elevation: 0,
+          title: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Text(
+              'History',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
-            ],
+            ),
           ),
         ),
       ),
+
       body: Stack(
         children: [
           // Background Gradient dan Image

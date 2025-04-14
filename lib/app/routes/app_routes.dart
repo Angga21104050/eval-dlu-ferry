@@ -9,6 +9,8 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const TICKET_SEARCH_RESULTS = _Paths.TICKET_SEARCH_RESULTS;
   static const ORDER_TICKET = _Paths.ORDER_TICKET;
+  static const INFORMATION = _Paths.INFORMATION;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -19,4 +21,6 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const TICKET_SEARCH_RESULTS = '/ticket-search-results';
   static const ORDER_TICKET = '/order-ticket';
+  static const INFORMATION = '/information';
+  static const NOTIFICATION = '/notification';
 }

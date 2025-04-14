@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String greeting;
@@ -42,10 +43,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             Row(
               children: [
-                _buildIconButton(Icons.notifications_none_rounded),
-                const SizedBox(width: 3),
-                _buildIconButton(Icons.info_outline_rounded),
-                const SizedBox(width: 3),
+                _buildIconButton(
+                  Icons.notifications_none_rounded,
+                  onTap: () {
+                    Get.toNamed('/notification');
+                  },
+                ),
+                const SizedBox(width: 5),
+                _buildIconButton(
+                  Icons.info_outline_rounded,
+                  onTap: () {
+                    Get.toNamed('/information');
+                  },
+                ),
+                const SizedBox(width: 5),
                 _buildHelpButton(),
               ],
             ),
@@ -55,21 +66,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildIconButton(IconData icon) {
-    return Container(
-      height: 28,
-      width: 28,
-      decoration: BoxDecoration(
-        color: const Color(0x2BFFFFFF),
-        borderRadius: BorderRadius.circular(28),
+  Widget _buildIconButton(IconData icon, {VoidCallback? onTap}) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(32),
+      child: Container(
+        height: 32,
+        width: 32,
+        decoration: BoxDecoration(
+          color: const Color(0x2BFFFFFF),
+          borderRadius: BorderRadius.circular(28),
+        ),
+        child: Center(child: Icon(icon, color: Colors.white, size: 18)),
       ),
-      child: Center(child: Icon(icon, color: Colors.white, size: 18)),
     );
   }
 
   Widget _buildHelpButton() {
     return Container(
-      height: 28,
+      height: 32,
       width: 80,
       decoration: BoxDecoration(
         color: const Color(0x2BFFFFFF),

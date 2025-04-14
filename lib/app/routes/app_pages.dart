@@ -4,8 +4,12 @@ import '../modules/history/bindings/history_binding.dart';
 import '../modules/history/views/history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/information/bindings/information_binding.dart';
+import '../modules/information/views/information_view.dart';
 import '../modules/myTicket/bindings/my_ticket_binding.dart';
 import '../modules/myTicket/views/my_ticket_view.dart';
+import '../modules/notification/bindings/notification_binding.dart';
+import '../modules/notification/views/notification_view.dart';
 import '../modules/orderTicket/bindings/order_ticket_binding.dart';
 import '../modules/orderTicket/views/order_ticket_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -50,6 +54,16 @@ class AppPages {
       name: _Paths.ORDER_TICKET,
       page: () => const OrderTicketView(),
       binding: OrderTicketBinding(),
+    ),
+    GetPage(
+      name: _Paths.INFORMATION,
+      page: () => const InformationView(),
+      binding: InformationBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }
