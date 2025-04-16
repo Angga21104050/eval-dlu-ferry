@@ -13,6 +13,7 @@ abstract class Routes {
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const HELP = _Paths.HELP;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const NOTIFICATION = '/notification';
   static const HELP = '/help';
   static const EDIT_PROFILE = '/edit-profile';
+  static const CHANGE_PASSWORD = '/change-password';
 }

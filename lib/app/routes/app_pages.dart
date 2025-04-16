@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/change-password/bindings/change_password_binding.dart';
+import '../modules/change-password/views/change_password_view.dart';
 import '../modules/edit-profile/bindings/edit_profile_binding.dart';
 import '../modules/edit-profile/views/edit_profile_view.dart';
 import '../modules/help/bindings/help_binding.dart';
@@ -78,6 +80,11 @@ class AppPages {
       name: _Paths.EDIT_PROFILE,
       page: () => const EditProfileView(),
       binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHANGE_PASSWORD,
+      page: () => const ChangePasswordView(),
+      binding: ChangePasswordBinding(),
     ),
   ];
 }

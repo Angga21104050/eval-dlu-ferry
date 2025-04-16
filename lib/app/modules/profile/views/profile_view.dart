@@ -57,6 +57,7 @@ class ProfileView extends GetView<ProfileController> {
                 ),
                 onPressed: () {
                   // Tambahkan aksi untuk logout
+                  Get.toNamed('/change-password');
                 },
               ),
               const SizedBox(height: 10),

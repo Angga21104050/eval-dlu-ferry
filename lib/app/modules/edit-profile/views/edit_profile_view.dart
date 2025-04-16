@@ -118,30 +118,42 @@ class EditProfileView extends GetView<EditProfileController> {
     );
   }
 
-  Widget _buildTextField({required String label, required String hint}) {
+  Widget _buildTextField({
+    required String label,
+    required String hint,
+    
+  }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            label,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
           TextFormField(
             initialValue: hint,
-            decoration: const InputDecoration(
-              isDense: true,
-              contentPadding: EdgeInsets.symmetric(vertical: 6),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
+            decoration: InputDecoration(
+              label: Text(
+                label,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: 12,
+                horizontal: 12,
+              ), // Adjusted vertical padding
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Colors.grey,
+                ), // More standard enabled border
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.blue),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
           ),
