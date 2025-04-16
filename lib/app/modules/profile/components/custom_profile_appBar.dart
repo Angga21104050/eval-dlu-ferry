@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../widgets/appbar_action_buttons.dart';
 
 class CustomProfileAppBar extends StatelessWidget
@@ -115,6 +116,7 @@ class CustomProfileAppBar extends StatelessWidget
                         ),
                         onPressed: () {
                           // Aksi ketika ikon edit ditekan
+                          Get.toNamed('/edit-profile');
                         },
                       ),
                     ],

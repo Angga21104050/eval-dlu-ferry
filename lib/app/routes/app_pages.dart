@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/edit-profile/bindings/edit_profile_binding.dart';
+import '../modules/edit-profile/views/edit_profile_view.dart';
 import '../modules/help/bindings/help_binding.dart';
 import '../modules/help/views/help_view.dart';
 import '../modules/history/bindings/history_binding.dart';
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.HELP,
       page: () => const HelpView(),
       binding: HelpBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
     ),
   ];
 }
