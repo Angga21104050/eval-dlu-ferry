@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import '../controllers/notification_controller.dart';
 
 class NotificationView extends GetView<NotificationController> {
@@ -10,6 +9,7 @@ class NotificationView extends GetView<NotificationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
@@ -17,19 +17,13 @@ class NotificationView extends GetView<NotificationController> {
           elevation: 0,
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  'Informasi Notifikasi',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+            child: const Text(
+              'Informasi Notifikasi',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -42,75 +36,92 @@ class NotificationView extends GetView<NotificationController> {
             itemBuilder: (context, index) {
               final notification = controller.notifications[index];
               final timeFormat = DateFormat('dd-MM-yyyy HH:mm:ss');
-              final icon = _getNotificationIcon(notification['title']);
 
-              return SizedBox(
-                height: 110, // Tinggi tetap untuk semua card
-                child: Card(
-                  margin: const EdgeInsets.only(bottom: 12),
-                  color: notification['read'] ? Colors.grey[100] : Colors.white,
-                  elevation: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        // Gambar/Icon Notifikasi
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF0064D2).withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Icon(
-                            icon,
-                            size: 30,
-                            color: const Color(0xFF0064D2),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        // Konten Notifikasi
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                notification['title'],
-                                style: TextStyle(
-                                  fontWeight:
-                                      notification['read']
-                                          ? FontWeight.normal
-                                          : FontWeight.bold,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                timeFormat.format(notification['time']),
-                                style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        // Indicator belum dibaca
-                        if (!notification['read'])
-                          Container(
-                            width: 8,
-                            height: 8,
-                            margin: const EdgeInsets.only(left: 8),
-                            decoration: const BoxDecoration(
-                              color: Colors.red,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                      ],
+              return Container(
+                margin: const EdgeInsets.only(bottom: 12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color:
+                      notification['read']
+                          ? Colors.grey[100]
+                          : const Color(0xFFC9E3FF),
+                  border: Border.all(color: Colors.grey.shade200, width: 1),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(
+                        0xFF0064D2,
+                      ).withOpacity(0.15), // 🔹 Shadow Biru
+                      offset: const Offset(0, 4),
+                      blurRadius: 8,
                     ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // Gambar/Icon Notifikasi
+                      Container(
+                        width: 72,
+                        height: 72,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF0064D2).withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            notification['image'],
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      // Konten Notifikasi
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              notification['title'],
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight:
+                                    notification['read']
+                                        ? FontWeight.normal
+                                        : FontWeight.bold,
+                                color:
+                                    notification['read']
+                                        ? Colors.grey[800]
+                                        : Colors.black,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              timeFormat.format(notification['time']),
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Titik indikator belum dibaca
+                      if (!notification['read'])
+                        Container(
+                          width: 10,
+                          height: 10,
+                          margin: const EdgeInsets.only(left: 10),
+                          decoration: const BoxDecoration(
+                            color: Colors.red,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                    ],
                   ),
                 ),
               );
@@ -119,16 +130,5 @@ class NotificationView extends GetView<NotificationController> {
         },
       ),
     );
-  }
-
-  IconData _getNotificationIcon(String title) {
-    if (title.contains('Survei Kepuasan')) {
-      return Icons.assignment_outlined;
-    } else if (title.contains('pengaduan')) {
-      return Icons.report_problem_outlined;
-    } else if (title.contains('KM.')) {
-      return Icons.directions_boat_outlined;
-    }
-    return Icons.notifications_outlined;
   }
 }
