@@ -4,6 +4,7 @@ import 'package:dlu_project/app/modules/home/controllers/home_controller.dart';
 import '../controllers/history_controller.dart';
 import '../../home/components/custom_navigation_bar.dart';
 import '../components/ticket_history_list.dart';
+import '../../myTicket/components/secondary_appbar.dart';
 
 class HistoryView extends GetView<HistoryController> {
   const HistoryView({super.key});
@@ -12,24 +13,7 @@ class HistoryView extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
-        child: AppBar(
-          backgroundColor: const Color(0xFF0064D2),
-          elevation: 0,
-          title: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Text(
-              'History',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-      ),
+      appBar: const SecCustomAppBar(page: 'History'),
 
       body: Stack(
         children: [

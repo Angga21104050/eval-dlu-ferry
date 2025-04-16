@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../widgets/appbar_action_buttons.dart';
 
 class CustomProfileAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -44,7 +45,7 @@ class CustomProfileAppBar extends StatelessWidget
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'My Profile',
@@ -54,6 +55,7 @@ class CustomProfileAppBar extends StatelessWidget
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      const AppBarActionButtons(),
                     ],
                   ),
                   const SizedBox(height: 30),

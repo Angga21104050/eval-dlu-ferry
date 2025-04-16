@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../widgets/appbar_action_buttons.dart';
 
 class SecCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String page;
@@ -30,48 +31,9 @@ class SecCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ],
               ),
             ),
-            Row(
-              children: [
-                _buildIconButton(Icons.notifications_none_rounded),
-                const SizedBox(width: 3),
-                _buildIconButton(Icons.info_outline_rounded),
-                const SizedBox(width: 3),
-                _buildHelpButton(),
-              ],
-            ),
+            const AppBarActionButtons(),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildIconButton(IconData icon) {
-    return Container(
-      height: 28,
-      width: 28,
-      decoration: BoxDecoration(
-        color: const Color(0x2BFFFFFF),
-        borderRadius: BorderRadius.circular(28),
-      ),
-      child: Center(child: Icon(icon, color: Colors.white, size: 18)),
-    );
-  }
-
-  Widget _buildHelpButton() {
-    return Container(
-      height: 28,
-      width: 80,
-      decoration: BoxDecoration(
-        color: const Color(0x2BFFFFFF),
-        borderRadius: BorderRadius.circular(28),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Icon(Icons.headset_mic_outlined, color: Colors.white, size: 18),
-          SizedBox(width: 3),
-          Text('Bantuan', style: TextStyle(color: Colors.white, fontSize: 12)),
-        ],
       ),
     );
   }

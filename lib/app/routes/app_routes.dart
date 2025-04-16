@@ -11,6 +11,7 @@ abstract class Routes {
   static const ORDER_TICKET = _Paths.ORDER_TICKET;
   static const INFORMATION = _Paths.INFORMATION;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const HELP = _Paths.HELP;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const ORDER_TICKET = '/order-ticket';
   static const INFORMATION = '/information';
   static const NOTIFICATION = '/notification';
+  static const HELP = '/help';
 }
