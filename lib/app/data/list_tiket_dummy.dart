@@ -141,8 +141,7 @@ List<String> getRandomCategories(String type) {
       .map((cat) => cat.categoryName)
       .toList()
     ..shuffle()
-    ..take(6)
-    .toList();
+    ..take(6).toList();
 }
 
 List<Map<String, dynamic>> ferryTickets = [
@@ -151,7 +150,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 27),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -175,7 +174,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 27),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -206,7 +205,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 24),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -247,7 +246,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 26),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -271,7 +270,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 27),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -296,7 +295,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 28),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -321,7 +320,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 27),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -337,7 +336,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 27),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -367,7 +366,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 27),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
@@ -380,7 +379,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 3, 27),
+    'departureDate': DateTime(2025, 4, 18),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',

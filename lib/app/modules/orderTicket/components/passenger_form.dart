@@ -52,7 +52,10 @@ class _PassengerFormState extends State<PassengerForm> {
 
   @override
   Widget build(BuildContext context) {
-    int totalPassengers = widget.cartItems.fold(0, (sum, item) => sum + (item['count'] as int));
+    int totalPassengers = widget.cartItems.fold(
+      0,
+      (sum, item) => sum + (item['count'] as int),
+    );
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
@@ -84,7 +87,7 @@ class _PassengerFormState extends State<PassengerForm> {
               });
             },
           ),
-          
+
           AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             height: _isExpanded ? null : 0,
@@ -99,18 +102,21 @@ class _PassengerFormState extends State<PassengerForm> {
   Widget _buildPassengerForms() {
     int passengerIndex = 0;
     return Column(
-      children: widget.cartItems.expand((item) {
-        List<Widget> forms = [];
-        for (int i = 0; i < item['count']; i++) {
-          forms.add(_buildSinglePassengerForm(
-            passengerIndex: passengerIndex + 1,
-            classType: item['class'],
-            index: passengerIndex,
-          ));
-          passengerIndex++;
-        }
-        return forms;
-      }).toList(),
+      children:
+          widget.cartItems.expand((item) {
+            List<Widget> forms = [];
+            for (int i = 0; i < item['count']; i++) {
+              forms.add(
+                _buildSinglePassengerForm(
+                  passengerIndex: passengerIndex + 1,
+                  classType: item['class'],
+                  index: passengerIndex,
+                ),
+              );
+              passengerIndex++;
+            }
+            return forms;
+          }).toList(),
     );
   }
 
@@ -127,7 +133,7 @@ class _PassengerFormState extends State<PassengerForm> {
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
         ),
         const SizedBox(height: 10),
-        
+
         // Gender Selection
         Row(
           children: [
@@ -158,12 +164,13 @@ class _PassengerFormState extends State<PassengerForm> {
                         selectedIdTypes[index] = newValue!;
                       });
                     },
-                    items: ['KTP', 'SIM', 'Paspor'].map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                    items:
+                        ['KTP', 'SIM', 'Paspor'].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                   ),
                 ),
               ),
@@ -193,9 +200,7 @@ class _PassengerFormState extends State<PassengerForm> {
           controller: fullNameControllers[index],
           decoration: InputDecoration(
             labelText: 'Nama Lengkap Sesuai ID',
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ),
         const SizedBox(height: 16),
@@ -206,9 +211,7 @@ class _PassengerFormState extends State<PassengerForm> {
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
             labelText: 'Nomor Ponsel',
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ),
         const SizedBox(height: 20),
