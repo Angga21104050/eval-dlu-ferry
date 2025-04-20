@@ -553,6 +553,31 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           ),
                         ),
                       PaymentMethodeDropdown(),
+                      Container(
+                        margin: EdgeInsets.all(16.0),
+                        width: double.infinity,
+                        height: 50,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF0064D2),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          onPressed: () {
+                            // logika saat di press
+                            Get.toNamed('/transaction-succ');
+                          },
+                          child: const Text(
+                            'Lanjutkan Pembayaran',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

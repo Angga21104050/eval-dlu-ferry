@@ -22,6 +22,8 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/ticketSearchResults/bindings/ticket_search_results_binding.dart';
 import '../modules/ticketSearchResults/views/ticket_search_results_view.dart';
+import '../modules/transaction-succ/bindings/transaction_succ_binding.dart';
+import '../modules/transaction-succ/views/transaction_succ_view.dart';
 
 part 'app_routes.dart';
 
@@ -85,6 +87,11 @@ class AppPages {
       name: _Paths.CHANGE_PASSWORD,
       page: () => const ChangePasswordView(),
       binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRANSACTION_SUCC,
+      page: () => const TransactionSuccView(),
+      binding: TransactionSuccBinding(),
     ),
   ];
 }
