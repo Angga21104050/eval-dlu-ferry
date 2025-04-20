@@ -4,7 +4,8 @@ import '../controllers/order_ticket_controller.dart';
 import '../../myTicket/components/secondary_appbar.dart';
 import '../components/custom_text_form_field.dart';
 import '../components/gender_selection.dart';
-import '../components/ticket_card.dart';
+import '../components/summary_card.dart';
+import '../components/payment_methode.dart';
 import '../../../data/list_tiket_dummy.dart';
 
 class OrderTicketView extends GetView<OrderTicketController> {
@@ -13,6 +14,13 @@ class OrderTicketView extends GetView<OrderTicketController> {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> cart = Get.arguments ?? [];
     print('🛒 CART: $cart');
+    String ferryName = cart.isNotEmpty ? cart.first['ferryName'] : 'Nama Ferry';
+    String departureTime =
+        cart.isNotEmpty ? cart.first['departureTime'] : 'Waktu Berangkat';
+    String arrivalTime =
+        cart.isNotEmpty ? cart.first['arrivalTime'] : 'Waktu Tiba';
+    String duration = cart.isNotEmpty ? cart.first['duration'] : 'Durasi';
+    String date = cart.isNotEmpty ? cart.first['date'] : 'Tanggal';
 
     int passengerCount = 0;
     for (var item in cart) {
@@ -42,7 +50,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
           .any((cat) => cat.categoryName == item['class'])) {
         vehicleCount += (item['count'] as int);
       }
-    } 
+    }
 
     return Scaffold(
       appBar: const SecCustomAppBar(page: 'Pesan Tiket'),
@@ -66,12 +74,13 @@ class OrderTicketView extends GetView<OrderTicketController> {
           ),
           Column(
             children: [
-              TicketCard(
-                ferryName: 'KM Kirana',
-                departureTime: '08:00',
-                arrivalTime: '12:00',
-                duration: '4j 0m',
-                date: 'Kamis, 29 Maret',
+              OrderSummaryCard(
+                ferryName: ferryName,
+                departureTime: departureTime,
+                arrivalTime: arrivalTime,
+                duration: duration,
+                date: date,
+                cart: cart,
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -543,6 +552,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                             ),
                           ),
                         ),
+                      PaymentMethodeDropdown(),
                     ],
                   ),
                 ),

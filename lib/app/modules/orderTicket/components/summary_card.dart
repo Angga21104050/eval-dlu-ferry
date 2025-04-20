@@ -1,19 +1,22 @@
+// order_ticket_view/components/ticket_card.dart (asumsi path file)
 import 'package:flutter/material.dart';
 
-class TicketCard extends StatelessWidget {
+class OrderSummaryCard extends StatelessWidget {
   final String ferryName;
   final String departureTime;
   final String arrivalTime;
   final String duration;
   final String date;
+  final List<Map<String, dynamic>> cart;
 
-  const TicketCard({
+  const OrderSummaryCard({
     super.key,
     required this.ferryName,
     required this.departureTime,
     required this.arrivalTime,
     required this.duration,
     required this.date,
+    required this.cart,
   });
 
   @override
@@ -63,7 +66,8 @@ class TicketCard extends StatelessWidget {
                 (index) => Container(
                   width: 1,
                   height: 4,
-                  color: index.isEven ? Colors.grey.shade500 : Colors.transparent,
+                  color:
+                      index.isEven ? Colors.grey.shade500 : Colors.transparent,
                 ),
               ),
             ),
@@ -76,7 +80,9 @@ class TicketCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Penumpang, Kendaraan',
+                      cart
+                          .map((item) => item['class'])
+                          .join(', '), // Tampilkan jenis tiket yang dipesan
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

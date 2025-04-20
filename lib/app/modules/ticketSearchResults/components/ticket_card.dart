@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/cart_ticket.dart';
 import '../components/ticket_selection.dart';
+import 'package:intl/intl.dart';
 
 class TicketCard extends StatefulWidget {
   final Map<String, dynamic> ticket;
@@ -20,10 +21,28 @@ class _TicketCardState extends State<TicketCard> {
         cart.removeWhere((item) => item['class'] == ticketClass);
       } else {
         int index = cart.indexWhere((item) => item['class'] == ticketClass);
+        DateTime? departureDate = widget.ticket['departureDate'] as DateTime?;
+        final formattedDate =
+            departureDate != null
+                ? DateFormat('EEEE, dd MMMM').format(departureDate)
+                : '';
+
+        final cartItem = {
+          'class': ticketClass,
+          'count': count,
+          'ferryName': widget.ticket['ferryName'] as String? ?? '',
+          'departureTime': widget.ticket['departureTime'] as String? ?? '',
+          'arrivalTime': widget.ticket['arrivalTime'] as String? ?? '',
+          'duration': widget.ticket['duration'] as String? ?? '',
+          'date':
+              formattedDate, // Simpan tanggal yang sudah diformat sebagai String
+          // Tambahkan detail lain dari widget.ticket jika diperlukan
+          // Tambahkan detail lain dari widget.ticket jika diperlukan
+        };
         if (index != -1) {
-          cart[index]['count'] = count;
+          cart[index] = cartItem;
         } else {
-          cart.add({'class': ticketClass, 'count': count});
+          cart.add(cartItem);
         }
       }
     });
