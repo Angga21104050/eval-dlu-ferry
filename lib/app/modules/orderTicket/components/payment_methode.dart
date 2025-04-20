@@ -35,7 +35,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF0064D2),
+                color: Colors.black,
               ),
             ),
           ),
@@ -135,10 +135,31 @@ class PaymentMethodeDropdown extends StatelessWidget {
     required bool isSelected,
     required bool isExpanded,
   }) {
+    final OrderTicketController controller = Get.find<OrderTicketController>();
+    String? imagePath;
+
+    // Tentukan imagePath jika ada metode yang dipilih
+    if (isSelected) {
+      imagePath = controller.getImagePathForMethod(title);
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
+          if (isSelected &&
+              imagePath != null) // Tampilkan gambar jika ada yang dipilih
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: Image.asset(
+                imagePath,
+                width: 36,
+                height: 36,
+                errorBuilder: (context, error, stackTrace) {
+                  return const SizedBox(width: 36, height: 36);
+                },
+              ),
+            ),
           Expanded(
             child: Text(
               title,
@@ -164,6 +185,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
     required String? selectedItem,
     required Function(String) onSelect,
   }) {
+    final OrderTicketController controller = Get.find<OrderTicketController>();
     return Visibility(
       visible: isVisible,
       child: Padding(
@@ -171,12 +193,23 @@ class PaymentMethodeDropdown extends StatelessWidget {
         child: Column(
           children:
               items.map((method) {
+                String imagePath = controller.getImagePathForMethod(method);
+
                 return InkWell(
                   onTap: () => onSelect(method),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Row(
                       children: [
+                        Image.asset(
+                          imagePath,
+                          width: 36,
+                          height: 36,
+                          errorBuilder: (context, error, StackTrace) {
+                            return const SizedBox(width: 36, height: 36);
+                          },
+                        ),
+                        const SizedBox(width: 16),
                         Expanded(child: Text(method)),
                         if (selectedItem == method)
                           const Icon(Icons.check, color: Colors.green),
