@@ -20,6 +20,8 @@ import '../modules/orderTicket/bindings/order_ticket_binding.dart';
 import '../modules/orderTicket/views/order_ticket_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/splash/bindings/splash_binding.dart';
+import '../modules/splash/views/splash_view.dart';
 import '../modules/ticketSearchResults/bindings/ticket_search_results_binding.dart';
 import '../modules/ticketSearchResults/views/ticket_search_results_view.dart';
 import '../modules/transaction-succ/bindings/transaction_succ_binding.dart';
@@ -30,7 +32,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.SPLASH;
 
   static final routes = [
     GetPage(
@@ -92,6 +94,11 @@ class AppPages {
       name: _Paths.TRANSACTION_SUCC,
       page: () => const TransactionSuccView(),
       binding: TransactionSuccBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH,
+      page: () => const SplashView(),
+      binding: SplashBinding(),
     ),
   ];
 }
