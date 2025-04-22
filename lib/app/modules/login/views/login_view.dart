@@ -35,7 +35,7 @@ class LoginView extends GetView<LoginController> {
                   const Text(
                     'Ayo Mulai Petualanganmu!',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(
                         255,
@@ -69,8 +69,12 @@ class LoginView extends GetView<LoginController> {
                     decoration: InputDecoration(
                       hintText: 'Masukkan Email atau No. Telp anda',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
@@ -96,8 +100,12 @@ class LoginView extends GetView<LoginController> {
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.8),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        borderSide: const BorderSide(),
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(color: Colors.grey),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       suffixIcon: const Icon(Icons.visibility_off), // Ikon mata
                     ),
@@ -127,10 +135,12 @@ class LoginView extends GetView<LoginController> {
                         print('Tombol Lanjutkan ditekan');
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue, // Sesuaikan warna tombol
+                        backgroundColor: const Color(
+                          0xFF0064D2,
+                        ), // Sesuaikan warna tombol
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                       child: const Text(
@@ -193,7 +203,9 @@ class LoginView extends GetView<LoginController> {
                         style: TextStyle(fontSize: 14, color: Colors.grey[500]),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed('/register');
+                        },
                         child: Text(
                           'Daftar',
                           style: TextStyle(fontSize: 14, color: Colors.blue),
