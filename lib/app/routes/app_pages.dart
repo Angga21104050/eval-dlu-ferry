@@ -12,6 +12,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/information/bindings/information_binding.dart';
 import '../modules/information/views/information_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
 import '../modules/myTicket/bindings/my_ticket_binding.dart';
 import '../modules/myTicket/views/my_ticket_view.dart';
 import '../modules/notification/bindings/notification_binding.dart';
@@ -20,6 +22,8 @@ import '../modules/orderTicket/bindings/order_ticket_binding.dart';
 import '../modules/orderTicket/views/order_ticket_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/register/bindings/register_binding.dart';
+import '../modules/register/views/register_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/ticketSearchResults/bindings/ticket_search_results_binding.dart';
@@ -99,6 +103,16 @@ class AppPages {
       name: _Paths.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER,
+      page: () => const RegisterView(),
+      binding: RegisterBinding(),
     ),
   ];
 }

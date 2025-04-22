@@ -16,7 +16,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     // Logika delay dan navigasi langsung di View (TIDAK DISARANKAN)
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAllNamed(Routes.HOME);
+      Get.offAllNamed(Routes.LOGIN);
     });
   }
 
