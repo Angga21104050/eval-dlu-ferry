@@ -31,7 +31,54 @@ class LoginView extends GetView<LoginController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 20), // Ruang kosong di atas judul
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 56,
+                        height: 56,
+                        child: Center(
+                          child: Image.asset(
+                            'assets/img/logo2.png',
+                            width: 120,
+                            height: 120,
+                            fit: BoxFit.contain,
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Icon(
+                                Icons.error_outline,
+                                size: 80,
+                                color: Colors.red,
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'PT. Dharma Lautan Utama',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(
+                                255,
+                                0,
+                                0,
+                                0,
+                              ), // Sesuaikan warna teks
+                            ),
+                          ),
+                          Text(
+                            'armada pelayaran nasional',
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
                   const Text(
                     'Ayo Mulai Petualanganmu!',
                     style: TextStyle(
@@ -132,6 +179,7 @@ class LoginView extends GetView<LoginController> {
                     child: ElevatedButton(
                       onPressed: () {
                         // Tambahkan logika login di sini
+                        Get.offNamed('/home');
                         print('Tombol Lanjutkan ditekan');
                       },
                       style: ElevatedButton.styleFrom(
