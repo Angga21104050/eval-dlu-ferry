@@ -22,6 +22,8 @@ import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
 import '../modules/orderTicket/bindings/order_ticket_binding.dart';
 import '../modules/orderTicket/views/order_ticket_view.dart';
+import '../modules/payment/bindings/payment_binding.dart';
+import '../modules/payment/views/payment_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -38,7 +40,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ORDER_TICKET;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
@@ -120,6 +122,11 @@ class AppPages {
       name: _Paths.FORGOT_PASSWORD,
       page: () => const ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT,
+      page: () => const PaymentView(),
+      binding: PaymentBinding(),
     ),
   ];
 }

@@ -565,8 +565,30 @@ class OrderTicketView extends GetView<OrderTicketController> {
                             ),
                           ),
                           onPressed: () {
-                            // logika saat di press
-                            Get.toNamed('/transaction-succ');
+                            if (controller.selectedVirtualAccMethod.value !=
+                                null) {
+                              Get.toNamed('/payment');
+                            } else if (controller.selectedEWalletMethod.value !=
+                                null) {
+                              Get.toNamed('/payment');
+                            } else if (controller
+                                    .selectedCreditCardMethod
+                                    .value !=
+                                null) {
+                              Get.toNamed('/payment');
+                            } else if (controller.selectedQrisMethod.value !=
+                                null) {
+                              Get.toNamed('/payment');
+                            } else {
+                              Get.snackbar(
+                                'Peringatan',
+                                'Silakan pilih metode pembayaran terlebih dahulu.',
+                                snackPosition: SnackPosition.TOP,
+                                backgroundColor: Colors.blue,
+                                colorText: Colors.white,
+                                margin: const EdgeInsets.all(16),
+                              );
+                            }
                           },
                           child: const Text(
                             'Lanjutkan Pembayaran',
