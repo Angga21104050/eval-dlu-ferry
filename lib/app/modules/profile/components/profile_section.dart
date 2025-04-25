@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 
 class ProfileSection extends StatelessWidget {
   final String title;
@@ -44,7 +45,7 @@ class ProfileSection extends StatelessWidget {
 
 class ProfileItem extends StatelessWidget {
   final String label;
-  final String value;
+  final RxString value;
 
   const ProfileItem({super.key, required this.label, required this.value});
 
@@ -64,9 +65,11 @@ class ProfileItem extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 1),
-          Text(
-            value,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          Obx(
+            () => Text(
+              value.value, // Akses nilai RxString dengan .value
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
           ),
           const Divider(thickness: 1, color: Colors.blue),
         ],

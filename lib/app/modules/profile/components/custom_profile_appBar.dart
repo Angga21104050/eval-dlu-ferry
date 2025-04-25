@@ -1,26 +1,20 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../widgets/appbar_action_buttons.dart';
+import '../controllers/profile_controller.dart';
 
 class CustomProfileAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   final double height;
-  final String profileImage;
-  final String name;
-  final String email;
-  final String phone;
 
-  const CustomProfileAppBar({
-    super.key,
-    this.height = 200, // Tinggi AppBar
-    required this.profileImage,
-    required this.name,
-    required this.email,
-    required this.phone,
-  });
+  const CustomProfileAppBar({super.key, this.height = 200});
 
   @override
   Widget build(BuildContext context) {
+    final profileController = Get.find<ProfileController>();
+    final editController = profileController.editProfileController;
+
     return PreferredSize(
       preferredSize: Size.fromHeight(height),
       child: ClipRRect(
@@ -48,9 +42,9 @@ class CustomProfileAppBar extends StatelessWidget
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'My Profile',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -69,9 +63,33 @@ class CustomProfileAppBar extends StatelessWidget
                         backgroundColor: Colors.white,
                         child: CircleAvatar(
                           radius: 28,
-                          backgroundImage: AssetImage(
-                            profileImage,
-                          ), // Gambar profil
+                          backgroundImage:
+                              editController.savedProfileImage?.path != null &&
+                                      editController
+                                          .savedProfileImage!
+                                          .path
+                                          .isNotEmpty
+                                  ? FileImage(
+                                        File(
+                                          editController
+                                              .savedProfileImage!
+                                              .path,
+                                        ),
+                                      )
+                                      as ImageProvider
+                                  : null, // Set backgroundImage menjadi null jika path kosong
+                          child:
+                              editController.savedProfileImage?.path == null ||
+                                      editController
+                                          .savedProfileImage!
+                                          .path
+                                          .isEmpty
+                                  ? const Icon(
+                                    Icons.person,
+                                    size: 40,
+                                    color: Colors.grey,
+                                  )
+                                  : null, // Tampilkan Icon jika path kosong
                         ),
                       ),
                       const SizedBox(width: 12), // Jarak antar elemen
@@ -81,26 +99,32 @@ class CustomProfileAppBar extends StatelessWidget
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              name,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
+                            Obx(
+                              () => Text(
+                                editController.profileName.value,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                            Text(
-                              email,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
+                            Obx(
+                              () => Text(
+                                editController.profileEmail.value,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
-                            Text(
-                              phone,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
+                            Obx(
+                              () => Text(
+                                editController.profilePhone.value,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
                           ],

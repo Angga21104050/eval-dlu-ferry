@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/edit_profile_controller.dart';
+import 'dart:io';
 
 class EditProfileView extends GetView<EditProfileController> {
   const EditProfileView({super.key});
@@ -32,18 +33,24 @@ class EditProfileView extends GetView<EditProfileController> {
               right: 0,
               child: Column(
                 children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      radius: 58,
-                      backgroundImage: AssetImage('assets/img/contoh.jpeg'),
-                    ),
-                  ),
+                  Obx(() {
+                    final File? image = controller.profileImage;
+                    return CircleAvatar(
+                      radius: 60,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        radius: 58,
+                        backgroundImage:
+                            image != null
+                                ? FileImage(image) as ImageProvider
+                                : const AssetImage('assets/img/contoh.jpeg'),
+                      ),
+                    );
+                  }),
                   const SizedBox(height: 8),
                   GestureDetector(
                     onTap: () {
-                      // Tambahkan logika untuk ganti foto, contoh: controller.pickImage();
+                      controller.pickImage();
                     },
                     child: Text(
                       "Ganti Foto",
@@ -75,21 +82,34 @@ class EditProfileView extends GetView<EditProfileController> {
                 ),
               ),
               const SizedBox(height: 16),
-
               _buildTextField(
                 label: "Email/Username",
-                hint: "sahrulangga@gmail.com",
+                hintController: controller.emailController,
               ),
               _buildTextField(
                 label: "Nomor Identitas",
-                hint: "1234567890123456",
+                hintController: controller.identityNumberController,
               ),
-              _buildTextField(label: "Nama", hint: "Sahrul Angga"),
-              _buildTextField(label: "Jenis Kelamin", hint: "Laki-laki"),
-              _buildTextField(label: "Alamat Desa", hint: "Desa Sukamaju"),
-              _buildTextField(label: "Kota", hint: "Jakarta"),
-              _buildTextField(label: "Nomor Telepon", hint: "0819 3756 1790"),
-
+              _buildTextField(
+                label: "Nama",
+                hintController: controller.nameController,
+              ),
+              _buildTextField(
+                label: "Jenis Kelamin",
+                hintController: controller.genderController,
+              ),
+              _buildTextField(
+                label: "Alamat Desa",
+                hintController: controller.villageAddressController,
+              ),
+              _buildTextField(
+                label: "Kota",
+                hintController: controller.cityController,
+              ),
+              _buildTextField(
+                label: "Nomor Telepon",
+                hintController: controller.phoneNumberController,
+              ),
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
@@ -102,7 +122,7 @@ class EditProfileView extends GetView<EditProfileController> {
                     ),
                   ),
                   onPressed: () {
-                    // Simpan data
+                    controller.saveProfile();
                   },
                   child: const Text(
                     "Simpan",
@@ -120,8 +140,7 @@ class EditProfileView extends GetView<EditProfileController> {
 
   Widget _buildTextField({
     required String label,
-    required String hint,
-    
+    required TextEditingController hintController,
   }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -129,7 +148,7 @@ class EditProfileView extends GetView<EditProfileController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
-            initialValue: hint,
+            controller: hintController,
             decoration: InputDecoration(
               label: Text(
                 label,

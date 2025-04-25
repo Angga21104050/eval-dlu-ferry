@@ -12,13 +12,14 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
+    // Dapatkan instance dari ProfileController
+    final profileController = Get.find<ProfileController>();
+    // Akses EditProfileController melalui ProfileController
+    final editController = profileController.editProfileController;
+
     return Scaffold(
-      appBar: const CustomProfileAppBar(
-        profileImage: 'assets/img/contoh.jpeg',
-        name: 'Airlangga',
-        email: 'airlangga@example.com',
-        phone: '08564346745',
-      ),
+      backgroundColor: Colors.white,
+      appBar: CustomProfileAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -26,20 +27,29 @@ class ProfileView extends GetView<ProfileController> {
             children: [
               ProfileSection(
                 title: "Data Diri",
-                items: const [
+                items: [
                   ProfileItem(
                     label: "Email/Username",
-                    value: "sahrulangga@gmail.com",
+                    value: editController.profileEmail,
                   ),
                   ProfileItem(
                     label: "Nomor Identitas",
-                    value: "1234567890123456",
+                    value: editController.profileIdentityNumber,
                   ),
-                  ProfileItem(label: "Nama", value: "Sahrul Angga"),
-                  ProfileItem(label: "Jenis Kelamin", value: "Laki-laki"),
-                  ProfileItem(label: "Alamat Desa", value: "Desa Sukamaju"),
-                  ProfileItem(label: "Kota", value: "Jakarta"),
-                  ProfileItem(label: "Nomor Telepon", value: "0819 3756 1790"),
+                  ProfileItem(label: "Nama", value: editController.profileName),
+                  ProfileItem(
+                    label: "Jenis Kelamin",
+                    value: editController.profileGender,
+                  ),
+                  ProfileItem(
+                    label: "Alamat Desa",
+                    value: editController.profileVillageAddress,
+                  ),
+                  ProfileItem(label: "Kota", value: editController.profileCity),
+                  ProfileItem(
+                    label: "Nomor Telepon",
+                    value: editController.profilePhone,
+                  ),
                 ],
               ),
               const SizedBox(height: 20),

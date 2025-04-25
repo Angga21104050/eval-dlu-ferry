@@ -1,12 +1,18 @@
 import 'package:get/get.dart';
 
+import '../../edit-profile/controllers/edit_profile_controller.dart';
+
 class ProfileController extends GetxController {
   //TODO: Implement ProfileController
+  final EditProfileController editProfileController = Get.put(
+    EditProfileController(),
+  );
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    editProfileController
+        .loadUserProfile(); // Muat data saat ProfileController diinisialisasi
   }
 
   @override
@@ -18,6 +24,4 @@ class ProfileController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }
