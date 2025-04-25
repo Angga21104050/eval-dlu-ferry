@@ -18,26 +18,40 @@ class _CitySwitcherState extends State<CitySwitcher> {
   @override
   void initState() {
     super.initState();
+    print('CitySwitcherState: initState dijalankan');
     if (_cities.isNotEmpty) {
       homeController.setFromCity(_cities[0]);
       homeController.setToCity(_cities.length > 1 ? _cities[1] : _cities[0]);
+      print(
+        'CitySwitcherState: Kota awal diatur - Dari: ${homeController.fromCity.value}, Ke: ${homeController.toCity.value}',
+      );
     }
   }
 
   void swapCities() {
+    print(
+      'CitySwitcherState: swapCities dipanggil - Sebelum swap - Dari: ${homeController.fromCity.value}, Ke: ${homeController.toCity.value}',
+    );
     homeController.swapCities();
+    print(
+      'CitySwitcherState: swapCities selesai - Setelah swap - Dari: ${homeController.fromCity.value}, Ke: ${homeController.toCity.value}',
+    );
   }
 
   void _showCitySelection(BuildContext context, bool isFromCity) {
+    print(
+      'CitySwitcherState: _showCitySelection dipanggil - isFromCity: $isFromCity',
+    );
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
       barrierColor: Colors.black.withOpacity(0.5),
       isScrollControlled: true,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (context) {
+        print('CitySwitcherState: _showCitySelection - Builder dijalankan');
         return StatefulBuilder(
           builder: (context, setModal) {
             List<String> filteredCities =
@@ -49,11 +63,11 @@ class _CitySwitcherState extends State<CitySwitcher> {
                     )
                     .toList();
             return AnimatedContainer(
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
               curve: Curves.easeOut,
               height: 800,
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
               ),
@@ -64,9 +78,12 @@ class _CitySwitcherState extends State<CitySwitcher> {
                     isFromCity
                         ? "Pilih Kota Keberangkatan"
                         : "Pilih Kota Tujuan",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  Divider(color: Colors.blue),
+                  const Divider(color: Colors.blue),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
@@ -75,18 +92,21 @@ class _CitySwitcherState extends State<CitySwitcher> {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Cari Pelabuhan...',
-                        prefixIcon: Icon(Icons.search_outlined),
+                        prefixIcon: const Icon(Icons.search_outlined),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: Colors.blue),
+                          borderSide: const BorderSide(color: Colors.blue),
                         ),
                       ),
                       onChanged: (value) {
                         setModal(() {
                           _searchQuery = value;
+                          print(
+                            'CitySwitcherState: _showCitySelection - Search query diubah: $_searchQuery',
+                          );
                         });
                       },
                     ),
@@ -102,24 +122,49 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                 style: TextStyle(
                                   fontSize: 14,
                                   color:
-                                      (isFromCity ? homeController.fromCity.value : homeController.toCity.value) == city
+                                      (isFromCity
+                                                  ? homeController
+                                                      .fromCity
+                                                      .value
+                                                  : homeController
+                                                      .toCity
+                                                      .value) ==
+                                              city
                                           ? Colors.blue
                                           : Colors.black,
                                 ),
                               ),
                               trailing:
-                                  (isFromCity ? homeController.fromCity.value : homeController.toCity.value) == city
-                                      ? Icon(Icons.check, color: Colors.blue)
+                                  (isFromCity
+                                              ? homeController.fromCity.value
+                                              : homeController.toCity.value) ==
+                                          city
+                                      ? const Icon(
+                                        Icons.check,
+                                        color: Colors.blue,
+                                      )
                                       : null,
                               onTap: () {
+                                print(
+                                  'CitySwitcherState: _showCitySelection - Kota dipilih: $city, isFromCity: $isFromCity',
+                                );
                                 setState(() {
                                   if (isFromCity) {
                                     homeController.fromCity.value = city;
+                                    print(
+                                      'CitySwitcherState: _showCitySelection - Kota keberangkatan diubah menjadi: ${homeController.fromCity.value}',
+                                    );
                                   } else {
                                     homeController.toCity.value = city;
+                                    print(
+                                      'CitySwitcherState: _showCitySelection - Kota tujuan diubah menjadi: ${homeController.toCity.value}',
+                                    );
                                   }
                                 });
                                 Navigator.pop(context);
+                                print(
+                                  'CitySwitcherState: _showCitySelection - Bottom sheet ditutup',
+                                );
                               },
                             );
                           }).toList(),
@@ -136,11 +181,14 @@ class _CitySwitcherState extends State<CitySwitcher> {
 
   @override
   Widget build(BuildContext context) {
+    print(
+      'CitySwitcherState: build dijalankan - Dari: ${homeController.fromCity.value}, Ke: ${homeController.toCity.value}',
+    );
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 10, bottom: 10),
+          margin: const EdgeInsets.only(top: 10, bottom: 10),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey.shade300, width: 1),
             borderRadius: BorderRadius.circular(10),
@@ -152,8 +200,8 @@ class _CitySwitcherState extends State<CitySwitcher> {
                 children: [
                   Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.0),
                         child: Icon(
                           Icons.directions_boat_outlined,
                           size: 24,
@@ -162,24 +210,28 @@ class _CitySwitcherState extends State<CitySwitcher> {
                       ),
                       Expanded(
                         child: InkWell(
-                          onTap: () => _showCitySelection(context, true),
+                          onTap: () {
+                            print('CitySwitcherState: InkWell (Dari) ditekan');
+                            _showCitySelection(context, true);
+                          },
                           child: Padding(
                             padding: const EdgeInsets.only(left: 6, right: 50),
                             child: InputDecorator(
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Dari',
                                 border: InputBorder.none,
                               ),
-                              child: Text(
-                                homeController.fromCity.value,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
+                              child: Obx(
+                                () => Text(
+                                  homeController.fromCity.value,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
                                 ),
-                                overflow:
-                                    TextOverflow.ellipsis, // Tambahkan ini
-                                maxLines: 1, // Pastikan hanya satu baris
                               ),
                             ),
                           ),
@@ -190,8 +242,8 @@ class _CitySwitcherState extends State<CitySwitcher> {
                   Divider(color: Colors.grey.shade300, thickness: 1, height: 1),
                   Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.0),
                         child: Icon(
                           Icons.directions_boat_outlined,
                           size: 24,
@@ -200,24 +252,28 @@ class _CitySwitcherState extends State<CitySwitcher> {
                       ),
                       Expanded(
                         child: InkWell(
-                          onTap: () => _showCitySelection(context, false),
+                          onTap: () {
+                            print('CitySwitcherState: InkWell (Ke) ditekan');
+                            _showCitySelection(context, false);
+                          },
                           child: Padding(
                             padding: const EdgeInsets.only(left: 6, right: 50),
                             child: InputDecorator(
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Ke',
                                 border: InputBorder.none,
                               ),
-                              child: Text(
-                                homeController.toCity.value,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
+                              child: Obx(
+                                () => Text(
+                                  homeController.toCity.value,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
                                 ),
-                                overflow:
-                                    TextOverflow.ellipsis, // Tambahkan ini
-                                maxLines: 1, // Pastikan hanya satu baris
                               ),
                             ),
                           ),
@@ -234,11 +290,11 @@ class _CitySwitcherState extends State<CitySwitcher> {
                   width: 44,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(44)),
+                    borderRadius: const BorderRadius.all(Radius.circular(44)),
                     border: Border.all(color: Colors.grey.shade300),
                   ),
                   child: IconButton(
-                    icon: Icon(Icons.swap_vert, color: Colors.black),
+                    icon: const Icon(Icons.swap_vert, color: Colors.black),
                     iconSize: 22,
                     onPressed: swapCities,
                   ),

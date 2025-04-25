@@ -53,7 +53,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
         child: Form(
           child: Column(
             children: <Widget>[
-              CitySwitcher(),
+              const CitySwitcher(),
               DatePickerWidget(
                 initialDate: _selectedDepartureDate,
                 labelText: "Tangal Pergi",
