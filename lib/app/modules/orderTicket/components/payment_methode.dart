@@ -7,229 +7,251 @@ class PaymentMethodeDropdown extends StatelessWidget {
 
   PaymentMethodeDropdown({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.only(bottom: 16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.grey.shade300),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blueAccent.withOpacity(0.3), // Shadow biru
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
+  void _showPaymentMethods(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Judul
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-            child: const Text(
-              'Pilih Metode Pembayaran',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+      builder: (BuildContext bc) {
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeOut,
+          height: 800,
+          padding: const EdgeInsets.all(16),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+          ),
+          child: SingleChildScrollView(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: 8),
+                  const Text(
+                    'Pilih Metode Pembayaran',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const Divider(color: Colors.grey),
+                  _buildPaymentCategory(
+                    title: 'Virtual Account',
+                    methods: controller.virtualAccMethod,
+                    selectedMethod: controller.selectedVirtualAccMethod.value,
+                    onSelect: controller.selectVirtualAccMethod,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildPaymentCategory(
+                    title: 'E-Wallet',
+                    methods: controller.eWalletMethod,
+                    selectedMethod: controller.selectedEWalletMethod.value,
+                    onSelect: controller.selectEWalletMethod,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildPaymentCategory(
+                    title: 'Credit Card',
+                    methods: controller.creditCardMethod,
+                    selectedMethod: controller.selectedCreditCardMethod.value,
+                    onSelect: controller.selectCreditCardMethod,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildPaymentCategory(
+                    title: 'QRIS',
+                    methods: controller.qrisMethod,
+                    selectedMethod: controller.selectedQrisMethod.value,
+                    onSelect: controller.selectQrisMethod,
+                  ),
+                  const SizedBox(height: 24),
+                ],
               ),
             ),
           ),
-
-          // Virtual Account
-          Obx(
-            () => GestureDetector(
-              onTap: controller.toggleVirtualAccDropdown,
-              child: _buildDropdownTile(
-                title:
-                    controller.selectedVirtualAccMethod.value ??
-                    'Virtual Account',
-                isSelected: controller.selectedVirtualAccMethod.value != null,
-                isExpanded: controller.isExpandedVirtualAcc.value,
-              ),
-            ),
-          ),
-          Obx(
-            () => _buildDropdownList(
-              isVisible: controller.isExpandedVirtualAcc.value,
-              items: controller.virtualAccMethod,
-              selectedItem: controller.selectedVirtualAccMethod.value,
-              onSelect: controller.selectVirtualAccMethod,
-            ),
-          ),
-          _buildDivider(),
-
-          // E-Wallet
-          Obx(
-            () => GestureDetector(
-              onTap: controller.toggleEWalletDropdown,
-              child: _buildDropdownTile(
-                title: controller.selectedEWalletMethod.value ?? 'E-Wallet',
-                isSelected: controller.selectedEWalletMethod.value != null,
-                isExpanded: controller.isExpandedEWallet.value,
-              ),
-            ),
-          ),
-          Obx(
-            () => _buildDropdownList(
-              isVisible: controller.isExpandedEWallet.value,
-              items: controller.eWalletMethod,
-              selectedItem: controller.selectedEWalletMethod.value,
-              onSelect: controller.selectEWalletMethod,
-            ),
-          ),
-          _buildDivider(),
-
-          // Credit Card
-          Obx(
-            () => GestureDetector(
-              onTap: controller.toggleCreditCardDropdown,
-              child: _buildDropdownTile(
-                title:
-                    controller.selectedCreditCardMethod.value ?? 'Credit Card',
-                isSelected: controller.selectedCreditCardMethod.value != null,
-                isExpanded: controller.isExpandedCreditCard.value,
-              ),
-            ),
-          ),
-          Obx(
-            () => _buildDropdownList(
-              isVisible: controller.isExpandedCreditCard.value,
-              items: controller.creditCardMethod,
-              selectedItem: controller.selectedCreditCardMethod.value,
-              onSelect: controller.selectCreditCardMethod,
-            ),
-          ),
-          _buildDivider(),
-
-          // QRIS
-          Obx(
-            () => GestureDetector(
-              onTap: controller.toggleQrisDropdown,
-              child: _buildDropdownTile(
-                title: controller.selectedQrisMethod.value ?? 'QRIS',
-                isSelected: controller.selectedQrisMethod.value != null,
-                isExpanded: controller.isExpandedQris.value,
-              ),
-            ),
-          ),
-          Obx(
-            () => _buildDropdownList(
-              isVisible: controller.isExpandedQris.value,
-              items: controller.qrisMethod,
-              selectedItem: controller.selectedQrisMethod.value,
-              onSelect: controller.selectQrisMethod,
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildDropdownTile({
+  Widget _buildPaymentCategory({
     required String title,
-    required bool isSelected,
-    required bool isExpanded,
-  }) {
-    final OrderTicketController controller = Get.find<OrderTicketController>();
-    String? imagePath;
-
-    // Tentukan imagePath jika ada metode yang dipilih
-    if (isSelected) {
-      imagePath = controller.getImagePathForMethod(title);
-    }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
-        children: [
-          if (isSelected &&
-              imagePath != null) // Tampilkan gambar jika ada yang dipilih
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0),
-              child: Image.asset(
-                imagePath,
-                width: 36,
-                height: 36,
-                errorBuilder: (context, error, stackTrace) {
-                  return const SizedBox(width: 36, height: 36);
-                },
-              ),
-            ),
-          Expanded(
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: isSelected ? Colors.blue : Colors.black87,
-              ),
-            ),
-          ),
-          Icon(
-            isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-            color: Colors.blue,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDropdownList({
-    required bool isVisible,
-    required List<String> items,
-    required String? selectedItem,
+    required List<String> methods,
+    required String? selectedMethod,
     required Function(String) onSelect,
   }) {
-    final OrderTicketController controller = Get.find<OrderTicketController>();
-    return Visibility(
-      visible: isVisible,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 8),
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.black87,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Column(
           children:
-              items.map((method) {
+              methods.map((method) {
                 String imagePath = controller.getImagePathForMethod(method);
-
                 return InkWell(
-                  onTap: () => onSelect(method),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          imagePath,
-                          width: 36,
-                          height: 36,
-                          errorBuilder: (context, error, StackTrace) {
-                            return const SizedBox(width: 36, height: 36);
-                          },
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(child: Text(method)),
-                        if (selectedItem == method)
-                          const Icon(Icons.check, color: Colors.green),
-                      ],
+                  onTap: () {
+                    onSelect(method); // Panggil fungsi onSelect dari luar
+                    Navigator.pop(
+                      Get.context!,
+                    ); // Tutup bottom sheet setelah memilih
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.grey.shade300),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            imagePath,
+                            width: 36,
+                            height: 36,
+                            errorBuilder: (context, error, StackTrace) {
+                              return const SizedBox(width: 36, height: 36);
+                            },
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Text(
+                              method,
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                          Obx(
+                            () => // Bungkus dengan Obx untuk memantau selectedItem
+                                controller.selectedVirtualAccMethod.value ==
+                                            method ||
+                                        controller
+                                                .selectedEWalletMethod
+                                                .value ==
+                                            method ||
+                                        controller
+                                                .selectedCreditCardMethod
+                                                .value ==
+                                            method ||
+                                        controller.selectedQrisMethod.value ==
+                                            method
+                                    ? const Icon(
+                                      Icons.navigate_next_rounded,
+                                      color: Colors.blue,
+                                    )
+                                    : const SizedBox.shrink(),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
               }).toList(),
         ),
-      ),
+      ],
     );
   }
 
-  Widget _buildDivider() {
-    return const Divider(
-      thickness: 1,
-      height: 0,
-      color: Colors.grey,
-      indent: 16,
-      endIndent: 16,
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _showPaymentMethods(context),
+      child: Container(
+        margin: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.grey.shade300),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blueAccent.withOpacity(0.3),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Obx(() {
+              String? selectedMethod;
+              if (controller.selectedVirtualAccMethod.value != null) {
+                selectedMethod = controller.selectedVirtualAccMethod.value;
+              } else if (controller.selectedEWalletMethod.value != null) {
+                selectedMethod = controller.selectedEWalletMethod.value;
+              } else if (controller.selectedCreditCardMethod.value != null) {
+                selectedMethod = controller.selectedCreditCardMethod.value;
+              } else if (controller.selectedQrisMethod.value != null) {
+                selectedMethod = controller.selectedQrisMethod.value;
+              }
+
+              if (selectedMethod != null) {
+                String imagePath = controller.getImagePathForMethod(
+                  selectedMethod,
+                );
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Image.asset(
+                    imagePath,
+                    width: 36,
+                    height: 36,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const SizedBox(width: 36, height: 36);
+                    },
+                  ),
+                );
+              } else {
+                return const Padding(
+                  padding: EdgeInsets.only(right: 16.0),
+                  child: Icon(Icons.credit_card, color: Colors.blueAccent),
+                );
+              }
+            }),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Obx(() {
+                String selectedMethod = '';
+                if (controller.selectedVirtualAccMethod.value != null) {
+                  selectedMethod = controller.selectedVirtualAccMethod.value!;
+                } else if (controller.selectedEWalletMethod.value != null) {
+                  selectedMethod = controller.selectedEWalletMethod.value!;
+                } else if (controller.selectedCreditCardMethod.value != null) {
+                  selectedMethod = controller.selectedCreditCardMethod.value!;
+                } else if (controller.selectedQrisMethod.value != null) {
+                  selectedMethod = controller.selectedQrisMethod.value!;
+                } else {
+                  selectedMethod = 'Pilih Metode Pembayaran';
+                }
+                return Text(
+                  selectedMethod,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color:
+                        selectedMethod == 'Pilih Metode Pembayaran'
+                            ? Colors.grey
+                            : Colors.black87,
+                  ),
+                );
+              }),
+            ),
+            const Icon(Icons.arrow_drop_down, color: Colors.grey),
+          ],
+        ),
+      ),
     );
   }
 }

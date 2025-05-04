@@ -172,7 +172,7 @@ class OrderTicketController extends GetxController {
     } else if (method.contains('American Express')) {
       return 'assets/img/amex.png';
     } else if (method.contains('QRIS')) {
-      return 'assets/images/qris.png';
+      return 'assets/img/qris-logo.png';
     }
     return 'assets/images/default.png'; // Default return statement
   }
