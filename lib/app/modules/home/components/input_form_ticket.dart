@@ -53,28 +53,41 @@ class _InputFormTicketState extends State<InputFormTicket> {
           child: Column(
             children: <Widget>[
               const CitySwitcher(),
-              DatePickerWidget(
-                initialDate: _selectedDepartureDate,
-                labelText: "Tangal Pergi",
-                onDateSelected: (DateTime newDate) {
-                  setState(() {
-                    _selectedDepartureDate = newDate;
-                    print("Tanggal Pergi dipilih: $_selectedDepartureDate");
-                  });
-                },
-              ),
-              RoundTripSwitch(
-                isRoundTrip: _isRoundTrip,
-                onChanged: (bool value) {
-                  setState(() {
-                    _isRoundTrip = value;
-                    if (value) {
-                      _selectedReturnDate = _selectedDepartureDate;
-                    } else {
-                      _selectedReturnDate = null;
-                    }
-                  });
-                },
+              Row(
+                children: [
+                  Flexible(
+                    flex: 4,
+                    child: DatePickerWidget(
+                      initialDate: _selectedDepartureDate,
+                      labelText: "Tangal Pergi",
+                      onDateSelected: (DateTime newDate) {
+                        setState(() {
+                          _selectedDepartureDate = newDate;
+                          print(
+                            "Tanggal Pergi dipilih: $_selectedDepartureDate",
+                          );
+                        });
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  Flexible(
+                    flex: 1,
+                    child: RoundTripSwitch(
+                      isRoundTrip: _isRoundTrip,
+                      onChanged: (bool value) {
+                        setState(() {
+                          _isRoundTrip = value;
+                          if (value) {
+                            _selectedReturnDate = _selectedDepartureDate;
+                          } else {
+                            _selectedReturnDate = null;
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
               // tanggal pulang muncul jika value pulang pergi terisi
               if (_isRoundTrip)

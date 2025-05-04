@@ -13,26 +13,26 @@ class RoundTripSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
           'Pulang Pergi',
           style: TextStyle(
-            color: Colors.red.shade500,
-            fontSize: 10,
+            color: const Color.fromARGB(255, 0, 0, 0),
+            fontSize: 8,
             fontWeight: FontWeight.w600,
             fontStyle: FontStyle.italic,
           ),
         ),
         const SizedBox(width: 3),
         SizedBox(
-          height: 38,
+          height: 32,
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Switch(
               value: isRoundTrip,
-              activeColor: const Color.fromARGB(255, 7, 44, 131),
+              activeColor: const Color.fromARGB(255, 0, 0, 0),
               inactiveTrackColor: Colors.white,
               focusColor: Colors.blue.shade900,
               onChanged: onChanged,
