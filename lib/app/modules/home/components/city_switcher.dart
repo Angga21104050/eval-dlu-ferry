@@ -73,101 +73,152 @@ class _CitySwitcherState extends State<CitySwitcher> {
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 8),
                   Text(
                     isFromCity
                         ? "Pilih Kota Keberangkatan"
                         : "Pilih Kota Tujuan",
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Divider(color: Colors.blue),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 8,
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Cari Pelabuhan...',
-                        prefixIcon: const Icon(Icons.search_outlined),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.blue,
+                          size: 32,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                          borderSide: const BorderSide(color: Colors.blue),
-                        ),
-                      ),
-                      onChanged: (value) {
-                        setModal(() {
-                          _searchQuery = value;
+                        onPressed: () {
+                          Navigator.pop(context);
                           print(
-                            'CitySwitcherState: _showCitySelection - Search query diubah: $_searchQuery',
+                            'CitySwitcherState: _showCitySelection - Tombol Back ditekan, bottom sheet ditutup',
                           );
-                        });
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: ListView(
-                      shrinkWrap: true,
-                      children:
-                          filteredCities.map((String city) {
-                            return ListTile(
-                              title: Text(
-                                city,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color:
-                                      (isFromCity
-                                                  ? homeController
-                                                      .fromCity
-                                                      .value
-                                                  : homeController
-                                                      .toCity
-                                                      .value) ==
-                                              city
-                                          ? Colors.blue
-                                          : Colors.black,
+                        },
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 8,
+                          ),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Cari Pelabuhan...',
+                              prefixIcon: const Icon(Icons.search_outlined),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                borderSide: const BorderSide(
+                                  color: Colors.blue,
                                 ),
                               ),
-                              trailing:
-                                  (isFromCity
-                                              ? homeController.fromCity.value
-                                              : homeController.toCity.value) ==
-                                          city
-                                      ? const Icon(
-                                        Icons.check,
-                                        color: Colors.blue,
-                                      )
-                                      : null,
-                              onTap: () {
+                            ),
+                            onChanged: (value) {
+                              setModal(() {
+                                _searchQuery = value;
                                 print(
-                                  'CitySwitcherState: _showCitySelection - Kota dipilih: $city, isFromCity: $isFromCity',
+                                  'CitySwitcherState: _showCitySelection - Search query diubah: $_searchQuery',
                                 );
-                                setState(() {
-                                  if (isFromCity) {
-                                    homeController.fromCity.value = city;
-                                    print(
-                                      'CitySwitcherState: _showCitySelection - Kota keberangkatan diubah menjadi: ${homeController.fromCity.value}',
-                                    );
-                                  } else {
-                                    homeController.toCity.value = city;
-                                    print(
-                                      'CitySwitcherState: _showCitySelection - Kota tujuan diubah menjadi: ${homeController.toCity.value}',
-                                    );
-                                  }
-                                });
-                                Navigator.pop(context);
-                                print(
-                                  'CitySwitcherState: _showCitySelection - Bottom sheet ditutup',
-                                );
-                              },
-                            );
-                          }).toList(),
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.grey.shade300,
+                        ), // Warna latar belakang card
+                        borderRadius: BorderRadius.circular(
+                          20,
+                        ), // Membuat sudut melengkung
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(
+                              0.3,
+                            ), // Warna shadow lebih samar
+                            spreadRadius: 1, // Penyebaran shadow lebih kecil
+                            blurRadius: 3, // Keburaman shadow lebih halus
+                            offset: Offset(
+                              0,
+                              2,
+                            ), // Offset shadow sedikit ke bawah
+                          ),
+                        ],
+                      ),
+                      child: ListView(
+                        shrinkWrap: true,
+                        children:
+                            filteredCities.map((String city) {
+                              return ListTile(
+                                title: Text(
+                                  city,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color:
+                                        (isFromCity
+                                                    ? homeController
+                                                        .fromCity
+                                                        .value
+                                                    : homeController
+                                                        .toCity
+                                                        .value) ==
+                                                city
+                                            ? Colors.blue
+                                            : Colors.black,
+                                  ),
+                                ),
+                                trailing:
+                                    (isFromCity
+                                                ? homeController.fromCity.value
+                                                : homeController
+                                                    .toCity
+                                                    .value) ==
+                                            city
+                                        ? const Icon(
+                                          Icons.check,
+                                          color: Colors.blue,
+                                        )
+                                        : null,
+                                onTap: () {
+                                  print(
+                                    'CitySwitcherState: _showCitySelection - Kota dipilih: $city, isFromCity: $isFromCity',
+                                  );
+                                  setState(() {
+                                    if (isFromCity) {
+                                      homeController.fromCity.value = city;
+                                      print(
+                                        'CitySwitcherState: _showCitySelection - Kota keberangkatan diubah menjadi: ${homeController.fromCity.value}',
+                                      );
+                                    } else {
+                                      homeController.toCity.value = city;
+                                      print(
+                                        'CitySwitcherState: _showCitySelection - Kota tujuan diubah menjadi: ${homeController.toCity.value}',
+                                      );
+                                    }
+                                  });
+                                  Navigator.pop(context);
+                                  print(
+                                    'CitySwitcherState: _showCitySelection - Bottom sheet ditutup',
+                                  );
+                                },
+                              );
+                            }).toList(),
+                      ),
                     ),
                   ),
                 ],

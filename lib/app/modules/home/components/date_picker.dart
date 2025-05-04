@@ -105,12 +105,13 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 8),
               Text(
                 widget.labelText,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              Divider(color: Colors.blue),
               Expanded(
                 child: TableCalendar(
                   focusedDay: _selectedDate,

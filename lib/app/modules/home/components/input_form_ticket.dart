@@ -59,7 +59,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
                     flex: 4,
                     child: DatePickerWidget(
                       initialDate: _selectedDepartureDate,
-                      labelText: "Tangal Pergi",
+                      labelText: "Pilih Tangal Pergi",
                       onDateSelected: (DateTime newDate) {
                         setState(() {
                           _selectedDepartureDate = newDate;
@@ -93,7 +93,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
               if (_isRoundTrip)
                 DatePickerWidget(
                   initialDate: _selectedReturnDate ?? _selectedDepartureDate,
-                  labelText: "Tanggal Pulang",
+                  labelText: "Pilih Tanggal Pulang",
                   onDateSelected: (DateTime newDate) {
                     setState(() {
                       _selectedReturnDate = newDate;
