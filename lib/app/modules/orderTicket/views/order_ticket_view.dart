@@ -1,3 +1,4 @@
+import 'package:dlu_project/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/order_ticket_controller.dart';
@@ -567,18 +568,18 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           onPressed: () {
                             if (controller.selectedVirtualAccMethod.value !=
                                 null) {
-                              Get.toNamed('/payment');
+                              Get.toNamed(Routes.PAYMENT, arguments: cart);
                             } else if (controller.selectedEWalletMethod.value !=
                                 null) {
-                              Get.toNamed('/payment');
+                              Get.toNamed(Routes.PAYMENT, arguments: cart);
                             } else if (controller
                                     .selectedCreditCardMethod
                                     .value !=
                                 null) {
-                              Get.toNamed('/payment');
+                              Get.toNamed(Routes.PAYMENT, arguments: cart);
                             } else if (controller.selectedQrisMethod.value !=
                                 null) {
-                              Get.toNamed('/payment');
+                              Get.toNamed(Routes.PAYMENT, arguments: cart);
                             } else {
                               Get.snackbar(
                                 'Peringatan',
