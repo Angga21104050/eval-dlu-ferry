@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../orderTicket/controllers/order_ticket_controller.dart';
 import '../components/payment_timer.dart';
+import 'payment_timeout_warning.dart';
 
 class VirtualAccountPaymentSection extends StatefulWidget {
   final OrderTicketController controller;
@@ -35,42 +36,21 @@ class _VirtualAccountPaymentSectionState
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
-                color: const Color(0x330064D2),
-                blurRadius: 12,
-                offset: const Offset(0, 6),
+                color: Colors.black.withOpacity(
+                  0.1,
+                ), // Warna shadow dengan sedikit transparansi
+                blurRadius: 6, // Tingkat keburaman shadow
+                offset: const Offset(
+                  0,
+                  2,
+                ), // Offset shadow (horizontal, vertical)
               ),
             ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                padding: const EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: const Color.fromARGB(255, 158, 37, 29),
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.red.shade100,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.asset('assets/img/timer.png'),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        'Selesaikan pembayaran anda sebelum waktu habis',
-                        style: const TextStyle(
-                          color: Color.fromARGB(255, 158, 37, 29),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const PaymentTimeoutWarning(),
               Row(
                 children: [
                   Image.asset(
@@ -119,7 +99,7 @@ class _VirtualAccountPaymentSectionState
                   const Divider(color: Colors.grey, thickness: 0.5),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 padding: const EdgeInsets.all(16),
@@ -164,7 +144,6 @@ class _VirtualAccountPaymentSectionState
                             );
                           }).toList(),
                     ),
-                    const SizedBox(height: 8),
                     const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

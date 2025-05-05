@@ -171,16 +171,21 @@ class PaymentMethodeDropdown extends StatelessWidget {
       onTap: () => _showPaymentMethods(context),
       child: Container(
         margin: const EdgeInsets.all(16),
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.grey.shade300),
           boxShadow: [
             BoxShadow(
-              color: Colors.blueAccent.withOpacity(0.3),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
+              color: Colors.black.withOpacity(
+                0.1,
+              ), // Warna shadow dengan sedikit transparansi
+              blurRadius: 6, // Tingkat keburaman shadow
+              offset: const Offset(
+                0,
+                2,
+              ), // Offset shadow (horizontal, vertical)
             ),
           ],
         ),
@@ -206,8 +211,8 @@ class PaymentMethodeDropdown extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Image.asset(
                     imagePath,
-                    width: 36,
-                    height: 36,
+                    width: 26,
+                    height: 26,
                     errorBuilder: (context, error, stackTrace) {
                       return const SizedBox(width: 36, height: 36);
                     },

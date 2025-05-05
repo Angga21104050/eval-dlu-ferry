@@ -83,6 +83,7 @@ class PaymentView extends GetView<PaymentController> {
                     child: EWalletPaymentSection(
                       // Gunakan widget yang diimpor
                       controller: orderTicketController,
+                      cart: cart,
                     ),
                   ),
                 ),
@@ -93,6 +94,7 @@ class PaymentView extends GetView<PaymentController> {
                         null,
                     child: CreditCardPaymentSection(
                       controller: orderTicketController,
+                      cart: cart,
                     ),
                   ),
                 ),
@@ -102,6 +104,7 @@ class PaymentView extends GetView<PaymentController> {
                         orderTicketController.selectedQrisMethod.value != null,
                     child: QrisPaymentSection(
                       controller: orderTicketController,
+                      cart: cart,
                     ),
                   ),
                 ),
