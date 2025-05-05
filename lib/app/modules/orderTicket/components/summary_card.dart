@@ -5,6 +5,8 @@ class OrderSummaryCard extends StatelessWidget {
   final String ferryName;
   final String departureTime;
   final String arrivalTime;
+  final String departurePort;
+  final String arrivalPort;
   final String duration;
   final String date;
   final List<Map<String, dynamic>> cart;
@@ -17,6 +19,8 @@ class OrderSummaryCard extends StatelessWidget {
     required this.duration,
     required this.date,
     required this.cart,
+    required this.departurePort,
+    required this.arrivalPort,
   });
 
   @override
@@ -33,10 +37,11 @@ class OrderSummaryCard extends StatelessWidget {
         border: Border.all(color: Colors.grey.shade300),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF0064D2).withOpacity(0.2),
-            blurRadius: 12,
-            spreadRadius: 1,
-            offset: const Offset(0, 4),
+            color: Colors.black.withOpacity(
+              0.1,
+            ), // Warna shadow dengan sedikit transparansi
+            blurRadius: 6, // Tingkat keburaman shadow
+            offset: const Offset(0, 2), // Offset shadow (horizontal, vertical)
           ),
         ],
       ),
@@ -122,22 +127,64 @@ class OrderSummaryCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      duration,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey.shade600,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            departurePort,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                        ),
+                        Text(
+                          '→',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        SizedBox(width: 4),
+                        Expanded(
+                          child: Text(
+                            arrivalPort,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 4),
-                    Text(
-                      date,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade500,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          date,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                        Text(
+                          duration,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey.shade500,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

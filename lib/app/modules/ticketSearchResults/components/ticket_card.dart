@@ -33,6 +33,8 @@ class _TicketCardState extends State<TicketCard> {
           'ferryName': widget.ticket['ferryName'] as String? ?? '',
           'departureTime': widget.ticket['departureTime'] as String? ?? '',
           'arrivalTime': widget.ticket['arrivalTime'] as String? ?? '',
+          'departurePort': widget.ticket['departurePort'] as String? ?? '',
+          'arrivalPort': widget.ticket['arrivalPort'] as String? ?? '',
           'duration': widget.ticket['duration'] as String? ?? '',
           'date':
               formattedDate, // Simpan tanggal yang sudah diformat sebagai String

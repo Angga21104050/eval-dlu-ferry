@@ -20,6 +20,10 @@ class OrderTicketView extends GetView<OrderTicketController> {
         cart.isNotEmpty ? cart.first['departureTime'] : 'Waktu Berangkat';
     String arrivalTime =
         cart.isNotEmpty ? cart.first['arrivalTime'] : 'Waktu Tiba';
+    String departurePort =
+        cart.isNotEmpty ? cart.first['departurePort'] : 'Pelabuhan Berangkat';
+    String arrivalPort =
+        cart.isNotEmpty ? cart.first['arrivalPort'] : 'Pelabuhan Tujuan';
     String duration = cart.isNotEmpty ? cart.first['duration'] : 'Durasi';
     String date = cart.isNotEmpty ? cart.first['date'] : 'Tanggal';
 
@@ -82,6 +86,8 @@ class OrderTicketView extends GetView<OrderTicketController> {
                 duration: duration,
                 date: date,
                 cart: cart,
+                departurePort: departurePort,
+                arrivalPort: arrivalPort,
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -98,11 +104,14 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           border: Border.all(color: Colors.grey.shade300),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.blueAccent.withOpacity(
-                                0.3,
-                              ), // Shadow biru
-                              blurRadius: 10,
-                              offset: const Offset(0, 4),
+                              color: Colors.black.withOpacity(
+                                0.1,
+                              ), // Warna shadow dengan sedikit transparansi
+                              blurRadius: 6, // Tingkat keburaman shadow
+                              offset: const Offset(
+                                0,
+                                2,
+                              ), // Offset shadow (horizontal, vertical)
                             ),
                           ],
                         ),
@@ -159,11 +168,14 @@ class OrderTicketView extends GetView<OrderTicketController> {
                             border: Border.all(color: Colors.grey.shade300),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.blueAccent.withOpacity(
-                                  0.3,
-                                ), // Shadow biru
-                                blurRadius: 10,
-                                offset: const Offset(0, 4),
+                                color: Colors.black.withOpacity(
+                                  0.1,
+                                ), // Warna shadow dengan sedikit transparansi
+                                blurRadius: 6, // Tingkat keburaman shadow
+                                offset: const Offset(
+                                  0,
+                                  2,
+                                ), // Offset shadow (horizontal, vertical)
                               ),
                             ],
                           ),
@@ -294,11 +306,14 @@ class OrderTicketView extends GetView<OrderTicketController> {
                             border: Border.all(color: Colors.grey.shade300),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.blueAccent.withOpacity(
-                                  0.3,
-                                ), // Shadow biru
-                                blurRadius: 10,
-                                offset: const Offset(0, 4),
+                                color: Colors.black.withOpacity(
+                                  0.1,
+                                ), // Warna shadow dengan sedikit transparansi
+                                blurRadius: 6, // Tingkat keburaman shadow
+                                offset: const Offset(
+                                  0,
+                                  2,
+                                ), // Offset shadow (horizontal, vertical)
                               ),
                             ],
                           ),
@@ -432,11 +447,14 @@ class OrderTicketView extends GetView<OrderTicketController> {
                             border: Border.all(color: Colors.grey.shade300),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.blueAccent.withOpacity(
-                                  0.3,
-                                ), // Shadow biru
-                                blurRadius: 10,
-                                offset: const Offset(0, 4),
+                                color: Colors.black.withOpacity(
+                                  0.1,
+                                ), // Warna shadow dengan sedikit transparansi
+                                blurRadius: 6, // Tingkat keburaman shadow
+                                offset: const Offset(
+                                  0,
+                                  2,
+                                ), // Offset shadow (horizontal, vertical)
                               ),
                             ],
                           ),
