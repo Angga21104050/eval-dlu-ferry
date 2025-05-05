@@ -17,12 +17,15 @@ class CartWidget extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.grey.shade300),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
+            color: Colors.black.withOpacity(
+              0.1,
+            ), // Warna shadow dengan sedikit transparansi
+            blurRadius: 6, // Tingkat keburaman shadow
+            offset: const Offset(0, 2), // Offset shadow (horizontal, vertical)
           ),
         ],
       ),
@@ -65,28 +68,25 @@ class CartWidget extends StatelessWidget {
             );
           }).toList(),
           const SizedBox(height: 16), // Spasi sebelum tombol
-          Align(
-            alignment: Alignment.centerRight,
+          SizedBox(
+            width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
                 Get.toNamed(Routes.ORDER_TICKET, arguments: cart);
               },
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 8,
-                ),
-                backgroundColor: const Color(0xFF004AAD), // Biru modern
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                backgroundColor: const Color(0xFF0064D2),
                 foregroundColor: Colors.white,
                 elevation: 3,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 shadowColor: Colors.blue.withOpacity(0.2),
               ),
               child: const Text(
                 'Pesan',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),

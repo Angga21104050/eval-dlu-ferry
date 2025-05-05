@@ -36,10 +36,7 @@ class _TicketCardState extends State<TicketCard> {
           'departurePort': widget.ticket['departurePort'] as String? ?? '',
           'arrivalPort': widget.ticket['arrivalPort'] as String? ?? '',
           'duration': widget.ticket['duration'] as String? ?? '',
-          'date':
-              formattedDate, // Simpan tanggal yang sudah diformat sebagai String
-          // Tambahkan detail lain dari widget.ticket jika diperlukan
-          // Tambahkan detail lain dari widget.ticket jika diperlukan
+          'date': formattedDate,
         };
         if (index != -1) {
           cart[index] = cartItem;
@@ -60,13 +57,21 @@ class _TicketCardState extends State<TicketCard> {
         FocusScope.of(context).unfocus();
       },
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: Colors.grey.shade300),
+        ),
         color: Colors.white,
         elevation: 6,
-        shadowColor: Colors.blueAccent.withOpacity(0.2),
+        shadowColor: Colors.black.withOpacity(0.2),
         margin: const EdgeInsets.only(bottom: 16),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(
+            top: 8.0,
+            bottom: 8.0,
+            left: 10,
+            right: 10,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -75,8 +80,8 @@ class _TicketCardState extends State<TicketCard> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: SizedBox(
-                      width: 150,
-                      height: 120, // Menetapkan tinggi pembungkus
+                      width: 110,
+                      height: 90,
                       child: Image.network(
                         widget.ticket['imageUrl'],
                         width: double.infinity,
@@ -103,92 +108,112 @@ class _TicketCardState extends State<TicketCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          widget.ticket['ferryName'],
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              widget.ticket['ferryName'],
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              widget.ticket['departureDate'] != null
+                                  ? DateFormat('EEEE, dd MMMM').format(
+                                    widget.ticket['departureDate'] as DateTime,
+                                  )
+                                  : 'Tanggal Tidak Tersedia',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 4),
+                        const SizedBox(height: 2),
                         Text(
                           '${widget.ticket['departurePort']} → ${widget.ticket['arrivalPort']}',
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+
+                        Text(
+                          (widget.ticket['ticketType'] is List &&
+                                  widget.ticket['ticketType'].isNotEmpty)
+                              ? (widget.ticket['ticketType'] as List).join(
+                                ', ',
+                              ) // Gabungkan elemen List dengan koma dan spasi
+                              : '${widget.ticket['ticketType']}', // Jika bukan List atau kosong, tampilkan apa adanya
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
                             color: Colors.blue,
                           ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
-                        Text(
-                          '${widget.ticket['departureDate']})',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        Text(
-                          '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']} (${widget.ticket['duration']})',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        // Dropdown
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isExpanded = !isExpanded;
-                            });
-                          },
-                          child: SizedBox(
-                            width: double.infinity,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: Align(
-                                    alignment:
-                                        Alignment
-                                            .centerRight, // Menyelaraskan teks ke kanan
-                                    child: Text(
-                                      '${widget.ticket['ticketType']}',
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.blue,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 4),
-                                Expanded(
-                                  child: Align(
-                                    alignment:
-                                        Alignment
-                                            .centerRight, // Menyelaraskan teks ke kanan
-                                    child: Text(
-                                      'Pilih Tiket',
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.blue,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 4),
-                                Icon(
-                                  isExpanded
-                                      ? Icons.keyboard_arrow_up
-                                      : Icons.keyboard_arrow_down,
-                                  color: Colors.blue,
-                                  size: 24,
-                                ),
-                              ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']}',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.end,
                             ),
-                          ),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isExpanded = !isExpanded;
+                                  });
+                                },
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: Align(
+                                          alignment:
+                                              Alignment
+                                                  .centerRight, // Menyelaraskan teks ke kanan
+                                          child: Text(
+                                            'Pilih Tiket',
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.blue,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(width: 4),
+                                      Icon(
+                                        isExpanded
+                                            ? Icons.keyboard_arrow_up
+                                            : Icons.keyboard_arrow_down,
+                                        color: Colors.blue,
+                                        size: 24,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

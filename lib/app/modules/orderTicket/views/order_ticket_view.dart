@@ -100,8 +100,8 @@ class OrderTicketView extends GetView<OrderTicketController> {
                         ),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.grey.shade300),
+                          borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(
@@ -164,8 +164,8 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: Colors.grey.shade300),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(
@@ -220,7 +220,12 @@ class OrderTicketView extends GetView<OrderTicketController> {
                                                 ),
                                                 child: DropdownButtonHideUnderline(
                                                   child: DropdownButton<String>(
-                                                    onChanged: (newValue) {},
+                                                    value: 'KTP',
+                                                    onChanged: (newValue) {
+                                                      print(
+                                                        'Nilai dropdown berubah menjadi: $newValue',
+                                                      );
+                                                    },
                                                     items:
                                                         [
                                                           'KTP',
@@ -302,8 +307,8 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: Colors.grey.shade300),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(
@@ -356,6 +361,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                                                 ),
                                                 child: DropdownButtonHideUnderline(
                                                   child: DropdownButton<String>(
+                                                    value: 'Motor',
                                                     onChanged: (newValue) {},
                                                     items:
                                                         [
@@ -443,8 +449,8 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: Colors.grey.shade300),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(
@@ -499,6 +505,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                                                 ),
                                                 child: DropdownButtonHideUnderline(
                                                   child: DropdownButton<String>(
+                                                    value: 'KTP',
                                                     onChanged: (newValue) {},
                                                     items:
                                                         [

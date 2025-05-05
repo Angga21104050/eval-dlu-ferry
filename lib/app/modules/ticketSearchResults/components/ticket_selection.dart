@@ -62,13 +62,16 @@ class _TicketSelectionState extends State<TicketSelection> {
       margin: const EdgeInsets.only(top: 6),
       padding: const EdgeInsets.symmetric(vertical: 6),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(10),
         color: Colors.white,
+        border: Border.all(color: Colors.grey.shade300),
         boxShadow: [
           BoxShadow(
-            color: Colors.blueAccent.withOpacity(0.15),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
+            color: Colors.black.withOpacity(
+              0.1,
+            ), // Warna shadow dengan sedikit transparansi
+            blurRadius: 6, // Tingkat keburaman shadow
+            offset: const Offset(0, 2), // Offset shadow (horizontal, vertical)
           ),
         ],
       ),
