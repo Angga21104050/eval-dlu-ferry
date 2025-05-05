@@ -34,6 +34,7 @@ class _VirtualAccountPaymentSectionState
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.grey.shade300),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(
@@ -50,7 +51,10 @@ class _VirtualAccountPaymentSectionState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const PaymentTimeoutWarning(),
+              const Text(
+                'Pembayaran Virtual Account',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               Row(
                 children: [
                   Image.asset(
@@ -72,6 +76,7 @@ class _VirtualAccountPaymentSectionState
                   ),
                 ],
               ),
+              const PaymentTimeoutWarning(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -111,10 +116,10 @@ class _VirtualAccountPaymentSectionState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Rincian Tiket',
+                      'Detail Tiket',
                       style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -122,24 +127,65 @@ class _VirtualAccountPaymentSectionState
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:
                           widget.cart.map((item) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(right: 24.0),
-                                    child: Text(
-                                      '${item['class']} (${item['count']})',
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '${item['ferryName']}',
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    Text(
+                                      '${item['departureTime']} WIB - ${item['date']}',
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  '${item['departurePort']} → ${item['arrivalPort']}',
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey,
                                   ),
                                 ),
-                                const Text(
-                                  'Rp. 300.000',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ), // Teks dummy harga
+
+                                SizedBox(height: 8),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          right: 24.0,
+                                        ),
+                                        child: Text(
+                                          '${item['class']} (${item['count']})',
+                                        ),
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Rp. 300.000',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ), // Teks dummy harga
+                                  ],
+                                ),
                               ],
                             );
                           }).toList(),
@@ -167,10 +213,53 @@ class _VirtualAccountPaymentSectionState
                   ],
                 ),
               ),
+              Container(
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Detail Penumpang',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'AIRLANGGA MAULANA ANWAR',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
+                        ),
+                        Text(
+                          'NIK-330056235345',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
         Container(
+          margin: EdgeInsets.only(bottom: 16),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(color: Colors.grey.shade300),

@@ -26,6 +26,7 @@ class CreditCardPaymentSection extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.grey.shade300),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(
@@ -66,6 +67,21 @@ class CreditCardPaymentSection extends StatelessWidget {
                 ],
               ),
               const PaymentTimeoutWarning(),
+              const SizedBox(height: 4),
+              const Text(
+                'Detail Kartu Kredit:',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              const CustomTextFormField(label: 'Nomor Kartu'),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(child: CustomTextFormField(label: 'MM/YY')),
+                  const SizedBox(width: 16),
+                  Expanded(child: CustomTextFormField(label: 'CVV')),
+                ],
+              ),
               const SizedBox(height: 8),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
@@ -78,10 +94,10 @@ class CreditCardPaymentSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Rincian Tiket',
+                      'Detail Tiket',
                       style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -89,24 +105,65 @@ class CreditCardPaymentSection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:
                           cart.map((item) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(right: 24.0),
-                                    child: Text(
-                                      '${item['class']} (${item['count']})',
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '${item['ferryName']}',
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    Text(
+                                      '${item['departureTime']} WIB - ${item['date']}',
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  '${item['departurePort']} → ${item['arrivalPort']}',
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey,
                                   ),
                                 ),
-                                const Text(
-                                  'Rp. 300.000',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ), // Teks dummy harga
+
+                                SizedBox(height: 8),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          right: 24.0,
+                                        ),
+                                        child: Text(
+                                          '${item['class']} (${item['count']})',
+                                        ),
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Rp. 300.000',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ), // Teks dummy harga
+                                  ],
+                                ),
                               ],
                             );
                           }).toList(),
@@ -134,44 +191,47 @@ class CreditCardPaymentSection extends StatelessWidget {
                   ],
                 ),
               ),
-            ],
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(bottom: 16),
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(
-                  0.1,
-                ), // Warna shadow dengan sedikit transparansi
-                blurRadius: 6, // Tingkat keburaman shadow
-                offset: const Offset(
-                  0,
-                  2,
-                ), // Offset shadow (horizontal, vertical)
-              ),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Detail Kartu Kredit:',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              const CustomTextFormField(label: 'Nomor Kartu'),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Expanded(child: CustomTextFormField(label: 'MM/YY')),
-                  const SizedBox(width: 16),
-                  Expanded(child: CustomTextFormField(label: 'CVV')),
-                ],
+              Container(
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Detail Penumpang',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'AIRLANGGA MAULANA ANWAR',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
+                        ),
+                        Text(
+                          'NIK-330056235345',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

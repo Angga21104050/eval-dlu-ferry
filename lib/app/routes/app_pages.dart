@@ -40,7 +40,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.TRANSACTION_SUCC;
 
   static final routes = [
     GetPage(
