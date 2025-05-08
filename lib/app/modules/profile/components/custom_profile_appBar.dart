@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../widgets/appbar_action_buttons.dart';
@@ -8,7 +7,7 @@ class CustomProfileAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   final double height;
 
-  const CustomProfileAppBar({super.key, this.height = 200});
+  const CustomProfileAppBar({super.key, this.height = 250});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class CustomProfileAppBar extends StatelessWidget
                       const AppBarActionButtons(),
                     ],
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 70),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -63,33 +62,7 @@ class CustomProfileAppBar extends StatelessWidget
                         backgroundColor: Colors.white,
                         child: CircleAvatar(
                           radius: 28,
-                          backgroundImage:
-                              editController.savedProfileImage?.path != null &&
-                                      editController
-                                          .savedProfileImage!
-                                          .path
-                                          .isNotEmpty
-                                  ? FileImage(
-                                        File(
-                                          editController
-                                              .savedProfileImage!
-                                              .path,
-                                        ),
-                                      )
-                                      as ImageProvider
-                                  : null, // Set backgroundImage menjadi null jika path kosong
-                          child:
-                              editController.savedProfileImage?.path == null ||
-                                      editController
-                                          .savedProfileImage!
-                                          .path
-                                          .isEmpty
-                                  ? const Icon(
-                                    Icons.person,
-                                    size: 40,
-                                    color: Colors.grey,
-                                  )
-                                  : null, // Tampilkan Icon jika path kosong
+                          backgroundImage: AssetImage('assets/img/contoh.jpeg'),
                         ),
                       ),
                       const SizedBox(width: 12), // Jarak antar elemen
@@ -99,32 +72,26 @@ class CustomProfileAppBar extends StatelessWidget
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Obx(
-                              () => Text(
-                                editController.profileName.value,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            Text(
+                              'anggaaa',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Obx(
-                              () => Text(
-                                editController.profileEmail.value,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                ),
+                            Text(
+                              'airlangga@example.com',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
                               ),
                             ),
-                            Obx(
-                              () => Text(
-                                editController.profilePhone.value,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                ),
+                            Text(
+                              '085423532234',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
                               ),
                             ),
                           ],

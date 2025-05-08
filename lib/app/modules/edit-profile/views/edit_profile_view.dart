@@ -10,7 +10,7 @@ class EditProfileView extends GetView<EditProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(170),
+        preferredSize: const Size.fromHeight(150),
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -28,47 +28,43 @@ class EditProfileView extends GetView<EditProfileController> {
               ),
             ),
             Positioned(
-              bottom: -60,
+              bottom: -40,
               left: 0,
               right: 0,
-              child: Column(
-                children: [
-                  Obx(() {
-                    final File? image = controller.profileImage;
-                    return CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        radius: 58,
-                        backgroundImage:
-                            image != null
-                                ? FileImage(image) as ImageProvider
-                                : const AssetImage('assets/img/contoh.jpeg'),
-                      ),
-                    );
-                  }),
-                  const SizedBox(height: 8),
-                  GestureDetector(
-                    onTap: () {
-                      controller.pickImage();
-                    },
-                    child: Text(
-                      "Ganti Foto",
-                      style: TextStyle(
-                        color: Colors.blue.shade800,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                ],
+              child: CircleAvatar(
+                radius: 60,
+                backgroundColor: Colors.white,
+                child: CircleAvatar(
+                  radius: 58,
+                  backgroundImage:
+                  // image != null
+                  //     ? FileImage(image) as ImageProvider
+                  //     : const
+                  AssetImage('assets/img/contoh.jpeg'),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 8),
+            GestureDetector(
+              onTap: () {
+                // controller.pickImage();
+              },
+              child: Text(
+                "Ganti Foto",
+                style: TextStyle(
+                  color: Colors.blue.shade800,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
               ),
             ),
           ],
         ),
       ),
+
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 100, 20, 20),
+        padding: const EdgeInsets.fromLTRB(20, 70, 20, 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
