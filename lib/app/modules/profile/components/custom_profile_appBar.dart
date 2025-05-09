@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../widgets/appbar_action_buttons.dart';
-import '../controllers/profile_controller.dart';
 
 class CustomProfileAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -11,8 +10,6 @@ class CustomProfileAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final profileController = Get.find<ProfileController>();
-    final editController = profileController.editProfileController;
 
     return PreferredSize(
       preferredSize: Size.fromHeight(height),
@@ -81,7 +78,7 @@ class CustomProfileAppBar extends StatelessWidget
                               ),
                             ),
                             Text(
-                              'airlangga@example.com',
+                              'user@example.com',
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,

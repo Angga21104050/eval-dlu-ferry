@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/edit_profile_controller.dart';
-import 'dart:io';
 
 class EditProfileView extends GetView<EditProfileController> {
   const EditProfileView({super.key});
@@ -28,35 +27,39 @@ class EditProfileView extends GetView<EditProfileController> {
               ),
             ),
             Positioned(
-              bottom: -40,
+              bottom: -70,
               left: 0,
               right: 0,
-              child: CircleAvatar(
-                radius: 60,
-                backgroundColor: Colors.white,
-                child: CircleAvatar(
-                  radius: 58,
-                  backgroundImage:
-                  // image != null
-                  //     ? FileImage(image) as ImageProvider
-                  //     : const
-                  AssetImage('assets/img/contoh.jpeg'),
-                ),
-              ),
-            ),
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 60,
+                    backgroundColor: Colors.white,
+                    child: CircleAvatar(
+                      radius: 58,
+                      backgroundImage:
+                      // image != null
+                      //     ? FileImage(image) as ImageProvider
+                      //     : const
+                      AssetImage('assets/img/contoh.jpeg'),
+                    ),
+                  ),
 
-            const SizedBox(height: 8),
-            GestureDetector(
-              onTap: () {
-                // controller.pickImage();
-              },
-              child: Text(
-                "Ganti Foto",
-                style: TextStyle(
-                  color: Colors.blue.shade800,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
+                  const SizedBox(height: 8),
+                  GestureDetector(
+                    onTap: () {
+                      // controller.pickImage();
+                    },
+                    child: Text(
+                      "Ganti Foto",
+                      style: TextStyle(
+                        color: Colors.blue.shade800,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -118,6 +121,18 @@ class EditProfileView extends GetView<EditProfileController> {
                     ),
                   ),
                   onPressed: () {
+                    final updatedProfileData = {
+                      'email': controller.emailController.text,
+                      'identityNumber':
+                          controller.identityNumberController.text,
+                      'name': controller.nameController.text,
+                      'gender': controller.genderController.text,
+                      'villageAddress':
+                          controller.villageAddressController.text,
+                      'city': controller.cityController.text,
+                      'phoneNumber': controller.phoneNumberController.text,
+                    };
+                    print('Data Profil yang Diperbarui: $updatedProfileData');
                     controller.saveProfile();
                   },
                   child: const Text(

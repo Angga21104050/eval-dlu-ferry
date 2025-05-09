@@ -2,54 +2,45 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class EditProfileController extends GetxController {
-  final emailController = TextEditingController();
-  final identityNumberController = TextEditingController();
-  final nameController = TextEditingController();
-  final genderController = TextEditingController();
-  final villageAddressController = TextEditingController();
-  final cityController = TextEditingController();
-  final phoneNumberController = TextEditingController();
-
-  // Variabel Rx untuk menyimpan nilai input
-  final profileEmail = RxString('');
-  final profileIdentityNumber = RxString('');
-  final profileName = RxString('');
-  final profileGender = RxString('');
-  final profileVillageAddress = RxString('');
-  final profileCity = RxString('');
-  final profilePhone = RxString('');
-
-  // ... (kode pickImage Anda jika ada)
+  final emailController = TextEditingController(text: 'user@example.com');
+  final identityNumberController = TextEditingController(text: '23435435242');
+  final nameController = TextEditingController(text: 'anggaaa');
+  final genderController = TextEditingController(text: 'Laki - laki');
+  final villageAddressController = TextEditingController(text: 'Karangklesem');
+  final cityController = TextEditingController(text: 'Purwokerto');
+  final phoneNumberController = TextEditingController(text: '0876446788532');
 
   @override
   void onInit() {
     super.onInit();
-    // Inisialisasi nilai dari controller teks ke variabel Rx (opsional, tergantung kebutuhan)
-    profileEmail.value = emailController.text;
-    profileIdentityNumber.value = identityNumberController.text;
-    profileName.value = nameController.text;
-    profileGender.value = genderController.text;
-    profileVillageAddress.value = villageAddressController.text;
-    profileCity.value = cityController.text;
-    profilePhone.value = phoneNumberController.text;
+    // Tidak perlu inisialisasi tambahan karena nilai default sudah diberikan pada controller
   }
 
   void saveProfile() {
     final profileData = {
-      'email': profileEmail.value,
-      'identityNumber': profileIdentityNumber.value,
-      'name': profileName.value,
-      'gender': profileGender.value,
-      'villageAddress': profileVillageAddress.value,
-      'city': profileCity.value,
-      'phoneNumber': profilePhone.value,
-      // Tambahkan data lain yang ingin Anda kirim
+      'email': emailController.text,
+      'identityNumber': identityNumberController.text,
+      'name': nameController.text,
+      'gender': genderController.text,
+      'villageAddress': villageAddressController.text,
+      'city': cityController.text,
+      'phoneNumber': phoneNumberController.text,
     };
+
+    // Tampilkan popup berhasil menggunakan Get.snackbar
+    Get.snackbar(
+      'Berhasil',
+      'Perubahan profil berhasil disimpan.',
+      snackPosition: SnackPosition.TOP,
+      backgroundColor: Colors.blue,
+      colorText: Colors.white,
+      margin: const EdgeInsets.all(16),
+      duration: const Duration(seconds: 2),
+    );
 
     print('Data Profil yang Disimpan: $profileData');
 
-    // Navigasi ke halaman lain dengan mengirim arguments
-    Get.toNamed('/halaman-tujuan', arguments: profileData);
+    Get.toNamed('/', arguments: profileData);
   }
 
   @override
