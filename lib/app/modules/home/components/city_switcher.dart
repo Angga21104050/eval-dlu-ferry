@@ -256,7 +256,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                         child: Icon(
                           Icons.directions_boat_outlined,
                           size: 24,
-                          color: Colors.blue,
+                          color: Color(0xFF0064D2),
                         ),
                       ),
                       Expanded(
@@ -298,7 +298,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                         child: Icon(
                           Icons.directions_boat_outlined,
                           size: 24,
-                          color: Colors.blue,
+                          color: Color(0xFF0064D2),
                         ),
                       ),
                       Expanded(
@@ -345,7 +345,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                     border: Border.all(color: Colors.grey.shade300),
                   ),
                   child: IconButton(
-                    icon: const Icon(Icons.swap_vert, color: Colors.black),
+                    icon: const Icon(Icons.swap_vert, color: Color(0xFF0064D2)),
                     iconSize: 22,
                     onPressed: swapCities,
                   ),

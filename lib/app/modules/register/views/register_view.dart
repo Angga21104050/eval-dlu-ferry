@@ -342,7 +342,11 @@ class RegisterView extends GetView<RegisterController> {
                           ), // Sesuaikan style teks
                         ),
                       ),
-                      Checkbox(onChanged: (bool? newValue) {}, value: true),
+                      Checkbox(
+                        onChanged: (bool? newValue) {},
+                        value: true,
+                        activeColor: const Color(0xFF0064D2),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),

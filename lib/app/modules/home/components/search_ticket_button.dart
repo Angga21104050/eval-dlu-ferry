@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class SearchTicketButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const SearchTicketButton({Key? key, required this.onPressed}) : super(key: key);
+  const SearchTicketButton({Key? key, required this.onPressed})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class SearchTicketButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 16),
-          backgroundColor: Colors.blue.shade400,
+          backgroundColor: const Color(0xFF0064D2),
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),

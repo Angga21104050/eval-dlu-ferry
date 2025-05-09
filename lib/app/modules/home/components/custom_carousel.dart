@@ -49,18 +49,16 @@ class CustomCarousel extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(borderRadius),
-                  border: Border.all(color: Colors.grey.shade300, width: 1),
+                  border: Border.all(color: Colors.grey.shade300),
                   image: DecorationImage(
                     image: AssetImage(imagePath),
                     fit: BoxFit.cover,
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(
-                        0xFF0064D2,
-                      ).withOpacity(0.15), // 🔹 Shadow Biru
-                      offset: const Offset(0, 8),
-                      blurRadius: 8,
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 6,
+                      offset: const Offset(0, 5),
                     ),
                   ],
                 ),

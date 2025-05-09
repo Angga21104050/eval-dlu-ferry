@@ -50,7 +50,7 @@ class _TicketTypeState extends State<TicketType> {
                     "Pilih Jenis Tiket",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  Divider(color: Colors.blue),
+                  Divider(color: Color(0xFF0064D2)),
                   Expanded(
                     child: ListView(
                       shrinkWrap: true,
@@ -75,13 +75,13 @@ class _TicketTypeState extends State<TicketType> {
                                 vertical: 4.0,
                               ),
                               child: CheckboxListTile(
-                                activeColor: Colors.blue,
+                                activeColor: Color(0xFF0064D2),
                                 contentPadding: EdgeInsets.symmetric(
                                   horizontal: 8,
                                 ),
                                 title: Row(
                                   children: [
-                                    Icon(iconData, color: Colors.blue),
+                                    Icon(iconData, color: Color(0xFF0064D2)),
                                     SizedBox(width: 10),
                                     Expanded(child: Text(type)),
                                   ],
@@ -107,7 +107,7 @@ class _TicketTypeState extends State<TicketType> {
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue.shade300,
+                      backgroundColor: Color(0xFF0064D2),
                       foregroundColor: Colors.white,
                       textStyle: TextStyle(
                         fontSize: 16,
@@ -154,7 +154,7 @@ class _TicketTypeState extends State<TicketType> {
                 padding: const EdgeInsets.only(left: 3),
                 child: Icon(
                   Icons.confirmation_num_outlined,
-                  color: Colors.blue,
+                  color: Color(0xFF0064D2),
                   size: 25,
                 ),
               ),

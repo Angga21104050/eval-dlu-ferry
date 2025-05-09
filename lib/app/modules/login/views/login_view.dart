@@ -111,7 +111,7 @@ class LoginView extends GetView<LoginController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukkan Email atau No. Telp anda',
@@ -125,7 +125,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 14),
                   // Form Input Password
                   const Text(
                     'Password',
@@ -139,7 +139,7 @@ class LoginView extends GetView<LoginController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4),
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(
@@ -157,14 +157,13 @@ class LoginView extends GetView<LoginController> {
                       suffixIcon: const Icon(Icons.visibility_off), // Ikon mata
                     ),
                   ),
-                  const SizedBox(height: 4),
                   // Lupa Password
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
                         // Tambahkan logika lupa password di sini
-                        Get.offNamed('/forgot-password');
+                        Get.toNamed('/forgot-password');
                         print('Lupa password ditekan');
                       },
                       child: const Text(
@@ -173,7 +172,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 2),
                   // Tombol Lanjutkan
                   SizedBox(
                     width: double.infinity,
@@ -187,7 +186,7 @@ class LoginView extends GetView<LoginController> {
                         backgroundColor: const Color(
                           0xFF0064D2,
                         ), // Sesuaikan warna tombol
-                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -195,14 +194,14 @@ class LoginView extends GetView<LoginController> {
                       child: const Text(
                         'Lanjutkan',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
                   // Atau
                   Row(
                     children: [
@@ -219,7 +218,7 @@ class LoginView extends GetView<LoginController> {
                       const Expanded(child: Divider(color: Colors.grey)),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 4),
                   // Login dengan Google dan Facebook
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -41,9 +41,9 @@ class _InputFormTicketState extends State<InputFormTicket> {
         // membuat shadow pada sisi bawah container
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF0064D2).withOpacity(0.15), // 🔹 Shadow Biru
-            offset: const Offset(0, 4),
-            blurRadius: 8,
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
           ),
         ],
       ),

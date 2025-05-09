@@ -93,7 +93,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                 "Pilih ${widget.label}",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              Divider(color: Colors.blue),
+              Divider(color: Color(0xFF0064D2)),
               Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
@@ -107,13 +107,13 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                           fontSize: 14,
                           color:
                               widget.selectedValue == item
-                                  ? Colors.blue
+                                  ? Color(0xFF0064D2)
                                   : Colors.black,
                         ),
                       ),
                       trailing:
                           widget.selectedValue == item
-                              ? Icon(Icons.check, color: Colors.blue)
+                              ? Icon(Icons.check, color: Color(0xFF0064D2))
                               : null,
                       onTap: () {
                         widget.onChanged(item);
@@ -157,7 +157,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                 padding: const EdgeInsets.only(left: 3),
                 child: Icon(
                   _getIcon(widget.selectedValue), // Panggil method _getIcon
-                  color: Colors.blue,
+                  color: Color(0xFF0064D2),
                   size: 25,
                 ),
               ),

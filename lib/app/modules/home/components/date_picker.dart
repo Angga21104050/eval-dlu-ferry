@@ -33,7 +33,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     return Container(
       alignment: Alignment.center,
       height: 56,
-      margin: EdgeInsets.only(bottom: 0),
+      margin: EdgeInsets.only(top: 10),
       child: InkWell(
         onTap: () {
           _showCalendarDialog(context); // Menampilkan pop-up kalender
@@ -57,7 +57,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 child: Icon(
                   Icons.calendar_month_outlined,
                   size: 25,
-                  color: Colors.blue,
+                  color: Color(0xFF0064D2),
                 ),
               ),
               Padding(

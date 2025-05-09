@@ -1,4 +1,5 @@
 import 'package:dlu_project/app/modules/home/controllers/home_controller.dart';
+import 'package:dlu_project/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/profile_controller.dart';
@@ -50,7 +51,9 @@ class ProfileView extends GetView<ProfileController> {
                                   vertical: 16.0,
                                 ),
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.offNamed(Routes.EDIT_PROFILE);
+                                  },
                                   child: Row(
                                     children: [
                                       Icon(
@@ -178,7 +181,7 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed('');
+                                    Get.toNamed(Routes.MY_TICKET);
                                   },
                                   child: Row(
                                     children: [
@@ -205,7 +208,7 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed('');
+                                    Get.toNamed(Routes.CHANGE_PASSWORD);
                                   },
                                   child: Row(
                                     children: [
