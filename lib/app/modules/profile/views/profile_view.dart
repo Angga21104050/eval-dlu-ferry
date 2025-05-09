@@ -12,10 +12,10 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     const appBarHeight = 56.0;
-    const additionalPadding = 160.0;
+    const additionalPadding = 140.0;
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 238, 238, 238),
       body: Stack(
         children: [
           // Konten utama di bawah AppBar
@@ -28,84 +28,246 @@ class ProfileView extends GetView<ProfileController> {
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                    horizontal: 16,
+                    vertical: 0,
+                    horizontal: 0,
                   ),
                   width: double.infinity,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 70),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          GestureDetector(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.person_outlined, color: Colors.blue),
-                                SizedBox(width: 16),
-                                const Text(
-                                  'Informasi Akun',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ],
-                            ),
+                  child: Column(
+                    children: [
+                      Container(
+                        color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: 50,
+                            left: 30,
+                            right: 30,
                           ),
-                          Divider(color: Colors.blue),
-                          SizedBox(height: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.settings, color: Colors.blue),
-                                SizedBox(width: 16),
-                                const Text(
-                                  'Setting',
-                                  style: TextStyle(fontSize: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
                                 ),
-                              ],
-                            ),
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.person_outlined,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'Informasi Akun',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Divider(color: Colors.grey.shade400),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 23,
+                                        width: 23,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            24,
+                                          ),
+                                          border: Border.all(
+                                            color: Colors.blue,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        child: Icon(
+                                          Icons.percent,
+                                          color: Colors.blue,
+                                          size: 16,
+                                        ),
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'My Voucher',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Divider(color: Colors.grey.shade400),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.payment_rounded,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'Payment Methodes',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Divider(color: Colors.grey.shade400),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed('');
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.person_add_alt_outlined,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'Invite Friends',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Divider(color: Colors.blue),
-                          SizedBox(height: 20),
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed('/change-password');
-                            },
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.lock_person_outlined,
-                                  color: Colors.blue,
-                                ),
-                                SizedBox(width: 16),
-                                const Text(
-                                  'Change Password',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Divider(color: Colors.blue),
-                          SizedBox(height: 20),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.login_outlined, color: Colors.blue),
-                                SizedBox(width: 16),
-                                const Text(
-                                  'Log Out',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Divider(color: Colors.blue),
-                        ],
+                        ),
                       ),
-                    ),
+                      Container(
+                        color: Colors.white,
+                        margin: EdgeInsets.only(top: 76),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed('');
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.confirmation_num_outlined,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'My Order',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Divider(color: Colors.grey.shade400),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed('');
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.lock_person_outlined,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'Change Password',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        color: Colors.white,
+                        margin: EdgeInsets.only(top: 16),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 20.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed('');
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.logout_outlined,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'Logout',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

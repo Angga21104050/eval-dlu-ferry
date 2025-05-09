@@ -6,17 +6,16 @@ class CustomProfileAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   final double height;
 
-  const CustomProfileAppBar({super.key, this.height = 250});
+  const CustomProfileAppBar({super.key, this.height = 230});
 
   @override
   Widget build(BuildContext context) {
-
     return PreferredSize(
       preferredSize: Size.fromHeight(height),
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(24),
-          bottomRight: Radius.circular(24),
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
         ),
         child: Container(
           height: height,
@@ -49,7 +48,7 @@ class CustomProfileAppBar extends StatelessWidget
                       const AppBarActionButtons(),
                     ],
                   ),
-                  const SizedBox(height: 70),
+                  const SizedBox(height: 40),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
