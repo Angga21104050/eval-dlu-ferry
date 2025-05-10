@@ -41,7 +41,7 @@ class CustomNavigationBar extends GetView<HomeController> {
               label: 'Profile',
             ),
           ],
-          currentIndex: controller.selectedIndex.value, // Index dinamis
+          currentIndex: controller.selectedIndex.value,
           selectedItemColor: Color(0xFF0064D2),
           unselectedItemColor: Colors.grey,
           iconSize: 24,

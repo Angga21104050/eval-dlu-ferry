@@ -350,7 +350,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                     border: Border.all(color: Colors.grey.shade300),
                   ),
                   child: IconButton(
-                    icon: const Icon(Icons.swap_vert, color: Color(0xFF5F00D2)),
+                    icon: const Icon(Icons.swap_vert, color: Color(0xFF0064D2)),
                     iconSize: 24,
                     onPressed: swapCities,
                   ),

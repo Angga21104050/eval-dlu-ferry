@@ -29,11 +29,7 @@ class HomeView extends GetView<HomeController> {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFF0064D2),
-                        Color(0xFF5F00D2),
-                        const Color(0xFF5200B5),
-                      ],
+                      colors: [Color(0xFF0064D2), const Color(0xFF5200B5)],
                     ),
                     image: DecorationImage(
                       image: AssetImage("assets/img/map-global.png"),

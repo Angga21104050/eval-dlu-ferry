@@ -10,7 +10,7 @@ class HomeController extends GetxController {
     selectedIndex.value = index;
     switch (index) {
       case 0:
-        Get.offNamed('/home'); // Gunakan `offNamed` agar tidak menumpuk halaman
+        Get.offNamed('/home');
         break;
       case 1:
         Get.offNamed('/my-ticket');
