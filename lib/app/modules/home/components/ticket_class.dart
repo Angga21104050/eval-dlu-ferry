@@ -89,11 +89,19 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                "Pilih ${widget.label}",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 8.0,
+                ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Pilih ${widget.label}",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
-              Divider(color: Color(0xFF0064D2)),
               Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
@@ -107,13 +115,13 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                           fontSize: 14,
                           color:
                               widget.selectedValue == item
-                                  ? Color(0xFF0064D2)
+                                  ? Color(0xFF5F00D2)
                                   : Colors.black,
                         ),
                       ),
                       trailing:
                           widget.selectedValue == item
-                              ? Icon(Icons.check, color: Color(0xFF0064D2))
+                              ? Icon(Icons.check, color: Color(0xFF5F00D2))
                               : null,
                       onTap: () {
                         widget.onChanged(item);

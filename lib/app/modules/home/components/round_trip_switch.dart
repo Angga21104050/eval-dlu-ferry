@@ -36,9 +36,8 @@ class RoundTripSwitch extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 child: Switch(
                   value: isRoundTrip,
-                  activeColor: const Color(0xFF0064D2),
+                  activeTrackColor: Color(0xFF5F00D2),
                   inactiveTrackColor: Colors.white,
-                  focusColor: Color(0xFF0064D2),
                   onChanged: onChanged,
                 ),
               ),

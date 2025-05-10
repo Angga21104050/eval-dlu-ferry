@@ -46,11 +46,22 @@ class _TicketTypeState extends State<TicketType> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    "Pilih Jenis Tiket",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Pilih Jenis Tiket",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                  Divider(color: Color(0xFF0064D2)),
                   Expanded(
                     child: ListView(
                       shrinkWrap: true,
@@ -75,7 +86,7 @@ class _TicketTypeState extends State<TicketType> {
                                 vertical: 4.0,
                               ),
                               child: CheckboxListTile(
-                                activeColor: Color(0xFF0064D2),
+                                activeColor: Color(0xFF5F00D2),
                                 contentPadding: EdgeInsets.symmetric(
                                   horizontal: 8,
                                 ),
@@ -101,24 +112,35 @@ class _TicketTypeState extends State<TicketType> {
                           }).toList(),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      widget.onSelectionChanged(_selectedItemsType);
-                      Navigator.pop(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF0064D2),
-                      foregroundColor: Colors.white,
-                      textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF0064D2), Color(0xFF5200B5)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      elevation: 5,
                     ),
-                    child: Text("Simpan"),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        widget.onSelectionChanged(_selectedItemsType);
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        foregroundColor: Colors.white,
+                        shadowColor: Colors.transparent,
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        elevation: 5,
+                      ),
+                      child: Text("Simpan"),
+                    ),
                   ),
                 ],
               ),

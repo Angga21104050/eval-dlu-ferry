@@ -52,6 +52,54 @@ class _InputFormTicketState extends State<InputFormTicket> {
         child: Form(
           child: Column(
             children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 36,
+                    height: 36,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/img/logo2.png',
+                        width: 120,
+                        height: 120,
+                        fit: BoxFit.contain,
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Icon(
+                            Icons.error_outline,
+                            size: 80,
+                            color: Colors.red,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'PT. Dharma Lautan Utama',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(
+                            255,
+                            0,
+                            0,
+                            0,
+                          ), // Sesuaikan warna teks
+                        ),
+                      ),
+                      Text(
+                        'armada pelayaran nasional',
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
               const CitySwitcher(),
               Row(
                 children: [

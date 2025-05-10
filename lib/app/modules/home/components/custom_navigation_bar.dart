@@ -12,20 +12,22 @@ class CustomNavigationBar extends GetView<HomeController> {
       () => Container(
         decoration: BoxDecoration(
           color: Colors.white,
+          border: Border.all(color: Colors.grey.shade300),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              offset: const Offset(0, -2),
-              blurRadius: 1,
-              spreadRadius: 0,
-              blurStyle: BlurStyle.outer,
+              color: Colors.black.withOpacity(0.1), // Lebih soft
+              offset: Offset(0, -2), // Bayangan dari atas ke bawah
+              blurRadius: 8, // Membuat bayangan lebih lembut
             ),
           ],
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.confirmation_num_outlined),
               label: 'My Ticket',
@@ -40,14 +42,14 @@ class CustomNavigationBar extends GetView<HomeController> {
             ),
           ],
           currentIndex: controller.selectedIndex.value, // Index dinamis
-          selectedItemColor: Colors.blue,
+          selectedItemColor: Color(0xFF0064D2),
           unselectedItemColor: Colors.grey,
           iconSize: 24,
           selectedFontSize: 12,
           unselectedFontSize: 10,
           showUnselectedLabels: true,
           onTap: (index) {
-            controller.changeIndex(index); // Pindah halaman & update index
+            controller.changeIndex(index);
           },
         ),
       ),

@@ -75,22 +75,27 @@ class _CitySwitcherState extends State<CitySwitcher> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 8),
-                  Text(
-                    isFromCity
-                        ? "Pilih Kota Keberangkatan"
-                        : "Pilih Kota Tujuan",
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0,
+                      vertical: 8,
+                    ),
+                    child: Text(
+                      isFromCity
+                          ? "Pilih Kota Keberangkatan"
+                          : "Pilih Kota Tujuan",
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Row(
                     children: [
                       IconButton(
                         icon: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.blue,
+                          Icons.arrow_back_rounded,
+                          color: Colors.black,
                           size: 32,
                         ),
                         onPressed: () {
@@ -116,7 +121,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: const BorderSide(
-                                  color: Colors.blue,
+                                  color: Color(0xFF5F00D2),
                                 ),
                               ),
                             ),
@@ -178,7 +183,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                                         .toCity
                                                         .value) ==
                                                 city
-                                            ? Colors.blue
+                                            ? Color(0xFF5F00D2)
                                             : Colors.black,
                                   ),
                                 ),
@@ -191,7 +196,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                             city
                                         ? const Icon(
                                           Icons.check,
-                                          color: Colors.blue,
+                                          color: Color(0xFF5F00D2),
                                         )
                                         : null,
                                 onTap: () {
@@ -337,16 +342,16 @@ class _CitySwitcherState extends State<CitySwitcher> {
               Positioned(
                 right: 15,
                 child: Container(
-                  height: 44,
-                  width: 44,
+                  height: 40,
+                  width: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: const BorderRadius.all(Radius.circular(44)),
                     border: Border.all(color: Colors.grey.shade300),
                   ),
                   child: IconButton(
-                    icon: const Icon(Icons.swap_vert, color: Color(0xFF0064D2)),
-                    iconSize: 22,
+                    icon: const Icon(Icons.swap_vert, color: Color(0xFF5F00D2)),
+                    iconSize: 24,
                     onPressed: swapCities,
                   ),
                 ),

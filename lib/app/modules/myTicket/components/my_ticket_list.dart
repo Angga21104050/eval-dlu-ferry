@@ -138,7 +138,7 @@ class TicketList extends StatelessWidget {
                                   left: -38,
                                   top: -14,
                                   child: HalfCircle(
-                                    color: Colors.grey.withOpacity(0.2),
+                                    color: Colors.grey.withOpacity(0.1),
                                     radius: 10,
                                     height: 30,
                                     isLeft: true,
@@ -148,7 +148,7 @@ class TicketList extends StatelessWidget {
                                   left: 333,
                                   top: -14,
                                   child: HalfCircle(
-                                    color: Colors.grey.withOpacity(0.2),
+                                    color: Colors.grey.withOpacity(0.1),
                                     radius: 10,
                                     height: 30,
                                     isLeft: false,
