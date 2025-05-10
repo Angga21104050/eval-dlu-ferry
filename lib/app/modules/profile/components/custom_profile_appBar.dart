@@ -20,7 +20,11 @@ class CustomProfileAppBar extends StatelessWidget
         child: Container(
           height: height,
           decoration: BoxDecoration(
-            color: Colors.blue.shade800,
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [Color(0xFF0064D2), const Color(0xFF5200B5)],
+            ),
             image: const DecorationImage(
               image: AssetImage(
                 "assets/img/map-global.png",

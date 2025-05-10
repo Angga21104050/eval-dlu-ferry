@@ -128,7 +128,7 @@ class _TicketCardState extends State<TicketCard> {
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.grey,
+                                color: Color(0xFF0064D2),
                               ),
                             ),
                           ],
@@ -155,7 +155,7 @@ class _TicketCardState extends State<TicketCard> {
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            color: Colors.blue,
+                            color: Color(0xFF0064D2),
                           ),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
@@ -195,7 +195,7 @@ class _TicketCardState extends State<TicketCard> {
                                             style: const TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.bold,
-                                              color: Colors.blue,
+                                              color: Color(0xFF0064D2),
                                             ),
                                           ),
                                         ),

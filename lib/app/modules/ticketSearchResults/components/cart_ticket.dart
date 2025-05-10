@@ -68,15 +68,23 @@ class CartWidget extends StatelessWidget {
             );
           }).toList(),
           const SizedBox(height: 16), // Spasi sebelum tombol
-          SizedBox(
+          Container(
             width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              gradient: const LinearGradient(
+                colors: [Color(0xFF0064D2), Color(0xFF5200B5)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
             child: ElevatedButton(
               onPressed: () {
                 Get.toNamed(Routes.ORDER_TICKET, arguments: cart);
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                backgroundColor: const Color(0xFF0064D2),
+                backgroundColor: Colors.transparent,
                 foregroundColor: Colors.white,
                 elevation: 3,
                 shape: RoundedRectangleBorder(
