@@ -65,10 +65,9 @@ class _CitySwitcherState extends State<CitySwitcher> {
             return AnimatedContainer(
               duration: const Duration(milliseconds: 500),
               curve: Curves.easeOut,
-              height: 800,
               padding: const EdgeInsets.all(16),
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: const Color(0xFFF4F6F8),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
               ),
               child: Column(
@@ -95,7 +94,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                       IconButton(
                         icon: const Icon(
                           Icons.arrow_back_rounded,
-                          color: Colors.black,
+                          color: Color(0xFF0064D2),
                           size: 32,
                         ),
                         onPressed: () {
@@ -121,7 +120,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: const BorderSide(
-                                  color: Color(0xFF5F00D2),
+                                  color: Color(0xFF0064D2),
                                 ),
                               ),
                             ),
@@ -174,6 +173,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                   city,
                                   style: TextStyle(
                                     fontSize: 14,
+                                    fontWeight: FontWeight.w500,
                                     color:
                                         (isFromCity
                                                     ? homeController
@@ -183,7 +183,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                                         .toCity
                                                         .value) ==
                                                 city
-                                            ? Color(0xFF5F00D2)
+                                            ? Color(0xFF0064D2)
                                             : Colors.black,
                                   ),
                                 ),
@@ -196,7 +196,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                                             city
                                         ? const Icon(
                                           Icons.check,
-                                          color: Color(0xFF5F00D2),
+                                          color: Color(0xFF0064D2),
                                         )
                                         : null,
                                 onTap: () {

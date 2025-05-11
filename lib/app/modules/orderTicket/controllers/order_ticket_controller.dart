@@ -45,8 +45,7 @@ class OrderTicketController extends GetxController {
       'Metode Pembayaran Diubah',
       'Metode pembayaran berhasil diubah menjadi $methodName',
       snackPosition: SnackPosition.TOP,
-      backgroundColor: Colors.blue,
-      colorText: Colors.white,
+      colorText: Colors.black,
       margin: const EdgeInsets.all(16),
     );
   }

@@ -9,20 +9,27 @@ class HelpView extends GetView<HelpController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
-        child: AppBar(
-          backgroundColor: const Color(0xFF0064D2),
-          elevation: 0,
-          title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-            child: const Text(
-              'Hubungi Kami',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF0064D2),
+        elevation: 0,
+        leading: IconButton(
+          // Menggunakan IconButton untuk tombol back
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ), // Atur warna ikon
+          onPressed: () {
+            Get.back();
+          },
+        ),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          child: const Text(
+            'Hubungi Kami',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
@@ -34,26 +41,13 @@ class HelpView extends GetView<HelpController> {
               print("Cari: $value");
             },
           ),
-          // Garis horizontal
-          const Divider(
-            thickness: 1, // ketebalan garis
-            color: Colors.grey, // warna garis
-          ),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            margin: const EdgeInsets.only(left: 0, right: 0, bottom: 20),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(
-                    0xFF0064D2,
-                  ).withOpacity(0.15), // 🔹 Shadow Biru
-                  offset: const Offset(0, 4),
-                  blurRadius: 8,
-                ),
-              ],
+
               border: Border.all(color: Colors.grey.shade300),
             ),
             child: Column(
@@ -82,28 +76,30 @@ class HelpView extends GetView<HelpController> {
                 return ListView(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 0,
-                    vertical: 10,
+                    vertical: 0,
                   ),
                   children: [
                     // Judul yang bisa discroll
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       margin: const EdgeInsets.only(bottom: 12),
+                      color: Colors.blue.shade100,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
-                          Text(
-                            'KANTOR PT. DHARMA LAUTAN UTAMA',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              letterSpacing: 0.5,
+                          Padding(
+                            padding: EdgeInsets.all(20.0),
+                            child: Text(
+                              'KANTOR PT. DHARMA LAUTAN UTAMA',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                letterSpacing: 0.5,
+                              ),
+                              textAlign: TextAlign.left,
                             ),
-                            textAlign: TextAlign.left,
                           ),
                           SizedBox(height: 6),
-                          Divider(thickness: 1.5, color: Colors.blue),
                         ],
                       ),
                     ),

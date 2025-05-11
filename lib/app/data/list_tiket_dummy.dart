@@ -205,7 +205,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'ferryName': 'KM. Kirana 7',
     'departurePort': 'Surabaya - Pelabuhan Tanjung Perak - SUB',
     'arrivalPort': 'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-    'departureDate': DateTime(2025, 5, 11),
+    'departureDate': DateTime(2025, 5, 12),
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',

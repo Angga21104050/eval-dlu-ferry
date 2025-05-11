@@ -115,13 +115,13 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                           fontSize: 14,
                           color:
                               widget.selectedValue == item
-                                  ? Color(0xFF5F00D2)
+                                  ? Color(0xFF0064D2)
                                   : Colors.black,
                         ),
                       ),
                       trailing:
                           widget.selectedValue == item
-                              ? Icon(Icons.check, color: Color(0xFF5F00D2))
+                              ? Icon(Icons.check, color: Color(0xFF0064D2))
                               : null,
                       onTap: () {
                         widget.onChanged(item);

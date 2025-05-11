@@ -10,23 +10,31 @@ class NotificationView extends GetView<NotificationController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
-        child: AppBar(
-          backgroundColor: const Color(0xFF0064D2),
-          elevation: 0,
-          title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-            child: const Text(
-              'Informasi Notifikasi',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+      appBar: AppBar(
+        leading: IconButton(
+          // Menggunakan IconButton untuk tombol back
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ), // Atur warna ikon
+          onPressed: () {
+            Get.back();
+          },
+        ),
+        backgroundColor: const Color(0xFF0064D2),
+        elevation: 0,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          child: const Text(
+            'Informasi Notifikasi',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
+        centerTitle: false,
       ),
       body: GetBuilder<NotificationController>(
         builder: (controller) {

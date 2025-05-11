@@ -9,27 +9,34 @@ class InformationView extends GetView<InformationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
-        child: AppBar(
-          backgroundColor: const Color(0xFF0064D2),
-          elevation: 0,
-          title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  'Informasi Peraturan Pelayaran',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF0064D2),
+        elevation: 0,
+        leading: IconButton(
+          // Menggunakan IconButton untuk tombol back
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ), // Atur warna ikon
+          onPressed: () {
+            Get.back();
+          },
+        ),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text(
+                'Informasi Peraturan Pelayaran',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

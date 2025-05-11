@@ -86,7 +86,7 @@ class _TicketTypeState extends State<TicketType> {
                                 vertical: 4.0,
                               ),
                               child: CheckboxListTile(
-                                activeColor: Color(0xFF5F00D2),
+                                activeColor: Color(0xFF0064D2),
                                 contentPadding: EdgeInsets.symmetric(
                                   horizontal: 8,
                                 ),
@@ -116,7 +116,7 @@ class _TicketTypeState extends State<TicketType> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       gradient: const LinearGradient(
-                        colors: [Color(0xFF0064D2), Color(0xFF5200B5)],
+                        colors: [Color(0xFF0064D2), Colors.cyan],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),

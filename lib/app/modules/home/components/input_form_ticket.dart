@@ -33,7 +33,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20, right: 20, top: 300),
+      margin: EdgeInsets.only(left: 20, right: 20, top: 280),
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.circular(20),

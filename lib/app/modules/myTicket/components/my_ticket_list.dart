@@ -21,14 +21,13 @@ class TicketList extends StatelessWidget {
                 children: [
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(18),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     margin: const EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 10,
                     ),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(color: Colors.grey.shade300),
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
@@ -41,78 +40,97 @@ class TicketList extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          ticket['ferryName'] ?? 'UNKNOWN FERRY',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF0064D2),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Text(
+                            ticket['ferryName'] ?? 'UNKNOWN FERRY',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF0064D2),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 6),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              ticket['ticketType'] ?? 'UNKNOWN TYPE',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.grey.shade700,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                ticket['ticketType'] ?? 'UNKNOWN TYPE',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey.shade700,
+                                ),
                               ),
-                            ),
-                            const Text(
-                              'Dewasa',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.grey,
+                              const Text(
+                                'Dewasa',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                        const SizedBox(height: 12),
-                        Text(
-                          'Nama Penumpang',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[800],
+                        const SizedBox(height: 4),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Text(
+                            'Nama Penumpang',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[800],
+                            ),
                           ),
                         ),
                         const SizedBox(height: 6),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                ticket['departurePort'] ?? 'UNKNOWN',
-                                textAlign: TextAlign.start,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xFF0064D2),
+                        Container(
+                          decoration: BoxDecoration(color: Colors.blue.shade50),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 18.0,
+                              vertical: 10,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    ticket['departurePort'] ?? 'UNKNOWN',
+                                    textAlign: TextAlign.start,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xFF0064D2),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            const Icon(
-                              Icons.arrow_forward,
-                              color: Colors.grey,
-                              size: 18,
-                            ),
-                            Flexible(
-                              child: Text(
-                                ticket['arrivalPort'] ?? 'UNKNOWN',
-                                textAlign: TextAlign.end,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xFF0064D2),
+                                const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.grey,
+                                  size: 18,
                                 ),
-                              ),
+                                Flexible(
+                                  child: Text(
+                                    ticket['arrivalPort'] ?? 'UNKNOWN',
+                                    textAlign: TextAlign.end,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xFF0064D2),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
+                        SizedBox(height: 16),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           child: Stack(
@@ -134,20 +152,20 @@ class TicketList extends StatelessWidget {
                                 ),
                               ),
                               Positioned(
-                                left: -38,
+                                left: -20,
                                 top: -14,
                                 child: HalfCircle(
-                                  color: Colors.grey.withOpacity(0.2),
+                                  color: Colors.grey.withOpacity(0.1),
                                   radius: 10,
                                   height: 30,
                                   isLeft: true,
                                 ),
                               ),
                               Positioned(
-                                left: 333,
+                                left: 353,
                                 top: -14,
                                 child: HalfCircle(
-                                  color: Colors.grey.withOpacity(0.2),
+                                  color: Colors.grey.withOpacity(0.1),
                                   radius: 10,
                                   height: 30,
                                   isLeft: false,
@@ -156,33 +174,38 @@ class TicketList extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Text(
-                          'Kode Booking',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey.shade800,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Text(
+                            'Kode Booking',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey.shade800,
+                            ),
                           ),
                         ),
-                        const SizedBox(height: 6),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              ticket['transactionCode'] ?? 'XXXXXX',
-                              style: const TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF0064D2),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                ticket['transactionCode'] ?? 'XXXXXX',
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF0064D2),
+                                ),
                               ),
-                            ),
-                            Image.asset(
-                              'assets/img/barcode.png',
-                              fit: BoxFit.contain,
-                              width: 90,
-                              height: 40,
-                            ),
-                          ],
+                              Image.asset(
+                                'assets/img/barcode.png',
+                                fit: BoxFit.contain,
+                                width: 90,
+                                height: 40,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

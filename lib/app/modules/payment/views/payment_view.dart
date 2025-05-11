@@ -111,18 +111,23 @@ class PaymentView extends GetView<PaymentController> {
                       ),
                       const SizedBox(height: 8),
                       Center(
-                        child: SizedBox(
-                          // Menggunakan SizedBox untuk mengatur lebar tombol
-                          width:
-                              double
-                                  .infinity, // Membuat tombol memenuhi lebar parent (Center)
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFF0064D2), Colors.cyan],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
                           child: ElevatedButton(
                             onPressed: () {
                               // Logika konfirmasi pembayaran
                               Get.offNamed('/transaction-succ');
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF0064D2),
+                              backgroundColor: Colors.transparent,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),

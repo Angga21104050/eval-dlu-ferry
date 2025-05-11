@@ -595,8 +595,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                             'Peringatan',
                             'Silakan pilih metode pembayaran terlebih dahulu.',
                             snackPosition: SnackPosition.TOP,
-                            backgroundColor: Colors.blue,
-                            colorText: Colors.white,
+                            colorText: Colors.black,
                             margin: const EdgeInsets.all(16),
                           );
                         }
