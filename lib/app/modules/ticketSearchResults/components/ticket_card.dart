@@ -77,29 +77,35 @@ class _TicketCardState extends State<TicketCard> {
             children: [
               Row(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: SizedBox(
-                      width: 110,
-                      height: 90,
-                      child: Image.network(
-                        widget.ticket['imageUrl'],
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.cover, // Memastikan gambar memenuhi area
-                        errorBuilder: (context, error, stackTrace) {
-                          return Container(
-                            width: double.infinity,
-                            height: double.infinity,
-                            color: Colors.grey[300],
-                            child: const Center(
-                              child: Icon(
-                                Icons.image_not_supported,
-                                color: Colors.grey,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.grey.shade300),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: SizedBox(
+                        width: 110,
+                        height: 90,
+                        child: Image.network(
+                          widget.ticket['imageUrl'],
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover, // Memastikan gambar memenuhi area
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              color: Colors.grey[300],
+                              child: const Center(
+                                child: Icon(
+                                  Icons.image_not_supported,
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
@@ -187,9 +193,7 @@ class _TicketCardState extends State<TicketCard> {
                                     children: [
                                       Expanded(
                                         child: Align(
-                                          alignment:
-                                              Alignment
-                                                  .centerRight, // Menyelaraskan teks ke kanan
+                                          alignment: Alignment.centerRight,
                                           child: Text(
                                             'Pilih Tiket',
                                             style: const TextStyle(

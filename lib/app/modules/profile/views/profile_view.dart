@@ -58,7 +58,7 @@ class ProfileView extends GetView<ProfileController> {
                                     children: [
                                       Icon(
                                         Icons.person_outlined,
-                                        color: Colors.blue,
+                                        color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
                                       const Text(
@@ -89,13 +89,13 @@ class ProfileView extends GetView<ProfileController> {
                                             24,
                                           ),
                                           border: Border.all(
-                                            color: Colors.blue,
+                                            color: Color(0xFF0064D2),
                                             width: 2,
                                           ),
                                         ),
                                         child: Icon(
                                           Icons.percent,
-                                          color: Colors.blue,
+                                          color: Color(0xFF0064D2),
                                           size: 16,
                                         ),
                                       ),
@@ -122,7 +122,7 @@ class ProfileView extends GetView<ProfileController> {
                                     children: [
                                       Icon(
                                         Icons.payment_rounded,
-                                        color: Colors.blue,
+                                        color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
                                       const Text(
@@ -149,11 +149,38 @@ class ProfileView extends GetView<ProfileController> {
                                     children: [
                                       Icon(
                                         Icons.person_add_alt_outlined,
-                                        color: Colors.blue,
+                                        color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
                                       const Text(
                                         'Invite Friends',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Divider(color: Colors.grey.shade400),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed(Routes.MY_TICKET);
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.confirmation_num_outlined,
+                                        color: Color(0xFF0064D2),
+                                      ),
+                                      SizedBox(width: 16),
+                                      const Text(
+                                        'My Order',
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
@@ -169,7 +196,7 @@ class ProfileView extends GetView<ProfileController> {
                       ),
                       Container(
                         color: Colors.white,
-                        margin: EdgeInsets.only(top: 76),
+                        margin: EdgeInsets.only(top: 8),
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30),
                           child: Column(
@@ -181,17 +208,17 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed(Routes.MY_TICKET);
+                                    Get.toNamed(Routes.CHANGE_PASSWORD);
                                   },
                                   child: Row(
                                     children: [
                                       Icon(
-                                        Icons.confirmation_num_outlined,
-                                        color: Colors.blue,
+                                        Icons.question_mark_rounded,
+                                        color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
                                       const Text(
-                                        'My Order',
+                                        'Peratutan Berlayar',
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
@@ -214,7 +241,7 @@ class ProfileView extends GetView<ProfileController> {
                                     children: [
                                       Icon(
                                         Icons.lock_person_outlined,
-                                        color: Colors.blue,
+                                        color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
                                       const Text(
@@ -228,21 +255,10 @@ class ProfileView extends GetView<ProfileController> {
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        color: Colors.white,
-                        margin: EdgeInsets.only(top: 16),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
+                              Divider(color: Colors.grey.shade400),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
-                                  vertical: 20.0,
+                                  vertical: 16.0,
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
@@ -252,7 +268,7 @@ class ProfileView extends GetView<ProfileController> {
                                     children: [
                                       Icon(
                                         Icons.logout_outlined,
-                                        color: Colors.blue,
+                                        color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
                                       const Text(

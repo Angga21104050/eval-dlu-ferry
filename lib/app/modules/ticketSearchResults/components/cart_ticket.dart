@@ -47,20 +47,25 @@ class CartWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    item['class'],
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black87,
+                  Flexible(
+                    flex: 3,
+                    child: Text(
+                      item['class'],
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black87,
+                      ),
                     ),
                   ),
-                  Text(
-                    '${item['count']}',
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF007BFF), // Biru lebih cerah
+                  Flexible(
+                    flex: 1,
+                    child: Text(
+                      '${item['count']}',
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF007BFF), // Biru lebih cerah
+                      ),
                     ),
                   ),
                 ],
@@ -73,7 +78,7 @@ class CartWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               gradient: const LinearGradient(
-                colors: [Color(0xFF0064D2), Color(0xFF5200B5)],
+                colors: [Color(0xFF0064D2), Colors.cyan],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),

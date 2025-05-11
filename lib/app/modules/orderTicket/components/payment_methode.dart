@@ -170,7 +170,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
     return GestureDetector(
       onTap: () => _showPaymentMethods(context),
       child: Container(
-        margin: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,

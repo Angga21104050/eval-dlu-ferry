@@ -14,7 +14,7 @@ class SearchTicketButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         gradient: const LinearGradient(
-          colors: [Color(0xFF0064D2), Color(0xFF5200B5)],
+          colors: [Color(0xFF0064D2), Colors.cyan],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),

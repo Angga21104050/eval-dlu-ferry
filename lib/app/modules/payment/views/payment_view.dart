@@ -6,6 +6,7 @@ import '../../orderTicket/controllers/order_ticket_controller.dart';
 import '../controllers/payment_controller.dart';
 import '../components/ewallet_payment_section.dart';
 import '../components/virtual_account_payment_section.dart';
+import '../../../widgets/background.dart';
 
 class PaymentView extends GetView<PaymentController> {
   const PaymentView({super.key});
@@ -16,24 +17,10 @@ class PaymentView extends GetView<PaymentController> {
     final orderTicketController = Get.find<OrderTicketController>();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
-          Container(
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF0064D2), Colors.white, Colors.white],
-              ),
-              image: DecorationImage(
-                image: AssetImage("assets/img/map-global.png"),
-                alignment: Alignment.topCenter,
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
+          Background(),
           Column(
             // Menggunakan Column sebagai parent untuk mengatur urutan
             children: [
@@ -135,18 +122,12 @@ class PaymentView extends GetView<PaymentController> {
                               Get.offNamed('/transaction-succ');
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(
-                                0xFF0064D2,
-                              ), 
-                              foregroundColor: Colors.white, 
+                              backgroundColor: const Color(0xFF0064D2),
+                              foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  10,
-                                ), 
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 16,
-                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 16),
                             ),
                             child: const Text(
                               'Konfirmasi Pembayaran',

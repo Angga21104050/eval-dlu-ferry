@@ -42,7 +42,7 @@ class CustomNavigationBar extends GetView<HomeController> {
             ),
           ],
           currentIndex: controller.selectedIndex.value,
-          selectedItemColor: Color(0xFF0064D2),
+          selectedItemColor: const Color.fromARGB(255, 0, 179, 255),
           unselectedItemColor: Colors.grey,
           iconSize: 24,
           selectedFontSize: 12,

@@ -21,9 +21,9 @@ class CustomProfileAppBar extends StatelessWidget
           height: height,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Color(0xFF0064D2), const Color(0xFF5200B5)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFF0064D2), Colors.cyan],
             ),
             image: const DecorationImage(
               image: AssetImage(
