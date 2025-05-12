@@ -28,8 +28,8 @@ class AppBarActionButtons extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(32),
       child: Container(
-        height: 32,
-        width: 32,
+        height: 28,
+        width: 28,
         decoration: BoxDecoration(
           color: const Color(0x2BFFFFFF),
           borderRadius: BorderRadius.circular(28),
@@ -42,9 +42,9 @@ class AppBarActionButtons extends StatelessWidget {
   Widget _buildHelpButton({VoidCallback? onTap}) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(32),
+      borderRadius: BorderRadius.circular(28),
       child: Container(
-        height: 32,
+        height: 28,
         width: 80,
         decoration: BoxDecoration(
           color: const Color(0x2BFFFFFF),

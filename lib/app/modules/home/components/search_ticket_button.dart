@@ -12,7 +12,7 @@ class SearchTicketButton extends StatelessWidget {
       margin: const EdgeInsets.only(top: 20),
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(10),
         gradient: const LinearGradient(
           colors: [Color(0xFF0064D2), Colors.cyan],
           begin: Alignment.topLeft,
@@ -28,7 +28,7 @@ class SearchTicketButton extends StatelessWidget {
           foregroundColor: Colors.white,
           shadowColor: Colors.transparent, // Hilangkan shadow default button
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         child: const Text(

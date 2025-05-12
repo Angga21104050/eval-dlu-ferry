@@ -18,12 +18,7 @@ class MainScaffoldView extends GetView<MainScaffoldController> {
       body: Obx(
         () => IndexedStack(
           index: homeController.selectedIndex.value,
-          children: const [
-            HomeView(),
-            MyTicketView(),
-            HistoryView(),
-            ProfileView(),
-          ],
+          children: const [HomeView(), MyTicketView(), ProfileView()],
         ),
       ),
       bottomNavigationBar: const CustomNavigationBar(),

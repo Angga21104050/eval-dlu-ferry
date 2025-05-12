@@ -186,7 +186,7 @@ class LoginView extends GetView<LoginController> {
                         backgroundColor: const Color(
                           0xFF0064D2,
                         ), // Sesuaikan warna tombol
-                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),

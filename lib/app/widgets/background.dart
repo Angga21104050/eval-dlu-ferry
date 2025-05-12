@@ -6,12 +6,12 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 240,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFF0064D2), Color(0xFF0064D2), Colors.cyan, Colors.white],
+          colors: [Color(0xFF0064D2), Color(0xFF0064D2), Colors.cyan],
         ),
         image: DecorationImage(
           image: AssetImage("assets/img/map-global.png"),

@@ -16,9 +16,6 @@ class HomeController extends GetxController {
         Get.offNamed('/my-ticket');
         break;
       case 2:
-        Get.offNamed('/history');
-        break;
-      case 3:
         Get.offNamed('/profile');
         break;
     }

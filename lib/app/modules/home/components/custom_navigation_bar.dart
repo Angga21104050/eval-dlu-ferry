@@ -11,17 +11,17 @@ class CustomNavigationBar extends GetView<HomeController> {
     return Obx(
       () => Container(
         decoration: BoxDecoration(
-          color: Colors.white,
           border: Border.all(color: Colors.grey.shade300),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1), // Lebih soft
+              color: Colors.grey.withOpacity(0.1), // Lebih soft
               offset: Offset(0, -2), // Bayangan dari atas ke bawah
               blurRadius: 8, // Membuat bayangan lebih lembut
             ),
           ],
         ),
         child: BottomNavigationBar(
+          backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -31,10 +31,6 @@ class CustomNavigationBar extends GetView<HomeController> {
             BottomNavigationBarItem(
               icon: Icon(Icons.confirmation_num_outlined),
               label: 'My Ticket',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'History',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),

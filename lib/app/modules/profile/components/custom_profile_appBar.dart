@@ -23,7 +23,7 @@ class CustomProfileAppBar extends StatelessWidget
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xFF0064D2), Colors.cyan],
+              colors: [Color(0xFF0064D2), Color(0xFF0064D2), Colors.cyan],
             ),
             image: const DecorationImage(
               image: AssetImage(

@@ -33,7 +33,7 @@ class HomeView extends GetView<HomeController> {
                     // Form Input Ticket
                     InputFormTicket(),
                     // Carousel Slider
-                    CustomCarousel(),
+                    // CustomCarousel(),
                   ],
                 ),
               ),

@@ -14,7 +14,7 @@ class HistoryView extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     return Scaffold(
-      appBar: const SecCustomAppBar(page: 'History'),
+      appBar: const SecCustomAppBar(page: 'My History'),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
