@@ -52,7 +52,7 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.offNamed(Routes.EDIT_PROFILE);
+                                    Get.toNamed(Routes.EDIT_PROFILE);
                                   },
                                   child: Row(
                                     children: [
@@ -208,7 +208,7 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed(Routes.CHANGE_PASSWORD);
+                                    Get.toNamed(Routes.INFORMATION);
                                   },
                                   child: Row(
                                     children: [

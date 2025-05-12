@@ -17,6 +17,16 @@ class EditProfileView extends GetView<EditProfileController> {
               automaticallyImplyLeading: true,
               backgroundColor: Colors.blue.shade800,
               elevation: 0,
+              leading: IconButton(
+                // Menggunakan IconButton untuk tombol back
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ), // Atur warna ikon
+                onPressed: () {
+                  Get.back();
+                },
+              ),
               title: const Text(
                 'Edit Profile',
                 style: TextStyle(

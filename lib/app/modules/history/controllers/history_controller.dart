@@ -1,8 +1,35 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HistoryController extends GetxController {
   //TODO: Implement HistoryController
+  final isScrolled = false.obs; // Observable boolean
+  ScrollController scrollController = ScrollController();
 
+  @override
+  void onInit() {
+    super.onInit();
+    scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void onClose() {
+    scrollController.removeListener(_onScroll);
+    scrollController.dispose();
+    super.onClose();
+  }
+
+  void _onScroll() {
+    if (scrollController.offset > 50) { // You can adjust the value 50
+      if (!isScrolled.value) {
+        isScrolled.value = true;
+      }
+    } else {
+      if (isScrolled.value) {
+        isScrolled.value = false;
+      }
+    }
+  }
   // data history
   var ticketHistory =
       <Map<String, dynamic>>[

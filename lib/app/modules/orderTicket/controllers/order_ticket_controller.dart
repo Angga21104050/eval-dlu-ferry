@@ -10,6 +10,8 @@ class OrderTicketController extends GetxController {
     gender.value = value;
   }
 
+  
+
   // State dan data untuk dropdown Virtual Account
   var isExpandedVirtualAcc = false.obs;
   var selectedVirtualAccMethod = Rxn<String>();
@@ -176,21 +178,24 @@ class OrderTicketController extends GetxController {
     return 'assets/images/default.png'; // Default return statement
   }
 
-  final count = 0.obs;
+  final isScrolled = false.obs;
+  final scrollController = ScrollController();
+
   @override
   void onInit() {
     super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
+    scrollController.addListener(() {
+      if (scrollController.offset > 100 && !isScrolled.value) {
+        isScrolled.value = true;
+      } else if (scrollController.offset <= 100 && isScrolled.value) {
+        isScrolled.value = false;
+      }
+    });
   }
 
   @override
   void onClose() {
+    scrollController.dispose();
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

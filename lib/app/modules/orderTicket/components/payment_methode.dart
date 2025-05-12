@@ -18,7 +18,6 @@ class PaymentMethodeDropdown extends StatelessWidget {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeOut,
-          height: 800,
           padding: const EdgeInsets.all(16),
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -31,7 +30,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 8),
+                  SizedBox(height: 20),
                   const Text(
                     'Pilih Metode Pembayaran',
                     style: TextStyle(
