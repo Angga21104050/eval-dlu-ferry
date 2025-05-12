@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../home/controllers/home_controller.dart';
 import 'package:get/get.dart';
-import '../../history/views/history_view.dart';
 import '../../home/components/custom_navigation_bar.dart';
 import '../../home/views/home_view.dart';
 import '../../myTicket/views/my_ticket_view.dart';

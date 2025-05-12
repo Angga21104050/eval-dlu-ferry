@@ -1,23 +1,25 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MyTicketController extends GetxController {
-  //TODO: Implement MyTicketController
+  final isScrolled = false.obs;
+  final scrollController = ScrollController();
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
+    scrollController.addListener(() {
+      if (scrollController.offset > 100 && !isScrolled.value) {
+        isScrolled.value = true;
+      } else if (scrollController.offset <= 100 && isScrolled.value) {
+        isScrolled.value = false;
+      }
+    });
   }
 
   @override
   void onClose() {
+    scrollController.dispose();
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

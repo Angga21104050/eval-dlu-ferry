@@ -1,11 +1,10 @@
 import 'package:dlu_project/app/modules/home/controllers/home_controller.dart';
-import 'package:dlu_project/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/my_ticket_controller.dart';
 import '../../history/controllers/history_controller.dart';
-import '../components/secondary_appbar.dart';
 import '../../home/components/custom_navigation_bar.dart';
+import '../components/header.dart';
 import '../components/search_input.dart';
 import '../components/my_ticket_list.dart';
 
@@ -22,122 +21,107 @@ class MyTicketView extends GetView<MyTicketController> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xFF0064D2), Color(0xFF0064D2), Colors.cyan],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              image: DecorationImage(
-                image: AssetImage("assets/img/map-global.png"),
-                alignment: Alignment.center,
-                fit: BoxFit.contain,
-              ),
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 26),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 26),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Tiket Saya',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed('/history');
-                          },
-                          child: Container(
-                            height: 38,
-                            width: 38,
-                            decoration: BoxDecoration(
-                              color: const Color(0x2BFFFFFF),
-                              borderRadius: BorderRadius.circular(38),
-                            ),
-                            child: Center(
-                              child: Icon(
-                                Icons.history_edu_rounded,
-                                color: Colors.white,
-                                size: 26,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+          Header(),
+          NotificationListener<ScrollNotification>(
+            onNotification: (_) => true,
+            child: SingleChildScrollView(
+              controller: controller.scrollController,
+              padding: const EdgeInsets.only(top: 170),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade50,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            'Semua tiket ferry yang sudah aktif dan menunggu pembayaran',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SingleChildScrollView(
-            padding: const EdgeInsets.only(top: 170),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade50,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
                 ),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 20.0,
-                      right: 20.0,
-                      top: 25,
-                    ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Layanan Cek Tiket Saya',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20.0,
+                        right: 20.0,
+                        top: 25,
+                      ),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Layanan Cek Tiket Saya',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SearchInputField(
-                    onChanged: (value) {
-                      print("Kode Pemesanan: $value");
-                    },
-                  ),
-                  TicketList(),
-                ],
+                    SearchInputField(
+                      onChanged: (value) {
+                        print("Kode Pemesanan: $value");
+                      },
+                    ),
+                    TicketList(),
+                  ],
+                ),
               ),
             ),
+          ),
+          // AppBar putih muncul saat scroll
+          Obx(
+            () =>
+                controller.isScrolled.value
+                    ? Container(
+                      height: 80 + MediaQuery.of(context).padding.top,
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).padding.top,
+                      ),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Tiket Saya',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Container(
+                              height: 36,
+                              width: 36,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(36),
+                                border: Border.all(color: Colors.grey.shade800),
+                              ),
+                              child: Center(
+                                child: IconButton(
+                                  padding:
+                                      EdgeInsets.zero, // Menghilangkan padding
+                                  constraints: const BoxConstraints(),
+                                  icon: Icon(
+                                    Icons.history_edu_rounded,
+                                    color: Colors.grey[800],
+                                  ),
+                                  onPressed: () => Get.toNamed('/history'),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                    : const SizedBox.shrink(),
           ),
         ],
       ),
