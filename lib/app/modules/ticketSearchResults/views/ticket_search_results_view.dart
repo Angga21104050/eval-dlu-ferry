@@ -16,8 +16,10 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(56),
         child: AppBar(
+          scrolledUnderElevation: 0.0,
+          elevation: 0,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            icon: const Icon(Icons.arrow_back, color: Color(0xFF0064D2)),
             onPressed: () {
               Get.back();
             },
@@ -38,7 +40,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -51,7 +53,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                     ),
@@ -64,7 +66,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -77,20 +79,20 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                     'dd MMM yyyy',
                     'id_ID',
                   ).format(homeController.departureDate.value),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
+                    color: Colors.grey.shade700,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
           ),
           centerTitle: false,
-          backgroundColor: const Color(0xFF0064D2),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 247, 251, 254),
       body: Column(
         children: [
           DateSelectorWidget(homeController: homeController),

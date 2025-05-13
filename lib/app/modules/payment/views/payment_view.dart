@@ -29,33 +29,37 @@ class PaymentView extends GetView<PaymentController> {
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                 ), // Tambah padding horizontal
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Stack(
+                  alignment: Alignment.center,
                   children: [
-                    IconButton(
-                      onPressed: Get.back,
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        size: 26,
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: IconButton(
+                        onPressed: Get.back,
+                        icon: const Icon(Icons.arrow_back, color: Colors.white),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    const Text(
-                      'Selesaikan Pembayaran',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                    const Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Selesaikan Pembayaran',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    const Spacer(),
                   ],
                 ),
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 4,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -109,7 +113,6 @@ class PaymentView extends GetView<PaymentController> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 8),
                       Center(
                         child: Container(
                           width: double.infinity,

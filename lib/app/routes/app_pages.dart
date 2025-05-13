@@ -18,6 +18,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/mainScaffold/bindings/main_scaffold_binding.dart';
 import '../modules/mainScaffold/views/main_scaffold_view.dart';
+import '../modules/my-ticket-detail/bindings/my_ticket_detail_binding.dart';
+import '../modules/my-ticket-detail/views/my_ticket_detail_view.dart';
 import '../modules/myTicket/bindings/my_ticket_binding.dart';
 import '../modules/myTicket/views/my_ticket_view.dart';
 import '../modules/notification/bindings/notification_binding.dart';
@@ -134,6 +136,11 @@ class AppPages {
       name: _Paths.MAIN_SCAFFOLD,
       page: () => MainScaffoldView(),
       binding: MainScaffoldBinding(),
+    ),
+    GetPage(
+      name: _Paths.MY_TICKET_DETAIL,
+      page: () => const MyTicketDetailView(),
+      binding: MyTicketDetailBinding(),
     ),
   ];
 }

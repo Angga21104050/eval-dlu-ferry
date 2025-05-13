@@ -21,6 +21,7 @@ abstract class Routes {
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const PAYMENT = _Paths.PAYMENT;
   static const MAIN_SCAFFOLD = _Paths.MAIN_SCAFFOLD;
+  static const MY_TICKET_DETAIL = _Paths.MY_TICKET_DETAIL;
 }
 
 abstract class _Paths {
@@ -43,4 +44,5 @@ abstract class _Paths {
   static const FORGOT_PASSWORD = '/forgot-password';
   static const PAYMENT = '/payment';
   static const MAIN_SCAFFOLD = '/main-scaffold';
+  static const MY_TICKET_DETAIL = '/my-ticket-detail';
 }

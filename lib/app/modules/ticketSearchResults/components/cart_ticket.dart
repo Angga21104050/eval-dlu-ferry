@@ -76,12 +76,8 @@ class CartWidget extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              gradient: const LinearGradient(
-                colors: [Color(0xFF0064D2), Colors.cyan],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+              borderRadius: BorderRadius.circular(10),
+              color: Color(0xFF0064D2),
             ),
             child: ElevatedButton(
               onPressed: () {

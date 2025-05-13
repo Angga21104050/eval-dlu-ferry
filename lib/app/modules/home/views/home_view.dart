@@ -15,7 +15,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: const CustomAppBar(
         greeting: 'Selamat Malam',
-        username: 'Airlangga Maulana Anwar',
+        username : 'Airlangga Maulana Anwar',
       ),
       body: Container(
         color: Colors.white,

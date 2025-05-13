@@ -63,20 +63,16 @@ class _TicketCardState extends State<TicketCard> {
         ),
         color: Colors.white,
         elevation: 6,
-        shadowColor: Colors.black.withOpacity(0.4),
+        shadowColor: Colors.blue.withOpacity(0.2),
         margin: const EdgeInsets.only(bottom: 16),
         child: Padding(
-          padding: const EdgeInsets.only(
-            top: 10,
-            bottom: 10,
-            left: 10,
-            right: 10,
-          ),
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     decoration: BoxDecoration(
@@ -92,7 +88,7 @@ class _TicketCardState extends State<TicketCard> {
                           widget.ticket['imageUrl'],
                           width: double.infinity,
                           height: double.infinity,
-                          fit: BoxFit.cover, // Memastikan gambar memenuhi area
+                          fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
                             return Container(
                               width: double.infinity,
@@ -114,77 +110,95 @@ class _TicketCardState extends State<TicketCard> {
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              widget.ticket['ferryName'],
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87,
-                              ),
-                            ),
-                            Text(
-                              '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']}',
-                              style: const TextStyle(
-                                fontSize: 12,
+                        /// Bagian ini diperbaiki
+                        Container(
+                          width: double.infinity,
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
                                 color: Colors.grey,
-                                fontWeight: FontWeight.bold,
+                                width: 0.5,
                               ),
-                              textAlign: TextAlign.end,
                             ),
-                          ],
+                          ),
+                          padding: const EdgeInsets.only(bottom: 2),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  widget.ticket['ferryName'],
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black87,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']}',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.end,
+                              ),
+                            ],
+                          ),
                         ),
+
+                        const SizedBox(height: 6),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.directions_ferry_outlined,
                               color: Color(0xFF0064D2),
                               size: 18,
                             ),
-                            SizedBox(width: 6),
+                            const SizedBox(width: 6),
                             Expanded(
                               child: Text(
                                 '${widget.ticket['departurePort']}',
                                 style: const TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.grey,
                                 ),
                                 overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
+                                maxLines: 1,
                               ),
                             ),
                           ],
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.location_on_outlined,
                               color: Color(0xFF0064D2),
                               size: 18,
                             ),
-                            SizedBox(width: 6),
+                            const SizedBox(width: 6),
                             Expanded(
                               child: Text(
                                 '${widget.ticket['arrivalPort']}',
                                 style: const TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.grey,
                                 ),
                                 overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
+                                maxLines: 1,
                               ),
                             ),
                           ],
                         ),
+                        const SizedBox(height: 4),
                         Row(
                           children: [
-                            // Expanded untuk teks ticketType
                             Expanded(
                               child: Text(
                                 (widget.ticket['ticketType'] is List &&
@@ -199,40 +213,31 @@ class _TicketCardState extends State<TicketCard> {
                                 ),
                               ),
                             ),
-
-                            // GestureDetector berisi Pilih Tiket
                             GestureDetector(
                               onTap: () {
                                 setState(() {
                                   isExpanded = !isExpanded;
                                 });
                               },
-                              child: Container(
-                                alignment: Alignment.centerRight, // optional
-                                child: Row(
-                                  mainAxisSize:
-                                      MainAxisSize.min, // <= ini kunci
-                                  mainAxisAlignment:
-                                      MainAxisAlignment
-                                          .end, // ini opsional karena row-nya min
-                                  children: [
-                                    Text(
-                                      'Pilih Tiket',
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF0064D2),
-                                      ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Text(
+                                    'Lihat Kelas',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFF0064D2),
                                     ),
-                                    Icon(
-                                      isExpanded
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down,
-                                      color: Colors.blue,
-                                      size: 20,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  Icon(
+                                    isExpanded
+                                        ? Icons.keyboard_arrow_up
+                                        : Icons.keyboard_arrow_down,
+                                    color: Colors.blue,
+                                    size: 20,
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -242,7 +247,6 @@ class _TicketCardState extends State<TicketCard> {
                   ),
                 ],
               ),
-              // Dropdown Content
               if (isExpanded)
                 TicketSelection(
                   ticketClasses:
@@ -254,10 +258,8 @@ class _TicketCardState extends State<TicketCard> {
                               widget.ticket['classes'],
                             ),
                           },
-
                   onUpdateCart: updateCart,
                 ),
-              // Keranjang
               CartWidget(cart: cart),
             ],
           ),

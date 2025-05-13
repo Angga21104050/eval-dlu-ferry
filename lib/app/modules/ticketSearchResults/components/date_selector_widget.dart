@@ -18,14 +18,13 @@ class DateSelectorWidget extends StatelessWidget {
         height: 60,
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
-          color: const Color(0xFF0064D2),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.4),
-              blurRadius: 6,
-              offset: const Offset(0, 2),
+          color: const Color.fromARGB(255, 255, 255, 255),
+          border: Border(
+            bottom: BorderSide(
+              color: Colors.grey, // Warna border
+              width: 1.0,
             ),
-          ],
+          ),
         ),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -59,7 +58,10 @@ class DateSelectorWidget extends StatelessWidget {
                           DateFormat('E', 'id_ID').format(date),
                           style: TextStyle(
                             fontSize: 14,
-                            color: isSelected ? Colors.white : Colors.black54,
+                            color:
+                                isSelected
+                                    ? Color(0xFF0064D2)
+                                    : Colors.grey.shade500,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -69,7 +71,10 @@ class DateSelectorWidget extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
-                            color: isSelected ? Colors.white : Colors.black,
+                            color:
+                                isSelected
+                                    ? Color(0xFF0064D2)
+                                    : Colors.grey.shade500,
                           ),
                         ),
                         const SizedBox(width: 2),
@@ -78,7 +83,10 @@ class DateSelectorWidget extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
-                            color: isSelected ? Colors.white : Colors.black,
+                            color:
+                                isSelected
+                                    ? Color(0xFF0064D2)
+                                    : Colors.grey.shade500,
                           ),
                         ),
                       ],
@@ -88,7 +96,7 @@ class DateSelectorWidget extends StatelessWidget {
                         height: 2,
                         width: 50,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Color(0xFF0064D2),
                           borderRadius: BorderRadius.circular(5),
                         ),
                       ),

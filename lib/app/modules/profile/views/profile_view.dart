@@ -167,7 +167,7 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed(Routes.MY_TICKET);
+                                    Get.offAllNamed(Routes.MY_TICKET);
                                   },
                                   child: Row(
                                     children: [

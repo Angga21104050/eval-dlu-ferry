@@ -49,7 +49,7 @@ class _PaymentTimerState extends State<PaymentTimer> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.only(top: 8, bottom: 16),
+      padding: const EdgeInsets.only(top: 0, bottom: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
