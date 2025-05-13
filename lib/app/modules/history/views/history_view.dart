@@ -140,7 +140,7 @@ class HistoryView extends GetView<HistoryController> {
                               // Menggunakan IconButton untuk tombol back
                               icon: const Icon(
                                 Icons.arrow_back,
-                                color: Colors.black,
+                                color: Color(0xFF0064D2),
                               ), // Atur warna ikon
                               onPressed: () {
                                 Get.back();
