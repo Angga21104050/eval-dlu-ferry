@@ -19,11 +19,8 @@ class ProfileView extends GetView<ProfileController> {
       backgroundColor: const Color.fromARGB(255, 238, 238, 238),
       body: Stack(
         children: [
-          // Konten utama di bawah AppBar
           SingleChildScrollView(
-            padding: EdgeInsets.only(
-              top: appBarHeight + additionalPadding,
-            ), // Padding agar konten turun
+            padding: EdgeInsets.only(top: appBarHeight + additionalPadding),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

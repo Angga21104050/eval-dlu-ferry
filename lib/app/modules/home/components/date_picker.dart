@@ -63,7 +63,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(
-                  DateFormat('dd MMMM yyyy').format(_selectedDate),
+                  DateFormat('dd MMMM yyyy', 'id_ID').format(_selectedDate),
                   style: TextStyle(
                     fontSize: 14, // Ukuran font
                     fontWeight: FontWeight.w500,
@@ -97,7 +97,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         return AnimatedContainer(
           duration: Duration(milliseconds: 800), // Animasi transisi
           curve: Curves.easeOut, // Efek animasi lebih halus
-          height: 500, // Tinggi modal kalender
+          height: 420, // Tinggi modal kalender
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -114,6 +114,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               ),
               Expanded(
                 child: TableCalendar(
+                  locale: 'id_ID',
                   focusedDay: _selectedDate,
                   firstDay: DateTime.now(),
                   lastDay: DateTime(2025, 12, 31),

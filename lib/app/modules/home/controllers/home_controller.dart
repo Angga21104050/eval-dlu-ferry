@@ -78,8 +78,8 @@ class HomeController extends GetxController {
     fromCity.value = toCity.value;
     toCity.value = temp;
   }
-  var departureDate = DateTime.now().obs;
 
+  var departureDate = DateTime.now().obs;
 
   // Tambahkan variabel untuk menyimpan hasil pencarian
   RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;

@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../controllers/ticket_search_results_controller.dart';
 import '../../home/controllers/home_controller.dart';
 import '../components/ticket_card.dart';
+import '../components/date_selector_widget.dart';
 
 class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
   const TicketSearchResultsView({super.key});
@@ -13,7 +14,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
     final homeController = Get.find<HomeController>();
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100),
+        preferredSize: const Size.fromHeight(56),
         child: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -74,8 +75,13 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                 Text(
                   DateFormat(
                     'dd MMM yyyy',
+                    'id_ID',
                   ).format(homeController.departureDate.value),
-                  style: const TextStyle(fontSize: 12, color: Colors.white70),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ],
             ),
@@ -85,39 +91,60 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Stack(
+      body: Column(
         children: [
-          Obx(() {
-            if (homeController.filteredTickets.isEmpty) {
-              return const Center(
-                child: Text("Tidak ada tiket yang tersedia."),
-              );
-            }
-            return ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              itemCount:
-                  homeController.filteredTickets.length + 1, // +1 untuk header
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  // Widget header scrollable
-                  return const Padding(
-                    padding: EdgeInsets.only(bottom: 10, top: 12),
-                    child: Text(
-                      'Pilih Ferry Berangkat',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  );
-                }
+          DateSelectorWidget(homeController: homeController),
+          Expanded(
+            child: Obx(() {
+              if (homeController.filteredTickets.isEmpty) {
+                return Center(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 50),
+                      SizedBox(
+                        height: 170,
+                        width: 170,
 
-                final ticket =
-                    homeController.filteredTickets[index - 1]; // offset -1
-                return TicketCard(ticket: ticket);
-              },
-            );
-          }),
+                        child: Image.asset('assets/img/list.png'),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 16.0,
+                          horizontal: 80,
+                        ),
+                        child: const Text(
+                          "Maaf tidak ada tiket yang tersedia 😥.",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }
+
+              return ListView(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 16,
+                ),
+                children: [
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Pilih Ferry Berangkat',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 12),
+                  ...homeController.filteredTickets.map((ticket) {
+                    return TicketCard(ticket: ticket);
+                  }).toList(),
+                ],
+              );
+            }),
+          ),
         ],
       ),
     );

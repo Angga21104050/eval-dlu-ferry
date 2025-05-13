@@ -1,3 +1,4 @@
+import 'package:dlu_project/app/modules/myTicket/controllers/my_ticket_controller.dart';
 import 'package:flutter/material.dart';
 import '../../home/controllers/home_controller.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class MainScaffoldView extends GetView<MainScaffoldController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(MyTicketController());
     return Scaffold(
       body: Obx(
         () => IndexedStack(

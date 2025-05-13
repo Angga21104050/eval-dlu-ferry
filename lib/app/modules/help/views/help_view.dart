@@ -33,6 +33,7 @@ class HelpView extends GetView<HelpController> {
             ),
           ),
         ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -42,7 +43,7 @@ class HelpView extends GetView<HelpController> {
             },
           ),
           Container(
-            margin: const EdgeInsets.only(left: 0, right: 0, bottom: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -69,6 +70,32 @@ class HelpView extends GetView<HelpController> {
               ],
             ),
           ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    'KANTOR PT. DHARMA LAUTAN UTAMA',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      letterSpacing: 0.5,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                SizedBox(height: 6),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Divider(height: 2, color: Color(0xFF0064D2)),
+                ),
+              ],
+            ),
+          ),
 
           Expanded(
             child: GetBuilder<HelpController>(
@@ -76,33 +103,10 @@ class HelpView extends GetView<HelpController> {
                 return ListView(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 0,
-                    vertical: 0,
+                    vertical: 20,
                   ),
                   children: [
                     // Judul yang bisa discroll
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      color: Colors.blue.shade100,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(20.0),
-                            child: Text(
-                              'KANTOR PT. DHARMA LAUTAN UTAMA',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                                letterSpacing: 0.5,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                        ],
-                      ),
-                    ),
 
                     // List kontak
                     ...controller.contacts.map((contact) {

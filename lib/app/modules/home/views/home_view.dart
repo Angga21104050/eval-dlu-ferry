@@ -23,7 +23,7 @@ class HomeView extends GetView<HomeController> {
           children: [
             Column(children: [Background()]),
             Positioned(
-              top: -260,
+              top: -240,
               left: 0,
               right: 0,
               bottom: 0,

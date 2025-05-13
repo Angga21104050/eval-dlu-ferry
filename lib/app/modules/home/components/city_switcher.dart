@@ -77,7 +77,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12.0,
-                      vertical: 8,
+                      vertical: 16,
                     ),
                     child: Text(
                       isFromCity
