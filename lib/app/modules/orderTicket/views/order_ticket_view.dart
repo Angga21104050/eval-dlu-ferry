@@ -102,10 +102,11 @@ class OrderTicketView extends GetView<OrderTicketController> {
                     if (vehicleCount > 0)
                       VehicleForm(vehicleCount: vehicleCount),
                     // Form kamar vip (berulang)
-                    VipRoomForm(
-                      vipRoomCount: vipRoomCount,
-                      controller: controller,
-                    ),
+                    if (vipRoomCount > 0)
+                      VipRoomForm(
+                        vipRoomCount: vipRoomCount,
+                        controller: controller,
+                      ),
                     PaymentMethodeDropdown(),
                     Container(
                       margin: EdgeInsets.symmetric(

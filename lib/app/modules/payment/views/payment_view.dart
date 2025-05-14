@@ -113,6 +113,7 @@ class PaymentView extends GetView<PaymentController> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 16),
                       Center(
                         child: Container(
                           width: double.infinity,
