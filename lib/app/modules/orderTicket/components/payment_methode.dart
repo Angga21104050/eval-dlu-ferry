@@ -220,7 +220,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
               } else {
                 return const Padding(
                   padding: EdgeInsets.only(right: 16.0),
-                  child: Icon(Icons.credit_card, color: Colors.blueAccent),
+                  child: Icon(Icons.credit_card, color: Color(0xFF0064D2)),
                 );
               }
             }),
@@ -247,7 +247,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
                     color:
                         selectedMethod == 'Pilih Metode Pembayaran'
                             ? Colors.grey
-                            : Colors.black87,
+                            : Color(0xFF0064D2),
                   ),
                 );
               }),

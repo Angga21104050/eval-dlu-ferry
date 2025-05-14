@@ -184,6 +184,7 @@ class OrderTicketController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    
     scrollController.addListener(() {
       if (scrollController.offset > 100 && !isScrolled.value) {
         isScrolled.value = true;

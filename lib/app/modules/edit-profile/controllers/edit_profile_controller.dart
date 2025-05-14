@@ -2,10 +2,10 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class EditProfileController extends GetxController {
-  final emailController = TextEditingController(text: 'user@example.com');
+  final emailController = TextEditingController(text: 'airlangga@example.com');
   final identityNumberController = TextEditingController(text: '23435435242');
   final nameController = TextEditingController(text: 'anggaaa');
-  final genderController = TextEditingController(text: 'Laki - laki');
+  final genderController = TextEditingController(text: 'Laki Laki');
   final villageAddressController = TextEditingController(text: 'Karangklesem');
   final cityController = TextEditingController(text: 'Purwokerto');
   final phoneNumberController = TextEditingController(text: '0876446788532');
