@@ -6,14 +6,19 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 300,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFF0064D2), Colors.cyan],
+          colors: [
+            Color(0xFF0064D2),
+            Color(0xFF0064D2),
+            Color(0xFF0064D2),
+            Colors.cyan,
+          ],
         ),
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
         image: DecorationImage(
           image: AssetImage("assets/img/map-global.png"),
           alignment: Alignment.center,

@@ -15,28 +15,17 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: const CustomAppBar(
         greeting: 'Selamat Malam',
-        username : 'Airlangga Maulana Anwar',
+        username: 'Airlangga Maulana Anwar',
       ),
-      body: Container(
-        color: Colors.white,
-        child: Stack(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            Column(children: [Background()]),
-            Positioned(
-              top: -240,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    // Form Input Ticket
-                    InputFormTicket(),
-                    // Carousel Slider
-                    CustomCarousel(),
-                  ],
-                ),
-              ),
+            Stack(
+              children: [
+                Background(),
+                Column(children: [InputFormTicket(), CustomHorizontalScroll()]),
+              ],
             ),
           ],
         ),

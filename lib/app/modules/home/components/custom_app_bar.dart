@@ -4,11 +4,13 @@ import '../../../widgets/appbar_action_buttons.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String greeting;
   final String username;
+  final bool showBottomBorder; // Properti untuk mengontrol border
 
   const CustomAppBar({
     super.key,
     required this.greeting,
     required this.username,
+    this.showBottomBorder = false, // Defaultnya false
   });
 
   @override
@@ -48,9 +50,28 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
       ),
+      bottom: showBottomBorder
+          ? const BorderedDivider()
+          : null,
     );
   }
 
   @override
   Size get preferredSize => const Size.fromHeight(56);
+}
+
+class BorderedDivider extends StatelessWidget implements PreferredSizeWidget {
+  const BorderedDivider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Divider(
+      height: 1.0,
+      thickness: 1.0,
+      color: Colors.grey, // Warna border sesuai keinginan Anda
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(1.0);
 }
