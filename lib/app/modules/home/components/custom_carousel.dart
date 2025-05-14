@@ -6,6 +6,7 @@ class CustomHorizontalScroll extends StatelessWidget {
     "assets/img/slider-1.jpg",
     "assets/img/slider-2.jpg",
     "assets/img/slider-3.jpg",
+    "assets/img/slider-4.jpg",
   ];
 
   @override
