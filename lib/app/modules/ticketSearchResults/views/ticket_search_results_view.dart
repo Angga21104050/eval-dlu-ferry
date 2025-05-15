@@ -5,6 +5,7 @@ import '../controllers/ticket_search_results_controller.dart';
 import '../../home/controllers/home_controller.dart';
 import '../components/ticket_card.dart';
 import '../components/date_selector_widget.dart';
+import '../components/card_for_sold.dart';
 
 class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
   const TicketSearchResultsView({super.key});
@@ -92,7 +93,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
           backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 247, 251, 254),
+      backgroundColor: Color.fromARGB(255, 249, 251, 255),
       body: Column(
         children: [
           DateSelectorWidget(homeController: homeController),
@@ -129,10 +130,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
               }
 
               return ListView(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 8,
-                  horizontal: 16,
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 children: [
                   const SizedBox(height: 8),
                   const Text(
@@ -140,6 +138,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 12),
+                  const CardForSold(),
                   ...homeController.filteredTickets.map((ticket) {
                     return TicketCard(ticket: ticket);
                   }).toList(),
