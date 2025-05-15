@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../data/list_tiket_dummy.dart';
 
 class OrderTicketController extends GetxController {
   // Properti untuk menyimpan gender yang dipilih
@@ -181,10 +182,17 @@ class OrderTicketController extends GetxController {
   final isScrolled = false.obs;
   final scrollController = ScrollController();
 
+  // Observables untuk menyimpan jumlah penumpang, kamar VIP, dan kendaraan
+  final cart = Rx<List<Map<String, dynamic>>>(Get.arguments ?? []);
+  final passengerCount = 0.obs;
+  final vipRoomCount = 0.obs;
+  final vehicleCount = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
-    
+    updateCounts();
+    ever(cart, (_) => updateCounts()); // Update counts setiap kali cart berubah
     scrollController.addListener(() {
       if (scrollController.offset > 100 && !isScrolled.value) {
         isScrolled.value = true;
@@ -192,6 +200,29 @@ class OrderTicketController extends GetxController {
         isScrolled.value = false;
       }
     });
+  }
+
+  void updateCounts() {
+    passengerCount.value = cart.value
+        .where((item) => dummyTicketTypes
+            .firstWhere((t) => t.type == 'Penumpang')
+            .categories
+            .any((cat) => cat.categoryName == item['class']))
+        .fold(0, (sum, item) => sum + (item['count'] as int));
+
+    vipRoomCount.value = cart.value
+        .where((item) => dummyTicketTypes
+            .firstWhere((t) => t.type == 'Kamar VIP')
+            .categories
+            .any((cat) => cat.categoryName == item['class']))
+        .fold(0, (sum, item) => sum + (item['count'] as int));
+
+    vehicleCount.value = cart.value
+        .where((item) => dummyTicketTypes
+            .firstWhere((t) => t.type == 'Kendaraan')
+            .categories
+            .any((cat) => cat.categoryName == item['class']))
+        .fold(0, (sum, item) => sum + (item['count'] as int));
   }
 
   @override

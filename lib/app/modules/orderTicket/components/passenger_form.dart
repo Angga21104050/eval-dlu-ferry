@@ -2,21 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/order_ticket_controller.dart';
 import 'gender_selection.dart';
+import '../../../data/list_tiket_dummy.dart';
 
-class PassengerForm extends StatelessWidget {
+class PassengerForm extends StatefulWidget {
   final int passengerCount;
   final OrderTicketController controller;
+  final List<Map<String, dynamic>> cart;
 
   const PassengerForm({
     super.key,
     required this.passengerCount,
     required this.controller,
+    required this.cart,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final RxBool isExpanded = false.obs;
+  State<PassengerForm> createState() => _PassengerFormState();
+}
 
+class _PassengerFormState extends State<PassengerForm> {
+  final RxBool isExpanded = false.obs;
+  late List<Map<String, dynamic>> passengerItems;
+
+  @override
+  void initState() {
+    super.initState();
+    final List<String> passengerCategories = getPassengerCategoryNames();
+    passengerItems =
+        widget.cart
+            .where((item) => passengerCategories.contains(item['class']))
+            .toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Obx(
       () => Container(
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -41,7 +60,7 @@ class PassengerForm extends StatelessWidget {
                   child: Icon(
                     Icons.person_2_outlined,
                     color: Color(0xFF0064D2),
-                  ), // Tambahkan icon penumpang di sini
+                  ),
                 ),
                 Expanded(
                   child: ListTile(
@@ -66,16 +85,24 @@ class PassengerForm extends StatelessWidget {
             ),
             if (isExpanded.value)
               Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
-                  children: List.generate(passengerCount, (i) {
+                  children: List.generate(passengerItems.length, (i) {
+                    final passenger = passengerItems[i];
                     return Padding(
-                      padding: const EdgeInsets.only(top: 0),
+                      padding: const EdgeInsets.only(bottom: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Penumpang ${i + 1}'),
-                          GenderSelection(controller: controller),
+                          Text(
+                            'Penumpang ${i + 1} (${passenger['class']})',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87,
+                            ),
+                          ),
+                          GenderSelection(controller: widget.controller),
                           const SizedBox(height: 10),
                           Row(
                             children: [
@@ -94,7 +121,7 @@ class PassengerForm extends StatelessWidget {
                                   child: DropdownButtonHideUnderline(
                                     child: DropdownButton<String>(
                                       value: 'KTP',
-                                      onChanged: (newValue) {},
+                                      onChanged: (_) {},
                                       items:
                                           ['KTP', 'SIM', 'Paspor'].map((
                                             String value,
@@ -143,6 +170,15 @@ class PassengerForm extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 20),
+                          TextField(
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              labelText: 'Kota',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     );

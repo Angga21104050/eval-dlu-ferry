@@ -1,14 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../data/list_tiket_dummy.dart';
 
-class VehicleForm extends StatelessWidget {
+class VehicleForm extends StatefulWidget {
   final int vehicleCount;
+  final List<Map<String, dynamic>> cart;
 
-  const VehicleForm({super.key, required this.vehicleCount});
+  const VehicleForm({Key? key, required this.vehicleCount, required this.cart})
+    : super(key: key);
+
+  @override
+  State<VehicleForm> createState() => _VehicleFormState();
+}
+
+class _VehicleFormState extends State<VehicleForm> {
+  final RxBool isExpanded = false.obs;
+  late List<Map<String, dynamic>> vehicleItems;
+  late List<String> vehicleCategories;
+  late List<String?> selectedCategories;
+
+  @override
+  void initState() {
+    super.initState();
+    // init kosong dulu, nanti isi di build
+    vehicleItems = [];
+    vehicleCategories = [];
+    selectedCategories = [];
+  }
 
   @override
   Widget build(BuildContext context) {
-    final RxBool isExpanded = false.obs;
+    // Ambil cart dari Get.arguments
+    final List<Map<String, dynamic>> cart = Get.arguments ?? [];
+
+    vehicleCategories = getVehicleCategoryNames();
+
+    // Filter item yang kelasnya ada di vehicleCategories
+    vehicleItems =
+        cart.where((item) {
+          return vehicleCategories.contains(item['class']);
+        }).toList();
+
+    // Siapkan list selectedCategories sebanyak jumlah kendaraan di cart
+    if (selectedCategories.length != vehicleItems.length) {
+      selectedCategories = List<String?>.filled(vehicleItems.length, null);
+    }
 
     return Obx(
       () => Container(
@@ -34,7 +70,7 @@ class VehicleForm extends StatelessWidget {
                   child: Icon(
                     Icons.directions_car_outlined,
                     color: Color(0xFF0064D2),
-                  ), // Tambahkan icon penumpang di sini
+                  ),
                 ),
                 Expanded(
                   child: ListTile(
@@ -65,18 +101,27 @@ class VehicleForm extends StatelessWidget {
                   bottom: 16,
                 ),
                 child: Column(
-                  children: List.generate(vehicleCount, (i) {
+                  children: List.generate(vehicleItems.length, (i) {
+                    final vehicleClass = vehicleItems[i]['class'] ?? '';
                     return Padding(
-                      padding: const EdgeInsets.only(bottom: .0),
+                      padding: const EdgeInsets.only(bottom: 16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Kendaraan ${i + 1}'),
+                          Text(
+                            'Kendaraan ${i + 1} ($vehicleClass)',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87,
+                            ),
+                          ),
+
                           const SizedBox(height: 10),
                           Row(
                             children: [
                               Expanded(
-                                flex: 3,
+                                flex: 2,
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 12,
@@ -106,9 +151,8 @@ class VehicleForm extends StatelessWidget {
                               ),
                               const SizedBox(width: 10),
                               Expanded(
-                                flex: 5,
+                                flex: 2,
                                 child: TextField(
-                                  keyboardType: TextInputType.name,
                                   decoration: InputDecoration(
                                     labelText: 'Nama Pemilik Sesuai STNK',
                                     border: OutlineInputBorder(

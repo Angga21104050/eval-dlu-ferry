@@ -97,10 +97,11 @@ class OrderTicketView extends GetView<OrderTicketController> {
                       PassengerForm(
                         passengerCount: passengerCount,
                         controller: controller,
+                        cart: cart,
                       ),
                     // Form Kendaraan
                     if (vehicleCount > 0)
-                      VehicleForm(vehicleCount: vehicleCount),
+                      VehicleForm(vehicleCount: vehicleCount, cart: cart),
                     // Form kamar vip (berulang)
                     if (vipRoomCount > 0)
                       VipRoomForm(

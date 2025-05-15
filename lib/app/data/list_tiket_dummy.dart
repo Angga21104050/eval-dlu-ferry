@@ -144,6 +144,30 @@ List<String> getRandomCategories(String type) {
     ..take(6).toList();
 }
 
+List<String> getVehicleCategoryNames() {
+  return dummyTicketTypes
+      .firstWhere((ticket) => ticket.type == 'Kendaraan')
+      .categories
+      .map((cat) => cat.categoryName)
+      .toList();
+}
+
+List<String> getPassengerCategoryNames() {
+  return dummyTicketTypes
+      .firstWhere((ticket) => ticket.type == 'Penumpang')
+      .categories
+      .map((cat) => cat.categoryName)
+      .toList();
+}
+
+List<String> getVipRoomCategoryNames() {
+  return dummyTicketTypes
+      .firstWhere((ticket) => ticket.type == 'Kamar Vip')
+      .categories
+      .map((cat) => cat.categoryName)
+      .toList();
+}
+
 List<Map<String, dynamic>> ferryTickets = [
   {
     'imageUrl': 'https://picsum.photos/seed/ferry1/200/200',
