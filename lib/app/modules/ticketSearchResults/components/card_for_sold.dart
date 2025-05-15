@@ -86,7 +86,7 @@ class CardForSold extends StatelessWidget {
                         padding: EdgeInsets.all(4),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 242, 249, 255),
+                          color: Color.fromARGB(255, 247, 251, 255),
                         ),
                         child: Column(
                           children: [

@@ -157,7 +157,7 @@ class _TicketCardState extends State<TicketCard> {
                           padding: EdgeInsets.all(4),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Color.fromARGB(255, 242, 249, 255),
+                            color: Color.fromARGB(255, 247, 251, 255),
                           ),
                           child: Column(
                             children: [
@@ -288,7 +288,14 @@ class _TicketCardState extends State<TicketCard> {
                           },
                   onUpdateCart: updateCart,
                 ),
-              CartWidget(cart: cart),
+              CartWidget(
+                cart: cart,
+                onClearCart: () {
+                  setState(() {
+                    cart.clear();
+                  });
+                },
+              ),
             ],
           ),
         ),

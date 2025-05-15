@@ -93,7 +93,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
           backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 249, 251, 255),
+      backgroundColor: Color.fromARGB(255, 247, 251, 255),
       body: Column(
         children: [
           DateSelectorWidget(homeController: homeController),
