@@ -144,6 +144,16 @@ class VipRoomForm extends StatelessWidget {
                               ),
                             ),
                           ),
+                          const SizedBox(height: 16),
+                          TextField(
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              labelText: 'Kota',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     );

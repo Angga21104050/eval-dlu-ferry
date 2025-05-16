@@ -189,7 +189,7 @@ class _VirtualAccountPaymentSectionState
                       ),
                       const SizedBox(width: 8),
                       const Text(
-                        'Tata cara pembayaran',
+                        'Instruksi Pembayaran',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -198,9 +198,9 @@ class _VirtualAccountPaymentSectionState
                       const Spacer(),
                       Icon(
                         _isExpandedInstructions
-                            ? Icons.arrow_drop_up
-                            : Icons.arrow_drop_down,
-                        color: Colors.blue,
+                            ? Icons.keyboard_arrow_up
+                            : Icons.keyboard_arrow_down,
+                        color: Color(0xFF0064D2),
                       ),
                     ],
                   ),

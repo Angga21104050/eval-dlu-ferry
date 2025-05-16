@@ -132,6 +132,7 @@ class PaymentView extends GetView<PaymentController> {
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),

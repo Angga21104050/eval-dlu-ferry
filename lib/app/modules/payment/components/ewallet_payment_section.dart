@@ -159,7 +159,7 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                     children: [
                       const Icon(
                         Icons.receipt_long_outlined,
-                        color: Colors.blue,
+                        color: Color(0xFF0064D2),
                       ),
                       const SizedBox(width: 8),
                       const Text(
@@ -172,9 +172,9 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                       const Spacer(),
                       Icon(
                         _isExpandedInstructions
-                            ? Icons.arrow_drop_up
-                            : Icons.arrow_drop_down,
-                        color: Colors.blue,
+                            ? Icons.keyboard_arrow_up
+                            : Icons.keyboard_arrow_down,
+                        color: Color(0xFF0064D2),
                       ),
                     ],
                   ),

@@ -33,10 +33,8 @@ class _TicketDetailPaymentState extends State<TicketDetailPayment> {
           });
         },
         trailing: Icon(
-          _isExpanded
-              ? Icons.keyboard_arrow_up
-              : Icons.keyboard_arrow_down, // Ganti dengan icon pilihan Anda
-          color: Colors.blue, // Anda bisa atur warna icon di sini
+          _isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+          color: Color(0xFF0064D2),
         ),
         children: <Widget>[
           Padding(

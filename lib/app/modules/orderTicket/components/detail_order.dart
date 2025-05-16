@@ -14,7 +14,6 @@ class DeatailOrder extends StatefulWidget {
 class _DeatailOrderState extends State<DeatailOrder> {
   final orderTicketController = Get.put(OrderTicketController());
   final editProfileController = Get.put(EditProfileController());
-  
 
   @override
   void initState() {
@@ -58,8 +57,10 @@ class _DeatailOrderState extends State<DeatailOrder> {
             TextField(
               controller: editProfileController.nameController,
               decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(),
                 labelText: 'Nama Lengkap Sesuai ID',
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF0064D2)),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),

@@ -207,7 +207,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
                   selectedMethod,
                 );
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: Image.asset(
                     imagePath,
                     width: 26,
@@ -252,7 +252,13 @@ class PaymentMethodeDropdown extends StatelessWidget {
                 );
               }),
             ),
-            const Icon(Icons.arrow_drop_down, color: Colors.grey),
+            Container(
+              margin: EdgeInsets.only(right: 10),
+              child: const Icon(
+                Icons.keyboard_arrow_down,
+                color: Color(0xFF0064D2),
+              ),
+            ),
           ],
         ),
       ),

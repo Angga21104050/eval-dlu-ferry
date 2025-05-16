@@ -127,6 +127,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
