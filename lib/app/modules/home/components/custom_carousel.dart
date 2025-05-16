@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class CustomHorizontalScroll extends StatelessWidget {
   // Daftar gambar didefinisikan di dalam widget
@@ -25,7 +26,7 @@ class CustomHorizontalScroll extends StatelessWidget {
               children: [
                 Text(
                   'Berita Informasi',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: semiBold.copyWith(fontSize: 16),
                 ),
                 Container(
                   height: 0.8,

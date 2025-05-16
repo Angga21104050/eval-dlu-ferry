@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class MyDetailTicketSumm extends StatelessWidget {
   const MyDetailTicketSumm({super.key});
@@ -7,7 +8,7 @@ class MyDetailTicketSumm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-      margin: const EdgeInsets.symmetric(horizontal: 30),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -23,15 +24,8 @@ class MyDetailTicketSumm extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                '10:00',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
+            children: [
+              Text('10:00', style: semiBold.copyWith(fontSize: 24)),
               Expanded(
                 child: Column(
                   children: [
@@ -65,7 +59,7 @@ class MyDetailTicketSumm extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                            left: 138,
+                            left: 156,
                             top: -3.3,
                             child: const Icon(
                               Icons.circle,
@@ -79,35 +73,28 @@ class MyDetailTicketSumm extends StatelessWidget {
                     SizedBox(height: 4),
                     Text(
                       '5j 30m',
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                      style: regular.copyWith(fontSize: 12, color: Colors.grey),
                     ),
                   ],
                 ),
               ),
-              Text(
-                '15:30',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
+              Text('15:30', style: semiBold.copyWith(fontSize: 24)),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Expanded(
                 child: Text(
                   'Surabaya....',
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  style: semiBold.copyWith(fontSize: 12, color: Colors.grey),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
               ),
               Text(
                 'Lombok....',
-                style: TextStyle(fontSize: 14, color: Colors.grey),
+                style: semiBold.copyWith(fontSize: 12, color: Colors.grey),
               ),
             ],
           ),

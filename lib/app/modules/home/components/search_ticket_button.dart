@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class SearchTicketButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -23,18 +24,14 @@ class SearchTicketButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 16),
-          backgroundColor:
-              Colors.transparent, 
+          backgroundColor: Colors.transparent,
           foregroundColor: Colors.white,
           shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        child: const Text(
-          'Cari Tiket',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
+        child: Text('Cari Tiket', style: semiBold.copyWith(fontSize: 16)),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
+import '../../../constants/text_style.dart';
 
 class DatePickerWidget extends StatefulWidget {
   final Function(DateTime) onDateSelected;
@@ -42,7 +43,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
             labelText: widget.labelText,
-            labelStyle: TextStyle(color: Colors.grey.shade600),
+            labelStyle: regular.copyWith(fontSize: 14),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -64,11 +65,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(
                   DateFormat('dd MMMM yyyy', 'id_ID').format(_selectedDate),
-                  style: TextStyle(
-                    fontSize: 14, // Ukuran font
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black, // Tebal
-                  ),
+                  style: medium.copyWith(fontSize: 14),
                 ),
               ),
             ],
@@ -108,10 +105,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 8),
-              Text(
-                widget.labelText,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
+              Text(widget.labelText, style: semiBold.copyWith(fontSize: 18)),
               Expanded(
                 child: TableCalendar(
                   locale: 'id_ID',
@@ -131,6 +125,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                       context,
                     ); // Tutup modal setelah memilih tanggal
                   },
+                  calendarStyle: CalendarStyle(
+                    defaultTextStyle: regular.copyWith(),
+                  ),
                 ),
               ),
             ],

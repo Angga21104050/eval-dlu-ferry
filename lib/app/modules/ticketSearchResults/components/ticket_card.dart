@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../components/cart_ticket.dart';
 import '../components/ticket_selection.dart';
 import 'package:intl/intl.dart';
+import '../../../constants/text_style.dart';
 
 class TicketCard extends StatefulWidget {
   final Map<String, dynamic> ticket;
@@ -58,13 +59,10 @@ class _TicketCardState extends State<TicketCard> {
         FocusScope.of(context).unfocus();
       },
       child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: Colors.grey.shade300),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         color: Colors.white,
         elevation: 6,
-        shadowColor: Colors.blue.withOpacity(0.1),
+        shadowColor: Colors.blue.withOpacity(0.2),
         margin: const EdgeInsets.only(bottom: 16),
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -78,7 +76,6 @@ class _TicketCardState extends State<TicketCard> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey.shade300),
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
@@ -120,10 +117,9 @@ class _TicketCardState extends State<TicketCard> {
                             Expanded(
                               child: Text(
                                 widget.ticket['ferryName'],
-                                style: const TextStyle(
+                                style: semiBold.copyWith(
                                   fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black87,
+                                  color: Color(0xFF0064D2),
                                 ),
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -133,19 +129,17 @@ class _TicketCardState extends State<TicketCard> {
                               children: [
                                 Text(
                                   'Tersedia dari',
-                                  style: const TextStyle(
+                                  style: medium.copyWith(
                                     fontSize: 10,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey.shade500,
                                   ),
                                   textAlign: TextAlign.end,
                                 ),
                                 Text(
                                   'Rp. 300.000',
-                                  style: const TextStyle(
+                                  style: semiBold.copyWith(
                                     fontSize: 10,
                                     color: Color.fromARGB(255, 0, 0, 0),
-                                    fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.end,
                                 ),
@@ -155,10 +149,15 @@ class _TicketCardState extends State<TicketCard> {
                         ),
                         SizedBox(height: 2),
                         Container(
-                          padding: EdgeInsets.all(4),
+                          padding: EdgeInsets.only(
+                            left: 4,
+                            right: 4,
+                            top: 2,
+                            bottom: 2,
+                          ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Color.fromARGB(255, 247, 251, 255),
+                            color: Color(0xFFE6F2FE),
                           ),
                           child: Column(
                             children: [
@@ -173,9 +172,8 @@ class _TicketCardState extends State<TicketCard> {
                                   Expanded(
                                     child: Text(
                                       '${widget.ticket['departurePort']}',
-                                      style: TextStyle(
+                                      style: semiBold.copyWith(
                                         fontSize: 12,
-                                        fontWeight: FontWeight.bold,
                                         color: Colors.grey.shade700,
                                       ),
                                       overflow: TextOverflow.ellipsis,
@@ -195,9 +193,8 @@ class _TicketCardState extends State<TicketCard> {
                                   Expanded(
                                     child: Text(
                                       '${widget.ticket['arrivalPort']}',
-                                      style: TextStyle(
+                                      style: semiBold.copyWith(
                                         fontSize: 12,
-                                        fontWeight: FontWeight.bold,
                                         color: Colors.grey.shade700,
                                       ),
                                       overflow: TextOverflow.ellipsis,
@@ -207,22 +204,21 @@ class _TicketCardState extends State<TicketCard> {
                                 ],
                               ),
                               Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Expanded(
-                                    child: Text(
-                                      (widget.ticket['ticketType'] is List &&
-                                              widget
-                                                  .ticket['ticketType']
-                                                  .isNotEmpty)
-                                          ? (widget.ticket['ticketType']
-                                                  as List)
-                                              .join(', ')
-                                          : '${widget.ticket['ticketType']}',
-                                      style: const TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color.fromARGB(255, 0, 0, 0),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 2.0),
+                                      child: Text(
+                                        (widget.ticket['ticketType'] is List &&
+                                                widget
+                                                    .ticket['ticketType']
+                                                    .isNotEmpty)
+                                            ? (widget.ticket['ticketType']
+                                                    as List)
+                                                .join(', ')
+                                            : '${widget.ticket['ticketType']}',
+                                        style: medium.copyWith(fontSize: 10),
                                       ),
                                     ),
                                   ),
@@ -233,24 +229,28 @@ class _TicketCardState extends State<TicketCard> {
                                       });
                                     },
                                     child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
                                       children: [
-                                        Text(
-                                          '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']}',
-                                          style: const TextStyle(
-                                            fontSize: 10,
-                                            color: Color.fromARGB(255, 0, 0, 0),
-                                            fontWeight: FontWeight.bold,
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            right: 2.0,
                                           ),
-                                          textAlign: TextAlign.end,
+                                          child: Text(
+                                            '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']}',
+                                            style: semiBold.copyWith(
+                                              fontSize: 8,
+                                            ),
+                                            textAlign: TextAlign.end,
+                                          ),
                                         ),
                                         Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            const Text(
+                                            Text(
                                               'Lihat Kelas',
-                                              style: TextStyle(
+                                              style: semiBold.copyWith(
                                                 fontSize: 12,
-                                                fontWeight: FontWeight.bold,
                                                 color: Color(0xFF0064D2),
                                               ),
                                             ),
@@ -258,8 +258,8 @@ class _TicketCardState extends State<TicketCard> {
                                               isExpanded
                                                   ? Icons.keyboard_arrow_up
                                                   : Icons.keyboard_arrow_down,
-                                              color: Colors.blue,
-                                              size: 16,
+                                              color: Color(0xFF0064D2),
+                                              size: 20,
                                             ),
                                           ],
                                         ),

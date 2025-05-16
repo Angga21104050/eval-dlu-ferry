@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../history/controllers/history_controller.dart';
 import 'half_circle.dart';
+import '../../../constants/text_style.dart';
 
 class TicketList extends StatelessWidget {
   TicketList({super.key});
@@ -49,57 +50,40 @@ class TicketList extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                               horizontal: 18.0,
                             ),
-                            child: Text(
-                              ticket['ferryName'] ?? 'UNKNOWN FERRY',
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF0064D2),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 18.0,
-                            ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  ticket['ticketType'] ?? 'UNKNOWN TYPE',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.grey.shade700,
+                                  ticket['ferryName'] ?? 'UNKNOWN FERRY',
+                                  style: semiBold.copyWith(
+                                    fontSize: 18,
+                                    color: Color(0xFF0064D2),
                                   ),
                                 ),
-                                const Text(
-                                  'Dewasa',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.grey,
+                                Expanded(
+                                  child: Text(
+                                    ticket['ticketType'] ?? 'UNKNOWN TYPE',
+                                    style: medium.copyWith(
+                                      fontSize: 12,
+                                      color: Colors.grey.shade500,
+                                    ),
+                                    textAlign: TextAlign.right,
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          const SizedBox(height: 4),
+                          const SizedBox(height: 2),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 18.0,
                             ),
                             child: Text(
-                              'Nama Penumpang',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[800],
-                              ),
+                              'Uyeeee',
+                              style: semiBold.copyWith(fontSize: 14),
                             ),
                           ),
-                          const SizedBox(height: 6),
+                          const SizedBox(height: 10),
                           Container(
                             decoration: BoxDecoration(
                               color: Colors.blue.shade50,
@@ -117,9 +101,8 @@ class TicketList extends StatelessWidget {
                                     child: Text(
                                       ticket['departurePort'] ?? 'UNKNOWN',
                                       textAlign: TextAlign.start,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
+                                      style: medium.copyWith(
+                                        fontSize: 14,
                                         color: Color(0xFF0064D2),
                                       ),
                                     ),
@@ -133,9 +116,8 @@ class TicketList extends StatelessWidget {
                                     child: Text(
                                       ticket['arrivalPort'] ?? 'UNKNOWN',
                                       textAlign: TextAlign.end,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
+                                      style: medium.copyWith(
+                                        fontSize: 14,
                                         color: Color(0xFF0064D2),
                                       ),
                                     ),
@@ -194,10 +176,9 @@ class TicketList extends StatelessWidget {
                             ),
                             child: Text(
                               'Kode Booking',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey.shade800,
+                              style: medium.copyWith(
+                                fontSize: 12,
+                                color: Colors.grey.shade700,
                               ),
                             ),
                           ),
@@ -210,9 +191,8 @@ class TicketList extends StatelessWidget {
                               children: [
                                 Text(
                                   ticket['transactionCode'] ?? 'XXXXXX',
-                                  style: const TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.bold,
+                                  style: semiBold.copyWith(
+                                    fontSize: 18,
                                     color: Color(0xFF0064D2),
                                   ),
                                 ),

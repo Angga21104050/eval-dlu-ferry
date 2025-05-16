@@ -1,3 +1,4 @@
+import 'package:dlu_project/app/constants/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/history_controller.dart';
@@ -48,44 +49,34 @@ class TicketHistoryList extends StatelessWidget {
                           children: [
                             Text(
                               ticket['transactionCode'] ?? 'UNKNOWN',
-                              style: const TextStyle(
+                              style: semiBold.copyWith(
                                 fontSize: 16,
-                                fontWeight: FontWeight.bold,
                                 color: Color(0xFF0064D2),
                               ),
                             ),
                             Text(
                               ticket['transactionDate'] ?? 'UNKNOWN DATE',
-                              style: TextStyle(
+                              style: medium.copyWith(
                                 fontSize: 14,
                                 color: Colors.grey.shade600,
                               ),
                             ),
                           ],
                         ),
-
                         const SizedBox(height: 6),
-
-                        // 🔹 Rute (Keberangkatan - Tujuan)
                         Text(
                           "${ticket['departurePort'] ?? 'UNKNOWN'} → ${ticket['arrivalPort'] ?? 'UNKNOWN'}",
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: regular.copyWith(fontSize: 14),
                         ),
-
                         const SizedBox(height: 6),
-
-                        // 🔹 Nama Kapal & Status
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               ticket['ferryName'] ?? 'UNKNOWN FERRY',
-                              style: TextStyle(
+                              style: semiBold.copyWith(
                                 fontSize: 14,
-                                color: Colors.grey.shade700,
+                                color: Color(0xFF0064D2),
                               ),
                             ),
                             // 🔹 Status Badge
@@ -123,18 +114,14 @@ class TicketHistoryList extends StatelessWidget {
     }
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: bgColor,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         displayText,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 12,
-          fontWeight: FontWeight.bold,
-        ),
+        style: medium.copyWith(color: Colors.white, fontSize: 12),
       ),
     );
   }

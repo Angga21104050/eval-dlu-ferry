@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:dlu_project/app/modules/home/controllers/home_controller.dart';
 import '../controllers/history_controller.dart';
 import '../components/ticket_history_list.dart';
+import '../../../constants/text_style.dart';
 
 class HistoryView extends GetView<HistoryController> {
   const HistoryView({super.key});
@@ -11,7 +12,6 @@ class HistoryView extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     return Scaffold(
-      // appBar: const SecCustomAppBar(page: 'My History'),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
@@ -31,37 +31,39 @@ class HistoryView extends GetView<HistoryController> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 26),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 26),
+                    padding: const EdgeInsets.only(top: 26, bottom: 0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        IconButton(
+                          icon: Icon(Icons.arrow_back, color: Colors.white),
+                          onPressed: () => Get.back(),
+                        ),
                         Text(
                           'Riwayat Transaksi',
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                          style: semiBold.copyWith(
+                            fontSize: 22,
                             color: Colors.white,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 10),
+                  Padding(
+                    padding: EdgeInsets.only(top: 0, left: 48, right: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Expanded(
                           child: Text(
                             'Semua tiket ferry yang sudah aktif dan menunggu pembayaran',
-                            style: TextStyle(
+                            style: light.copyWith(
                               fontSize: 14,
                               color: Colors.white,
-                              fontWeight: FontWeight.w300,
                             ),
                           ),
                         ),
@@ -98,10 +100,7 @@ class HistoryView extends GetView<HistoryController> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Riwayat Transaksi Anda',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: medium.copyWith(fontSize: 14),
                         ),
                       ),
                     ),
@@ -134,7 +133,7 @@ class HistoryView extends GetView<HistoryController> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             IconButton(
                               // Menggunakan IconButton untuk tombol back
@@ -146,17 +145,13 @@ class HistoryView extends GetView<HistoryController> {
                                 Get.back();
                               },
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 0),
-                              child: Text(
-                                'Riwayat Transaksi',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            Text(
+                              'Riwayat Transaksi',
+                              style: semiBold.copyWith(
+                                fontSize: 22,
+                                color: Color(0xFF0064D2),
                               ),
                             ),
-                            SizedBox(width: 36),
                           ],
                         ),
                       ),

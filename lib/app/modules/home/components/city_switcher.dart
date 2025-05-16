@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../data/port_city.dart';
 import '../controllers/home_controller.dart';
+import '../../../constants/text_style.dart';
 
 class CitySwitcher extends StatefulWidget {
   const CitySwitcher({super.key});
@@ -83,10 +84,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                       isFromCity
                           ? "Pilih Kota Keberangkatan"
                           : "Pilih Kota Tujuan",
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: semiBold.copyWith(fontSize: 18),
                     ),
                   ),
                   Row(
@@ -113,12 +111,13 @@ class _CitySwitcherState extends State<CitySwitcher> {
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Cari Pelabuhan...',
+                              hintStyle: extraLight.copyWith(fontSize: 14),
                               prefixIcon: const Icon(Icons.search_outlined),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(10),
                                 borderSide: const BorderSide(
                                   color: Color(0xFF0064D2),
                                 ),
@@ -144,23 +143,14 @@ class _CitySwitcherState extends State<CitySwitcher> {
                       padding: EdgeInsets.symmetric(vertical: 10),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(
-                          color: Colors.grey.shade300,
-                        ), // Warna latar belakang card
-                        borderRadius: BorderRadius.circular(
-                          20,
-                        ), // Membuat sudut melengkung
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(
-                              0.3,
-                            ), // Warna shadow lebih samar
-                            spreadRadius: 1, // Penyebaran shadow lebih kecil
-                            blurRadius: 3, // Keburaman shadow lebih halus
-                            offset: Offset(
-                              0,
-                              2,
-                            ), // Offset shadow sedikit ke bawah
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 3,
+                            offset: Offset(0, 2),
                           ),
                         ],
                       ),
@@ -171,9 +161,8 @@ class _CitySwitcherState extends State<CitySwitcher> {
                               return ListTile(
                                 title: Text(
                                   city,
-                                  style: TextStyle(
+                                  style: medium.copyWith(
                                     fontSize: 14,
-                                    fontWeight: FontWeight.w500,
                                     color:
                                         (isFromCity
                                                     ? homeController
@@ -273,18 +262,15 @@ class _CitySwitcherState extends State<CitySwitcher> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 6, right: 50),
                             child: InputDecorator(
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
                                 labelText: 'Dari',
+                                labelStyle: regular.copyWith(fontSize: 14),
                                 border: InputBorder.none,
                               ),
                               child: Obx(
                                 () => Text(
                                   homeController.fromCity.value,
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
+                                  style: medium.copyWith(fontSize: 14),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                 ),
@@ -315,18 +301,15 @@ class _CitySwitcherState extends State<CitySwitcher> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 6, right: 50),
                             child: InputDecorator(
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
                                 labelText: 'Ke',
+                                labelStyle: regular.copyWith(fontSize: 14),
                                 border: InputBorder.none,
                               ),
                               child: Obx(
                                 () => Text(
                                   homeController.toCity.value,
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
+                                  style: medium.copyWith(fontSize: 14),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                 ),

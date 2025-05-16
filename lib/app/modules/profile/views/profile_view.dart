@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/profile_controller.dart';
 import '../../home/components/custom_navigation_bar.dart';
 import '../components/custom_profile_appBar.dart';
+import '../../../constants/text_style.dart';
 
 class ProfileView extends GetView<ProfileController> {
   const ProfileView({super.key});
@@ -58,10 +59,10 @@ class ProfileView extends GetView<ProfileController> {
                                         color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'Informasi Akun',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -97,10 +98,10 @@ class ProfileView extends GetView<ProfileController> {
                                         ),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'My Voucher',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -122,10 +123,10 @@ class ProfileView extends GetView<ProfileController> {
                                         color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'Payment Methodes',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -149,10 +150,10 @@ class ProfileView extends GetView<ProfileController> {
                                         color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'Invite Friends',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -176,10 +177,10 @@ class ProfileView extends GetView<ProfileController> {
                                         color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'My Order',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -214,10 +215,10 @@ class ProfileView extends GetView<ProfileController> {
                                         color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'Peratutan Berlayar',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -241,10 +242,10 @@ class ProfileView extends GetView<ProfileController> {
                                         color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'Change Password',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -268,10 +269,10 @@ class ProfileView extends GetView<ProfileController> {
                                         color: Color(0xFF0064D2),
                                       ),
                                       SizedBox(width: 16),
-                                      const Text(
+                                      Text(
                                         'Logout',
-                                        style: TextStyle(
-                                          fontSize: 16,
+                                        style: medium.copyWith(
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),

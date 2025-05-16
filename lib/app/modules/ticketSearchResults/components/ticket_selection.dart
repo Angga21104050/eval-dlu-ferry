@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class TicketSelection extends StatefulWidget {
   final Map<String, List<String>> ticketClasses;
@@ -48,9 +49,9 @@ class _TicketSelectionState extends State<TicketSelection> {
       case 'Penumpang':
         return Colors.grey.shade100;
       case 'Kendaraan':
-        return Colors.blue.shade100;
+        return Colors.blue.shade50;
       case 'Kamar VIP':
-        return Colors.blue.shade300;
+        return Colors.blue.shade200;
       default:
         return Colors.white;
     }
@@ -64,7 +65,6 @@ class _TicketSelectionState extends State<TicketSelection> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
-        border: Border.all(color: Colors.grey.shade300),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(
@@ -90,7 +90,7 @@ class _TicketSelectionState extends State<TicketSelection> {
                   ),
                   padding: const EdgeInsets.symmetric(
                     vertical: 2,
-                    horizontal: 10,
+                    horizontal: 0,
                   ),
                   decoration: BoxDecoration(
                     color: bgColor,
@@ -100,32 +100,27 @@ class _TicketSelectionState extends State<TicketSelection> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child: Text(
-                          value,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 14),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            value,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: medium.copyWith(fontSize: 14),
+                          ),
                         ),
                       ),
                       Column(
                         children: [
-                          //munculkan harga disini
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(bottom: 0),
-                                child: Text(
-                                  'Rp. 300.000',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Container(
+                            padding: EdgeInsets.only(top: 4),
+                            child: Text(
+                              'Rp. 300.000',
+                              style: semiBold.copyWith(fontSize: 12),
+                            ),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               IconButton(
                                 icon: const Icon(
@@ -136,10 +131,7 @@ class _TicketSelectionState extends State<TicketSelection> {
                               ),
                               Text(
                                 ticketCounts[value].toString(),
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                style: medium.copyWith(fontSize: 14),
                               ),
                               IconButton(
                                 icon: const Icon(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../widgets/appbar_action_buttons.dart';
+import '../../../constants/text_style.dart';
 
 class CustomProfileAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -41,12 +42,11 @@ class CustomProfileAppBar extends StatelessWidget
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'My Profile',
-                        style: TextStyle(
+                        style: semiBold.copyWith(
+                          fontSize: 22,
                           color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       const AppBarActionButtons(),
@@ -74,22 +74,21 @@ class CustomProfileAppBar extends StatelessWidget
                           children: [
                             Text(
                               'anggaaa',
-                              style: const TextStyle(
+                              style: semiBold.copyWith(
                                 color: Colors.white,
                                 fontSize: 18,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
                               'user@example.com',
-                              style: const TextStyle(
+                              style: regular.copyWith(
                                 color: Colors.white,
                                 fontSize: 14,
                               ),
                             ),
                             Text(
                               '085423532234',
-                              style: const TextStyle(
+                              style: regular.copyWith(
                                 color: Colors.white,
                                 fontSize: 14,
                               ),
@@ -103,7 +102,7 @@ class CustomProfileAppBar extends StatelessWidget
                         icon: const Icon(
                           Icons.edit_note_outlined,
                           color: Colors.white,
-                          size: 36,
+                          size: 30,
                         ),
                         onPressed: () {
                           // Aksi ketika ikon edit ditekan

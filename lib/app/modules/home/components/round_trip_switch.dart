@@ -1,3 +1,4 @@
+import 'package:dlu_project/app/constants/text_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,10 +24,8 @@ class RoundTripSwitch extends StatelessWidget {
           children: [
             Text(
               'Pulang Pergi',
-              style: TextStyle(
-                color: const Color.fromARGB(255, 0, 0, 0),
+              style: semiBold.copyWith(
                 fontSize: 8,
-                fontWeight: FontWeight.w600,
                 fontStyle: FontStyle.italic,
               ),
             ),

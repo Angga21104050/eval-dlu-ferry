@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/edit_profile_controller.dart';
+import '../../../constants/text_style.dart';
 
 class EditProfileView extends GetView<EditProfileController> {
   const EditProfileView({super.key});
@@ -27,13 +28,9 @@ class EditProfileView extends GetView<EditProfileController> {
                   Get.back();
                 },
               ),
-              title: const Text(
+              title: Text(
                 'Edit Profile',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: semiBold.copyWith(fontSize: 22, color: Colors.white),
               ),
             ),
             Positioned(
@@ -62,9 +59,8 @@ class EditProfileView extends GetView<EditProfileController> {
                     },
                     child: Text(
                       "Ganti Foto",
-                      style: TextStyle(
+                      style: medium.copyWith(
                         color: Colors.blue.shade800,
-                        fontWeight: FontWeight.w500,
                         fontSize: 14,
                       ),
                     ),
@@ -82,13 +78,9 @@ class EditProfileView extends GetView<EditProfileController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 "Edit Data Diri",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
+                style: semiBold.copyWith(fontSize: 18, color: Colors.blue),
               ),
               const SizedBox(height: 16),
               _buildTextField(
@@ -145,9 +137,9 @@ class EditProfileView extends GetView<EditProfileController> {
                     print('Data Profil yang Diperbarui: $updatedProfileData');
                     controller.saveProfile();
                   },
-                  child: const Text(
+                  child: Text(
                     "Simpan",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: semiBold.copyWith(fontSize: 16, color: Colors.white),
                   ),
                 ),
               ),
@@ -173,10 +165,7 @@ class EditProfileView extends GetView<EditProfileController> {
             decoration: InputDecoration(
               label: Text(
                 label,
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: regular.copyWith(color: Colors.grey, fontSize: 14),
               ),
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 12,

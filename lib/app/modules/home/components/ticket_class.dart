@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class TicketClassDropdown extends StatefulWidget {
   final String label;
@@ -98,7 +99,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Pilih ${widget.label}",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: semiBold.copyWith(fontSize: 18),
                   ),
                 ),
               ),
@@ -111,7 +112,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                     return ListTile(
                       title: Text(
                         item,
-                        style: TextStyle(
+                        style: medium.copyWith(
                           fontSize: 14,
                           color:
                               widget.selectedValue == item
@@ -150,7 +151,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
             labelText: widget.label,
-            labelStyle: TextStyle(color: Colors.grey.shade600),
+            labelStyle: regular.copyWith(fontSize: 14),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -191,11 +192,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                                   ),
                                 ),
                               ],
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
-                      ),
+                      style: medium.copyWith(fontSize: 14),
                     ),
                   ),
                 ),

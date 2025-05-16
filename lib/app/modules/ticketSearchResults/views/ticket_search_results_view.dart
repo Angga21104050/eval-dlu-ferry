@@ -6,6 +6,7 @@ import '../../home/controllers/home_controller.dart';
 import '../components/ticket_card.dart';
 import '../components/date_selector_widget.dart';
 import '../components/card_for_sold.dart';
+import '../../../constants/text_style.dart';
 
 class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
   const TicketSearchResultsView({super.key});
@@ -38,25 +39,14 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                         homeController.fromCity.value.length > 10
                             ? "${homeController.fromCity.value.substring(0, 14)}..."
                             : homeController.fromCity.value,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
+                        style: medium.copyWith(fontSize: 14),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
                       margin: const EdgeInsets.only(right: 8),
-                      child: const Text(
-                        " > ",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                      ),
+                      child: Text(" > ", style: medium.copyWith(fontSize: 14)),
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -64,11 +54,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                         homeController.toCity.value.length > 10
                             ? "${homeController.toCity.value.substring(0, 14)}..."
                             : homeController.toCity.value,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
+                        style: medium.copyWith(fontSize: 14),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -80,20 +66,19 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                     'dd MMM yyyy',
                     'id_ID',
                   ).format(homeController.departureDate.value),
-                  style: TextStyle(
+                  style: regular.copyWith(
                     fontSize: 12,
                     color: Colors.grey.shade700,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
           ),
-          centerTitle: false,
+          centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 247, 251, 255),
+      backgroundColor: Color.fromARGB(255, 252, 253, 255),
       body: Column(
         children: [
           DateSelectorWidget(homeController: homeController),
@@ -115,12 +100,9 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                           vertical: 16.0,
                           horizontal: 80,
                         ),
-                        child: const Text(
+                        child: Text(
                           "Maaf tidak ada tiket yang tersedia 😥.",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: semiBold.copyWith(fontSize: 16),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -133,12 +115,12 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 children: [
                   const SizedBox(height: 8),
-                  const Text(
+                  Text(
                     'Pilih Ferry Berangkat',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: semiBold.copyWith(fontSize: 16),
                   ),
                   const SizedBox(height: 12),
-                  const CardForSold(),
+                  CardForSold(),
                   ...homeController.filteredTickets.map((ticket) {
                     return TicketCard(ticket: ticket);
                   }).toList(),

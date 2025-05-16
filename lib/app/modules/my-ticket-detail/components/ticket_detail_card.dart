@@ -1,5 +1,6 @@
 import 'package:dlu_project/app/modules/myTicket/components/half_circle.dart';
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class TicketDetailCard extends StatelessWidget {
   final String ferryName;
@@ -30,7 +31,7 @@ class TicketDetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -60,27 +61,22 @@ class TicketDetailCard extends StatelessWidget {
                     children: [
                       Text(
                         ferryName,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
+                        style: semiBold.copyWith(
+                          fontSize: 18,
                           color: Color(0xFF0064D2),
                         ),
                       ),
                       Text(
                         price,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
+                        style: medium.copyWith(
+                          fontSize: 12,
+                          color: Colors.grey.shade500,
                         ),
                       ),
                     ],
                   ),
                 ),
-
-                const SizedBox(height: 8),
-
-                // Class & Status
+                const SizedBox(height: 2),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Row(
@@ -88,25 +84,21 @@ class TicketDetailCard extends StatelessWidget {
                     children: [
                       Text(
                         className,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey.shade700,
+                        style: semiBold.copyWith(
+                          fontSize: 12,
+                          color: Colors.grey.shade500,
                         ),
                       ),
                       Text(
                         paymentStatus,
-                        style: const TextStyle(
+                        style: semiBold.copyWith(
                           fontSize: 14,
-                          fontWeight: FontWeight.w500,
                           color: Color(0xFF0064D2),
                         ),
                       ),
                     ],
                   ),
                 ),
-
-                // Passenger & Ticket Number
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Row(
@@ -115,29 +107,21 @@ class TicketDetailCard extends StatelessWidget {
                       Expanded(
                         child: Text(
                           passengerName,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[800],
-                          ),
+                          style: semiBold.copyWith(fontSize: 14),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       Text(
                         ticketNumber,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[500],
+                        style: medium.copyWith(
+                          fontSize: 12,
+                          color: Colors.grey.shade500,
                         ),
                       ),
                     ],
                   ),
                 ),
-
-                const SizedBox(height: 16),
-
-                // Route
+                const SizedBox(height: 10),
                 Container(
                   decoration: BoxDecoration(color: Colors.blue.shade50),
                   padding: const EdgeInsets.symmetric(
@@ -151,9 +135,8 @@ class TicketDetailCard extends StatelessWidget {
                         child: Text(
                           departurePort,
                           textAlign: TextAlign.start,
-                          style: const TextStyle(
+                          style: medium.copyWith(
                             fontSize: 14,
-                            fontWeight: FontWeight.w500,
                             color: Color(0xFF0064D2),
                           ),
                         ),
@@ -167,9 +150,8 @@ class TicketDetailCard extends StatelessWidget {
                         child: Text(
                           arrivalPort,
                           textAlign: TextAlign.end,
-                          style: const TextStyle(
+                          style: medium.copyWith(
                             fontSize: 14,
-                            fontWeight: FontWeight.w500,
                             color: Color(0xFF0064D2),
                           ),
                         ),
@@ -227,10 +209,9 @@ class TicketDetailCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Text(
                     'Kode Booking',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey.shade800,
+                    style: medium.copyWith(
+                      fontSize: 12,
+                      color: Colors.grey.shade700,
                     ),
                   ),
                 ),
@@ -242,9 +223,8 @@ class TicketDetailCard extends StatelessWidget {
                     children: [
                       Text(
                         bookingCode,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+                        style: semiBold.copyWith(
+                          fontSize: 18,
                           color: Color(0xFF0064D2),
                         ),
                       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../constants/text_style.dart';
 
 class AppBarActionButtons extends StatelessWidget {
   const AppBarActionButtons({super.key});
@@ -26,10 +27,10 @@ class AppBarActionButtons extends StatelessWidget {
   Widget _buildIconButton(IconData icon, {VoidCallback? onTap}) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(32),
+      borderRadius: BorderRadius.circular(30),
       child: Container(
-        height: 28,
-        width: 28,
+        height: 30,
+        width: 30,
         decoration: BoxDecoration(
           color: const Color(0x2BFFFFFF),
           borderRadius: BorderRadius.circular(28),
@@ -42,22 +43,26 @@ class AppBarActionButtons extends StatelessWidget {
   Widget _buildHelpButton({VoidCallback? onTap}) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(28),
+      borderRadius: BorderRadius.circular(20),
       child: Container(
-        height: 28,
-        width: 80,
+        height: 30,
+        width: 86,
         decoration: BoxDecoration(
           color: const Color(0x2BFFFFFF),
           borderRadius: BorderRadius.circular(28),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(Icons.headset_mic_outlined, color: Colors.white, size: 18),
-            SizedBox(width: 3),
+          children: [
+            const Icon(
+              Icons.headset_mic_outlined,
+              color: Colors.white,
+              size: 18,
+            ),
+            const SizedBox(width: 3),
             Text(
               'Bantuan',
-              style: TextStyle(color: Colors.white, fontSize: 12),
+              style: light.copyWith(fontSize: 12, color: Colors.white),
             ),
           ],
         ),

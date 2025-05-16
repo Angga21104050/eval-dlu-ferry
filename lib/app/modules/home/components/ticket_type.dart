@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../data/list_tiket_dummy.dart'; // Pastikan import sesuai path
+import '../../../data/list_tiket_dummy.dart';
+import '../../../constants/text_style.dart';
 
 class TicketType extends StatefulWidget {
   final List<String> selectedItemsType;
@@ -55,10 +56,7 @@ class _TicketTypeState extends State<TicketType> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Pilih Jenis Tiket",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: semiBold.copyWith(fontSize: 18),
                       ),
                     ),
                   ),
@@ -94,7 +92,12 @@ class _TicketTypeState extends State<TicketType> {
                                   children: [
                                     Icon(iconData, color: Color(0xFF0064D2)),
                                     SizedBox(width: 10),
-                                    Expanded(child: Text(type)),
+                                    Expanded(
+                                      child: Text(
+                                        type,
+                                        style: medium.copyWith(fontSize: 14),
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 value: _selectedItemsType.contains(type),
@@ -130,10 +133,7 @@ class _TicketTypeState extends State<TicketType> {
                         backgroundColor: Colors.transparent,
                         foregroundColor: Colors.white,
                         shadowColor: Colors.transparent,
-                        textStyle: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        textStyle: semiBold.copyWith(fontSize: 14),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -161,7 +161,7 @@ class _TicketTypeState extends State<TicketType> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
             labelText: 'Jenis Tiket',
-            labelStyle: TextStyle(color: Colors.grey.shade600),
+            labelStyle: regular.copyWith(fontSize: 14),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -187,18 +187,14 @@ class _TicketTypeState extends State<TicketType> {
                     text: TextSpan(
                       text:
                           _selectedItemsType.isEmpty ? 'Pilih Jenis Tiket' : '',
-                      style: TextStyle(color: Colors.grey.shade600),
+                      style: medium.copyWith(fontSize: 14, color: Colors.black),
                       children:
                           _selectedItemsType.isEmpty
                               ? []
                               : [
                                 TextSpan(
                                   text: _selectedItemsType.join(', '),
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
+                                  style: medium.copyWith(fontSize: 14),
                                 ),
                               ],
                     ),

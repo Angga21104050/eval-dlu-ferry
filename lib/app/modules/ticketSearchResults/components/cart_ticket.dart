@@ -1,6 +1,7 @@
 import 'package:dlu_project/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../constants/text_style.dart';
 
 class CartWidget extends StatelessWidget {
   final List<Map<String, dynamic>> cart;
@@ -50,13 +51,9 @@ class CartWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Keranjang',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF004AAD),
-            ),
+            style: semiBold.copyWith(fontSize: 16, color: Color(0xFF004AAD)),
           ),
           const SizedBox(height: 4),
           ...cart.map((item) {
@@ -73,19 +70,15 @@ class CartWidget extends StatelessWidget {
                         Expanded(
                           child: Text(
                             item['class'],
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black87,
-                            ),
+                            style: semiBold.copyWith(fontSize: 12),
                           ),
                         ),
                         SizedBox(width: 8),
                         Text(
                           '(${item['count']})',
                           textAlign: TextAlign.start,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                          style: semiBold.copyWith(
+                            fontSize: 12,
                             color: Color(0xFF007BFF),
                           ),
                         ),
@@ -98,9 +91,8 @@ class CartWidget extends StatelessWidget {
                     child: Text(
                       'Rp ${price.toStringAsFixed(0)}', // Tampilkan harga yang ditemukan
                       textAlign: TextAlign.end,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                      style: semiBold.copyWith(
+                        fontSize: 14,
                         color: Color(0xFF007BFF),
                       ),
                     ),
@@ -114,8 +106,8 @@ class CartWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                width: 44,
-                height: 44,
+                width: 36,
+                height: 36,
                 margin: const EdgeInsets.only(right: 2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -133,12 +125,12 @@ class CartWidget extends StatelessWidget {
                     ),
                     shadowColor: Colors.red.withOpacity(0.2),
                   ),
-                  child: const Icon(Icons.delete, size: 24),
+                  child: const Icon(Icons.delete, size: 20),
                 ),
               ),
               Container(
-                width: 60,
-                height: 44,
+                width: 70,
+                height: 36,
                 margin: const EdgeInsets.only(left: 2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -158,10 +150,7 @@ class CartWidget extends StatelessWidget {
                     ),
                     shadowColor: Colors.blue.withOpacity(0.2),
                   ),
-                  child: const Text(
-                    'Pesan',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                  ),
+                  child: Text('Pesan', style: medium.copyWith(fontSize: 14)),
                 ),
               ),
             ],

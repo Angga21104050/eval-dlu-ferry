@@ -1,3 +1,4 @@
+import 'package:dlu_project/app/constants/text_style.dart';
 import 'package:dlu_project/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -193,7 +194,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             IconButton(
                               // Menggunakan IconButton untuk tombol back
@@ -209,13 +210,12 @@ class OrderTicketView extends GetView<OrderTicketController> {
                               padding: EdgeInsets.only(left: 0),
                               child: Text(
                                 'Pemesanan Tiket',
-                                style: TextStyle(
+                                style: semiBold.copyWith(
                                   fontSize: 22,
-                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF0064D2),
                                 ),
                               ),
                             ),
-                            SizedBox(width: 36),
                           ],
                         ),
                       ),

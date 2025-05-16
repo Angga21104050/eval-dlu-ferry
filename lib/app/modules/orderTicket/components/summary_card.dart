@@ -1,5 +1,6 @@
 // order_ticket_view/components/ticket_card.dart (asumsi path file)
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class OrderSummaryCard extends StatelessWidget {
   final String ferryName;
@@ -33,8 +34,7 @@ class OrderSummaryCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.grey.shade300),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(
@@ -56,10 +56,9 @@ class OrderSummaryCard extends StatelessWidget {
                 quarterTurns: -1,
                 child: Text(
                   ferryName,
-                  style: const TextStyle(
+                  style: semiBold.copyWith(
                     fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF004AAD),
+                    color: Color(0xFF0064D2),
                   ),
                 ),
               ),
@@ -88,23 +87,19 @@ class OrderSummaryCard extends StatelessWidget {
                       cart
                           .map((item) => item['class'])
                           .join(', '), // Tampilkan jenis tiket yang dipesan
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade700,
+                      style: semiBold.copyWith(
+                        fontSize: 12,
+                        color: Colors.grey.shade500,
                       ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
-                    const SizedBox(height: 4),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           departureTime,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                          ),
+                          style: semiBold.copyWith(fontSize: 22),
                         ),
                         Row(
                           children: [
@@ -119,11 +114,7 @@ class OrderSummaryCard extends StatelessWidget {
                         ),
                         Text(
                           arrivalTime,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                          ),
+                          style: semiBold.copyWith(fontSize: 22),
                         ),
                       ],
                     ),
@@ -133,10 +124,9 @@ class OrderSummaryCard extends StatelessWidget {
                         Expanded(
                           child: Text(
                             departurePort,
-                            style: const TextStyle(
+                            style: semiBold.copyWith(
                               fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.blue,
+                              color: Colors.grey.shade700,
                             ),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
@@ -144,20 +134,18 @@ class OrderSummaryCard extends StatelessWidget {
                         ),
                         Text(
                           '→',
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.blue,
+                          style: semiBold.copyWith(
+                            fontSize: 16,
+                            color: Colors.grey.shade700,
                           ),
                         ),
                         SizedBox(width: 4),
                         Expanded(
                           child: Text(
                             arrivalPort,
-                            style: const TextStyle(
+                            style: semiBold.copyWith(
                               fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.blue,
+                              color: Colors.grey.shade700,
                             ),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
@@ -165,23 +153,21 @@ class OrderSummaryCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 4),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           date,
-                          style: TextStyle(
+                          style: medium.copyWith(
                             fontSize: 12,
-                            color: Colors.grey.shade600,
+                            color: Colors.grey.shade900,
                           ),
                         ),
                         Text(
                           duration,
-                          style: TextStyle(
+                          style: medium.copyWith(
                             fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey.shade500,
+                            color: Colors.grey.shade900,
                           ),
                         ),
                       ],

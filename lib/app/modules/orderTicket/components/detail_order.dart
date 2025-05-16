@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../controllers/order_ticket_controller.dart';
 import '../../edit-profile/controllers/edit_profile_controller.dart';
 import '../components/gender_selection.dart';
+import '../../../constants/text_style.dart';
 
 class DeatailOrder extends StatefulWidget {
   const DeatailOrder({super.key});
@@ -29,7 +30,6 @@ class _DeatailOrderState extends State<DeatailOrder> {
       margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.grey.shade300),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -44,10 +44,7 @@ class _DeatailOrderState extends State<DeatailOrder> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Detail Pemesanan',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            Text('Detail Pemesanan', style: semiBold.copyWith(fontSize: 16)),
             const SizedBox(height: 10),
 
             // Gunakan controller yang sudah di-Get.put di atas
@@ -59,6 +56,7 @@ class _DeatailOrderState extends State<DeatailOrder> {
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(),
                 labelText: 'Nama Lengkap Sesuai ID',
+                labelStyle: medium.copyWith(fontSize: 14),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xFF0064D2)),
                   borderRadius: BorderRadius.circular(10),
@@ -73,6 +71,8 @@ class _DeatailOrderState extends State<DeatailOrder> {
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 labelText: 'Nomor Ponsel',
+
+                labelStyle: medium.copyWith(fontSize: 14),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -86,6 +86,7 @@ class _DeatailOrderState extends State<DeatailOrder> {
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Alamat Email',
+                labelStyle: medium.copyWith(fontSize: 14),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -99,6 +100,7 @@ class _DeatailOrderState extends State<DeatailOrder> {
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelText: 'Kota',
+                labelStyle: medium.copyWith(fontSize: 14),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -109,7 +111,7 @@ class _DeatailOrderState extends State<DeatailOrder> {
 
             Text(
               'Kontak ini untuk e-tiket dan kebutuhan rescheduling',
-              style: TextStyle(color: Colors.grey[500], fontSize: 12),
+              style: regular.copyWith(color: Colors.grey[500], fontSize: 12),
             ),
             const SizedBox(height: 8),
 
@@ -135,13 +137,9 @@ class _DeatailOrderState extends State<DeatailOrder> {
                 onPressed: () {
                   // Aksi tombol
                 },
-                child: const Text(
+                child: Text(
                   'Tambahkan Sebagai Penumpang 1',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                  style: semiBold.copyWith(fontSize: 14, color: Colors.white),
                 ),
               ),
             ),

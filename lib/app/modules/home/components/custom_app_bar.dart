@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../widgets/appbar_action_buttons.dart';
+import '../../../constants/text_style.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String greeting;
@@ -28,16 +29,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   Text(
                     greeting,
-                    style: const TextStyle(fontSize: 14, color: Colors.white),
+                    style: regular.copyWith(fontSize: 14, color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 12.0),
                     child: Text(
                       username,
-                      style: const TextStyle(
+                      style: semiBold.copyWith(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -50,9 +50,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
       ),
-      bottom: showBottomBorder
-          ? const BorderedDivider()
-          : null,
+      bottom: showBottomBorder ? const BorderedDivider() : null,
     );
   }
 

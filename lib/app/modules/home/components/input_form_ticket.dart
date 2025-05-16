@@ -7,6 +7,7 @@ import 'ticket_type.dart';
 import 'ticket_class.dart';
 import 'search_ticket_button.dart';
 import '../controllers/home_controller.dart';
+import '../../../constants/text_style.dart';
 
 // membuat form input tiket
 class InputFormTicket extends StatefulWidget {
@@ -37,7 +38,6 @@ class _InputFormTicketState extends State<InputFormTicket> {
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.grey.shade300, width: 1),
         // membuat shadow pada sisi bawah container
         boxShadow: [
           BoxShadow(
@@ -78,21 +78,16 @@ class _InputFormTicketState extends State<InputFormTicket> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'PT. Dharma Lautan Utama',
-                        style: TextStyle(
+                        style: semiBold.copyWith(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(
-                            255,
-                            0,
-                            0,
-                            0,
-                          ), // Sesuaikan warna teks
+                          color: Colors.black,
                         ),
                       ),
                       Text(
                         'armada pelayaran nasional',
+                        style: light.copyWith(fontSize: 12),
                         textAlign: TextAlign.left,
                       ),
                     ],

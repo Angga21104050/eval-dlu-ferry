@@ -21,7 +21,7 @@ class Background extends StatelessWidget {
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
         image: DecorationImage(
           image: AssetImage("assets/img/map-global.png"),
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           fit: BoxFit.contain,
         ),
       ),

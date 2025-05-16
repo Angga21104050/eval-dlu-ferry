@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../constants/text_style.dart';
+
 class SearchInputField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
@@ -11,7 +13,7 @@ class SearchInputField extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -25,7 +27,7 @@ class SearchInputField extends StatelessWidget {
           filled: true,
           fillColor: Colors.white,
           hintText: 'Masukkan Kode Pemesanan...',
-          hintStyle: TextStyle(color: Colors.grey.shade600, fontSize: 14),
+          hintStyle: extraLight.copyWith(fontSize: 14),
           prefixIcon: const Icon(
             Icons.search,
             color: Color(0xFF0064D2),

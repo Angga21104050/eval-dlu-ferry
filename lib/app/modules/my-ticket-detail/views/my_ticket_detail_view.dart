@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../components/ticket_detail_card.dart';
 import '../controllers/my_ticket_detail_controller.dart';
 import '../components/my_detail_ticket_summ.dart';
+import '../../../constants/text_style.dart';
 
 class MyTicketDetailView extends GetView<MyTicketDetailController> {
   const MyTicketDetailView({super.key});
@@ -38,8 +39,8 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                         width: double.infinity,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(30),
-                            bottomRight: Radius.circular(30),
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
                           ),
                           boxShadow: [
                             BoxShadow(
@@ -65,8 +66,8 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 26,
+                            horizontal: 10,
+                            vertical: 10,
                           ),
                           child: Column(
                             children: [
@@ -81,18 +82,17 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                                       ),
                                       onPressed: () => Get.back(),
                                     ),
-                                    const Text(
+                                    Text(
                                       'Detail Tiket',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
+                                      style: semiBold.copyWith(
+                                        fontSize: 22,
                                         color: Colors.white,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              const Padding(
+                              Padding(
                                 padding: EdgeInsets.only(
                                   top: 0,
                                   left: 48,
@@ -103,10 +103,9 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                                     Expanded(
                                       child: Text(
                                         "Informasi lengkap tiket ferry Anda, termasuk jadwal dan status pembayaran.",
-                                        style: TextStyle(
+                                        style: light.copyWith(
                                           fontSize: 14,
                                           color: Colors.white,
-                                          fontWeight: FontWeight.w300,
                                         ),
                                       ),
                                     ),
@@ -207,7 +206,7 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               IconButton(
                                 icon: const Icon(
@@ -216,14 +215,13 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                                 ),
                                 onPressed: () => Get.back(),
                               ),
-                              const Text(
+                              Text(
                                 'Detail Tiket',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
+                                style: semiBold.copyWith(
+                                  fontSize: 22,
+                                  color: Color(0xFF0064D2),
                                 ),
                               ),
-                              const SizedBox(width: 36),
                             ],
                           ),
                         ),

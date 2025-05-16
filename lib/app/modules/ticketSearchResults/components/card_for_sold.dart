@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants/text_style.dart';
 
 class CardForSold extends StatelessWidget {
   const CardForSold({super.key});
@@ -61,10 +62,9 @@ class CardForSold extends StatelessWidget {
                           Expanded(
                             child: Text(
                               'KM. Kirana',
-                              style: const TextStyle(
+                              style: semiBold.copyWith(
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87,
+                                color: Color(0xFF0064D2),
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -72,10 +72,9 @@ class CardForSold extends StatelessWidget {
                           const SizedBox(width: 8),
                           Text(
                             'Habis',
-                            style: const TextStyle(
+                            style: medium.copyWith(
                               fontSize: 10,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
+                              color: Colors.grey.shade500,
                             ),
                             textAlign: TextAlign.end,
                           ),
@@ -86,7 +85,7 @@ class CardForSold extends StatelessWidget {
                         padding: EdgeInsets.all(4),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 247, 251, 255),
+                          color: Color(0xFFE6F2FE),
                         ),
                         child: Column(
                           children: [
@@ -101,9 +100,8 @@ class CardForSold extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     'Surabaya - Pelabuhan Tanjung Perak - SUB',
-                                    style: TextStyle(
+                                    style: semiBold.copyWith(
                                       fontSize: 12,
-                                      fontWeight: FontWeight.bold,
                                       color: Colors.grey.shade700,
                                     ),
                                     overflow: TextOverflow.ellipsis,
@@ -123,9 +121,8 @@ class CardForSold extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-                                    style: TextStyle(
+                                    style: semiBold.copyWith(
                                       fontSize: 12,
-                                      fontWeight: FontWeight.bold,
                                       color: Colors.grey.shade700,
                                     ),
                                     overflow: TextOverflow.ellipsis,
@@ -149,20 +146,19 @@ class CardForSold extends StatelessWidget {
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(top: 16),
-                                  child: const Row(
+                                  child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
                                         'Lihat Kelas',
-                                        style: TextStyle(
+                                        style: semiBold.copyWith(
                                           fontSize: 12,
-                                          fontWeight: FontWeight.bold,
                                           color: Color(0xFF0064D2),
                                         ),
                                       ),
                                       Icon(
                                         Icons.keyboard_arrow_down,
-                                        color: Colors.blue,
+                                        color: Color(0xFF0064D2),
                                         size: 20,
                                       ),
                                     ],

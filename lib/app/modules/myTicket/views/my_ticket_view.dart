@@ -7,6 +7,7 @@ import '../../home/components/custom_navigation_bar.dart';
 import '../components/header.dart';
 import '../components/search_input.dart';
 import '../components/my_ticket_list.dart';
+import '../../../constants/text_style.dart';
 
 class MyTicketView extends GetView<MyTicketController> {
   const MyTicketView({super.key});
@@ -17,7 +18,6 @@ class MyTicketView extends GetView<MyTicketController> {
     Get.put(HistoryController());
 
     return Scaffold(
-      // appBar: const SecCustomAppBar(page: 'My Ticket'),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
@@ -48,10 +48,7 @@ class MyTicketView extends GetView<MyTicketController> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Layanan Cek Tiket Saya',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: medium.copyWith(fontSize: 14),
                         ),
                       ),
                     ),
@@ -92,17 +89,17 @@ class MyTicketView extends GetView<MyTicketController> {
                           children: [
                             Text(
                               'Tiket Saya',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
+                              style: semiBold.copyWith(
+                                fontSize: 22,
+                                color: Color(0xFF0064D2),
                               ),
                             ),
                             Container(
-                              height: 36,
-                              width: 36,
+                              height: 30,
+                              width: 30,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(36),
-                                border: Border.all(color: Colors.grey.shade800),
+                                borderRadius: BorderRadius.circular(30),
+                                border: Border.all(color: Color(0xFF0064D2)),
                               ),
                               child: Center(
                                 child: IconButton(
@@ -111,7 +108,8 @@ class MyTicketView extends GetView<MyTicketController> {
                                   constraints: const BoxConstraints(),
                                   icon: Icon(
                                     Icons.history_edu_rounded,
-                                    color: Colors.grey[800],
+                                    color: Color(0xFF0064D2),
+                                    size: 18,
                                   ),
                                   onPressed: () => Get.toNamed('/history'),
                                 ),
