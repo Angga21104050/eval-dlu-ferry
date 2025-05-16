@@ -1,3 +1,4 @@
+import 'package:dlu_project/app/data/list_tiket_dummy.dart';
 import 'package:flutter/material.dart';
 import '../components/cart_ticket.dart';
 import '../components/ticket_selection.dart';
@@ -295,6 +296,7 @@ class _TicketCardState extends State<TicketCard> {
                     cart.clear();
                   });
                 },
+                ferryTickets: ferryTickets,
               ),
             ],
           ),

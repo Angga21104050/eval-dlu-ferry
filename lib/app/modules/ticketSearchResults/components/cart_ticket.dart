@@ -4,17 +4,33 @@ import 'package:get/get.dart';
 
 class CartWidget extends StatelessWidget {
   final List<Map<String, dynamic>> cart;
-  final VoidCallback onClearCart; // Tambahkan ini
+  final List<Map<String, dynamic>> ferryTickets; // Tambahkan ini
+  final VoidCallback onClearCart;
 
   const CartWidget({
     super.key,
     required this.cart,
-    required this.onClearCart, // Wajib diisi
+    required this.ferryTickets, // Wajib diisi
+    required this.onClearCart,
   });
+
+  double _getPriceForItem(Map<String, dynamic> cartItem) {
+    final ticketData = ferryTickets.firstWhere(
+      (ticket) =>
+          (ticket['ticketType'] as List).contains(cartItem['ticketType']) ||
+          ticket['ticketType'] == cartItem['ticketType'],
+      orElse: () => {'price': 300000},
+    );
+    return (ticketData['price'] is num
+                ? ticketData['price']
+                : double.tryParse(ticketData['price']?.toString() ?? '0.0'))
+            ?.toDouble() ??
+        0.0;
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (cart.isEmpty) return const SizedBox(); // Sembunyikan jika kosong
+    if (cart.isEmpty) return const SizedBox();
 
     return Container(
       margin: const EdgeInsets.only(top: 8),
@@ -44,25 +60,44 @@ class CartWidget extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           ...cart.map((item) {
+            final price = _getPriceForItem(item);
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 2),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
-                    flex: 3,
-                    child: Text(
-                      item['class'],
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black87,
-                      ),
+                    flex: 4,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            item['class'],
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          '(${item['count']})',
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF007BFF),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+
                   Flexible(
-                    flex: 1,
+                    flex: 2,
                     child: Text(
-                      '${item['count']}',
+                      'Rp ${price.toStringAsFixed(0)}', // Tampilkan harga yang ditemukan
+                      textAlign: TextAlign.end,
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -87,7 +122,7 @@ class CartWidget extends StatelessWidget {
                   color: Colors.red,
                 ),
                 child: ElevatedButton(
-                  onPressed: onClearCart, // Panggil fungsi di sini
+                  onPressed: onClearCart,
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     backgroundColor: Colors.transparent,

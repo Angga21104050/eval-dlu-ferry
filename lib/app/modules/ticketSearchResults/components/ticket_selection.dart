@@ -85,12 +85,12 @@ class _TicketSelectionState extends State<TicketSelection> {
               return classes.map((String value) {
                 return Container(
                   margin: const EdgeInsets.symmetric(
-                    vertical: 4,
+                    vertical: 2,
                     horizontal: 8,
                   ),
                   padding: const EdgeInsets.symmetric(
-                    vertical: 8,
-                    horizontal: 16,
+                    vertical: 2,
+                    horizontal: 10,
                   ),
                   decoration: BoxDecoration(
                     color: bgColor,
@@ -107,28 +107,48 @@ class _TicketSelectionState extends State<TicketSelection> {
                           style: TextStyle(fontSize: 14),
                         ),
                       ),
-                      Row(
+                      Column(
                         children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.remove_circle_outline,
-                              color: Colors.red,
-                            ),
-                            onPressed: () => decrementTicket(value),
+                          //munculkan harga disini
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(bottom: 0),
+                                child: Text(
+                                  'Rp. 300.000',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            ticketCounts[value].toString(),
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                            icon: const Icon(
-                              Icons.add_circle_outline_outlined,
-                              color: Color.fromARGB(255, 28, 128, 209),
-                            ),
-                            onPressed: () => incrementTicket(value),
+                          Row(
+                            children: [
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.remove_circle_outline,
+                                  color: Colors.red,
+                                ),
+                                onPressed: () => decrementTicket(value),
+                              ),
+                              Text(
+                                ticketCounts[value].toString(),
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.add_circle_outline_outlined,
+                                  color: Color.fromARGB(255, 28, 128, 209),
+                                ),
+                                onPressed: () => incrementTicket(value),
+                              ),
+                            ],
                           ),
                         ],
                       ),
