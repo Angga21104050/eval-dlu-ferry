@@ -7,6 +7,7 @@ import '../controllers/payment_controller.dart';
 import '../components/ewallet_payment_section.dart';
 import '../components/virtual_account_payment_section.dart';
 import '../../../widgets/background.dart';
+import '../../../constants/text_style.dart';
 
 class PaymentView extends GetView<PaymentController> {
   const PaymentView({super.key});
@@ -39,16 +40,15 @@ class PaymentView extends GetView<PaymentController> {
                         icon: const Icon(Icons.arrow_back, color: Colors.white),
                       ),
                     ),
-                    const Align(
+                    Align(
                       alignment: Alignment.center,
                       child: Text(
                         'Selesaikan Pembayaran',
-                        style: TextStyle(
-                          color: Colors.white,
+                        style: semiBold.copyWith(
                           fontSize: 22,
-                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.start,
                       ),
                     ),
                   ],
@@ -139,12 +139,9 @@ class PaymentView extends GetView<PaymentController> {
                               ),
                               padding: const EdgeInsets.symmetric(vertical: 16),
                             ),
-                            child: const Text(
+                            child: Text(
                               'Konfirmasi Pembayaran',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
+                              style: semiBold.copyWith(fontSize: 16),
                             ),
                           ),
                         ),

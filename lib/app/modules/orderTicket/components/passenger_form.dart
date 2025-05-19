@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../controllers/order_ticket_controller.dart';
 import 'gender_selection.dart';
 import '../../../data/list_tiket_dummy.dart';
+import '../../../constants/text_style.dart';
 
 class PassengerForm extends StatefulWidget {
   final int passengerCount;
@@ -64,11 +65,10 @@ class _PassengerFormState extends State<PassengerForm> {
                 ),
                 Expanded(
                   child: ListTile(
-                    title: const Text(
+                    title: Text(
                       'Penumpang',
-                      style: TextStyle(
+                      style: semiBold.copyWith(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
                         color: Color(0xFF0064D2),
                       ),
                     ),
@@ -96,18 +96,14 @@ class _PassengerFormState extends State<PassengerForm> {
                         children: [
                           Text(
                             'Penumpang ${i + 1} (${passenger['class']})',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87,
-                            ),
+                            style: medium.copyWith(fontSize: 14),
                           ),
                           GenderSelection(controller: widget.controller),
                           const SizedBox(height: 10),
                           Row(
                             children: [
                               Expanded(
-                                flex: 3,
+                                flex: 1,
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 12,
@@ -131,17 +127,22 @@ class _PassengerFormState extends State<PassengerForm> {
                                               child: Text(value),
                                             );
                                           }).toList(),
+                                      style: regular.copyWith(
+                                        fontSize: 14,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                               const SizedBox(width: 10),
                               Expanded(
-                                flex: 5,
+                                flex: 2,
                                 child: TextField(
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
                                     labelText: 'Nomor ID',
+                                    labelStyle: regular.copyWith(),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -154,6 +155,7 @@ class _PassengerFormState extends State<PassengerForm> {
                           TextField(
                             decoration: InputDecoration(
                               labelText: 'Nama Lengkap Sesuai ID',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -164,6 +166,7 @@ class _PassengerFormState extends State<PassengerForm> {
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
                               labelText: 'Nomor Ponsel',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -174,6 +177,7 @@ class _PassengerFormState extends State<PassengerForm> {
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                               labelText: 'Kota',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),

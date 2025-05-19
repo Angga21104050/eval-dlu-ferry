@@ -158,11 +158,10 @@ class OrderTicketView extends GetView<OrderTicketController> {
                             );
                           }
                         },
-                        child: const Text(
+                        child: Text(
                           'Lanjutkan Pembayaran',
-                          style: TextStyle(
+                          style: semiBold.copyWith(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),

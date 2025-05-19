@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import '../../../constants/text_style.dart';
 
 class PaymentTimer extends StatefulWidget {
   const PaymentTimer({super.key});
@@ -53,9 +54,9 @@ class _PaymentTimerState extends State<PaymentTimer> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             'Sisa Waktu Pembayaran :',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+            style: medium.copyWith(color: Colors.white),
           ),
           const SizedBox(height: 16),
           Row(
@@ -70,13 +71,9 @@ class _PaymentTimerState extends State<PaymentTimer> {
                   ),
                 ).split(':')[0].trim(),
               ),
-              const Text(
-                ':',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(':', style: medium.copyWith(color: Colors.white)),
               ),
               _buildTimeSegment(
                 _formatDuration(
@@ -87,13 +84,9 @@ class _PaymentTimerState extends State<PaymentTimer> {
                   ),
                 ).split(':')[1].trim(),
               ),
-              const Text(
-                ':',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(':', style: medium.copyWith(color: Colors.white)),
               ),
               _buildTimeSegment(
                 _formatDuration(
@@ -128,11 +121,7 @@ class _PaymentTimerState extends State<PaymentTimer> {
       ),
       child: Text(
         time,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
+        style: semiBold.copyWith(color: Colors.white, fontSize: 14),
       ),
     );
   }

@@ -3,6 +3,7 @@ import '../../orderTicket/controllers/order_ticket_controller.dart';
 import '../components/payment_timer.dart';
 import 'payment_timeout_warning.dart';
 import '../components/ticket_detail_payment.dart';
+import '../../../constants/text_style.dart';
 
 class VirtualAccountPaymentSection extends StatefulWidget {
   final OrderTicketController controller;
@@ -52,9 +53,9 @@ class _VirtualAccountPaymentSectionState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Pembayaran Virtual Account',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: semiBold.copyWith(fontSize: 16),
               ),
               Row(
                 children: [
@@ -71,30 +72,24 @@ class _VirtualAccountPaymentSectionState
                     },
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    '${selectedVA ?? ''}',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  Text('${selectedVA ?? ''}', style: medium.copyWith()),
                 ],
               ),
               const PaymentTimeoutWarning(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Kode Pembayaran :',
-                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                    style: regular.copyWith(color: Colors.grey, fontSize: 14),
                   ),
                   const SizedBox(height: 4),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'HKKF2343242',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: semiBold.copyWith(fontSize: 18),
                       ),
                       IconButton(
                         icon: const Icon(Icons.copy, color: Color(0xFF0064D2)),
@@ -118,12 +113,9 @@ class _VirtualAccountPaymentSectionState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Detail Penumpang',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: medium.copyWith(fontSize: 14),
                     ),
                     const SizedBox(height: 2),
                     Column(
@@ -131,16 +123,12 @@ class _VirtualAccountPaymentSectionState
                       children: [
                         Text(
                           'AIRLANGGA MAULANA ANWAR',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
+                          style: semiBold.copyWith(fontSize: 16),
                         ),
                         Text(
                           'NIK-330056235345',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
+                          style: light.copyWith(
+                            fontSize: 14,
                             color: Color(0xFF0064D2),
                           ),
                         ),
@@ -188,12 +176,9 @@ class _VirtualAccountPaymentSectionState
                         color: Color(0xFF0064D2),
                       ),
                       const SizedBox(width: 8),
-                      const Text(
+                      Text(
                         'Instruksi Pembayaran',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: semiBold.copyWith(fontSize: 16),
                       ),
                       const Spacer(),
                       Icon(
@@ -215,13 +200,26 @@ class _VirtualAccountPaymentSectionState
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('1. Buka aplikasi mobile banking Anda.'),
-                      Text('2. Pilih menu Transfer.'),
-                      Text('3. Pilih Virtual Account.'),
-                      Text('4. Masukkan nomor virtual account di atas.'),
+                    children: [
+                      Text(
+                        '1.  Buka aplikasi mobile banking Anda.',
+                        style: light.copyWith(fontSize: 14),
+                      ),
+                      Text(
+                        '2. Pilih menu Transfer.',
+                        style: light.copyWith(fontSize: 14),
+                      ),
+                      Text(
+                        '3. Pilih Virtual Account.',
+                        style: light.copyWith(fontSize: 14),
+                      ),
+                      Text(
+                        '4. Masukkan nomor virtual account di atas.',
+                        style: light.copyWith(fontSize: 14),
+                      ),
                       Text(
                         '5. Ikuti instruksi selanjutnya untuk menyelesaikan pembayaran.',
+                        style: light.copyWith(fontSize: 14),
                       ),
                     ],
                   ),

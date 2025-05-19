@@ -3,6 +3,7 @@ import '../../orderTicket/controllers/order_ticket_controller.dart';
 import '../components/payment_timer.dart';
 import '../components/payment_timeout_warning.dart';
 import '../components/ticket_detail_payment.dart';
+import '../../../constants/text_style.dart';
 
 class EWalletPaymentSection extends StatefulWidget {
   final OrderTicketController controller;
@@ -50,11 +51,10 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Pembayaran E-Wallet',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: semiBold.copyWith(fontSize: 16),
               ),
-              const SizedBox(height: 8),
               Row(
                 children: [
                   Image.asset(
@@ -72,10 +72,7 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                     },
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    '${selectedEWallet ?? ''}',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  Text('${selectedEWallet ?? ''}', style: medium.copyWith()),
                 ],
               ),
               const PaymentTimeoutWarning(),
@@ -92,12 +89,9 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Detail Penumpang',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: medium.copyWith(fontSize: 14),
                     ),
                     const SizedBox(height: 2),
                     Column(
@@ -105,17 +99,13 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                       children: [
                         Text(
                           'AIRLANGGA MAULANA ANWAR',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
+                          style: semiBold.copyWith(fontSize: 16),
                         ),
                         Text(
                           'NIK-330056235345',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey,
+                          style: light.copyWith(
+                            fontSize: 14,
+                            color: Color(0xFF0064D2),
                           ),
                         ),
                       ],
@@ -162,12 +152,9 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                         color: Color(0xFF0064D2),
                       ),
                       const SizedBox(width: 8),
-                      const Text(
+                      Text(
                         'Instruksi Pembayaran',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: semiBold.copyWith(fontSize: 16),
                       ),
                       const Spacer(),
                       Icon(
@@ -187,11 +174,16 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '1. Buka aplikasi ${selectedEWallet ?? 'E-Wallet'} Anda.',
+                        '1.  Buka aplikasi ${selectedEWallet ?? 'E-Wallet'} Anda.',
+                        style: light.copyWith(fontSize: 14),
                       ),
-                      const Text('2. Cari menu Pembayaran atau Bayar.'),
+                      Text(
+                        '2. Cari menu Pembayaran atau Bayar.',
+                        style: light.copyWith(fontSize: 14),
+                      ),
                       Text(
                         '3. Ikuti instruksi di dalam aplikasi ${selectedEWallet ?? 'E-Wallet'} untuk menyelesaikan pembayaran.',
+                        style: light.copyWith(fontSize: 14),
                       ),
                     ],
                   ),

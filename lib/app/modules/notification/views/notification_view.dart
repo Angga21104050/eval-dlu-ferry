@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import '../controllers/notification_controller.dart';
+import '../../../constants/text_style.dart';
 
 class NotificationView extends GetView<NotificationController> {
   const NotificationView({super.key});
@@ -10,32 +11,35 @@ class NotificationView extends GetView<NotificationController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: IconButton(
-          // Menggunakan IconButton untuk tombol back
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ), // Atur warna ikon
-          onPressed: () {
-            Get.back();
-          },
-        ),
-        backgroundColor: const Color(0xFF0064D2),
-        elevation: 0,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          child: const Text(
-            'Informasi Notifikasi',
-            style: TextStyle(
-              fontSize: 18,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80),
+        child: AppBar(
+          leading: IconButton(
+            // Menggunakan IconButton untuk tombol back
+            icon: const Icon(
+              Icons.arrow_back,
               color: Colors.white,
-              fontWeight: FontWeight.bold,
+            ), // Atur warna ikon
+            onPressed: () {
+              Get.back();
+            },
+          ),
+          backgroundColor: const Color(0xFF0064D2),
+          elevation: 0,
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+            child: Text(
+              'Informasi Notifikasi',
+              style: semiBold.copyWith(fontSize: 22, color: Colors.white),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
             ),
           ),
+          centerTitle: false,
         ),
-        centerTitle: false,
       ),
+
+      // Di dalam NotificationView...
       body: GetBuilder<NotificationController>(
         builder: (controller) {
           return ListView.builder(
@@ -56,9 +60,7 @@ class NotificationView extends GetView<NotificationController> {
                   border: Border.all(color: Colors.grey.shade200, width: 1),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(
-                        0xFF0064D2,
-                      ).withOpacity(0.15), // 🔹 Shadow Biru
+                      color: const Color(0xFF0064D2).withOpacity(0.15),
                       offset: const Offset(0, 4),
                       blurRadius: 8,
                     ),
@@ -93,24 +95,21 @@ class NotificationView extends GetView<NotificationController> {
                           children: [
                             Text(
                               notification['title'],
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight:
-                                    notification['read']
-                                        ? FontWeight.normal
-                                        : FontWeight.bold,
-                                color:
-                                    notification['read']
-                                        ? Colors.grey[800]
-                                        : Colors.black,
-                              ),
+                              style: (notification['read'] ? regular : semiBold)
+                                  .copyWith(
+                                    fontSize: 14,
+                                    color:
+                                        notification['read']
+                                            ? Colors.grey[800]
+                                            : Colors.black,
+                                  ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
                             const SizedBox(height: 6),
                             Text(
                               timeFormat.format(notification['time']),
-                              style: TextStyle(
+                              style: regular.copyWith(
                                 fontSize: 12,
                                 color: Colors.grey[600],
                               ),

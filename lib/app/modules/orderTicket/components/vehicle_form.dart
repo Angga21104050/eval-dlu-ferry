@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../data/list_tiket_dummy.dart';
+import '../../../constants/text_style.dart';
 
 class VehicleForm extends StatefulWidget {
   final int vehicleCount;
@@ -74,11 +75,10 @@ class _VehicleFormState extends State<VehicleForm> {
                 ),
                 Expanded(
                   child: ListTile(
-                    title: const Text(
+                    title: Text(
                       'Kendaraan',
-                      style: TextStyle(
+                      style: semiBold.copyWith(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
                         color: Color(0xFF0064D2),
                       ),
                     ),
@@ -110,18 +110,14 @@ class _VehicleFormState extends State<VehicleForm> {
                         children: [
                           Text(
                             'Kendaraan ${i + 1} ($vehicleClass)',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87,
-                            ),
+                            style: medium.copyWith(fontSize: 14),
                           ),
 
                           const SizedBox(height: 10),
                           Row(
                             children: [
                               Expanded(
-                                flex: 2,
+                                flex: 1,
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 12,
@@ -145,6 +141,10 @@ class _VehicleFormState extends State<VehicleForm> {
                                               );
                                             },
                                           ).toList(),
+                                      style: regular.copyWith(
+                                        fontSize: 14,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -155,6 +155,7 @@ class _VehicleFormState extends State<VehicleForm> {
                                 child: TextField(
                                   decoration: InputDecoration(
                                     labelText: 'Nama Pemilik Sesuai STNK',
+                                    labelStyle: regular.copyWith(),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -167,6 +168,7 @@ class _VehicleFormState extends State<VehicleForm> {
                           TextField(
                             decoration: InputDecoration(
                               labelText: 'Kota/Kabupaten',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -176,6 +178,7 @@ class _VehicleFormState extends State<VehicleForm> {
                           TextField(
                             decoration: InputDecoration(
                               labelText: 'Alamat',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -185,6 +188,7 @@ class _VehicleFormState extends State<VehicleForm> {
                           TextField(
                             decoration: InputDecoration(
                               labelText: 'Nomor Polisi',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),

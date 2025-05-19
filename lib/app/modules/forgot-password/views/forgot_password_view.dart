@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/forgot_password_controller.dart';
+import '../../../constants/text_style.dart';
 
 class ForgotPasswordView extends GetView<ForgotPasswordController> {
   const ForgotPasswordView({super.key});
@@ -59,21 +58,13 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             'PT. Dharma Lautan Utama',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(
-                                255,
-                                0,
-                                0,
-                                0,
-                              ), // Sesuaikan warna teks
-                            ),
+                            style: bold.copyWith(fontSize: 18),
                           ),
                           Text(
                             'armada pelayaran nasional',
+                            style: regular.copyWith(),
                             textAlign: TextAlign.left,
                           ),
                         ],
@@ -81,42 +72,19 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Ganti Password',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                    ),
-                  ),
-                  const SizedBox(height: 8),
+                  Text('Ganti Password', style: medium.copyWith(fontSize: 18)),
                   Text(
                     'Masukkan alamat email Anda untuk mengatur ulang kata sandi.',
-                    style: TextStyle(fontSize: 14, color: Colors.grey[800]),
+                    style: regular.copyWith(fontSize: 14, color: Colors.grey),
                   ),
                   const SizedBox(height: 16),
                   // Form Input Email / No. Telp
-                  const Text(
-                    'Email',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text('Email', style: medium.copyWith(fontSize: 14)),
                   const SizedBox(height: 8),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukkan Email Anda',
+                      hintStyle: light.copyWith(fontSize: 14),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -127,8 +95,13 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Kode verifikasi akan dikirim ke email Anda.',
+                    style: regular.copyWith(fontSize: 14, color: Colors.grey),
+                  ),
 
-                  const SizedBox(height: 46),
+                  const SizedBox(height: 16),
                   // Tombol Lanjutkan
                   SizedBox(
                     width: double.infinity,
@@ -146,11 +119,10 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
-                      child: const Text(
+                      child: Text(
                         'Reset Password',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                        style: semiBold.copyWith(
+                          fontSize: 16,
                           color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),

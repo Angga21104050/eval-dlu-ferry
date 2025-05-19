@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/register_controller.dart';
+import '../../../constants/text_style.dart';
 
 class GenderSelection extends StatelessWidget {
   final RegisterController controller;
@@ -15,9 +16,9 @@ class GenderSelection extends StatelessWidget {
           SizedBox(
             width: 120,
             child: RadioListTile(
-              title: const Text(
+              title: Text(
                 'Laki-laki',
-                style: TextStyle(fontSize: 14),
+                style: light.copyWith(fontSize: 14),
                 textAlign: TextAlign.left, // Teks rata kiri
               ),
               value: 'Laki Laki',
@@ -31,9 +32,9 @@ class GenderSelection extends StatelessWidget {
           ),
           Expanded(
             child: RadioListTile(
-              title: const Text(
+              title: Text(
                 'Perempuan',
-                style: TextStyle(fontSize: 14),
+                style: light.copyWith(fontSize: 14),
                 textAlign: TextAlign.left, // Teks rata kiri
               ),
               value: 'Perempuan',

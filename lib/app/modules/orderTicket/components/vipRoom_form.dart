@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/order_ticket_controller.dart';
 import '../components/gender_selection.dart';
+import '../../../constants/text_style.dart';
 
 class VipRoomForm extends StatelessWidget {
   final int vipRoomCount;
@@ -45,11 +46,10 @@ class VipRoomForm extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListTile(
-                    title: const Text(
+                    title: Text(
                       'Kamar VIP',
-                      style: TextStyle(
+                      style: semiBold.copyWith(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
                         color: Color(0xFF0064D2),
                       ),
                     ),
@@ -78,7 +78,10 @@ class VipRoomForm extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Penumpang VIP ${i + 1}'),
+                          Text(
+                            'VIP Room 1 (1 kasur) ${i + 1}',
+                            style: medium.copyWith(fontSize: 14),
+                          ),
                           GenderSelection(controller: controller),
                           const SizedBox(height: 10),
                           Row(
@@ -106,6 +109,10 @@ class VipRoomForm extends StatelessWidget {
                                               child: Text(value),
                                             );
                                           }).toList(),
+                                      style: regular.copyWith(
+                                        fontSize: 14,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -117,6 +124,7 @@ class VipRoomForm extends StatelessWidget {
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
                                     labelText: 'Nomor ID',
+                                    labelStyle: regular.copyWith(),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -129,6 +137,7 @@ class VipRoomForm extends StatelessWidget {
                           TextField(
                             decoration: InputDecoration(
                               labelText: 'Nama Lengkap Sesuai ID',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -139,6 +148,7 @@ class VipRoomForm extends StatelessWidget {
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
                               labelText: 'Nomor Ponsel',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -149,6 +159,7 @@ class VipRoomForm extends StatelessWidget {
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                               labelText: 'Kota',
+                              labelStyle: regular.copyWith(),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),

@@ -1,9 +1,8 @@
 import 'package:dlu_project/app/modules/register/components/gender_selection.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/register_controller.dart';
+import '../../../constants/text_style.dart';
 
 class RegisterView extends GetView<RegisterController> {
   const RegisterView({super.key});
@@ -59,21 +58,13 @@ class RegisterView extends GetView<RegisterController> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             'PT. Dharma Lautan Utama',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(
-                                255,
-                                0,
-                                0,
-                                0,
-                              ), // Sesuaikan warna teks
-                            ),
+                            style: bold.copyWith(fontSize: 18),
                           ),
                           Text(
                             'armada pelayaran nasional',
+                            style: regular.copyWith(),
                             textAlign: TextAlign.left,
                           ),
                         ],
@@ -81,43 +72,26 @@ class RegisterView extends GetView<RegisterController> {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  const Text(
+                  Text(
                     'Buat Akun & Mulai Petualanganmu!',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                    ),
+                    style: medium.copyWith(fontSize: 18),
                   ),
-                  const SizedBox(height: 8),
                   Text(
                     'Dapatkan akses mudah untuk memesan tiket dan perjalanan favorit anda.',
-                    style: TextStyle(fontSize: 14, color: Colors.grey[800]),
+                    style: regular.copyWith(fontSize: 14, color: Colors.grey),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
 
                   // Form Input Email / No. Telp
-                  const Text(
+                  Text(
                     'Email (Sebagai Username)',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: medium.copyWith(fontSize: 14),
                   ),
                   const SizedBox(height: 8),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukkan Email atau No. Telp anda',
+                      hintStyle: light.copyWith(fontSize: 14),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -129,22 +103,15 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
+                  Text(
                     'Nomor Identitas (KTP/SIM/PASSPORT)',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: medium.copyWith(fontSize: 14),
                   ),
                   const SizedBox(height: 8),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukan Nomor Identitas',
+                      hintStyle: light.copyWith(fontSize: 14),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -156,22 +123,12 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Nama Lengkap',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text('Nama Lengkap', style: medium.copyWith(fontSize: 14)),
                   const SizedBox(height: 8),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukan Nama Lengkap',
+                      hintStyle: light.copyWith(fontSize: 14),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -185,22 +142,12 @@ class RegisterView extends GetView<RegisterController> {
                   const SizedBox(height: 16),
                   GenderSelection(controller: controller),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Alamat',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text('Alamat', style: medium.copyWith(fontSize: 14)),
                   const SizedBox(height: 8),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukkan Alamat anda',
+                      hintStyle: light.copyWith(fontSize: 14),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -212,22 +159,12 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Kota Asal',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text('Kota Asal', style: medium.copyWith(fontSize: 14)),
                   const SizedBox(height: 8),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukan Kota Asal Anda',
+                      hintStyle: light.copyWith(fontSize: 14),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -239,22 +176,12 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'No. Telepon',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text('No. Telepon', style: medium.copyWith(fontSize: 14)),
                   const SizedBox(height: 8),
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Masukan No. Telepon Anda',
+                      hintStyle: light.copyWith(fontSize: 14),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -267,23 +194,13 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   const SizedBox(height: 16),
                   // Form Input Password
-                  const Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text('Password', style: medium.copyWith(fontSize: 14)),
                   const SizedBox(height: 8),
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: 'Masukkan kata sandi anda',
+                      hintStyle: light.copyWith(fontSize: 14),
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.8),
                       border: OutlineInputBorder(
@@ -299,23 +216,16 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   const SizedBox(height: 16),
                   // Form Input Password
-                  const Text(
+                  Text(
                     'Verifikasi Password',
-                    style: TextStyle(
-                      color: Color.fromARGB(
-                        255,
-                        0,
-                        0,
-                        0,
-                      ), // Sesuaikan warna teks
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: medium.copyWith(fontSize: 14),
                   ),
                   const SizedBox(height: 8),
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: 'Masukkan kata sandi anda',
+                      hintStyle: light.copyWith(fontSize: 14),
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.8),
                       border: OutlineInputBorder(
@@ -329,14 +239,14 @@ class RegisterView extends GetView<RegisterController> {
                       suffixIcon: const Icon(Icons.visibility_off), // Ikon mata
                     ),
                   ),
-                  const SizedBox(height: 36),
+                  const SizedBox(height: 16),
                   Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         // Menggunakan Expanded agar teks mengisi sisa ruang
                         child: Text(
                           'Dengan menyetujui syarat dan ketentuan, Anda memasuki kontrak yang mengikat secara hukum dengan penyedia layanan.',
-                          style: TextStyle(
+                          style: light.copyWith(
                             fontSize: 12,
                             color: Colors.grey,
                           ), // Sesuaikan style teks
@@ -367,11 +277,10 @@ class RegisterView extends GetView<RegisterController> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
-                      child: const Text(
+                      child: Text(
                         'Buat Akun',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                        style: semiBold.copyWith(
+                          fontSize: 16,
                           color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),

@@ -1,6 +1,7 @@
 import 'package:dlu_project/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../constants/text_style.dart';
 
 import '../controllers/transaction_succ_controller.dart';
 
@@ -52,47 +53,41 @@ class TransactionSuccView extends GetView<TransactionSuccController> {
             ),
 
             // Confirmation Text
-            const Text(
+            Text(
               'Pesanan dikonfirmasi',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: semiBold.copyWith(fontSize: 24, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 4),
+
+            // Thank You and Email Info Text
+            Text(
+              'Terima kasih atas pesanan Anda. Anda akan segera menerima konfirmasi melalui email.',
+              style: light.copyWith(fontSize: 16, color: Colors.white70),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
 
-            // Thank You and Email Info Text
-            const Text(
-              'Terima kasih atas pesanan Anda. Anda akan segera menerima konfirmasi melalui email.',
-              style: TextStyle(fontSize: 16, color: Colors.white70),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 40),
-
             // Lihat Tiket Button
             SizedBox(
-              width: 320,
+              width: 260,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.offAllNamed(Routes.MY_TICKET);
+                  Get.offAllNamed(Routes.MY_TICKET_DETAIL);
                   print('Lihat Tiket button pressed');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  foregroundColor: Colors.black,
+                  shadowColor: Colors.transparent,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
-                child: const Text(
+                child: Text(
                   'Lihat Tiket',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0), // Match the blue color
-                  ),
+                  style: semiBold.copyWith(fontSize: 18),
                 ),
               ),
             ),

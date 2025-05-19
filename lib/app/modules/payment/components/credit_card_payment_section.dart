@@ -4,6 +4,7 @@ import '../../orderTicket/components/custom_text_form_field.dart';
 import '../components/payment_timer.dart';
 import '../components/payment_timeout_warning.dart';
 import '../components/ticket_detail_payment.dart';
+import '../../../constants/text_style.dart';
 
 class CreditCardPaymentSection extends StatelessWidget {
   final OrderTicketController controller;
@@ -44,11 +45,10 @@ class CreditCardPaymentSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Pembayaran Kartu Kredit',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: semiBold.copyWith(fontSize: 16),
               ),
-              const SizedBox(height: 8),
               Row(
                 children: [
                   Image.asset(
@@ -64,17 +64,17 @@ class CreditCardPaymentSection extends StatelessWidget {
                     },
                   ),
                   const SizedBox(width: 8),
-                  Text('${selectedCard ?? ''}'),
+                  Text('${selectedCard ?? ''}', style: medium.copyWith()),
                 ],
               ),
               const PaymentTimeoutWarning(),
               const SizedBox(height: 4),
-              const Text(
+              Text(
                 'Detail Kartu Kredit:',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: medium.copyWith(fontSize: 14),
               ),
               const SizedBox(height: 8),
-              const CustomTextFormField(label: 'Nomor Kartu'),
+              CustomTextFormField(label: 'Nomor Kartu'),
               const SizedBox(height: 8),
               Row(
                 children: [
@@ -96,12 +96,9 @@ class CreditCardPaymentSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Detail Penumpang',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: medium.copyWith(fontSize: 14),
                     ),
                     const SizedBox(height: 2),
                     Column(
@@ -109,17 +106,13 @@ class CreditCardPaymentSection extends StatelessWidget {
                       children: [
                         Text(
                           'AIRLANGGA MAULANA ANWAR',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
+                          style: semiBold.copyWith(fontSize: 16),
                         ),
                         Text(
                           'NIK-330056235345',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey,
+                          style: light.copyWith(
+                            fontSize: 14,
+                            color: Color(0xFF0064D2),
                           ),
                         ),
                       ],

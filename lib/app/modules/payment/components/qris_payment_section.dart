@@ -3,6 +3,7 @@ import '../../orderTicket/controllers/order_ticket_controller.dart';
 import '../components/payment_timer.dart';
 import 'payment_timeout_warning.dart';
 import '../components/ticket_detail_payment.dart';
+import '../../../constants/text_style.dart';
 
 class QrisPaymentSection extends StatelessWidget {
   final OrderTicketController controller;
@@ -42,10 +43,7 @@ class QrisPaymentSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Pembayaran QRIS',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              Text('Pembayaran QRIS', style: semiBold.copyWith(fontSize: 16)),
               const SizedBox(height: 8),
               Row(
                 children: [
@@ -61,14 +59,9 @@ class QrisPaymentSection extends StatelessWidget {
                       );
                     },
                   ),
-                  const SizedBox(width: 8),
-                  Text(
-                    '${selectedQris ?? ''}',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  Text('${selectedQris ?? ''}', style: medium.copyWith()),
                 ],
               ),
-              const SizedBox(height: 8),
               const PaymentTimeoutWarning(),
               TicketDetailPayment(cart: cart),
               Container(
@@ -82,12 +75,9 @@ class QrisPaymentSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Detail Penumpang',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: medium.copyWith(fontSize: 14),
                     ),
                     const SizedBox(height: 2),
                     Column(
@@ -95,17 +85,13 @@ class QrisPaymentSection extends StatelessWidget {
                       children: [
                         Text(
                           'AIRLANGGA MAULANA ANWAR',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
+                          style: semiBold.copyWith(fontSize: 16),
                         ),
                         Text(
                           'NIK-330056235345',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey,
+                          style: light.copyWith(
+                            fontSize: 14,
+                            color: Color(0xFF0064D2),
                           ),
                         ),
                       ],
@@ -138,10 +124,7 @@ class QrisPaymentSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Scan QR Code:',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
+              Text('Scan QR Code:', style: medium.copyWith(fontSize: 14)),
               const SizedBox(height: 8),
               Container(
                 width: 320,
@@ -150,7 +133,7 @@ class QrisPaymentSection extends StatelessWidget {
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Center(child: Text('QR Code')),
+                child: Center(child: Text('QR Code', style: light.copyWith())),
               ),
             ],
           ),

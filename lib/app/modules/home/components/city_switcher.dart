@@ -112,7 +112,10 @@ class _CitySwitcherState extends State<CitySwitcher> {
                             decoration: InputDecoration(
                               hintText: 'Cari Pelabuhan...',
                               hintStyle: extraLight.copyWith(fontSize: 14),
-                              prefixIcon: const Icon(Icons.search_outlined),
+                              prefixIcon: const Icon(
+                                Icons.search_outlined,
+                                color: Color(0xFF0064D2),
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),

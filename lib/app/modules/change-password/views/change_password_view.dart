@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/change_password_controller.dart';
+import '../../../constants/text_style.dart';
 
 class ChangePasswordView extends GetView<ChangePasswordController> {
   const ChangePasswordView({super.key});
@@ -17,18 +18,14 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Get.back(),
           ),
-          title: const Padding(
+          title: Padding(
             padding: EdgeInsets.symmetric(vertical: 20),
             child: Text(
               'Ganti Password',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+              style: semiBold.copyWith(fontSize: 22, color: Colors.white),
             ),
           ),
-          centerTitle: true,
+          centerTitle: false,
         ),
       ),
       body: SingleChildScrollView(
@@ -44,6 +41,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   obscureText: !controller.showOldPassword.value,
                   decoration: InputDecoration(
                     labelText: 'Password Lama',
+                    labelStyle: light.copyWith(fontSize: 14),
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -74,6 +72,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   obscureText: !controller.showNewPassword.value,
                   decoration: InputDecoration(
                     labelText: 'Password Baru',
+                    labelStyle: light.copyWith(fontSize: 14),
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -107,6 +106,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   obscureText: !controller.showConfirmPassword.value,
                   decoration: InputDecoration(
                     labelText: 'Konfirmasi Password Baru',
+                    labelStyle: light.copyWith(fontSize: 14),
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -142,13 +142,9 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                     ),
                   ),
                   onPressed: () => controller.changePassword(),
-                  child: const Text(
+                  child: Text(
                     'GANTI PASSWORD',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: semiBold.copyWith(fontSize: 16, color: Colors.white),
                   ),
                 ),
               ),

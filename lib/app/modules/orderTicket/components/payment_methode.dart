@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/order_ticket_controller.dart';
+import '../../../constants/text_style.dart';
 
 class PaymentMethodeDropdown extends StatelessWidget {
   final OrderTicketController controller = Get.find<OrderTicketController>();
@@ -25,21 +26,32 @@ class PaymentMethodeDropdown extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
+              margin: EdgeInsets.symmetric(horizontal: 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(height: 20),
-                  const Text(
-                    'Pilih Metode Pembayaran',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(Icons.arrow_back_outlined),
+                        color: Color(0xFF0064D2),
+                      ),
+                      Text(
+                        'Pilih Metode Pembayaran',
+                        style: semiBold.copyWith(fontSize: 18),
+                      ),
+                    ],
                   ),
-                  const Divider(color: Colors.grey),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Divider(color: Colors.grey),
+                  ),
                   _buildPaymentCategory(
                     title: 'Virtual Account',
                     methods: controller.virtualAccMethod,
@@ -87,78 +99,77 @@ class PaymentMethodeDropdown extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 8),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.black87,
-          ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(title, style: regular.copyWith(fontSize: 16)),
         ),
         const SizedBox(height: 8),
-        Column(
-          children:
-              methods.map((method) {
-                String imagePath = controller.getImagePathForMethod(method);
-                return InkWell(
-                  onTap: () {
-                    onSelect(method); // Panggil fungsi onSelect dari luar
-                    Navigator.pop(
-                      Get.context!,
-                    ); // Tutup bottom sheet setelah memilih
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey.shade300),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            imagePath,
-                            width: 36,
-                            height: 36,
-                            errorBuilder: (context, error, StackTrace) {
-                              return const SizedBox(width: 36, height: 36);
-                            },
-                          ),
-                          const SizedBox(width: 16),
-                          Expanded(
-                            child: Text(
-                              method,
-                              style: TextStyle(fontWeight: FontWeight.w500),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            children:
+                methods.map((method) {
+                  String imagePath = controller.getImagePathForMethod(method);
+                  return InkWell(
+                    onTap: () {
+                      onSelect(method); // Panggil fungsi onSelect dari luar
+                      Navigator.pop(
+                        Get.context!,
+                      ); // Tutup bottom sheet setelah memilih
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              imagePath,
+                              width: 36,
+                              height: 36,
+                              errorBuilder: (context, error, StackTrace) {
+                                return const SizedBox(width: 36, height: 36);
+                              },
                             ),
-                          ),
-                          Obx(
-                            () => // Bungkus dengan Obx untuk memantau selectedItem
-                                controller.selectedVirtualAccMethod.value ==
-                                            method ||
-                                        controller
-                                                .selectedEWalletMethod
-                                                .value ==
-                                            method ||
-                                        controller
-                                                .selectedCreditCardMethod
-                                                .value ==
-                                            method ||
-                                        controller.selectedQrisMethod.value ==
-                                            method
-                                    ? const Icon(
-                                      Icons.navigate_next_rounded,
-                                      color: Colors.blue,
-                                    )
-                                    : const SizedBox.shrink(),
-                          ),
-                        ],
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: Text(
+                                method,
+                                style: regular.copyWith(fontSize: 16),
+                              ),
+                            ),
+                            Obx(
+                              () => // Bungkus dengan Obx untuk memantau selectedItem
+                                  controller.selectedVirtualAccMethod.value ==
+                                              method ||
+                                          controller
+                                                  .selectedEWalletMethod
+                                                  .value ==
+                                              method ||
+                                          controller
+                                                  .selectedCreditCardMethod
+                                                  .value ==
+                                              method ||
+                                          controller.selectedQrisMethod.value ==
+                                              method
+                                      ? const Icon(
+                                        Icons.navigate_next_rounded,
+                                        color: Colors.blue,
+                                      )
+                                      : const SizedBox.shrink(),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                );
-              }).toList(),
+                  );
+                }).toList(),
+          ),
         ),
       ],
     );
@@ -224,7 +235,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
                 );
               }
             }),
-            const SizedBox(width: 8),
+            const SizedBox(width: 0),
             Expanded(
               child: Obx(() {
                 String selectedMethod = '';
@@ -241,9 +252,8 @@ class PaymentMethodeDropdown extends StatelessWidget {
                 }
                 return Text(
                   selectedMethod,
-                  style: TextStyle(
+                  style: semiBold.copyWith(
                     fontSize: 16,
-                    fontWeight: FontWeight.w500,
                     color:
                         selectedMethod == 'Pilih Metode Pembayaran'
                             ? Colors.grey

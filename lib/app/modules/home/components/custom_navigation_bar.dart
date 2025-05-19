@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
+import '../../../constants/text_style.dart';
 
 class CustomNavigationBar extends GetView<HomeController> {
   const CustomNavigationBar({super.key});
@@ -23,7 +24,9 @@ class CustomNavigationBar extends GetView<HomeController> {
         child: BottomNavigationBar(
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
+          selectedLabelStyle: medium.copyWith(),
+          unselectedLabelStyle: regular.copyWith(),
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),
               label: 'Home',
@@ -34,7 +37,7 @@ class CustomNavigationBar extends GetView<HomeController> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
-              label: 'Profile',
+              label: 'Account',
             ),
           ],
           currentIndex: controller.selectedIndex.value,
