@@ -22,6 +22,7 @@ abstract class Routes {
   static const PAYMENT = _Paths.PAYMENT;
   static const MAIN_SCAFFOLD = _Paths.MAIN_SCAFFOLD;
   static const MY_TICKET_DETAIL = _Paths.MY_TICKET_DETAIL;
+  static const REGISTER_2 = _Paths.REGISTER_2;
 }
 
 abstract class _Paths {
@@ -45,4 +46,5 @@ abstract class _Paths {
   static const PAYMENT = '/payment';
   static const MAIN_SCAFFOLD = '/main-scaffold';
   static const MY_TICKET_DETAIL = '/my-ticket-detail';
+  static const REGISTER_2 = '/register-2';
 }

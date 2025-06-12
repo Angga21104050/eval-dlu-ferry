@@ -1,15 +1,20 @@
+import 'package:dlu_project/app/modules/register/components/gender_selection.dart';
+import 'package:dlu_project/app/modules/register/controllers/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/login_controller.dart';
+import '../controllers/register_2_controller.dart';
 import '../../../constants/text_style.dart';
 
-class LoginView extends GetView<LoginController> {
-  const LoginView({super.key});
+class Register2View extends GetView<Register2Controller> {
+  const Register2View({super.key});
   @override
   Widget build(BuildContext context) {
+    final registerController = Get.put(RegisterController());
+
     return Scaffold(
       body: Stack(
         children: [
+          // Widget gambar dengan tinggi 380
           SizedBox(
             height: 412,
             width: double.infinity,
@@ -69,20 +74,41 @@ class LoginView extends GetView<LoginController> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Ayo Mulai Petualanganmu!',
+                    'Isi Data Akun Baru Anda!',
                     style: medium.copyWith(fontSize: 20),
                   ),
                   Text(
-                    'Login dan temukan tiket terbaik untuk perjalanan anda.',
+                    'Dapatkan akses mudah untuk memesan tiket dan perjalanan favorit anda.',
                     style: regular.copyWith(
                       fontSize: 14,
                       color: const Color(0xFF989898),
                     ),
                   ),
                   const SizedBox(height: 8),
-                  // Form Input Email / No. Telp
+                  Text('Nama Lengkap', style: medium.copyWith(fontSize: 14)),
+                  const SizedBox(height: 4),
+                  SizedBox(
+                    height: 43,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Masukan Nama Lengkap',
+                        hintStyle: light.copyWith(fontSize: 14),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFD9D9D9),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
                   Text(
-                    'Email / No. Telp',
+                    'Nomor Identitas (KTP/SIM/PASSPORT)',
                     style: medium.copyWith(fontSize: 14),
                   ),
                   const SizedBox(height: 4),
@@ -90,7 +116,7 @@ class LoginView extends GetView<LoginController> {
                     height: 43,
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: 'Masukkan Email atau No. Telp anda',
+                        hintText: 'Masukan Nomor Identitas',
                         hintStyle: light.copyWith(fontSize: 14),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
@@ -100,24 +126,24 @@ class LoginView extends GetView<LoginController> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 8),
-                  // Form Input Password
-                  Text('Password', style: medium.copyWith(fontSize: 14)),
+                  Text('Jenis kelamin', style: medium.copyWith(fontSize: 14)),
                   const SizedBox(height: 4),
+                  GenderSelection(controller: registerController),
+                  const SizedBox(height: 8),
+                  Text('Alamat', style: medium.copyWith(fontSize: 14)),
+                  const SizedBox(height: 8),
                   SizedBox(
                     height: 43,
                     child: TextField(
-                      obscureText: true,
                       decoration: InputDecoration(
-                        hintText: 'Masukkan kata sandi anda',
+                        hintText: 'Masukkan Alamat anda',
                         hintStyle: light.copyWith(fontSize: 14),
-                        filled: true,
-                        fillColor: Colors.white.withOpacity(0.8),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
                           borderSide: const BorderSide(
@@ -126,122 +152,84 @@ class LoginView extends GetView<LoginController> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        suffixIcon: const Icon(
-                          Icons.visibility_off,
-                        ), // Ikon mata
                       ),
                     ),
                   ),
-                  // Lupa Password
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        // Tambahkan logika lupa password di sini
-                        Get.toNamed('/forgot-password');
-                        print('Lupa password ditekan');
-                      },
-                      child: Text(
-                        'Lupa password?',
-                        style: regular.copyWith(
-                          color: Colors.red,
-                        ), // Sesuaikan warna
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  // Tombol Lanjutkan
+                  const SizedBox(height: 8),
+                  Text('Kota Asal', style: medium.copyWith(fontSize: 14)),
+                  const SizedBox(height: 4),
                   SizedBox(
-                    height: 46,
+                    height: 43,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Masukan Kota Asal Anda',
+                        hintStyle: light.copyWith(fontSize: 14),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFD9D9D9),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text('No. Ponsel', style: medium.copyWith(fontSize: 14)),
+                  const SizedBox(height: 4),
+                  SizedBox(
+                    height: 43,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Masukan No. Telepon Anda',
+                        hintStyle: light.copyWith(fontSize: 14),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFD9D9D9),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // Lupa Password
+                  SizedBox(
+                    height: 47,
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
+                        Get.toNamed('/home');
                         // Tambahkan logika login di sini
-                        Get.offNamed('/home');
                         print('Tombol Lanjutkan ditekan');
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF0064D2),
+                        backgroundColor: const Color(
+                          0xFF0064D2,
+                        ), // Sesuaikan warna tombol
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Lanjutkan',
-                          style: semiBold.copyWith(
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
+                      child: Text(
+                        'Buat Akun',
+                        style: semiBold.copyWith(
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  // Atau
-                  Row(
-                    children: [
-                      const Expanded(child: Divider(color: Color(0xFFD0CBCB))),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text(
-                          'Atau',
-                          style: light.copyWith(color: Color(0xFFD0CBCB)),
-                        ),
-                      ),
-                      const Expanded(child: Divider(color: Color(0xFFD0CBCB))),
-                    ],
-                  ),
-                  // Login dengan Google dan Facebook
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Tombol Google
-                      InkWell(
-                        onTap: () {
-                          // Tambahkan logika login dengan Google di sini
-                          print('Login dengan Google');
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.8),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Image.asset(
-                            'assets/img/google-icon.png', // Ganti dengan path gambar ikon Google Anda
-                            height: 44,
-                            width: 44,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Belum punya akun?',
-                        style: regular.copyWith(
-                          fontSize: 14,
-                          color: const Color(0xFFD0CBCB),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Get.toNamed('/register');
-                        },
-                        child: Text(
-                          'Daftar',
-                          style: semiBold.copyWith(
-                            fontSize: 14,
-                            color: Color(0xFF0064D2),
-                          ),
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),

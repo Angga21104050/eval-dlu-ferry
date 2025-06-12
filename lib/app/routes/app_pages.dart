@@ -30,6 +30,8 @@ import '../modules/payment/bindings/payment_binding.dart';
 import '../modules/payment/views/payment_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/register-2/bindings/register_2_binding.dart';
+import '../modules/register-2/views/register_2_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -141,6 +143,11 @@ class AppPages {
       name: _Paths.MY_TICKET_DETAIL,
       page: () => const MyTicketDetailView(),
       binding: MyTicketDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER_2,
+      page: () => const Register2View(),
+      binding: Register2Binding(),
     ),
   ];
 }
