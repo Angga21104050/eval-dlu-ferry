@@ -151,11 +151,14 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
             labelText: widget.label,
-            labelStyle: regular.copyWith(fontSize: 14),
+            labelStyle: regular.copyWith(
+              fontSize: 14,
+              color: Color(0xFF757575),
+            ),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+              borderSide: BorderSide(color: const Color(0xFFD0CBCB), width: 1),
             ),
             suffixIcon: Icon(Icons.arrow_drop_down),
           ),

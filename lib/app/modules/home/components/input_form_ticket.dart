@@ -56,25 +56,23 @@ class _InputFormTicketState extends State<InputFormTicket> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 36,
-                    height: 36,
                     child: Center(
                       child: Image.asset(
                         'assets/img/logo2.png',
-                        width: 120,
-                        height: 120,
+                        width: 56,
+                        height: 56,
                         fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) {
                           return const Icon(
                             Icons.error_outline,
-                            size: 80,
+                            size: 56,
                             color: Colors.red,
                           );
                         },
                       ),
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 8),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -87,7 +85,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
                       ),
                       Text(
                         'armada pelayaran nasional',
-                        style: light.copyWith(fontSize: 12),
+                        style: regular.copyWith(fontSize: 16),
                         textAlign: TextAlign.left,
                       ),
                     ],

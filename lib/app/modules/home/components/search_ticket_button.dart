@@ -10,12 +10,13 @@ class SearchTicketButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 10),
+      height: 48,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         gradient: const LinearGradient(
-          colors: [Color(0xFF0064D2), Colors.cyan],
+          colors: [Color(0xFF0064D2), Color(0xFF00DDFF)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -23,7 +24,6 @@ class SearchTicketButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 16),
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.white,
           shadowColor: Colors.transparent,

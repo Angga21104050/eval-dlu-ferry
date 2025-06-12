@@ -29,13 +29,13 @@ class AppBarActionButtons extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(30),
       child: Container(
-        height: 30,
-        width: 30,
+        height: 35,
+        width: 35,
         decoration: BoxDecoration(
           color: const Color(0x2BFFFFFF),
           borderRadius: BorderRadius.circular(28),
         ),
-        child: Center(child: Icon(icon, color: Colors.white, size: 18)),
+        child: Center(child: Icon(icon, color: Colors.white, size: 20)),
       ),
     );
   }
@@ -45,7 +45,7 @@ class AppBarActionButtons extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        height: 30,
+        height: 35,
         width: 86,
         decoration: BoxDecoration(
           color: const Color(0x2BFFFFFF),
@@ -57,7 +57,7 @@ class AppBarActionButtons extends StatelessWidget {
             const Icon(
               Icons.headset_mic_outlined,
               color: Colors.white,
-              size: 18,
+              size: 20,
             ),
             const SizedBox(width: 3),
             Text(

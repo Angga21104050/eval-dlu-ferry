@@ -29,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   Text(
                     greeting,
-                    style: regular.copyWith(fontSize: 14, color: Colors.white),
+                    style: regular.copyWith(fontSize: 12, color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   ),
                   Padding(

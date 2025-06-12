@@ -27,6 +27,7 @@ class RoundTripSwitch extends StatelessWidget {
               style: semiBold.copyWith(
                 fontSize: 8,
                 fontStyle: FontStyle.italic,
+                color: Color(0xFF757575),
               ),
             ),
             SizedBox(
@@ -37,6 +38,7 @@ class RoundTripSwitch extends StatelessWidget {
                   value: isRoundTrip,
                   activeTrackColor: Color(0xFF0064D2),
                   inactiveTrackColor: Colors.white,
+                  inactiveThumbColor: Color(0xFF757575),
                   onChanged: onChanged,
                 ),
               ),

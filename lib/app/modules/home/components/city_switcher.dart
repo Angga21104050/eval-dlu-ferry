@@ -238,7 +238,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
         Container(
           margin: const EdgeInsets.only(top: 10, bottom: 10),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade300, width: 1),
+            border: Border.all(color: const Color(0xFFD0CBCB), width: 1),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Stack(
@@ -267,7 +267,10 @@ class _CitySwitcherState extends State<CitySwitcher> {
                             child: InputDecorator(
                               decoration: InputDecoration(
                                 labelText: 'Dari',
-                                labelStyle: regular.copyWith(fontSize: 14),
+                                labelStyle: regular.copyWith(
+                                  fontSize: 14,
+                                  color: Color(0xFF757575),
+                                ),
                                 border: InputBorder.none,
                               ),
                               child: Obx(
@@ -284,7 +287,11 @@ class _CitySwitcherState extends State<CitySwitcher> {
                       ),
                     ],
                   ),
-                  Divider(color: Colors.grey.shade300, thickness: 1, height: 1),
+                  Divider(
+                    color: const Color(0xFFD0CBCB),
+                    thickness: 1,
+                    height: 1,
+                  ),
                   Row(
                     children: [
                       const Padding(
@@ -306,7 +313,10 @@ class _CitySwitcherState extends State<CitySwitcher> {
                             child: InputDecorator(
                               decoration: InputDecoration(
                                 labelText: 'Ke',
-                                labelStyle: regular.copyWith(fontSize: 14),
+                                labelStyle: regular.copyWith(
+                                  fontSize: 14,
+                                  color: Color(0xFF757575),
+                                ),
                                 border: InputBorder.none,
                               ),
                               child: Obx(
@@ -333,7 +343,7 @@ class _CitySwitcherState extends State<CitySwitcher> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: const BorderRadius.all(Radius.circular(44)),
-                    border: Border.all(color: Colors.grey.shade300),
+                    border: Border.all(color: const Color(0xFFD0CBCB)),
                   ),
                   child: IconButton(
                     icon: const Icon(Icons.swap_vert, color: Color(0xFF0064D2)),

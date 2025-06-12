@@ -25,6 +25,7 @@ class HomeView extends GetView<HomeController> {
               children: [
                 Background(),
                 Column(children: [InputFormTicket(), CustomHorizontalScroll()]),
+                
               ],
             ),
           ],
