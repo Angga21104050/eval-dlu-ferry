@@ -49,9 +49,9 @@ class _TicketSelectionState extends State<TicketSelection> {
       case 'Penumpang':
         return Colors.grey.shade100;
       case 'Kendaraan':
-        return Colors.blue.shade50;
+        return const Color(0xFFE3F2FD);
       case 'Kamar VIP':
-        return Colors.blue.shade200;
+        return const Color(0xFF90CAF9);
       default:
         return Colors.white;
     }

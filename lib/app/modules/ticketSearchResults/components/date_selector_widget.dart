@@ -46,7 +46,7 @@ class DateSelectorWidget extends StatelessWidget {
                 );
               },
               child: Container(
-                width: 60,
+                width: 70,
                 margin: const EdgeInsets.only(right: 38),
                 padding: const EdgeInsets.symmetric(vertical: 6),
                 child: Column(
