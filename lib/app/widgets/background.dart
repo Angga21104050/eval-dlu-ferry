@@ -15,7 +15,7 @@ class Background extends StatelessWidget {
             Color(0xFF0064D2),
             Color(0xFF0064D2),
             Color(0xFF0064D2),
-            Colors.cyan,
+            Color(0xFF00DDFF),
           ],
         ),
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),

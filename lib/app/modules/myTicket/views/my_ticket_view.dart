@@ -48,7 +48,7 @@ class MyTicketView extends GetView<MyTicketController> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Layanan Cek Tiket Saya',
-                          style: medium.copyWith(fontSize: 14),
+                          style: medium.copyWith(fontSize: 16),
                         ),
                       ),
                     ),
@@ -95,10 +95,10 @@ class MyTicketView extends GetView<MyTicketController> {
                               ),
                             ),
                             Container(
-                              height: 30,
-                              width: 30,
+                              height: 35,
+                              width: 35,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(35),
                                 border: Border.all(color: Color(0xFF0064D2)),
                               ),
                               child: Center(
@@ -107,9 +107,9 @@ class MyTicketView extends GetView<MyTicketController> {
                                       EdgeInsets.zero, // Menghilangkan padding
                                   constraints: const BoxConstraints(),
                                   icon: Icon(
-                                    Icons.history_edu_rounded,
+                                    Icons.history,
                                     color: Color(0xFF0064D2),
-                                    size: 18,
+                                    size: 20,
                                   ),
                                   onPressed: () => Get.toNamed('/history'),
                                 ),

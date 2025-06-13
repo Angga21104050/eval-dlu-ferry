@@ -106,8 +106,8 @@ class CustomHorizontalScroll extends StatelessWidget {
                           child: Text(
                             item['desc']!,
                             style: light.copyWith(
-                              fontSize: 12,
-                              color: Colors.black54,
+                              fontSize: 10,
+                              color: const Color.fromARGB(137, 0, 0, 0),
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,

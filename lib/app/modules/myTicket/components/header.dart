@@ -13,7 +13,12 @@ class Header extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFF0064D2), Color(0xFF0064D2), Colors.cyan],
+          colors: [
+            Color(0xFF0064D2),
+            Color(0xFF0064D2),
+            Color(0xFF0064D2),
+            Color(0xFF00DDFF),
+          ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -34,7 +39,7 @@ class Header extends StatelessWidget {
                 children: [
                   Text(
                     'Tiket Saya',
-                    style: semiBold.copyWith(fontSize: 22, color: Colors.white),
+                    style: semiBold.copyWith(fontSize: 24, color: Colors.white),
                   ),
                   InkWell(
                     onTap: () {
@@ -42,17 +47,17 @@ class Header extends StatelessWidget {
                     },
                     borderRadius: BorderRadius.circular(30),
                     child: Container(
-                      height: 30,
-                      width: 30,
+                      height: 35,
+                      width: 35,
                       decoration: BoxDecoration(
                         color: const Color(0x2BFFFFFF),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Center(
                         child: Icon(
-                          Icons.history_edu_rounded,
+                          Icons.history,
                           color: Colors.white,
-                          size: 18,
+                          size: 20,
                         ),
                       ),
                     ),
@@ -68,7 +73,7 @@ class Header extends StatelessWidget {
                   Expanded(
                     child: Text(
                       'Semua tiket ferry yang sudah aktif dan menunggu pembayaran',
-                      style: light.copyWith(fontSize: 14, color: Colors.white),
+                      style: light.copyWith(fontSize: 12, color: Colors.white),
                     ),
                   ),
                 ],

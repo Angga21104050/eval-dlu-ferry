@@ -38,7 +38,7 @@ class _TicketTypeState extends State<TicketType> {
         return StatefulBuilder(
           builder: (context, setState) {
             return Container(
-              height: 350,
+              height: 300,
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -56,7 +56,7 @@ class _TicketTypeState extends State<TicketType> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Pilih Jenis Tiket",
-                        style: semiBold.copyWith(fontSize: 18),
+                        style: semiBold.copyWith(fontSize: 20),
                       ),
                     ),
                   ),
@@ -80,9 +80,7 @@ class _TicketTypeState extends State<TicketType> {
                                 iconData = Icons.airplane_ticket;
                             }
                             return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 4.0,
-                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 0),
                               child: CheckboxListTile(
                                 activeColor: Color(0xFF0064D2),
                                 contentPadding: EdgeInsets.symmetric(
@@ -95,7 +93,7 @@ class _TicketTypeState extends State<TicketType> {
                                     Expanded(
                                       child: Text(
                                         type,
-                                        style: medium.copyWith(fontSize: 14),
+                                        style: medium.copyWith(fontSize: 16),
                                       ),
                                     ),
                                   ],
@@ -115,31 +113,39 @@ class _TicketTypeState extends State<TicketType> {
                           }).toList(),
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF0064D2), Colors.cyan],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                    ),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        widget.onSelectionChanged(_selectedItemsType);
-                        Navigator.pop(context);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: Colors.white,
-                        shadowColor: Colors.transparent,
-                        textStyle: semiBold.copyWith(fontSize: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 47,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF0064D2), Color(0xFF00DDFF)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
                         ),
-                        elevation: 5,
                       ),
-                      child: Text("Simpan"),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          widget.onSelectionChanged(_selectedItemsType);
+                          Navigator.pop(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          foregroundColor: Colors.white,
+                          shadowColor: Colors.transparent,
+                          textStyle: semiBold.copyWith(fontSize: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          "Simpan",
+                          style: semiBold.copyWith(fontSize: 16),
+                        ),
+                      ),
                     ),
                   ),
                 ],

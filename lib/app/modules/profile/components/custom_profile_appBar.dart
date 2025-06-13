@@ -24,7 +24,12 @@ class CustomProfileAppBar extends StatelessWidget
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xFF0064D2), Color(0xFF0064D2), Colors.cyan],
+              colors: [
+                Color(0xFF0064D2),
+                Color(0xFF0064D2),
+                Color(0xFF0064D2),
+                const Color(0xFF00DDFF),
+              ],
             ),
             image: const DecorationImage(
               image: AssetImage(
@@ -40,12 +45,13 @@ class CustomProfileAppBar extends StatelessWidget
               child: Column(
                 children: [
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'My Profile',
                         style: semiBold.copyWith(
-                          fontSize: 22,
+                          fontSize: 24,
                           color: Colors.white,
                         ),
                       ),

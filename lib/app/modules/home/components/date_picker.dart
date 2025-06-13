@@ -108,7 +108,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 8),
-              Text(widget.labelText, style: semiBold.copyWith(fontSize: 18)),
+              Text(widget.labelText, style: semiBold.copyWith(fontSize: 20)),
               Expanded(
                 child: TableCalendar(
                   locale: 'id_ID',

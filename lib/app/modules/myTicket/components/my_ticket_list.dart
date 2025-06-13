@@ -55,17 +55,17 @@ class TicketList extends StatelessWidget {
                               children: [
                                 Text(
                                   ticket['ferryName'] ?? 'UNKNOWN FERRY',
-                                  style: semiBold.copyWith(
-                                    fontSize: 18,
+                                  style: bold.copyWith(
+                                    fontSize: 24,
                                     color: Color(0xFF0064D2),
                                   ),
                                 ),
                                 Expanded(
                                   child: Text(
                                     ticket['ticketType'] ?? 'UNKNOWN TYPE',
-                                    style: medium.copyWith(
-                                      fontSize: 12,
-                                      color: Colors.grey.shade500,
+                                    style: regular.copyWith(
+                                      fontSize: 14,
+                                      color: const Color(0xFFD0CBCB),
                                     ),
                                     textAlign: TextAlign.right,
                                   ),
@@ -80,7 +80,7 @@ class TicketList extends StatelessWidget {
                             ),
                             child: Text(
                               'Uyeeee',
-                              style: semiBold.copyWith(fontSize: 14),
+                              style: semiBold.copyWith(fontSize: 16),
                             ),
                           ),
                           const SizedBox(height: 10),
@@ -102,7 +102,7 @@ class TicketList extends StatelessWidget {
                                       ticket['departurePort'] ?? 'UNKNOWN',
                                       textAlign: TextAlign.start,
                                       style: medium.copyWith(
-                                        fontSize: 14,
+                                        fontSize: 16,
                                         color: Color(0xFF0064D2),
                                       ),
                                     ),
@@ -117,7 +117,7 @@ class TicketList extends StatelessWidget {
                                       ticket['arrivalPort'] ?? 'UNKNOWN',
                                       textAlign: TextAlign.end,
                                       style: medium.copyWith(
-                                        fontSize: 14,
+                                        fontSize: 16,
                                         color: Color(0xFF0064D2),
                                       ),
                                     ),
@@ -176,9 +176,9 @@ class TicketList extends StatelessWidget {
                             ),
                             child: Text(
                               'Kode Booking',
-                              style: medium.copyWith(
-                                fontSize: 12,
-                                color: Colors.grey.shade700,
+                              style: semiBold.copyWith(
+                                fontSize: 14,
+                                color: const Color.fromARGB(255, 0, 0, 0),
                               ),
                             ),
                           ),
@@ -192,7 +192,7 @@ class TicketList extends StatelessWidget {
                                 Text(
                                   ticket['transactionCode'] ?? 'XXXXXX',
                                   style: semiBold.copyWith(
-                                    fontSize: 18,
+                                    fontSize: 24,
                                     color: Color(0xFF0064D2),
                                   ),
                                 ),

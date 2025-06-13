@@ -99,13 +99,12 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Pilih ${widget.label}",
-                    style: semiBold.copyWith(fontSize: 18),
+                    style: semiBold.copyWith(fontSize: 20),
                   ),
                 ),
               ),
               Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
+                child: ListView.separated(
                   itemCount: widget.items.length,
                   itemBuilder: (context, index) {
                     String item = widget.items[index];
@@ -113,7 +112,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                       title: Text(
                         item,
                         style: medium.copyWith(
-                          fontSize: 14,
+                          fontSize: 16,
                           color:
                               widget.selectedValue == item
                                   ? Color(0xFF0064D2)
@@ -130,6 +129,14 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
                       },
                     );
                   },
+                  separatorBuilder:
+                      (context, index) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: const Divider(
+                          height: 1,
+                          color: Color(0xFFD0CBCB),
+                        ),
+                      ),
                 ),
               ),
             ],

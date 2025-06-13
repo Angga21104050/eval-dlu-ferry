@@ -17,7 +17,7 @@ class ProfileView extends GetView<ProfileController> {
     const additionalPadding = 140.0;
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 238, 238, 238),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -61,10 +61,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'Informasi Akun',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -100,10 +97,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'My Voucher',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -125,10 +119,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'Payment Methodes',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -152,10 +143,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'Invite Friends',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -179,10 +167,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'My Order',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -217,10 +202,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'Peratutan Berlayar',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -244,10 +226,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'Change Password',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -271,10 +250,7 @@ class ProfileView extends GetView<ProfileController> {
                                       SizedBox(width: 16),
                                       Text(
                                         'Logout',
-                                        style: medium.copyWith(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: medium.copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),

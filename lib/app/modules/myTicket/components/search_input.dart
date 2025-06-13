@@ -22,30 +22,33 @@ class SearchInputField extends StatelessWidget {
           ),
         ],
       ),
-      child: TextField(
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          hintText: 'Masukkan Kode Pemesanan...',
-          hintStyle: extraLight.copyWith(fontSize: 14),
-          prefixIcon: const Icon(
-            Icons.search,
-            color: Color(0xFF0064D2),
-          ), // 🔹 Warna Ikon Tetap
-          contentPadding: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 20,
+      child: SizedBox(
+        height: 47,
+        child: TextField(
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            hintText: 'Masukkan Kode Pemesanan...',
+            hintStyle: light.copyWith(fontSize: 14, color: Color(0xFFD0CBCB)),
+            prefixIcon: const Icon(
+              Icons.search,
+              color: Color(0xFF0064D2),
+            ), // 🔹 Warna Ikon Tetap
+            contentPadding: const EdgeInsets.symmetric(
+              vertical: 16,
+              horizontal: 20,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: BorderSide.none, 
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: const BorderSide(color: Color(0xFF0064D2), width: 2),
+            ),
           ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide.none, // 🔹 Hilangkan Border Default
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Color(0xFF0064D2), width: 2),
-          ),
+          onChanged: onChanged,
         ),
-        onChanged: onChanged,
       ),
     );
   }
