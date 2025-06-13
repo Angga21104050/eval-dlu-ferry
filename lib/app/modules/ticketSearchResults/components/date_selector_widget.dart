@@ -58,33 +58,33 @@ class DateSelectorWidget extends StatelessWidget {
                         Text(
                           DateFormat('E', 'id_ID').format(date),
                           style: medium.copyWith(
-                            fontSize: 14,
+                            fontSize: 12,
                             color:
                                 isSelected
                                     ? Color(0xFF0064D2)
-                                    : Colors.grey.shade500,
+                                    : const Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                         const SizedBox(width: 2),
                         Text(
                           '-',
                           style: medium.copyWith(
-                            fontSize: 14,
+                            fontSize: 12,
                             color:
                                 isSelected
                                     ? Color(0xFF0064D2)
-                                    : Colors.grey.shade500,
+                                    : const Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                         const SizedBox(width: 2),
                         Text(
                           DateFormat('d', 'id_ID').format(date),
                           style: medium.copyWith(
-                            fontSize: 14,
+                            fontSize: 12,
                             color:
                                 isSelected
                                     ? Color(0xFF0064D2)
-                                    : Colors.grey.shade500,
+                                    : const Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                       ],

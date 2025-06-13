@@ -29,6 +29,13 @@ class CartWidget extends StatelessWidget {
         0.0;
   }
 
+  double _getTotalPrice() {
+    return cart.fold(0.0, (total, item) {
+      final price = _getPriceForItem(item);
+      return total + (price * (item['count'] ?? 1));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     if (cart.isEmpty) return const SizedBox();
@@ -53,107 +60,96 @@ class CartWidget extends StatelessWidget {
         children: [
           Text(
             'Keranjang',
-            style: semiBold.copyWith(fontSize: 16, color: Color(0xFF004AAD)),
+            style: bold.copyWith(fontSize: 16, color: Color(0xFF0064D2)),
           ),
           const SizedBox(height: 4),
           ...cart.map((item) {
             final price = _getPriceForItem(item);
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 2),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  Flexible(
-                    flex: 4,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            item['class'],
-                            style: semiBold.copyWith(fontSize: 12),
-                          ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        flex: 4,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                item['class'],
+                                style: medium.copyWith(fontSize: 14),
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              '(${item['count']})',
+                              textAlign: TextAlign.start,
+                              style: medium.copyWith(
+                                fontSize: 14,
+                                color: Color(0xFF0064D2),
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(width: 8),
-                        Text(
-                          '(${item['count']})',
-                          textAlign: TextAlign.start,
+                      ),
+                      Flexible(
+                        flex: 2,
+                        child: Text(
+                          'Rp ${price.toStringAsFixed(0)}', // Tampilkan harga yang ditemukan
+                          textAlign: TextAlign.end,
                           style: semiBold.copyWith(
-                            fontSize: 12,
+                            fontSize: 14,
                             color: Color(0xFF007BFF),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-
-                  Flexible(
-                    flex: 2,
-                    child: Text(
-                      'Rp ${price.toStringAsFixed(0)}', // Tampilkan harga yang ditemukan
-                      textAlign: TextAlign.end,
-                      style: semiBold.copyWith(
-                        fontSize: 14,
-                        color: Color(0xFF007BFF),
                       ),
-                    ),
+                    ],
                   ),
+                  const SizedBox(height: 16),
                 ],
               ),
             );
           }).toList(),
-          const SizedBox(height: 10),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 36,
-                height: 36,
-                margin: const EdgeInsets.only(right: 2),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.red,
-                ),
-                child: ElevatedButton(
-                  onPressed: onClearCart,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    backgroundColor: Colors.transparent,
-                    foregroundColor: Colors.white,
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    shadowColor: Colors.red.withOpacity(0.2),
-                  ),
-                  child: const Icon(Icons.delete, size: 20),
-                ),
-              ),
-              Container(
-                width: 70,
-                height: 36,
-                margin: const EdgeInsets.only(left: 2),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFF0064D2),
-                ),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed(Routes.ORDER_TICKET, arguments: cart);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    backgroundColor: Colors.transparent,
-                    foregroundColor: Colors.white,
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    shadowColor: Colors.blue.withOpacity(0.2),
-                  ),
-                  child: Text('Pesan', style: medium.copyWith(fontSize: 14)),
-                ),
+              Text('Total', style: semiBold.copyWith(fontSize: 14)),
+              Text(
+                'Rp ${_getTotalPrice().toStringAsFixed(0)}',
+                style: bold.copyWith(fontSize: 16, color: Color(0xFF007BFF)),
               ),
             ],
+          ),
+          const SizedBox(height: 8),
+          Container(
+            width: double.infinity,
+            height: 47,
+            margin: const EdgeInsets.only(left: 2),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              gradient: const LinearGradient(
+                colors: [Color(0xFF0064D2), Color(0xFF00DDFF)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: ElevatedButton(
+              onPressed: () {
+                Get.toNamed(Routes.ORDER_TICKET, arguments: cart);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                foregroundColor: Colors.white,
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                shadowColor: Colors.transparent,
+              ),
+              child: Text('Pesan', style: semiBold.copyWith(fontSize: 16)),
+            ),
           ),
         ],
       ),

@@ -7,10 +7,7 @@ class CardForSold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Colors.grey.shade300),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: Colors.white,
       elevation: 6,
       shadowColor: Colors.blue.withOpacity(0.1),
@@ -25,15 +22,14 @@ class CardForSold extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.grey.shade300),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: SizedBox(
                       width: 100,
-                      height: 100,
-                      child: Image.network(
-                        'assets/img/iklan_1.png',
+                      height: 163,
+                      child: Image.asset(
+                        'assets/img/ferry.png',
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
@@ -63,7 +59,7 @@ class CardForSold extends StatelessWidget {
                             child: Text(
                               'KM. Kirana',
                               style: semiBold.copyWith(
-                                fontSize: 14,
+                                fontSize: 16,
                                 color: Color(0xFF0064D2),
                               ),
                               overflow: TextOverflow.ellipsis,
@@ -72,102 +68,138 @@ class CardForSold extends StatelessWidget {
                           const SizedBox(width: 8),
                           Text(
                             'Habis',
-                            style: medium.copyWith(
+                            style: regular.copyWith(
                               fontSize: 10,
-                              color: Colors.grey.shade500,
+                              color: const Color(0xFF9D9D9D),
                             ),
                             textAlign: TextAlign.end,
                           ),
                         ],
                       ),
-                      const SizedBox(height: 2),
+                      const SizedBox(height: 8),
                       Container(
                         padding: EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color(0xFFE6F2FE),
-                        ),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.directions_ferry_outlined,
-                                  color: Color(0xFF0064D2),
-                                  size: 18,
-                                ),
-                                const SizedBox(width: 6),
-                                Expanded(
-                                  child: Text(
-                                    'Surabaya - Pelabuhan Tanjung Perak - SUB',
-                                    style: semiBold.copyWith(
+                        child: IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              // Kolom ikon
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Icon(
+                                    Icons.directions_ferry_outlined,
+                                    color: Color(0xFF0064D2),
+                                    size: 18,
+                                  ),
+                                  Column(
+                                    children: List.generate(
+                                      5,
+                                      (index) => Container(
+                                        width: 1,
+                                        height: 4,
+                                        margin: const EdgeInsets.symmetric(
+                                          vertical: 2,
+                                        ),
+                                        color: Color(0xFF0064D2),
+                                      ),
+                                    ),
+                                  ),
+                                  const Icon(
+                                    Icons.location_on_outlined,
+                                    color: Color(0xFF0064D2),
+                                    size: 18,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(width: 6),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '12:00',
+                                    style: medium.copyWith(
                                       fontSize: 12,
-                                      color: Colors.grey.shade700,
+                                      color: const Color.fromARGB(255, 0, 0, 0),
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.location_on_outlined,
-                                  color: Color(0xFF0064D2),
-                                  size: 18,
-                                ),
-                                const SizedBox(width: 6),
-                                Expanded(
-                                  child: Text(
-                                    'Lombok - Pelabuhan Lembar/Gilimas - LOM',
-                                    style: semiBold.copyWith(
+                                  Text(
+                                    '15:00',
+                                    style: medium.copyWith(
                                       fontSize: 12,
-                                      color: Colors.grey.shade700,
+                                      color: const Color.fromARGB(255, 0, 0, 0),
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                   ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 4),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    '',
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF0064D2),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 16),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        'Lihat Kelas',
-                                        style: semiBold.copyWith(
-                                          fontSize: 12,
-                                          color: Color(0xFF0064D2),
+                                ],
+                              ),
+                              SizedBox(width: 8),
+                              // Kolom teks pelabuhan
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Surabaya - Pelabuhan Tanjung Perak - SUB',
+                                      style: semiBold.copyWith(
+                                        fontSize: 12,
+                                        color: const Color.fromARGB(
+                                          255,
+                                          0,
+                                          0,
+                                          0,
                                         ),
                                       ),
-                                      Icon(
-                                        Icons.keyboard_arrow_down,
-                                        color: Color(0xFF0064D2),
-                                        size: 20,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                    ),
+                                    Text(
+                                      'Lombok - Pelabuhan Lembar/Gilimas - LOM',
+                                      style: semiBold.copyWith(
+                                        fontSize: 12,
+                                        color: const Color.fromARGB(
+                                          255,
+                                          0,
+                                          0,
+                                          0,
+                                        ),
                                       ),
-                                    ],
-                                  ),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
+                      ),
+                      SizedBox(height: 24),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Lihat Kelas',
+                            style: semiBold.copyWith(
+                              fontSize: 12,
+                              color: Color(0xFF0064D2),
+                            ),
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Color(0xFF0064D2),
+                            size: 20,
+                          ),
+                        ],
                       ),
                     ],
                   ),

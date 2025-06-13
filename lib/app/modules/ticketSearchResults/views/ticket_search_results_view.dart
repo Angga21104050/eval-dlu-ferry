@@ -46,7 +46,7 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                     Container(
                       alignment: Alignment.centerLeft,
                       margin: const EdgeInsets.only(right: 8),
-                      child: Text(" > ", style: medium.copyWith(fontSize: 14)),
+                      child: Text(" → ", style: bold.copyWith(fontSize: 14)),
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -66,9 +66,9 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
                     'dd MMM yyyy',
                     'id_ID',
                   ).format(homeController.departureDate.value),
-                  style: regular.copyWith(
+                  style: medium.copyWith(
                     fontSize: 12,
-                    color: Colors.grey.shade700,
+                    color: const Color(0xFF757575),
                   ),
                 ),
               ],
@@ -112,9 +112,12 @@ class TicketSearchResultsView extends GetView<TicketSearchResultsController> {
               }
 
               return ListView(
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 4,
+                  horizontal: 16,
+                ),
                 children: [
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
                   Text(
                     'Pilih Ferry Berangkat',
                     style: semiBold.copyWith(fontSize: 16),

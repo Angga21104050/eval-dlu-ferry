@@ -47,11 +47,11 @@ class _TicketSelectionState extends State<TicketSelection> {
   Color getBackgroundColor(String type) {
     switch (type) {
       case 'Penumpang':
-        return Colors.grey.shade100;
-      case 'Kendaraan':
         return const Color(0xFFE3F2FD);
+      case 'Kendaraan':
+        return const Color(0xFFA2D8FF);
       case 'Kamar VIP':
-        return const Color(0xFF90CAF9);
+        return const Color(0xFF27A5FF);
       default:
         return Colors.white;
     }
@@ -106,41 +106,43 @@ class _TicketSelectionState extends State<TicketSelection> {
                             value,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: medium.copyWith(fontSize: 14),
+                            style: medium.copyWith(fontSize: 16),
                           ),
                         ),
                       ),
                       Column(
                         children: [
-                          Container(
-                            padding: EdgeInsets.only(top: 4),
-                            child: Text(
-                              'Rp. 300.000',
-                              style: semiBold.copyWith(fontSize: 12),
-                            ),
-                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               IconButton(
                                 icon: const Icon(
                                   Icons.remove_circle_outline,
-                                  color: Colors.red,
+                                  color: Color(0xFF0064D2),
+                                  size: 28,
                                 ),
                                 onPressed: () => decrementTicket(value),
                               ),
                               Text(
                                 ticketCounts[value].toString(),
-                                style: medium.copyWith(fontSize: 14),
+                                style: semiBold.copyWith(fontSize: 16),
                               ),
                               IconButton(
                                 icon: const Icon(
                                   Icons.add_circle_outline_outlined,
-                                  color: Color.fromARGB(255, 28, 128, 209),
+                                  color: Color(0xFF0064D2),
+                                  size: 28,
                                 ),
                                 onPressed: () => incrementTicket(value),
                               ),
                             ],
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 4),
+                            child: Text(
+                              'Rp. 300.000',
+                              style: bold.copyWith(fontSize: 12),
+                            ),
                           ),
                         ],
                       ),

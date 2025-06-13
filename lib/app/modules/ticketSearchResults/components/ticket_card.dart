@@ -81,9 +81,9 @@ class _TicketCardState extends State<TicketCard> {
                       borderRadius: BorderRadius.circular(10),
                       child: SizedBox(
                         width: 100,
-                        height: 100,
-                        child: Image.network(
-                          widget.ticket['imageUrl'],
+                        height: 163,
+                        child: Image.asset(
+                          'assets/img/ferry.png',
                           width: double.infinity,
                           height: double.infinity,
                           fit: BoxFit.cover,
@@ -109,7 +109,6 @@ class _TicketCardState extends State<TicketCard> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        /// Bagian ini diperbaiki
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,8 +116,8 @@ class _TicketCardState extends State<TicketCard> {
                             Expanded(
                               child: Text(
                                 widget.ticket['ferryName'],
-                                style: semiBold.copyWith(
-                                  fontSize: 14,
+                                style: bold.copyWith(
+                                  fontSize: 16,
                                   color: Color(0xFF0064D2),
                                 ),
                                 overflow: TextOverflow.ellipsis,
@@ -129,15 +128,15 @@ class _TicketCardState extends State<TicketCard> {
                               children: [
                                 Text(
                                   'Tersedia dari',
-                                  style: medium.copyWith(
+                                  style: semiBold.copyWith(
                                     fontSize: 10,
-                                    color: Colors.grey.shade500,
+                                    color: const Color(0xFF9D9D9D),
                                   ),
                                   textAlign: TextAlign.end,
                                 ),
                                 Text(
                                   'Rp. 300.000',
-                                  style: semiBold.copyWith(
+                                  style: bold.copyWith(
                                     fontSize: 10,
                                     color: Color.fromARGB(255, 0, 0, 0),
                                   ),
@@ -147,129 +146,162 @@ class _TicketCardState extends State<TicketCard> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 2),
+                        SizedBox(height: 8),
                         Container(
-                          padding: EdgeInsets.only(
-                            left: 4,
-                            right: 4,
-                            top: 2,
-                            bottom: 2,
-                          ),
+                          padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Color(0xFFE6F2FE),
                           ),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.directions_ferry_outlined,
-                                    color: Color(0xFF0064D2),
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Expanded(
-                                    child: Text(
-                                      '${widget.ticket['departurePort']}',
-                                      style: semiBold.copyWith(
-                                        fontSize: 12,
-                                        color: Colors.grey.shade700,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
+                          child: IntrinsicHeight(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Kolom ikon & garis putus-putus
+                                Column(
+                                  children: [
+                                    const Icon(
+                                      Icons.directions_ferry_outlined,
+                                      color: Color(0xFF0064D2),
+                                      size: 18,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.location_on_outlined,
-                                    color: Color(0xFF0064D2),
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Expanded(
-                                    child: Text(
-                                      '${widget.ticket['arrivalPort']}',
-                                      style: semiBold.copyWith(
-                                        fontSize: 12,
-                                        color: Colors.grey.shade700,
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 2,
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 2.0),
-                                      child: Text(
-                                        (widget.ticket['ticketType'] is List &&
-                                                widget
-                                                    .ticket['ticketType']
-                                                    .isNotEmpty)
-                                            ? (widget.ticket['ticketType']
-                                                    as List)
-                                                .join(', ')
-                                            : '${widget.ticket['ticketType']}',
-                                        style: medium.copyWith(fontSize: 10),
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isExpanded = !isExpanded;
-                                      });
-                                    },
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            right: 2.0,
-                                          ),
-                                          child: Text(
-                                            '${widget.ticket['departureTime']} - ${widget.ticket['arrivalTime']}',
-                                            style: semiBold.copyWith(
-                                              fontSize: 8,
+                                      child: Column(
+                                        children: List.generate(
+                                          5,
+                                          (index) => Container(
+                                            width: 1,
+                                            height: 4,
+                                            margin: const EdgeInsets.symmetric(
+                                              vertical: 2,
                                             ),
-                                            textAlign: TextAlign.end,
+                                            color: Color(0xFF0064D2),
                                           ),
                                         ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(
-                                              'Lihat Kelas',
+                                      ),
+                                    ),
+                                    const Icon(
+                                      Icons.location_on_outlined,
+                                      color: Color(0xFF0064D2),
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(width: 6),
+                                // Kolom teks dan jam
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '${widget.ticket['departureTime']} ',
+                                            style: medium.copyWith(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Text(
+                                              '${widget.ticket['departurePort']}',
                                               style: semiBold.copyWith(
                                                 fontSize: 12,
-                                                color: Color(0xFF0064D2),
                                               ),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 1,
                                             ),
-                                            Icon(
-                                              isExpanded
-                                                  ? Icons.keyboard_arrow_up
-                                                  : Icons.keyboard_arrow_down,
-                                              color: Color(0xFF0064D2),
-                                              size: 20,
-                                            ),
-                                          ],
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        '${widget.ticket['duration']}',
+                                        style: regular.copyWith(
+                                          fontSize: 10,
+                                          color: Colors.grey,
                                         ),
-                                      ],
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '${widget.ticket['arrivalTime']} ',
+                                            style: medium.copyWith(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Text(
+                                              '${widget.ticket['arrivalPort']}',
+                                              style: semiBold.copyWith(
+                                                fontSize: 12,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 1,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 2.0),
+                                child: Text(
+                                  (widget.ticket['ticketType'] is List &&
+                                          widget
+                                              .ticket['ticketType']
+                                              .isNotEmpty)
+                                      ? (widget.ticket['ticketType'] as List)
+                                          .join(', ')
+                                      : '${widget.ticket['ticketType']}',
+                                  style: regular.copyWith(fontSize: 10),
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isExpanded = !isExpanded;
+                                });
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    'Lihat Kelas',
+                                    style: semiBold.copyWith(
+                                      fontSize: 12,
+                                      color: Color(0xFF0064D2),
                                     ),
+                                  ),
+                                  Icon(
+                                    isExpanded
+                                        ? Icons.keyboard_arrow_up
+                                        : Icons.keyboard_arrow_down,
+                                    color: Color(0xFF0064D2),
+                                    size: 20,
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
