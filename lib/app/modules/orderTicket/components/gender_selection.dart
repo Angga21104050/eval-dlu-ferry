@@ -12,43 +12,27 @@ class GenderSelection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Row(
-        children: [
-          SizedBox(
-            width: 120,
-            child: RadioListTile(
-              title: Text(
-                'Laki-laki',
+        children:
+            ['Tuan', 'Nyonya', 'Nona'].map((title) {
+              return Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(title, style: regular.copyWith(fontSize: 14)),
+                  Radio<String>(
+                    value: title,
+                    groupValue: controller.gender.value,
+                    activeColor: const Color(0xFF0064D2),
+                    onChanged: (value) {
+                      if (value != null) {
+                        controller.gender.value = value;
+                      }
+                    },
+                  ),
 
-                style: regular.copyWith(),
-                textAlign: TextAlign.left, // Teks rata kiri
-              ),
-              value: 'Laki Laki',
-              groupValue: controller.gender.value,
-              activeColor: const Color(0xFF0064D2), // Warna biru modern
-              onChanged: (value) => controller.updateGender(value as String),
-              contentPadding: EdgeInsets.zero, // Menghapus padding bawaan
-              dense: true, // Membuat tampilan lebih ringkas
-              visualDensity: VisualDensity.compact, // Lebih ringkas
-            ),
-          ),
-          Expanded(
-            child: RadioListTile(
-              title: Text(
-                'Perempuan',
-
-                style: regular.copyWith(),
-                textAlign: TextAlign.left, // Teks rata kiri
-              ),
-              value: 'Perempuan',
-              groupValue: controller.gender.value,
-              activeColor: Colors.blueAccent, // Warna biru modern
-              onChanged: (value) => controller.updateGender(value as String),
-              contentPadding: EdgeInsets.zero, // Menghapus padding bawaan
-              dense: true, // Membuat tampilan lebih ringkas
-              visualDensity: VisualDensity.compact, // Lebih ringkas
-            ),
-          ),
-        ],
+                  const SizedBox(width: 8),
+                ],
+              );
+            }).toList(),
       ),
     );
   }

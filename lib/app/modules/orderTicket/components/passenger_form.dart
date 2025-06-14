@@ -35,6 +35,45 @@ class _PassengerFormState extends State<PassengerForm> {
             .toList();
   }
 
+  final RxString selectedIdType = 'KTP'.obs;
+
+  void _showIdTypePicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) {
+        final List<String> idTypes = ['KTP', 'PASSPORT', 'SIM', 'KK'];
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Pilih Tipe ID', style: semiBold.copyWith(fontSize: 24)),
+              const SizedBox(height: 12),
+              ...idTypes.map(
+                (type) => Column(
+                  children: [
+                    ListTile(
+                      title: Text(type, style: medium.copyWith(fontSize: 16)),
+                      onTap: () {
+                        selectedIdType.value = type;
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const Divider(height: 1),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -42,7 +81,6 @@ class _PassengerFormState extends State<PassengerForm> {
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: Colors.grey.shade300),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
@@ -68,7 +106,7 @@ class _PassengerFormState extends State<PassengerForm> {
                     title: Text(
                       'Penumpang',
                       style: semiBold.copyWith(
-                        fontSize: 16,
+                        fontSize: 18,
                         color: Color(0xFF0064D2),
                       ),
                     ),
@@ -99,37 +137,42 @@ class _PassengerFormState extends State<PassengerForm> {
                             style: medium.copyWith(fontSize: 14),
                           ),
                           GenderSelection(controller: widget.controller),
-                          const SizedBox(height: 10),
+
                           Row(
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                      color: Colors.grey.shade400,
-                                    ),
-                                  ),
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton<String>(
-                                      value: 'KTP',
-                                      onChanged: (_) {},
-                                      items:
-                                          ['KTP', 'SIM', 'Paspor'].map((
-                                            String value,
-                                          ) {
-                                            return DropdownMenuItem<String>(
-                                              value: value,
-                                              child: Text(value),
-                                            );
-                                          }).toList(),
-                                      style: regular.copyWith(
-                                        fontSize: 14,
-                                        color: Colors.black,
+                                child: Obx(
+                                  () => GestureDetector(
+                                    onTap: () => _showIdTypePicker(context),
+                                    child: Container(
+                                      height: 47,
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                          color: const Color(0xFF9D9D9D),
+                                          width: 0.8,
+                                        ),
+                                      ),
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            selectedIdType.value,
+                                            style: medium.copyWith(
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                          const Icon(
+                                            Icons.keyboard_arrow_down_rounded,
+                                            color: Color(0xFF0064D2),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -138,49 +181,172 @@ class _PassengerFormState extends State<PassengerForm> {
                               const SizedBox(width: 10),
                               Expanded(
                                 flex: 2,
-                                child: TextField(
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    labelText: 'Nomor ID',
-                                    labelStyle: regular.copyWith(),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
+                                child: SizedBox(
+                                  height: 47,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                          color: Color(0xFF0064D2),
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      floatingLabelStyle: light.copyWith(
+                                        fontSize: 14,
+                                        color: Color(
+                                          0xFF0064D2,
+                                        ), // warna label saat fokus
+                                      ),
+                                      labelText: 'Nomor ID',
+                                      labelStyle: regular.copyWith(
+                                        fontSize: 14,
+                                      ),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color: Color(0xFF9D9D9D),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 16),
-                          TextField(
-                            decoration: InputDecoration(
-                              labelText: 'Nama Lengkap Sesuai ID',
-                              labelStyle: regular.copyWith(),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                          const SizedBox(height: 10),
+                          SizedBox(
+                            height: 47,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    color: Color(0xFF0064D2),
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                floatingLabelStyle: light.copyWith(
+                                  fontSize: 14,
+                                  color: Color(
+                                    0xFF0064D2,
+                                  ), // warna label saat fokus
+                                ),
+                                labelText: 'Nama Lengkap Sesuai ID',
+                                labelStyle: regular.copyWith(fontSize: 14),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
                               ),
                             ),
                           ),
-                          const SizedBox(height: 16),
-                          TextField(
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
-                              labelText: 'Nomor Ponsel',
-                              labelStyle: regular.copyWith(),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                          const SizedBox(height: 10),
+                          SizedBox(
+                            height: 47,
+                            child: TextField(
+                              keyboardType: TextInputType.phone,
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    color: Color(0xFF0064D2),
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                floatingLabelStyle: light.copyWith(
+                                  fontSize: 14,
+                                  color: Color(
+                                    0xFF0064D2,
+                                  ), // warna label saat fokus
+                                ),
+                                labelText: 'Nomor Ponsel',
+                                labelStyle: regular.copyWith(fontSize: 14),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
                               ),
                             ),
                           ),
-                          const SizedBox(height: 20),
-                          TextField(
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              labelText: 'Kota',
-                              labelStyle: regular.copyWith(),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                          const SizedBox(height: 10),
+                          SizedBox(
+                            height: 47,
+                            child: TextField(
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    color: Color(0xFF0064D2),
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                floatingLabelStyle: light.copyWith(
+                                  fontSize: 14,
+                                  color: Color(
+                                    0xFF0064D2,
+                                  ), // warna label saat fokus
+                                ),
+                                labelText: 'Kota',
+                                labelStyle: regular.copyWith(fontSize: 14),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
                               ),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Padding(
+                            padding: EdgeInsets.only(top: 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Tarif Penumpang',
+                                  style: medium.copyWith(
+                                    fontSize: 12,
+                                    color: Color(0xFF757575),
+                                  ),
+                                ),
+                                Text(
+                                  '300.000',
+                                  style: semiBold.copyWith(fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Pass Penumpang',
+                                  style: medium.copyWith(
+                                    fontSize: 12,
+                                    color: Color(0xFF757575),
+                                  ),
+                                ),
+                                Text(
+                                  '30.000',
+                                  style: semiBold.copyWith(fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Subtotal Berangkat',
+                                  style: medium.copyWith(
+                                    fontSize: 12,
+                                    color: Color(0xFF757575),
+                                  ),
+                                ),
+                                Text(
+                                  '330.000',
+                                  style: semiBold.copyWith(fontSize: 12),
+                                ),
+                              ],
                             ),
                           ),
                         ],

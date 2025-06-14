@@ -92,6 +92,17 @@ class OrderTicketView extends GetView<OrderTicketController> {
                       departurePort: departurePort,
                       arrivalPort: arrivalPort,
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        '*Harga tertera sudah terter sudah termasuk pass pelabuhan (penumpang/kendaraan)',
+                        style: medium.copyWith(
+                          fontSize: 12,
+                          color: Color(0xFFB8001F),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
                     DeatailOrder(),
                     // Form penumpang
                     if (passengerCount > 0)

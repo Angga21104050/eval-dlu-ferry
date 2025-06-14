@@ -27,10 +27,7 @@ class OrderSummaryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(
-        minHeight: 100,
-        maxHeight: double.infinity,
-      ),
+      constraints: const BoxConstraints(maxHeight: double.infinity),
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -46,19 +43,23 @@ class OrderSummaryCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 50,
-              child: RotatedBox(
-                quarterTurns: -1,
-                child: Text(
-                  ferryName,
-                  style: semiBold.copyWith(
-                    fontSize: 16,
-                    color: Color(0xFF0064D2),
+            SizedBox(width: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: SizedBox(
+                width: 50,
+                child: RotatedBox(
+                  quarterTurns: -1,
+                  child: Text(
+                    ferryName,
+                    style: bold.copyWith(
+                      fontSize: 16,
+                      color: Color(0xFF0064D2),
+                    ),
                   ),
                 ),
               ),
@@ -66,7 +67,7 @@ class OrderSummaryCard extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
-                27,
+                33,
                 (index) => Container(
                   width: 1,
                   height: 4,
@@ -78,7 +79,7 @@ class OrderSummaryCard extends StatelessWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.symmetric(vertical: 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -87,9 +88,9 @@ class OrderSummaryCard extends StatelessWidget {
                       cart
                           .map((item) => item['class'])
                           .join(', '), // Tampilkan jenis tiket yang dipesan
-                      style: semiBold.copyWith(
+                      style: medium.copyWith(
                         fontSize: 12,
-                        color: Colors.grey.shade500,
+                        color: const Color(0xFFB3B3B3),
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
@@ -99,22 +100,34 @@ class OrderSummaryCard extends StatelessWidget {
                       children: [
                         Text(
                           departureTime,
-                          style: semiBold.copyWith(fontSize: 22),
+                          style: regular.copyWith(fontSize: 24),
                         ),
                         Row(
                           children: [
                             const SizedBox(width: 8),
-                            Container(
-                              width: 100,
-                              height: 1,
-                              color: Colors.grey.shade600,
+                            Column(
+                              children: [
+                                SizedBox(height: 12),
+                                Container(
+                                  width: 100,
+                                  height: 0.5,
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                ),
+                                Text(
+                                  duration,
+                                  style: medium.copyWith(
+                                    fontSize: 8,
+                                    color: const Color(0xFFBDBDBD),
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(width: 8),
                           ],
                         ),
                         Text(
                           arrivalTime,
-                          style: semiBold.copyWith(fontSize: 22),
+                          style: regular.copyWith(fontSize: 24),
                         ),
                       ],
                     ),
@@ -124,9 +137,9 @@ class OrderSummaryCard extends StatelessWidget {
                         Expanded(
                           child: Text(
                             departurePort,
-                            style: semiBold.copyWith(
-                              fontSize: 14,
-                              color: Colors.grey.shade700,
+                            style: medium.copyWith(
+                              fontSize: 12,
+                              color: const Color.fromARGB(255, 0, 0, 0),
                             ),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
@@ -134,18 +147,23 @@ class OrderSummaryCard extends StatelessWidget {
                         ),
                         Text(
                           '→',
-                          style: semiBold.copyWith(
-                            fontSize: 16,
-                            color: Colors.grey.shade700,
+                          style: medium.copyWith(
+                            fontSize: 14,
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                         SizedBox(width: 4),
                         Expanded(
                           child: Text(
                             arrivalPort,
-                            style: semiBold.copyWith(
-                              fontSize: 14,
-                              color: Colors.grey.shade700,
+                            style: medium.copyWith(
+                              fontSize: 12,
+                              color: const Color.from(
+                                alpha: 1,
+                                red: 0,
+                                green: 0,
+                                blue: 0,
+                              ),
                             ),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
@@ -157,17 +175,28 @@ class OrderSummaryCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
+                          'Jumlah Tiket',
+                          style: medium.copyWith(fontSize: 12),
+                        ),
+                        Text('2', style: medium.copyWith(fontSize: 12)),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Total', style: medium.copyWith(fontSize: 12)),
+                        Text('660.000', style: medium.copyWith(fontSize: 12)),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
                           date,
                           style: medium.copyWith(
-                            fontSize: 12,
-                            color: Colors.grey.shade900,
-                          ),
-                        ),
-                        Text(
-                          duration,
-                          style: medium.copyWith(
-                            fontSize: 12,
-                            color: Colors.grey.shade900,
+                            fontSize: 10,
+                            color: const Color(0xFFB3B3B3),
                           ),
                         ),
                       ],
