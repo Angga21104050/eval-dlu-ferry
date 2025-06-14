@@ -28,6 +28,7 @@ class CustomProfileAppBar extends StatelessWidget
                 Color(0xFF0064D2),
                 Color(0xFF0064D2),
                 Color(0xFF0064D2),
+                Color(0xFF0064D2),
                 const Color(0xFF00DDFF),
               ],
             ),
@@ -82,7 +83,7 @@ class CustomProfileAppBar extends StatelessWidget
                               'anggaaa',
                               style: semiBold.copyWith(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 20,
                               ),
                             ),
                             Text(

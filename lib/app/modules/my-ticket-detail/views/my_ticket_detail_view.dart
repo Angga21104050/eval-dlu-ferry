@@ -53,6 +53,7 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                             colors: [
                               Color(0xFF0064D2),
                               Color(0xFF0064D2),
+                              Color(0xFF0064D2),
                               Colors.cyan,
                             ],
                             begin: Alignment.topCenter,
@@ -85,7 +86,7 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                                     Text(
                                       'Detail Tiket',
                                       style: semiBold.copyWith(
-                                        fontSize: 22,
+                                        fontSize: 24,
                                         color: Colors.white,
                                       ),
                                     ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/help_controller.dart';
-import '../../myTicket/components/search_input.dart';
+import '../../../constants/text_style.dart';
 
 class HelpView extends GetView<HelpController> {
   const HelpView({super.key});
@@ -9,47 +9,76 @@ class HelpView extends GetView<HelpController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF0064D2),
-        elevation: 0,
-        leading: IconButton(
-          // Menggunakan IconButton untuk tombol back
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ), // Atur warna ikon
-          onPressed: () {
-            Get.back();
-          },
-        ),
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          child: const Text(
-            'Hubungi Kami',
-            style: TextStyle(
-              fontSize: 18,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80),
+        child: AppBar(
+          backgroundColor: const Color(0xFF0064D2),
+          elevation: 0,
+          leading: IconButton(
+            // Menggunakan IconButton untuk tombol back
+            icon: const Icon(
+              Icons.arrow_back,
               color: Colors.white,
-              fontWeight: FontWeight.bold,
+            ), // Atur warna ikon
+            onPressed: () {
+              Get.back();
+            },
+          ),
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Text(
+              'Hubungi Kami',
+              style: semiBold.copyWith(fontSize: 18, color: Colors.white),
             ),
           ),
+          centerTitle: false,
         ),
-        centerTitle: true,
       ),
       body: Column(
         children: [
-          SearchInputField(
-            onChanged: (value) {
-              print("Cari: $value");
-            },
+          // Tambahkan di atas bagian CUSTOMER CARE
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF0064D2).withOpacity(0.15),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Color(0xFF0064D2),
+                  ),
+                  hintText: 'Masukan Kota Kantor',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  border: InputBorder.none,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                ),
+                onChanged: (value) {
+                  controller.filterContacts(value);
+                },
+              ),
+            ),
           ),
+
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-
-              border: Border.all(color: Colors.grey.shade300),
+              border: Border.all(
+                color: Color(0xFF9D9D9D).withOpacity(0.75),
+                width: 0.4,
+              ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,16 +156,13 @@ class HelpView extends GetView<HelpController> {
                                 blurRadius: 8,
                               ),
                             ],
-                            border: Border.all(color: Colors.grey.shade300),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 contact['name'],
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                style: semiBold.copyWith(
                                   color: Color(0xFF0064D2),
                                 ),
                               ),
@@ -146,14 +172,13 @@ class HelpView extends GetView<HelpController> {
                                   const Icon(
                                     Icons.phone,
                                     size: 16,
-                                    color: Colors.grey,
+                                    color: Color(0xFF9D9D9D),
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
                                     contact['contact'],
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.grey.shade800,
+                                    style: regular.copyWith(
+                                      color: Color(0xFF9D9D9D),
                                     ),
                                   ),
                                 ],
@@ -164,14 +189,13 @@ class HelpView extends GetView<HelpController> {
                                   const Icon(
                                     Icons.phone_in_talk_sharp,
                                     size: 16,
-                                    color: Colors.green,
+                                    color: Color(0xFF9D9D9D),
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
                                     contact['whatsapp'],
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.grey.shade800,
+                                    style: regular.copyWith(
+                                      color: Color(0xFF9D9D9D),
                                     ),
                                   ),
                                 ],
@@ -183,15 +207,14 @@ class HelpView extends GetView<HelpController> {
                                   const Icon(
                                     Icons.location_on_outlined,
                                     size: 16,
-                                    color: Colors.redAccent,
+                                    color: Color(0xFF9D9D9D),
                                   ),
                                   const SizedBox(width: 6),
                                   Expanded(
                                     child: Text(
                                       contact['address'],
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.grey.shade800,
+                                      style: regular.copyWith(
+                                        color: Color(0xFF9D9D9D),
                                       ),
                                     ),
                                   ),

@@ -20,7 +20,12 @@ class HistoryView extends GetView<HistoryController> {
             width: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF0064D2), Color(0xFF0064D2), Colors.cyan],
+                colors: [
+                  Color(0xFF0064D2),
+                  Color(0xFF0064D2),
+                  Color(0xFF0064D2),
+                  Color(0xFF00DDFF),
+                ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -62,7 +67,7 @@ class HistoryView extends GetView<HistoryController> {
                           child: Text(
                             'Semua tiket ferry yang sudah aktif dan menunggu pembayaran',
                             style: light.copyWith(
-                              fontSize: 14,
+                              fontSize: 12,
                               color: Colors.white,
                             ),
                           ),
@@ -100,7 +105,7 @@ class HistoryView extends GetView<HistoryController> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Riwayat Transaksi Anda',
-                          style: medium.copyWith(fontSize: 14),
+                          style: medium.copyWith(fontSize: 16),
                         ),
                       ),
                     ),
@@ -148,7 +153,7 @@ class HistoryView extends GetView<HistoryController> {
                             Text(
                               'Riwayat Transaksi',
                               style: semiBold.copyWith(
-                                fontSize: 22,
+                                fontSize: 24,
                                 color: Color(0xFF0064D2),
                               ),
                             ),

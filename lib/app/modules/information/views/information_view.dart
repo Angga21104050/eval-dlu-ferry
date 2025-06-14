@@ -30,7 +30,7 @@ class InformationView extends GetView<InformationController> {
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 'Informasi Peraturan Pelayaran',
-                style: semiBold.copyWith(fontSize: 22, color: Colors.white),
+                style: semiBold.copyWith(fontSize: 18, color: Colors.white),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
@@ -46,7 +46,7 @@ class InformationView extends GetView<InformationController> {
           children: [
             Text(
               'PERJANJIAN PENGANGKUTAN PELAYARAN',
-              style: bold.copyWith(
+              style: semiBold.copyWith(
                 fontSize: 18,
                 color: const Color(0xFF0064D2),
               ),

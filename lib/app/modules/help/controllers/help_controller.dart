@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
 class HelpController extends GetxController {
-  //TODO: Implement HelpController
-  final List<Map<String, dynamic>> contacts = [
+  // Data asli semua kantor
+  final List<Map<String, dynamic>> allContacts = [
     {
       'name': 'DLU Pontianak',
       'contact': '(0561) 765021',
@@ -54,4 +54,27 @@ class HelpController extends GetxController {
       'address': 'Jl. Beringin No.1 Sangkapura - Jawa Timur\nBawean',
     },
   ];
+
+  // Data yang akan ditampilkan (hasil filter)
+  List<Map<String, dynamic>> contacts = [];
+
+  @override
+  void onInit() {
+    super.onInit();
+    contacts = List.from(allContacts); // Awalnya semua ditampilkan
+  }
+
+  // Fungsi pencarian kota
+  void filterContacts(String keyword) {
+    if (keyword.isEmpty) {
+      contacts = List.from(allContacts);
+    } else {
+      contacts = allContacts.where((contact) {
+        final name = contact['name'].toString().toLowerCase();
+        final address = contact['address'].toString().toLowerCase();
+        return name.contains(keyword.toLowerCase()) || address.contains(keyword.toLowerCase());
+      }).toList();
+    }
+    update(); // untuk memperbarui tampilan di GetBuilder
+  }
 }

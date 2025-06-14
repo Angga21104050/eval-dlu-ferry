@@ -29,8 +29,8 @@ class NotificationView extends GetView<NotificationController> {
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
             child: Text(
-              'Informasi Notifikasi',
-              style: semiBold.copyWith(fontSize: 22, color: Colors.white),
+              'Notifikasi',
+              style: semiBold.copyWith(fontSize: 18, color: Colors.white),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
@@ -55,9 +55,8 @@ class NotificationView extends GetView<NotificationController> {
                   borderRadius: BorderRadius.circular(12),
                   color:
                       notification['read']
-                          ? Colors.grey[100]
-                          : const Color(0xFFC9E3FF),
-                  border: Border.all(color: Colors.grey.shade200, width: 1),
+                          ? Colors.white
+                          : const Color(0xFF0064D2).withOpacity(0.2),
                   boxShadow: [
                     BoxShadow(
                       color: const Color(0xFF0064D2).withOpacity(0.15),

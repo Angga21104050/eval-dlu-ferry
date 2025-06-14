@@ -22,7 +22,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
             padding: EdgeInsets.symmetric(vertical: 20),
             child: Text(
               'Ganti Password',
-              style: semiBold.copyWith(fontSize: 22, color: Colors.white),
+              style: semiBold.copyWith(fontSize: 18, color: Colors.white),
             ),
           ),
           centerTitle: false,
@@ -41,7 +41,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   obscureText: !controller.showOldPassword.value,
                   decoration: InputDecoration(
                     labelText: 'Password Lama',
-                    labelStyle: light.copyWith(fontSize: 14),
+                    labelStyle: light.copyWith(fontSize: 16),
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -133,7 +133,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
               // Tombol Submit
               SizedBox(
                 width: double.infinity,
-                height: 50,
+                height: 47,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF0064D2),

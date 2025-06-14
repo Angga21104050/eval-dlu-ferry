@@ -49,16 +49,16 @@ class TicketHistoryList extends StatelessWidget {
                           children: [
                             Text(
                               ticket['transactionCode'] ?? 'UNKNOWN',
-                              style: semiBold.copyWith(
-                                fontSize: 16,
+                              style: medium.copyWith(
+                                fontSize: 20,
                                 color: Color(0xFF0064D2),
                               ),
                             ),
                             Text(
                               ticket['transactionDate'] ?? 'UNKNOWN DATE',
-                              style: medium.copyWith(
+                              style: light.copyWith(
                                 fontSize: 14,
-                                color: Colors.grey.shade600,
+                                color: const Color(0xFF757575),
                               ),
                             ),
                           ],
@@ -74,9 +74,9 @@ class TicketHistoryList extends StatelessWidget {
                           children: [
                             Text(
                               ticket['ferryName'] ?? 'UNKNOWN FERRY',
-                              style: semiBold.copyWith(
+                              style: regular.copyWith(
                                 fontSize: 14,
-                                color: Color(0xFF0064D2),
+                                color: Color(0xFF757575),
                               ),
                             ),
                             // 🔹 Status Badge
@@ -121,7 +121,7 @@ class TicketHistoryList extends StatelessWidget {
       ),
       child: Text(
         displayText,
-        style: medium.copyWith(color: Colors.white, fontSize: 12),
+        style: regular.copyWith(color: Colors.white, fontSize: 14),
       ),
     );
   }

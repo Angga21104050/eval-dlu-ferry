@@ -30,7 +30,7 @@ class EditProfileView extends GetView<EditProfileController> {
               ),
               title: Text(
                 'Edit Profile',
-                style: semiBold.copyWith(fontSize: 22, color: Colors.white),
+                style: semiBold.copyWith(fontSize: 18, color: Colors.white),
               ),
             ),
             Positioned(
@@ -60,7 +60,7 @@ class EditProfileView extends GetView<EditProfileController> {
                     child: Text(
                       "Ganti Foto",
                       style: medium.copyWith(
-                        color: Colors.blue.shade800,
+                        color: const Color(0xFF0064D2),
                         fontSize: 14,
                       ),
                     ),
@@ -80,7 +80,10 @@ class EditProfileView extends GetView<EditProfileController> {
             children: [
               Text(
                 "Edit Data Diri",
-                style: semiBold.copyWith(fontSize: 18, color: Colors.blue),
+                style: semiBold.copyWith(
+                  fontSize: 18,
+                  color: Color(0xFF0064D2),
+                ),
               ),
               const SizedBox(height: 16),
               _buildTextField(
@@ -162,10 +165,14 @@ class EditProfileView extends GetView<EditProfileController> {
         children: [
           TextFormField(
             controller: hintController,
+            style: regular.copyWith(),
             decoration: InputDecoration(
               label: Text(
                 label,
-                style: regular.copyWith(color: Colors.grey, fontSize: 14),
+                style: medium.copyWith(
+                  color: const Color(0xFFB2B2B2),
+                  fontSize: 14,
+                ),
               ),
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 12,
