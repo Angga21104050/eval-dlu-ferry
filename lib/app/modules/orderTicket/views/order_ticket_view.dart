@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../controllers/order_ticket_controller.dart';
 import '../components/detail_order.dart';
 import '../components/summary_card.dart';
-import '../components/payment_methode.dart';
 import '../../../data/list_tiket_dummy.dart';
 import '../components/header_order_ticket.dart';
 import '../components/passenger_form.dart';
@@ -69,8 +68,8 @@ class OrderTicketView extends GetView<OrderTicketController> {
             onNotification: (_) => true,
             child: SingleChildScrollView(
               controller: controller.scrollController,
-              padding: const EdgeInsets.only(top: 170),
               child: Container(
+                margin: EdgeInsets.only(top: 170),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.grey.shade50,
@@ -120,7 +119,6 @@ class OrderTicketView extends GetView<OrderTicketController> {
                         vipRoomCount: vipRoomCount,
                         controller: controller,
                       ),
-                    PaymentMethodeDropdown(),
                     Container(
                       margin: EdgeInsets.symmetric(
                         horizontal: 16.0,
@@ -145,29 +143,7 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           ),
                         ),
                         onPressed: () {
-                          if (controller.selectedVirtualAccMethod.value !=
-                              null) {
-                            Get.toNamed(Routes.PAYMENT, arguments: cart);
-                          } else if (controller.selectedEWalletMethod.value !=
-                              null) {
-                            Get.toNamed(Routes.PAYMENT, arguments: cart);
-                          } else if (controller
-                                  .selectedCreditCardMethod
-                                  .value !=
-                              null) {
-                            Get.toNamed(Routes.PAYMENT, arguments: cart);
-                          } else if (controller.selectedQrisMethod.value !=
-                              null) {
-                            Get.toNamed(Routes.PAYMENT, arguments: cart);
-                          } else {
-                            Get.snackbar(
-                              'Peringatan',
-                              'Silakan pilih metode pembayaran terlebih dahulu.',
-                              snackPosition: SnackPosition.TOP,
-                              colorText: Colors.black,
-                              margin: const EdgeInsets.all(16),
-                            );
-                          }
+                          Get.toNamed(Routes.PAYMENT_METHODE, arguments: cart);
                         },
                         child: Text(
                           'Lanjutkan Pembayaran',

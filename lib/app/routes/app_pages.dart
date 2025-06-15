@@ -26,6 +26,8 @@ import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
 import '../modules/orderTicket/bindings/order_ticket_binding.dart';
 import '../modules/orderTicket/views/order_ticket_view.dart';
+import '../modules/payment-methode/bindings/payment_methode_binding.dart';
+import '../modules/payment-methode/views/payment_methode_view.dart';
 import '../modules/payment/bindings/payment_binding.dart';
 import '../modules/payment/views/payment_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -148,6 +150,11 @@ class AppPages {
       name: _Paths.REGISTER_2,
       page: () => const Register2View(),
       binding: Register2Binding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT_METHODE,
+      page: () => const PaymentMethodeView(),
+      binding: PaymentMethodeBinding(),
     ),
   ];
 }

@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/text_style.dart';
 
-class HeaderOrderTicket extends StatefulWidget {
-  const HeaderOrderTicket({super.key});
+class HeaderPaymentMethode extends StatefulWidget {
+  const HeaderPaymentMethode({super.key});
 
   @override
-  State<HeaderOrderTicket> createState() => _HeaderOrderTicketState();
+  State<HeaderPaymentMethode> createState() => _HeaderPaymentMethodeState();
 }
 
-class _HeaderOrderTicketState extends State<HeaderOrderTicket> {
+class _HeaderPaymentMethodeState extends State<HeaderPaymentMethode> {
   late Timer _timer;
   int _remainingSeconds = 1800;
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     startTimer();
   }
@@ -48,7 +49,7 @@ class _HeaderOrderTicketState extends State<HeaderOrderTicket> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(),
+      margin: EdgeInsets.only(bottom: 170),
       height: 200,
       width: double.infinity,
       decoration: const BoxDecoration(

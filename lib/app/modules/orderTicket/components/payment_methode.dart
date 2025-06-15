@@ -180,12 +180,12 @@ class PaymentMethodeDropdown extends StatelessWidget {
     return GestureDetector(
       onTap: () => _showPaymentMethods(context),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        padding: const EdgeInsets.all(16),
+        height: 47,
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.grey.shade300),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(
@@ -252,8 +252,8 @@ class PaymentMethodeDropdown extends StatelessWidget {
                 }
                 return Text(
                   selectedMethod,
-                  style: semiBold.copyWith(
-                    fontSize: 16,
+                  style: medium.copyWith(
+                    fontSize: 14,
                     color:
                         selectedMethod == 'Pilih Metode Pembayaran'
                             ? Colors.grey
