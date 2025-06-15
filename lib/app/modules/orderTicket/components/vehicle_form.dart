@@ -103,10 +103,15 @@ class _VehicleFormState extends State<VehicleForm> {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 6,
-              offset: const Offset(0, 2),
-            ),
+                color: const Color(
+                  0xFF0064D2,
+                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
+                blurRadius: 6, // Tingkat keburaman shadow
+                offset: const Offset(
+                  0,
+                  4,
+                ), // Offset shadow (horizontal, vertical)
+              ),
           ],
         ),
         child: Column(

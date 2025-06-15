@@ -113,14 +113,20 @@ class PaymentView extends GetView<PaymentController> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 16),
                       Center(
                         child: Container(
+                          margin: EdgeInsets.only(bottom: 16),
+                          height: 47,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             gradient: const LinearGradient(
-                              colors: [Color(0xFF0064D2), Colors.cyan],
+                              colors: [
+                                Color(0xFFFF411F),
+                                Color(0xFFFF411F),
+                                Color(0xFFFF411F),
+                                Color.fromARGB(255, 255, 255, 255),
+                              ],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                             ),
@@ -137,10 +143,9 @@ class PaymentView extends GetView<PaymentController> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              padding: const EdgeInsets.symmetric(vertical: 16),
                             ),
                             child: Text(
-                              'Konfirmasi Pembayaran',
+                              'Kembali',
                               style: semiBold.copyWith(fontSize: 16),
                             ),
                           ),

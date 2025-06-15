@@ -29,13 +29,13 @@ class QrisPaymentSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(
-                  0.1,
-                ), // Warna shadow dengan sedikit transparansi
+                color: const Color(
+                  0xFF0064D2,
+                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
                 blurRadius: 6, // Tingkat keburaman shadow
                 offset: const Offset(
                   0,
-                  2,
+                  4,
                 ), // Offset shadow (horizontal, vertical)
               ),
             ],
@@ -43,8 +43,11 @@ class QrisPaymentSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Pembayaran QRIS', style: semiBold.copyWith(fontSize: 16)),
-              const SizedBox(height: 8),
+              Text(
+                'Kami telah menerima pesanan Anda. Untuk melanjutkan mohon lakukan transfer ke rekening virtual account berikut ini.',
+                style: regular.copyWith(fontSize: 12, color: Color(0xFF9D9D9D)),
+              ),
+              const PaymentTimeoutWarning(),
               Row(
                 children: [
                   Image.asset(
@@ -59,14 +62,12 @@ class QrisPaymentSection extends StatelessWidget {
                       );
                     },
                   ),
-                  Text('${selectedQris ?? ''}', style: medium.copyWith()),
                 ],
               ),
-              const PaymentTimeoutWarning(),
               TicketDetailPayment(cart: cart),
               Container(
                 width: double.infinity,
-                margin: const EdgeInsets.symmetric(vertical: 8),
+                margin: const EdgeInsets.only(top: 8),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade300),
@@ -75,17 +76,12 @@ class QrisPaymentSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Detail Penumpang',
-                      style: medium.copyWith(fontSize: 14),
-                    ),
-                    const SizedBox(height: 2),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'AIRLANGGA MAULANA ANWAR',
-                          style: semiBold.copyWith(fontSize: 16),
+                          style: bold.copyWith(fontSize: 16),
                         ),
                         Text(
                           'NIK-330056235345',
@@ -110,30 +106,44 @@ class QrisPaymentSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(
-                  0.1,
-                ), // Warna shadow dengan sedikit transparansi
+                color: const Color(
+                  0xFF0064D2,
+                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
                 blurRadius: 6, // Tingkat keburaman shadow
                 offset: const Offset(
                   0,
-                  2,
+                  4,
                 ), // Offset shadow (horizontal, vertical)
               ),
             ],
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('Scan QR Code:', style: medium.copyWith(fontSize: 14)),
-              const SizedBox(height: 8),
+              Image.asset('assets/img/qris-logo.png', height: 40),
+              const SizedBox(height: 12),
               Container(
-                width: 320,
                 height: 320,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Center(child: Text('QR Code', style: light.copyWith())),
+                child: Center(
+                  child: Text(
+                    'QR Code',
+                    style: light.copyWith(color: Colors.black54),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text('NIMD: ID200302030403', style: bold.copyWith(fontSize: 14)),
+              const SizedBox(height: 12),
+              const Divider(thickness: 0.7, color: Colors.grey),
+              Text(
+                'Tiket akan terbit secara otomatis saat sistem\nsudah menerima pembayaran dari Anda. Anda\ndapat melihat kembali info ini ke pada menu Cek\nBoking',
+                textAlign: TextAlign.justify,
+                style: regular.copyWith(fontSize: 12, color: Colors.black45),
               ),
             ],
           ),

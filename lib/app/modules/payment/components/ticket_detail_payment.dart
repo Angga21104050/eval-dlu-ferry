@@ -16,9 +16,8 @@ class _TicketDetailPaymentState extends State<TicketDetailPayment> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 2),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: const Color(0xFFE0E0E0)),
         borderRadius: BorderRadius.circular(10),
       ),
       child: ExpansionTile(
@@ -36,7 +35,7 @@ class _TicketDetailPaymentState extends State<TicketDetailPayment> {
         ),
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:
@@ -69,7 +68,7 @@ class _TicketDetailPaymentState extends State<TicketDetailPayment> {
                           '${item['departurePort']} → ${item['arrivalPort']}',
                           style: medium.copyWith(
                             fontSize: 14,
-                            color: Colors.grey,
+                            color: const Color(0xFF757575),
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -87,13 +86,10 @@ class _TicketDetailPaymentState extends State<TicketDetailPayment> {
                             ),
                             Text(
                               'Rp. 300.000',
-                              style: regular.copyWith(fontSize: 14),
+                              style: regular.copyWith(fontSize: 12),
                             ), // Teks dummy harga
                           ],
                         ),
-                        const SizedBox(
-                          height: 4,
-                        ), // Tambah sedikit ruang antar item
                       ],
                     );
                   }).toList(),
@@ -105,14 +101,19 @@ class _TicketDetailPaymentState extends State<TicketDetailPayment> {
               right: 16.0,
               bottom: 16.0,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
               children: [
-                Text('Total', style: semiBold.copyWith(fontSize: 14)),
-                Text(
-                  'Rp. ${(300000 * widget.cart.fold<int>(0, (sum, item) => sum + (item['count'] as int))).toInt()}',
-                  style: semiBold.copyWith(fontSize: 14),
-                ), // Contoh perhitungan total dummy
+                Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Total', style: semiBold.copyWith(fontSize: 14)),
+                    Text(
+                      'Rp. ${(300000 * widget.cart.fold<int>(0, (sum, item) => sum + (item['count'] as int))).toInt()}',
+                      style: semiBold.copyWith(fontSize: 14),
+                    ), // Contoh perhitungan total dummy
+                  ],
+                ),
               ],
             ),
           ),

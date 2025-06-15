@@ -34,11 +34,11 @@ class OrderSummaryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(
-              0.1,
-            ), // Warna shadow dengan sedikit transparansi
+            color: const Color(
+              0xFF0064D2,
+            ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
             blurRadius: 6, // Tingkat keburaman shadow
-            offset: const Offset(0, 2), // Offset shadow (horizontal, vertical)
+            offset: const Offset(0, 4), // Offset shadow (horizontal, vertical)
           ),
         ],
       ),

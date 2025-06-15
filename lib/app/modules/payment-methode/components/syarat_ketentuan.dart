@@ -16,10 +16,11 @@ class TermsAndConditionsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3), // changes position of shadow
+            color: const Color(
+              0xFF0064D2,
+            ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
+            blurRadius: 6, // Tingkat keburaman shadow
+            offset: const Offset(0, 4), // Offset shadow (horizontal, vertical)
           ),
         ],
       ),

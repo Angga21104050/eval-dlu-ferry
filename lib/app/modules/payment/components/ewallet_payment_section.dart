@@ -34,16 +34,15 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey.shade300),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(
-                  0.1,
-                ), // Warna shadow dengan sedikit transparansi
+                color: const Color(
+                  0xFF0064D2,
+                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
                 blurRadius: 6, // Tingkat keburaman shadow
                 offset: const Offset(
                   0,
-                  2,
+                  4,
                 ), // Offset shadow (horizontal, vertical)
               ),
             ],
@@ -52,35 +51,50 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Pembayaran E-Wallet',
-                style: semiBold.copyWith(fontSize: 16),
+                'Kami telah menerima pesanan Anda. Untuk melanjutkan mohon lakukan transfer ke rekening virtual account berikut ini.',
+                style: regular.copyWith(fontSize: 12, color: Color(0xFF9D9D9D)),
               ),
+              const PaymentTimeoutWarning(),
               Row(
                 children: [
                   Image.asset(
                     widget.controller.getImagePathForMethod(
                       selectedEWallet ?? '',
                     ),
-                    width: 56,
-                    height: 56,
+                    height: 44,
                     errorBuilder: (context, error, stackTrace) {
                       return const Icon(
                         Icons.image_not_supported,
-                        size: 56,
+                        size: 44,
                         color: Color.fromARGB(255, 158, 37, 29),
                       );
                     },
                   ),
                   const SizedBox(width: 8),
-                  Text('${selectedEWallet ?? ''}', style: medium.copyWith()),
                 ],
               ),
-              const PaymentTimeoutWarning(),
+              Text(
+                'ID Tagihan',
+                style: medium.copyWith(fontSize: 12, color: Color(0xFFB3B3B3)),
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(bottom: 4),
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: Color(0xFFD0CBCB), width: 1),
+                  ),
+                ),
+                child: Text(
+                  'G23435235564', // Ganti dengan data dinamis jika perlu
+                  style: semiBold.copyWith(fontSize: 22),
+                ),
+              ),
               const SizedBox(height: 8),
               TicketDetailPayment(cart: widget.cart),
               Container(
                 width: double.infinity,
-                margin: const EdgeInsets.symmetric(vertical: 8),
+                margin: const EdgeInsets.only(top: 8),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade300),
@@ -89,17 +103,12 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Detail Penumpang',
-                      style: medium.copyWith(fontSize: 14),
-                    ),
-                    const SizedBox(height: 2),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'AIRLANGGA MAULANA ANWAR',
-                          style: semiBold.copyWith(fontSize: 16),
+                          style: bold.copyWith(fontSize: 16),
                         ),
                         Text(
                           'NIK-330056235345',
@@ -113,6 +122,58 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                   ],
                 ),
               ),
+              SizedBox(height: 8),
+              Text(
+                'No. Telp. Penagihan OVO',
+                style: medium.copyWith(fontSize: 12, color: Color(0xFFB3B3B3)),
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(bottom: 4),
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: Color(0xFFD0CBCB), width: 1),
+                  ),
+                ),
+                child: Text(
+                  '08577345643', // Ganti dengan data dinamis jika perlu
+                  style: semiBold.copyWith(fontSize: 22),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, bottom: 8),
+                height: 47,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF0064D2), Color(0xFF00DDFF)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Logika konfirmasi pembayaran
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: Text(
+                    'Kembali',
+                    style: semiBold.copyWith(fontSize: 16),
+                  ),
+                ),
+              ),
+              Text(
+                'Tiket akan terbit secara otomatis saat sistem sudah menerima pembayaran dari Anda. Anda dapat melihat kembali info ini ke pada menu Cek Boking',
+                style: regular.copyWith(fontSize: 12, color: Color(0xFF9D9D9D)),
+              ),
             ],
           ),
         ),
@@ -120,17 +181,16 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
           margin: EdgeInsets.only(bottom: 16),
           decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(color: Colors.grey.shade300),
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(
-                  0.1,
-                ), // Warna shadow dengan sedikit transparansi
+                color: const Color(
+                  0xFF0064D2,
+                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
                 blurRadius: 6, // Tingkat keburaman shadow
                 offset: const Offset(
                   0,
-                  2,
+                  4,
                 ), // Offset shadow (horizontal, vertical)
               ),
             ],
@@ -148,13 +208,13 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                   child: Row(
                     children: [
                       const Icon(
-                        Icons.receipt_long_outlined,
+                        Icons.payment_rounded,
                         color: Color(0xFF0064D2),
                       ),
                       const SizedBox(width: 8),
                       Text(
                         'Instruksi Pembayaran',
-                        style: semiBold.copyWith(fontSize: 16),
+                        style: medium.copyWith(fontSize: 16),
                       ),
                       const Spacer(),
                       Icon(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../orderTicket/controllers/order_ticket_controller.dart';
-import '../../orderTicket/components/custom_text_form_field.dart';
 import '../components/payment_timer.dart';
 import '../components/payment_timeout_warning.dart';
 import '../components/ticket_detail_payment.dart';
@@ -28,16 +27,15 @@ class CreditCardPaymentSection extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey.shade300),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(
-                  0.1,
-                ), // Warna shadow dengan sedikit transparansi
+                color: const Color(
+                  0xFF0064D2,
+                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
                 blurRadius: 6, // Tingkat keburaman shadow
                 offset: const Offset(
                   0,
-                  2,
+                  4,
                 ), // Offset shadow (horizontal, vertical)
               ),
             ],
@@ -46,15 +44,15 @@ class CreditCardPaymentSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Pembayaran Kartu Kredit',
-                style: semiBold.copyWith(fontSize: 16),
+                'Kami telah menerima pesanan Anda. Untuk melanjutkan mohon lakukan transfer ke rekening virtual account berikut ini.',
+                style: regular.copyWith(fontSize: 12, color: Color(0xFF9D9D9D)),
               ),
+              const PaymentTimeoutWarning(),
               Row(
                 children: [
                   Image.asset(
                     controller.getImagePathForMethod(selectedCard ?? ''),
-                    width: 56,
-                    height: 56,
+                    height: 34,
                     errorBuilder: (context, error, stackTrace) {
                       return const Icon(
                         Icons.image_not_supported,
@@ -64,30 +62,30 @@ class CreditCardPaymentSection extends StatelessWidget {
                     },
                   ),
                   const SizedBox(width: 8),
-                  Text('${selectedCard ?? ''}', style: medium.copyWith()),
                 ],
               ),
-              const PaymentTimeoutWarning(),
-              const SizedBox(height: 4),
               Text(
-                'Detail Kartu Kredit:',
-                style: medium.copyWith(fontSize: 14),
+                'ID Tagihan',
+                style: medium.copyWith(fontSize: 12, color: Color(0xFFB3B3B3)),
               ),
-              const SizedBox(height: 8),
-              CustomTextFormField(label: 'Nomor Kartu'),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Expanded(child: CustomTextFormField(label: 'MM/YY')),
-                  const SizedBox(width: 16),
-                  Expanded(child: CustomTextFormField(label: 'CVV')),
-                ],
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(bottom: 4),
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: Color(0xFFD0CBCB), width: 1),
+                  ),
+                ),
+                child: Text(
+                  'V23435235564', // Ganti dengan data dinamis jika perlu
+                  style: semiBold.copyWith(fontSize: 22),
+                ),
               ),
               const SizedBox(height: 8),
               TicketDetailPayment(cart: cart),
               Container(
                 width: double.infinity,
-                margin: const EdgeInsets.symmetric(vertical: 8),
+                margin: const EdgeInsets.only(top: 8),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade300),
@@ -96,17 +94,12 @@ class CreditCardPaymentSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Detail Penumpang',
-                      style: medium.copyWith(fontSize: 14),
-                    ),
-                    const SizedBox(height: 2),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'AIRLANGGA MAULANA ANWAR',
-                          style: semiBold.copyWith(fontSize: 16),
+                          style: bold.copyWith(fontSize: 16),
                         ),
                         Text(
                           'NIK-330056235345',
@@ -119,6 +112,130 @@ class CreditCardPaymentSection extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(height: 8),
+              //buatkan form kartu krdeit disini
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEAF1FB), // Warna latar biru muda
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Nomor Kartu', style: bold.copyWith(fontSize: 14)),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF0064D2), // Warna saat fokus
+                            width: 2, // Ketebalan border saat fokus
+                          ),
+                        ),
+                        hintText: '0000 0000 0000 0000',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF0064D2), // Warna saat fokus
+                            width: 2, // Ketebalan border saat fokus
+                          ),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 12,
+                        ),
+                      ),
+                      keyboardType: TextInputType.number,
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Masa Berlaku',
+                                style: bold.copyWith(fontSize: 14),
+                              ),
+                              const SizedBox(height: 8),
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  hintText: 'MM/YY',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: const BorderSide(
+                                      color: Color(
+                                        0xFF0064D2,
+                                      ), // Warna saat fokus
+                                      width: 2, // Ketebalan border saat fokus
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: const BorderSide(
+                                      color: Color(
+                                        0xFF0064D2,
+                                      ), // Warna saat fokus
+                                      width: 2, // Ketebalan border saat fokus
+                                    ),
+                                  ),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 12,
+                                  ),
+                                ),
+                                keyboardType: TextInputType.datetime,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('CVV', style: bold.copyWith(fontSize: 14)),
+                              const SizedBox(height: 8),
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: const BorderSide(
+                                      color: Color(
+                                        0xFF0064D2,
+                                      ), // Warna saat fokus
+                                      width: 2, // Ketebalan border saat fokus
+                                    ),
+                                  ),
+                                  hintText: 'Contoh 123',
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 12,
+                                  ),
+                                ),
+                                keyboardType: TextInputType.number,
+                                obscureText: true,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Tiket akan terbit secara otomatis saat sistem sudah menerima pembayaran dari Anda. Anda dapat melihat kembali info ini ke pada menu Cek Boking',
+                style: regular.copyWith(fontSize: 12, color: Color(0xFF9D9D9D)),
               ),
             ],
           ),

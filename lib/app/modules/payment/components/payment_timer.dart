@@ -50,15 +50,15 @@ class _PaymentTimerState extends State<PaymentTimer> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.only(top: 0, bottom: 16),
+      padding: const EdgeInsets.only(top: 0, bottom: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Sisa Waktu Pembayaran :',
-            style: medium.copyWith(color: Colors.white),
+            style: medium.copyWith(fontSize: 14, color: Colors.white),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -106,10 +106,13 @@ class _PaymentTimerState extends State<PaymentTimer> {
 
   Widget _buildTimeSegment(String time) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      height: 40,
+      width: 40,
+      padding: const EdgeInsets.all(0),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.3),
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.white, width: 0.6),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -119,9 +122,11 @@ class _PaymentTimerState extends State<PaymentTimer> {
           ),
         ],
       ),
-      child: Text(
-        time,
-        style: semiBold.copyWith(color: Colors.white, fontSize: 14),
+      child: Center(
+        child: Text(
+          time,
+          style: medium.copyWith(color: Colors.white, fontSize: 20),
+        ),
       ),
     );
   }

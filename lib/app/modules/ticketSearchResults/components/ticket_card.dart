@@ -62,7 +62,7 @@ class _TicketCardState extends State<TicketCard> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         color: Colors.white,
         elevation: 6,
-        shadowColor: Colors.blue.withOpacity(0.2),
+        shadowColor: const Color(0xFF0064D2).withOpacity(0.35),
         margin: const EdgeInsets.only(bottom: 16),
         child: Padding(
           padding: const EdgeInsets.all(10),
