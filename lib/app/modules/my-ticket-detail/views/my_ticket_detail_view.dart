@@ -1,8 +1,10 @@
+import 'package:dlu_project/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../components/ticket_detail_card.dart';
 import '../controllers/my_ticket_detail_controller.dart';
 import '../components/my_detail_ticket_summ.dart';
+import '../components/qr_with_status.dart';
 import '../../../constants/text_style.dart';
 
 class MyTicketDetailView extends GetView<MyTicketDetailController> {
@@ -129,6 +131,7 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                     margin: EdgeInsets.only(top: 10),
                     child: Column(
                       children: [
+                        QrWithStatusAndPrintButton(),
                         TicketDetailCard(
                           ferryName: 'UNKNOWN FERRY',
                           price: 'Rp. 300.000',
@@ -214,7 +217,8 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                                   Icons.arrow_back,
                                   color: Color(0xFF0064D2),
                                 ),
-                                onPressed: () => Get.back(),
+                                onPressed:
+                                    () => Get.offAllNamed(Routes.MY_TICKET),
                               ),
                               Text(
                                 'Detail Tiket',

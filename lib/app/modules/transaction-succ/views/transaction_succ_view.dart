@@ -63,14 +63,17 @@ class TransactionSuccView extends GetView<TransactionSuccController> {
             // Thank You and Email Info Text
             Text(
               'Terima kasih atas pesanan Anda. Anda akan segera menerima konfirmasi melalui email.',
-              style: light.copyWith(fontSize: 16, color: Colors.white70),
+              style: medium.copyWith(
+                fontSize: 16,
+                color: const Color.fromARGB(255, 255, 255, 255),
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
 
             // Lihat Tiket Button
             SizedBox(
-              width: 260,
+              width: 320,
               child: ElevatedButton(
                 onPressed: () {
                   Get.offAllNamed(Routes.MY_TICKET_DETAIL);
@@ -87,7 +90,7 @@ class TransactionSuccView extends GetView<TransactionSuccController> {
                 ),
                 child: Text(
                   'Lihat Tiket',
-                  style: semiBold.copyWith(fontSize: 18),
+                  style: medium.copyWith(fontSize: 16),
                 ),
               ),
             ),

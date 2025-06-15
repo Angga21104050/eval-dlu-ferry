@@ -60,17 +60,17 @@ class TicketDetailCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        ferryName,
-                        style: semiBold.copyWith(
-                          fontSize: 18,
+                        'KM. Kirana 7',
+                        style: bold.copyWith(
+                          fontSize: 24,
                           color: Color(0xFF0064D2),
                         ),
                       ),
                       Text(
                         price,
-                        style: medium.copyWith(
-                          fontSize: 12,
-                          color: Colors.grey.shade500,
+                        style: semiBold.copyWith(
+                          fontSize: 14,
+                          color: const Color(0xFF9D9D9D),
                         ),
                       ),
                     ],
@@ -85,15 +85,8 @@ class TicketDetailCard extends StatelessWidget {
                       Text(
                         className,
                         style: semiBold.copyWith(
-                          fontSize: 12,
-                          color: Colors.grey.shade500,
-                        ),
-                      ),
-                      Text(
-                        paymentStatus,
-                        style: semiBold.copyWith(
                           fontSize: 14,
-                          color: Color(0xFF0064D2),
+                          color: const Color(0xFF9D9D9D),
                         ),
                       ),
                     ],
@@ -113,9 +106,9 @@ class TicketDetailCard extends StatelessWidget {
                       ),
                       Text(
                         ticketNumber,
-                        style: medium.copyWith(
-                          fontSize: 12,
-                          color: Colors.grey.shade500,
+                        style: regular.copyWith(
+                          fontSize: 14,
+                          color: const Color(0xFF9D9D9D),
                         ),
                       ),
                     ],
@@ -143,7 +136,7 @@ class TicketDetailCard extends StatelessWidget {
                       ),
                       const Icon(
                         Icons.arrow_forward,
-                        color: Colors.grey,
+                        color: const Color(0xFF9D9D9D),
                         size: 18,
                       ),
                       Flexible(
@@ -209,9 +202,9 @@ class TicketDetailCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Text(
                     'Kode Booking',
-                    style: medium.copyWith(
-                      fontSize: 12,
-                      color: Colors.grey.shade700,
+                    style: semiBold.copyWith(
+                      fontSize: 14,
+                      color: const Color(0xFF9D9D9D),
                     ),
                   ),
                 ),
@@ -224,15 +217,16 @@ class TicketDetailCard extends StatelessWidget {
                       Text(
                         bookingCode,
                         style: semiBold.copyWith(
-                          fontSize: 18,
+                          fontSize: 26,
                           color: Color(0xFF0064D2),
                         ),
                       ),
-                      Image.asset(
-                        barcodeAssetPath,
-                        fit: BoxFit.contain,
-                        width: 90,
-                        height: 40,
+                      Text(
+                        paymentStatus,
+                        style: semiBold.copyWith(
+                          fontSize: 15,
+                          color: Color(0xFF9D9D9D),
+                        ),
                       ),
                     ],
                   ),
