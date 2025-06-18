@@ -63,7 +63,6 @@ class MyTicketView extends GetView<MyTicketController> {
               ),
             ),
           ),
-          // AppBar putih muncul saat scroll
           Obx(
             () =>
                 controller.isScrolled.value
@@ -104,7 +103,7 @@ class MyTicketView extends GetView<MyTicketController> {
                               child: Center(
                                 child: IconButton(
                                   padding:
-                                      EdgeInsets.zero, // Menghilangkan padding
+                                      EdgeInsets.zero, 
                                   constraints: const BoxConstraints(),
                                   icon: Icon(
                                     Icons.history,

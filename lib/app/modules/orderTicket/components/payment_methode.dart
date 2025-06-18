@@ -112,10 +112,10 @@ class PaymentMethodeDropdown extends StatelessWidget {
                   String imagePath = controller.getImagePathForMethod(method);
                   return InkWell(
                     onTap: () {
-                      onSelect(method); // Panggil fungsi onSelect dari luar
+                      onSelect(method); 
                       Navigator.pop(
                         Get.context!,
-                      ); // Tutup bottom sheet setelah memilih
+                      ); 
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
@@ -144,7 +144,7 @@ class PaymentMethodeDropdown extends StatelessWidget {
                               ),
                             ),
                             Obx(
-                              () => // Bungkus dengan Obx untuk memantau selectedItem
+                              () => 
                                   controller.selectedVirtualAccMethod.value ==
                                               method ||
                                           controller
@@ -190,12 +190,12 @@ class PaymentMethodeDropdown extends StatelessWidget {
             BoxShadow(
               color: const Color(
                 0xFF0064D2,
-              ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-              blurRadius: 6, // Tingkat keburaman shadow
+              ).withOpacity(0.35), 
+              blurRadius: 6, 
               offset: const Offset(
                 0,
                 4,
-              ), // Offset shadow (horizontal, vertical)
+              ), 
             ),
           ],
         ),

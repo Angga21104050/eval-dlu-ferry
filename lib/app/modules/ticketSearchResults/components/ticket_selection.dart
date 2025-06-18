@@ -69,9 +69,9 @@ class _TicketSelectionState extends State<TicketSelection> {
           BoxShadow(
             color: Colors.black.withOpacity(
               0.1,
-            ), // Warna shadow dengan sedikit transparansi
-            blurRadius: 6, // Tingkat keburaman shadow
-            offset: const Offset(0, 2), // Offset shadow (horizontal, vertical)
+            ), 
+            blurRadius: 6, 
+            offset: const Offset(0, 2), 
           ),
         ],
       ),

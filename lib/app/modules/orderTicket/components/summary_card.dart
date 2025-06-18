@@ -36,9 +36,9 @@ class OrderSummaryCard extends StatelessWidget {
           BoxShadow(
             color: const Color(
               0xFF0064D2,
-            ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-            blurRadius: 6, // Tingkat keburaman shadow
-            offset: const Offset(0, 4), // Offset shadow (horizontal, vertical)
+            ).withOpacity(0.35), 
+            blurRadius: 6,
+            offset: const Offset(0, 4), 
           ),
         ],
       ),
@@ -87,7 +87,7 @@ class OrderSummaryCard extends StatelessWidget {
                     Text(
                       cart
                           .map((item) => item['class'])
-                          .join(', '), // Tampilkan jenis tiket yang dipesan
+                          .join(', '), 
                       style: medium.copyWith(
                         fontSize: 12,
                         color: const Color(0xFFB3B3B3),

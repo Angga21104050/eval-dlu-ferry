@@ -15,7 +15,7 @@ class _DeatailOrderState extends State<DeatailOrder> {
   final orderTicketController = Get.put(OrderTicketController());
   final editProfileController = Get.put(EditProfileController());
 
-  String selectedTitle = 'Tuan'; // Default
+  String selectedTitle = 'Tuan';
 
   @override
   void initState() {
@@ -40,9 +40,9 @@ class _DeatailOrderState extends State<DeatailOrder> {
           BoxShadow(
             color: const Color(
               0xFF0064D2,
-            ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-            blurRadius: 6, // Tingkat keburaman shadow
-            offset: const Offset(0, 4), // Offset shadow (horizontal, vertical)
+            ).withOpacity(0.35), 
+            blurRadius: 6,
+            offset: const Offset(0, 4), 
           ),
         ],
       ),

@@ -15,7 +15,6 @@ class HelpView extends GetView<HelpController> {
           backgroundColor: const Color(0xFF0064D2),
           elevation: 0,
           leading: IconButton(
-            // Menggunakan IconButton untuk tombol back
             icon: const Icon(
               Icons.arrow_back,
               color: Colors.white,
@@ -36,7 +35,6 @@ class HelpView extends GetView<HelpController> {
       ),
       body: Column(
         children: [
-          // Tambahkan di atas bagian CUSTOMER CARE
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
             child: Container(
@@ -135,8 +133,6 @@ class HelpView extends GetView<HelpController> {
                     vertical: 20,
                   ),
                   children: [
-                    // Judul yang bisa discroll
-
                     // List kontak
                     ...controller.contacts.map((contact) {
                       return Padding(

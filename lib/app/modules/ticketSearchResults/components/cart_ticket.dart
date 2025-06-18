@@ -5,13 +5,13 @@ import '../../../constants/text_style.dart';
 
 class CartWidget extends StatelessWidget {
   final List<Map<String, dynamic>> cart;
-  final List<Map<String, dynamic>> ferryTickets; // Tambahkan ini
+  final List<Map<String, dynamic>> ferryTickets; 
   final VoidCallback onClearCart;
 
   const CartWidget({
     super.key,
     required this.cart,
-    required this.ferryTickets, // Wajib diisi
+    required this.ferryTickets,
     required this.onClearCart,
   });
 
@@ -97,7 +97,7 @@ class CartWidget extends StatelessWidget {
                       Flexible(
                         flex: 2,
                         child: Text(
-                          'Rp ${price.toStringAsFixed(0)}', // Tampilkan harga yang ditemukan
+                          'Rp ${price.toStringAsFixed(0)}', 
                           textAlign: TextAlign.end,
                           style: semiBold.copyWith(
                             fontSize: 14,

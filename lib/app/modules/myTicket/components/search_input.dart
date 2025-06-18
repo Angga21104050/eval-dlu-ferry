@@ -33,7 +33,7 @@ class SearchInputField extends StatelessWidget {
             prefixIcon: const Icon(
               Icons.search,
               color: Color(0xFF0064D2),
-            ), // 🔹 Warna Ikon Tetap
+            ),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 16,
               horizontal: 20,

@@ -29,7 +29,6 @@ class _HeaderPaymentMethodeState extends State<HeaderPaymentMethode> {
         });
       } else {
         _timer.cancel();
-        // Tambahkan aksi saat waktu habis (opsional)
       }
     });
   }
@@ -102,7 +101,6 @@ class _HeaderPaymentMethodeState extends State<HeaderPaymentMethode> {
               ],
             ),
           ),
-          // Posisi Timer di kanan bawah
           Positioned(
             bottom: 35,
             right: 16,

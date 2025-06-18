@@ -1,4 +1,3 @@
-// membuat tombol navigasi di bagian bawah layar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
@@ -15,9 +14,9 @@ class CustomNavigationBar extends GetView<HomeController> {
           border: Border.all(color: Colors.grey.shade300),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1), // Lebih soft
-              offset: Offset(0, -2), // Bayangan dari atas ke bawah
-              blurRadius: 8, // Membuat bayangan lebih lembut
+              color: Colors.grey.withOpacity(0.1), 
+              offset: Offset(0, -2), 
+              blurRadius: 8, 
             ),
           ],
         ),

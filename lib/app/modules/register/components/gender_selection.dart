@@ -19,15 +19,15 @@ class GenderSelection extends StatelessWidget {
               title: Text(
                 'Laki-laki',
                 style: light.copyWith(fontSize: 14),
-                textAlign: TextAlign.left, // Teks rata kiri
+                textAlign: TextAlign.left, 
               ),
               value: 'Laki Laki',
               groupValue: controller.gender.value,
-              activeColor: const Color(0xFF0064D2), // Warna biru modern
+              activeColor: const Color(0xFF0064D2), 
               onChanged: (value) => controller.updateGender(value as String),
-              contentPadding: EdgeInsets.zero, // Menghapus padding bawaan
-              dense: true, // Membuat tampilan lebih ringkas
-              visualDensity: VisualDensity.compact, // Lebih ringkas
+              contentPadding: EdgeInsets.zero,
+              dense: true, 
+              visualDensity: VisualDensity.compact,
             ),
           ),
           Expanded(
@@ -35,15 +35,15 @@ class GenderSelection extends StatelessWidget {
               title: Text(
                 'Perempuan',
                 style: light.copyWith(fontSize: 14),
-                textAlign: TextAlign.left, // Teks rata kiri
+                textAlign: TextAlign.left, 
               ),
               value: 'Perempuan',
               groupValue: controller.gender.value,
-              activeColor: Colors.blueAccent, // Warna biru modern
+              activeColor: Colors.blueAccent, 
               onChanged: (value) => controller.updateGender(value as String),
-              contentPadding: EdgeInsets.zero, // Menghapus padding bawaan
-              dense: true, // Membuat tampilan lebih ringkas
-              visualDensity: VisualDensity.compact, // Lebih ringkas
+              contentPadding: EdgeInsets.zero, 
+              dense: true, 
+              visualDensity: VisualDensity.compact, 
             ),
           ),
         ],

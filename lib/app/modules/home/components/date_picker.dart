@@ -37,7 +37,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       margin: EdgeInsets.only(top: 10),
       child: InkWell(
         onTap: () {
-          _showCalendarDialog(context); // Menampilkan pop-up kalender
+          _showCalendarDialog(context); 
         },
         child: InputDecorator(
           decoration: InputDecoration(
@@ -82,22 +82,22 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent, // Agar efek lebih halus
-      barrierColor: Colors.black.withOpacity(0.5), // Efek transparan
+      backgroundColor: Colors.transparent, 
+      barrierColor: Colors.black.withOpacity(0.5), 
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(16),
-        ), // Membuat sudut modal lebih halus
+        ),
       ),
       transitionAnimationController: AnimationController(
         vsync: Navigator.of(context),
-        duration: Duration(milliseconds: 500), // Durasi animasi
+        duration: Duration(milliseconds: 500), 
       ),
       builder: (context) {
         return AnimatedContainer(
-          duration: Duration(milliseconds: 800), // Animasi transisi
-          curve: Curves.easeOut, // Efek animasi lebih halus
-          height: 420, // Tinggi modal kalender
+          duration: Duration(milliseconds: 800), 
+          curve: Curves.easeOut, 
+          height: 420, 
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -126,7 +126,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                     widget.onDateSelected(selectedDay);
                     Navigator.pop(
                       context,
-                    ); // Tutup modal setelah memilih tanggal
+                    ); 
                   },
                   calendarStyle: CalendarStyle(
                     defaultTextStyle: regular.copyWith(),

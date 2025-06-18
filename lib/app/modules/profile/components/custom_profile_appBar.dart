@@ -35,7 +35,7 @@ class CustomProfileAppBar extends StatelessWidget
             image: const DecorationImage(
               image: AssetImage(
                 "assets/img/map-global.png",
-              ), // Gambar latar belakang
+              ),
               fit: BoxFit.contain,
               alignment: Alignment.center,
             ),
@@ -72,8 +72,7 @@ class CustomProfileAppBar extends StatelessWidget
                           backgroundImage: AssetImage('assets/img/contoh.jpeg'),
                         ),
                       ),
-                      const SizedBox(width: 12), // Jarak antar elemen
-                      // Informasi Pengguna
+                      const SizedBox(width: 12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +103,6 @@ class CustomProfileAppBar extends StatelessWidget
                         ),
                       ),
 
-                      // Ikon Edit
                       IconButton(
                         icon: const Icon(
                           Icons.edit_note_outlined,
@@ -112,7 +110,6 @@ class CustomProfileAppBar extends StatelessWidget
                           size: 30,
                         ),
                         onPressed: () {
-                          // Aksi ketika ikon edit ditekan
                           Get.toNamed('/edit-profile');
                         },
                       ),

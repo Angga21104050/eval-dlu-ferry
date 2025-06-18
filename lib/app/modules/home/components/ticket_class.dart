@@ -45,13 +45,13 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
 
   IconData _getIcon(String value) {
     if (_isPassengerClass(value)) {
-      return Icons.airline_seat_recline_extra_rounded; // Ikon untuk penumpang
+      return Icons.airline_seat_recline_extra_rounded; 
     } else if (_isVehicleClass(value)) {
-      return Icons.directions_car_filled_outlined; // Ikon untuk kendaraan
+      return Icons.directions_car_filled_outlined; 
     } else if (value.contains('VIP')) {
       return Icons.local_hotel_outlined;
     } else {
-      return Icons.all_inclusive; // Ikon default untuk "Semua Kelas"
+      return Icons.all_inclusive; 
     }
   }
 
@@ -67,7 +67,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.transparent, // Agar efek lebih halus
+      backgroundColor: Colors.transparent, 
       barrierColor: Colors.black.withOpacity(0.5),
       isScrollControlled: true,
       shape: RoundedRectangleBorder(
@@ -75,13 +75,13 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
       ),
       transitionAnimationController: AnimationController(
         vsync: Navigator.of(context),
-        duration: Duration(milliseconds: 500), // Durasi animasi
+        duration: Duration(milliseconds: 500), 
       ),
       builder: (context) {
         return AnimatedContainer(
-          duration: Duration(milliseconds: 500), // Animasi transisi
-          curve: Curves.easeOut, // Efek animasi lebih halus
-          height: 500, // Tinggi modal kalender
+          duration: Duration(milliseconds: 500), 
+          curve: Curves.easeOut, 
+          height: 500, 
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -152,8 +152,8 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
       margin: EdgeInsets.only(top: 10),
       child: InkWell(
         onTap:
-            () => _showBottomSheet(context), // Menggunakan modal bottom sheet
-        borderRadius: BorderRadius.circular(10), // Efek ripple saat diklik
+            () => _showBottomSheet(context), 
+        borderRadius: BorderRadius.circular(10),
         child: InputDecorator(
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
@@ -175,7 +175,7 @@ class _TicketClassDropdownState extends State<TicketClassDropdown> {
               Padding(
                 padding: const EdgeInsets.only(left: 3),
                 child: Icon(
-                  _getIcon(widget.selectedValue), // Panggil method _getIcon
+                  _getIcon(widget.selectedValue), 
                   color: Color(0xFF0064D2),
                   size: 25,
                 ),

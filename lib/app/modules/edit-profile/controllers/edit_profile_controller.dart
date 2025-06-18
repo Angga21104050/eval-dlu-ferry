@@ -13,7 +13,6 @@ class EditProfileController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Tidak perlu inisialisasi tambahan karena nilai default sudah diberikan pada controller
   }
 
   void saveProfile() {
@@ -27,7 +26,6 @@ class EditProfileController extends GetxController {
       'phoneNumber': phoneNumberController.text,
     };
 
-    // Tampilkan popup berhasil menggunakan Get.snackbar
     Get.snackbar(
       'Berhasil',
       'Perubahan profil berhasil disimpan.',

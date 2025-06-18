@@ -183,11 +183,10 @@ class OrderTicketView extends GetView<OrderTicketController> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             IconButton(
-                              // Menggunakan IconButton untuk tombol back
                               icon: const Icon(
                                 Icons.arrow_back,
                                 color: Color(0xFF0064D2),
-                              ), // Atur warna ikon
+                              ), 
                               onPressed: () {
                                 Get.back();
                               },

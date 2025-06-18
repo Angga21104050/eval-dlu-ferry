@@ -111,7 +111,7 @@ class _TicketDetailPaymentState extends State<TicketDetailPayment> {
                     Text(
                       'Rp. ${(300000 * widget.cart.fold<int>(0, (sum, item) => sum + (item['count'] as int))).toInt()}',
                       style: semiBold.copyWith(fontSize: 14),
-                    ), // Contoh perhitungan total dummy
+                    ), 
                   ],
                 ),
               ],

@@ -53,7 +53,6 @@ class TicketDetailCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Ferry Name & Price
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Row(
@@ -155,7 +154,6 @@ class TicketDetailCard extends StatelessWidget {
 
                 const SizedBox(height: 16),
 
-                // Dotted Line & HalfCircle
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Stack(

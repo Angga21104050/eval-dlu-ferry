@@ -5,13 +5,13 @@ import '../../../constants/text_style.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String greeting;
   final String username;
-  final bool showBottomBorder; // Properti untuk mengontrol border
+  final bool showBottomBorder; 
 
   const CustomAppBar({
     super.key,
     required this.greeting,
     required this.username,
-    this.showBottomBorder = false, // Defaultnya false
+    this.showBottomBorder = false, 
   });
 
   @override
@@ -66,7 +66,7 @@ class BorderedDivider extends StatelessWidget implements PreferredSizeWidget {
     return const Divider(
       height: 1.0,
       thickness: 1.0,
-      color: Colors.grey, // Warna border sesuai keinginan Anda
+      color: Colors.grey, 
     );
   }
 

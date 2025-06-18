@@ -26,7 +26,7 @@ class QrWithStatusAndPrintButton extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(8),
           child: Image.asset(
-            'assets/img/sample_qr.png', // Ganti dengan asset atau QR generator
+            'assets/img/sample_qr.png',
             fit: BoxFit.contain,
           ),
         ),
@@ -35,7 +35,6 @@ class QrWithStatusAndPrintButton extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Label Status (BUKAN tombol)
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
@@ -57,10 +56,8 @@ class QrWithStatusAndPrintButton extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            // Tombol Cetak Tiket
             GestureDetector(
               onTap: () {
-                // Aksi cetak tiket
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(

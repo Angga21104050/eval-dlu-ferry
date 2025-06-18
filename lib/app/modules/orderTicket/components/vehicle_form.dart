@@ -23,7 +23,6 @@ class _VehicleFormState extends State<VehicleForm> {
   @override
   void initState() {
     super.initState();
-    // init kosong dulu, nanti isi di build
     vehicleItems = [];
     vehicleCategories = [];
     selectedCategories = [];
@@ -84,13 +83,11 @@ class _VehicleFormState extends State<VehicleForm> {
 
     vehicleCategories = getVehicleCategoryNames();
 
-    // Filter item yang kelasnya ada di vehicleCategories
     vehicleItems =
         cart.where((item) {
           return vehicleCategories.contains(item['class']);
         }).toList();
 
-    // Siapkan list selectedCategories sebanyak jumlah kendaraan di cart
     if (selectedCategories.length != vehicleItems.length) {
       selectedCategories = List<String?>.filled(vehicleItems.length, null);
     }
@@ -105,12 +102,12 @@ class _VehicleFormState extends State<VehicleForm> {
             BoxShadow(
                 color: const Color(
                   0xFF0064D2,
-                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-                blurRadius: 6, // Tingkat keburaman shadow
+                ).withOpacity(0.35), 
+                blurRadius: 6, 
                 offset: const Offset(
                   0,
                   4,
-                ), // Offset shadow (horizontal, vertical)
+                ), 
               ),
           ],
         ),
@@ -218,7 +215,7 @@ class _VehicleFormState extends State<VehicleForm> {
                                         fontSize: 14,
                                         color: Color(
                                           0xFF0064D2,
-                                        ), // warna label saat fokus
+                                        ), 
                                       ),
                                       labelText: 'Nama Pemilik Sesuai STNK',
                                       labelStyle: regular.copyWith(
@@ -248,7 +245,7 @@ class _VehicleFormState extends State<VehicleForm> {
                                   fontSize: 14,
                                   color: Color(
                                     0xFF0064D2,
-                                  ), // warna label saat fokus
+                                  ), 
                                 ),
                                 labelText: 'Kota/Kabupaten',
                                 labelStyle: regular.copyWith(fontSize: 14),
@@ -273,7 +270,7 @@ class _VehicleFormState extends State<VehicleForm> {
                                   fontSize: 14,
                                   color: Color(
                                     0xFF0064D2,
-                                  ), // warna label saat fokus
+                                  ), 
                                 ),
                                 labelText: 'Alamat',
                                 labelStyle: regular.copyWith(fontSize: 14),
@@ -298,7 +295,7 @@ class _VehicleFormState extends State<VehicleForm> {
                                   fontSize: 14,
                                   color: Color(
                                     0xFF0064D2,
-                                  ), // warna label saat fokus
+                                  ), 
                                 ),
                                 labelText: 'Nomor Polisi',
                                 labelStyle: regular.copyWith(fontSize: 14),

@@ -28,12 +28,12 @@ class VipRoomForm extends StatelessWidget {
             BoxShadow(
               color: const Color(
                 0xFF0064D2,
-              ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-              blurRadius: 6, // Tingkat keburaman shadow
+              ).withOpacity(0.35),
+              blurRadius: 6, 
               offset: const Offset(
                 0,
                 4,
-              ), // Offset shadow (horizontal, vertical)
+              ),
             ),
           ],
         ),
@@ -46,7 +46,7 @@ class VipRoomForm extends StatelessWidget {
                   child: Icon(
                     Icons.hotel_outlined,
                     color: Color(0xFF0064D2),
-                  ), // Tambahkan icon penumpang di sini
+                  ), 
                 ),
                 Expanded(
                   child: ListTile(
@@ -177,7 +177,7 @@ class VipRoomForm extends StatelessWidget {
                                       fontSize: 14,
                                       color: Color(
                                         0xFF0064D2,
-                                      ), // warna label saat fokus
+                                      ), 
                                     ),
                                     labelText: 'Nama Lengkap Sesuai ID',
                                     labelStyle: regular.copyWith(fontSize: 14),
@@ -203,7 +203,7 @@ class VipRoomForm extends StatelessWidget {
                                       fontSize: 14,
                                       color: Color(
                                         0xFF0064D2,
-                                      ), // warna label saat fokus
+                                      ), 
                                     ),
                                     labelText: 'Nomor Ponsel',
                                     labelStyle: regular.copyWith(fontSize: 14),
@@ -229,7 +229,7 @@ class VipRoomForm extends StatelessWidget {
                                       fontSize: 14,
                                       color: Color(
                                         0xFF0064D2,
-                                      ), // warna label saat fokus
+                                      ), 
                                     ),
                                     labelText: 'Kota',
                                     labelStyle: regular.copyWith(fontSize: 14),
@@ -325,7 +325,6 @@ class VipRoomForm extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          // Aksi tombol
                         },
                         child: Text(
                           'Tambahkan Penumpang',

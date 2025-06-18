@@ -266,7 +266,6 @@ class ProfileView extends GetView<ProfileController> {
               ],
             ),
           ),
-          // AppBar yang ditumpuk di atas
           CustomProfileAppBar(),
         ],
       ),

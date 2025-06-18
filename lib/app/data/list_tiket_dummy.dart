@@ -10,7 +10,6 @@ class Ticket {
 
 class TicketCategory {
   String categoryName;
-  // double price;
 
   TicketCategory({required this.categoryName});
 }
@@ -119,7 +118,6 @@ List<String> availableTicketTypes =
 // fungsi random classes untuk dammy
 List<String> getRandomCategories(String type) {
   if (type != 'Penumpang') {
-    // Untuk tipe selain Penumpang, kembalikan semua kategori atau random seperti biasa
     return dummyTicketTypes
         .firstWhere(
           (ticket) => ticket.type == type,
@@ -183,11 +181,11 @@ List<Map<String, dynamic>> ferryTickets = [
       'Penumpang':
           (dummyTicketTypes
                   .firstWhere((ticket) => ticket.type == 'Penumpang')
-                  .categories // Added missing .categories access
+                  .categories 
                   .sublist(13, 37)
                   .map((cat) => cat.categoryName)
                   .toList()
-                ..shuffle()) // Proper cascade notation
+                ..shuffle()) 
               .take(8)
               .toList(),
     },
@@ -207,11 +205,11 @@ List<Map<String, dynamic>> ferryTickets = [
       'Penumpang':
           (dummyTicketTypes
                   .firstWhere((ticket) => ticket.type == 'Penumpang')
-                  .categories // Added missing .categories access
+                  .categories 
                   .sublist(13, 37)
                   .map((cat) => cat.categoryName)
                   .toList()
-                ..shuffle()) // Proper cascade notation
+                ..shuffle())
               .take(8)
               .toList(),
       'Kendaraan':
@@ -237,16 +235,16 @@ List<Map<String, dynamic>> ferryTickets = [
       'Penumpang',
       'Kendaraan',
       'Kamar VIP',
-    ], // Bisa lebih dari satu tipe
+    ], 
     'classes': {
       'Penumpang':
           (dummyTicketTypes
                   .firstWhere((ticket) => ticket.type == 'Penumpang')
-                  .categories // Added missing .categories access
+                  .categories 
                   .sublist(13, 37)
                   .map((cat) => cat.categoryName)
                   .toList()
-                ..shuffle()) // Proper cascade notation
+                ..shuffle()) 
               .take(8)
               .toList(),
       'Kendaraan':
@@ -279,11 +277,11 @@ List<Map<String, dynamic>> ferryTickets = [
       'Penumpang':
           (dummyTicketTypes
                   .firstWhere((ticket) => ticket.type == 'Penumpang')
-                  .categories // Added missing .categories access
+                  .categories 
                   .sublist(13, 37)
                   .map((cat) => cat.categoryName)
                   .toList()
-                ..shuffle()) // Proper cascade notation
+                ..shuffle()) 
               .take(8)
               .toList(),
     },
@@ -298,16 +296,16 @@ List<Map<String, dynamic>> ferryTickets = [
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    'ticketType': ['Penumpang', 'Kendaraan'], // Bisa lebih dari satu tipe
+    'ticketType': ['Penumpang', 'Kendaraan'], 
     'classes': {
       'Penumpang':
           (dummyTicketTypes
                   .firstWhere((ticket) => ticket.type == 'Penumpang')
-                  .categories // Added missing .categories access
+                  .categories 
                   .sublist(13, 37)
                   .map((cat) => cat.categoryName)
                   .toList()
-                ..shuffle()) // Proper cascade notation
+                ..shuffle()) 
               .take(8)
               .toList(),
       'Kendaraan': getRandomCategories('Kendaraan'),
@@ -323,16 +321,16 @@ List<Map<String, dynamic>> ferryTickets = [
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    'ticketType': ['Penumpang', 'Kamar VIP'], // Bisa lebih dari satu tipe
+    'ticketType': ['Penumpang', 'Kamar VIP'], 
     'classes': {
       'Penumpang':
           (dummyTicketTypes
                   .firstWhere((ticket) => ticket.type == 'Penumpang')
-                  .categories // Added missing .categories access
+                  .categories 
                   .sublist(13, 37)
                   .map((cat) => cat.categoryName)
                   .toList()
-                ..shuffle()) // Proper cascade notation
+                ..shuffle()) 
               .take(8)
               .toList(),
       'Kamar VIP': getRandomCategories('Kamar VIP'),
@@ -348,7 +346,7 @@ List<Map<String, dynamic>> ferryTickets = [
     'departureTime': '08:00',
     'arrivalTime': '18:00',
     'duration': '10j 00m',
-    'ticketType': ['Kendaraan', 'Kamar VIP'], // Bisa lebih dari satu tipe
+    'ticketType': ['Kendaraan', 'Kamar VIP'], 
     'classes': {
       'Kendaraan': getRandomCategories('Kendaraan'),
       'Kamar VIP': getRandomCategories('Kamar VIP'),
@@ -368,16 +366,16 @@ List<Map<String, dynamic>> ferryTickets = [
       'Penumpang',
       'Kendaraan',
       'Kamar VIP',
-    ], // Bisa lebih dari satu tipe
+    ], 
     'classes': {
       'Penumpang':
           (dummyTicketTypes
                   .firstWhere((ticket) => ticket.type == 'Penumpang')
-                  .categories // Added missing .categories access
+                  .categories 
                   .sublist(13, 37)
                   .map((cat) => cat.categoryName)
                   .toList()
-                ..shuffle()) // Proper cascade notation
+                ..shuffle()) 
               .take(8)
               .toList(),
       'Kendaraan': getRandomCategories('Kendaraan'),

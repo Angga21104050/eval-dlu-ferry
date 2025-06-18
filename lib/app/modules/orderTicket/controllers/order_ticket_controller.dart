@@ -3,17 +3,12 @@ import 'package:get/get.dart';
 import '../../../data/list_tiket_dummy.dart';
 
 class OrderTicketController extends GetxController {
-  // Properti untuk menyimpan gender yang dipilih
   var gender = 'Laki Laki'.obs;
 
-  // Fungsi untuk memperbarui gender saat pengguna memilih opsi
   void updateGender(String value) {
     gender.value = value;
   }
 
-  
-
-  // State dan data untuk dropdown Virtual Account
   var isExpandedVirtualAcc = false.obs;
   var selectedVirtualAccMethod = Rxn<String>();
   List<String> virtualAccMethod = [
@@ -27,22 +22,18 @@ class OrderTicketController extends GetxController {
     'BCA Virtual Account',
   ];
 
-  // State dan data untuk dropdown E-Wallet
   var isExpandedEWallet = false.obs;
   var selectedEWalletMethod = Rxn<String>();
   List<String> eWalletMethod = ['GoPay', 'OVO', 'Dana', 'ShopeePay'];
 
-  // State dan data untuk dropdown Credit Card
   var isExpandedCreditCard = false.obs;
   var selectedCreditCardMethod = Rxn<String>();
   List<String> creditCardMethod = ['Visa', 'Mastercard', 'American Express'];
 
-  // State dan data untuk dropdown QRIS
   var isExpandedQris = false.obs;
   var selectedQrisMethod = Rxn<String>();
   List<String> qrisMethod = ['QRIS'];
 
-  // Fungsi untuk menampilkan snackbar
   void showPaymentMethodChangedSnackbar(String methodName) {
     Get.snackbar(
       'Metode Pembayaran Diubah',
@@ -99,7 +90,6 @@ class OrderTicketController extends GetxController {
 
   void toggleCreditCardDropdown() {
     isExpandedCreditCard.value = !isExpandedCreditCard.value;
-    // Tutup dropdown lain jika dibuka
     if (isExpandedCreditCard.value) {
       isExpandedVirtualAcc.value = false;
       isExpandedEWallet.value = false;
@@ -110,7 +100,6 @@ class OrderTicketController extends GetxController {
   void selectCreditCardMethod(String? method) {
     selectedCreditCardMethod.value = method;
     isExpandedCreditCard.value = false;
-    // Reset pilihan dari dropdown lain
     selectedVirtualAccMethod.value = null;
     selectedEWalletMethod.value = null;
     selectedQrisMethod.value = null;
@@ -121,7 +110,6 @@ class OrderTicketController extends GetxController {
 
   void toggleQrisDropdown() {
     isExpandedQris.value = !isExpandedQris.value;
-    // Tutup dropdown lain jika dibuka
     if (isExpandedQris.value) {
       isExpandedVirtualAcc.value = false;
       isExpandedEWallet.value = false;
@@ -132,7 +120,6 @@ class OrderTicketController extends GetxController {
   void selectQrisMethod(String? method) {
     selectedQrisMethod.value = method;
     isExpandedQris.value = false;
-    // Reset pilihan dari dropdown lain
     selectedVirtualAccMethod.value = null;
     selectedEWalletMethod.value = null;
     selectedCreditCardMethod.value = null;
@@ -141,7 +128,6 @@ class OrderTicketController extends GetxController {
     }
   }
 
-  // Fungsi untuk menentukan path gambar berdasarkan nama metode
   String getImagePathForMethod(String method) {
     if (method.contains('BRI Virtual')) {
       return 'assets/img/briva.png';
@@ -176,13 +162,11 @@ class OrderTicketController extends GetxController {
     } else if (method.contains('QRIS')) {
       return 'assets/img/qris-logo.png';
     }
-    return 'assets/images/default.png'; // Default return statement
+    return 'assets/images/default.png'; 
   }
 
   final isScrolled = false.obs;
   final scrollController = ScrollController();
-
-  // Observables untuk menyimpan jumlah penumpang, kamar VIP, dan kendaraan
   final cart = Rx<List<Map<String, dynamic>>>(Get.arguments ?? []);
   final passengerCount = 0.obs;
   final vipRoomCount = 0.obs;
@@ -192,7 +176,7 @@ class OrderTicketController extends GetxController {
   void onInit() {
     super.onInit();
     updateCounts();
-    ever(cart, (_) => updateCounts()); // Update counts setiap kali cart berubah
+    ever(cart, (_) => updateCounts()); 
     scrollController.addListener(() {
       if (scrollController.offset > 100 && !isScrolled.value) {
         isScrolled.value = true;

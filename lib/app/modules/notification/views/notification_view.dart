@@ -15,11 +15,10 @@ class NotificationView extends GetView<NotificationController> {
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
           leading: IconButton(
-            // Menggunakan IconButton untuk tombol back
             icon: const Icon(
               Icons.arrow_back,
               color: Colors.white,
-            ), // Atur warna ikon
+            ), 
             onPressed: () {
               Get.back();
             },
@@ -39,7 +38,6 @@ class NotificationView extends GetView<NotificationController> {
         ),
       ),
 
-      // Di dalam NotificationView...
       body: GetBuilder<NotificationController>(
         builder: (controller) {
           return ListView.builder(
@@ -70,7 +68,6 @@ class NotificationView extends GetView<NotificationController> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // Gambar/Icon Notifikasi
                       Container(
                         width: 72,
                         height: 72,
@@ -116,7 +113,6 @@ class NotificationView extends GetView<NotificationController> {
                           ],
                         ),
                       ),
-                      // Titik indikator belum dibaca
                       if (!notification['read'])
                         Container(
                           width: 10,

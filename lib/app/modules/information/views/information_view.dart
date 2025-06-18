@@ -16,11 +16,10 @@ class InformationView extends GetView<InformationController> {
           backgroundColor: const Color(0xFF0064D2),
           elevation: 0,
           leading: IconButton(
-            // Menggunakan IconButton untuk tombol back
             icon: const Icon(
               Icons.arrow_back,
               color: Colors.white,
-            ), // Atur warna ikon
+            ),
             onPressed: () {
               Get.back();
             },

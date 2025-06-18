@@ -34,7 +34,6 @@ class CustomHorizontalScroll extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Judul "Berita Informasi"
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 20.0,

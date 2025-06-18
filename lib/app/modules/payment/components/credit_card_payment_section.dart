@@ -31,12 +31,12 @@ class CreditCardPaymentSection extends StatelessWidget {
               BoxShadow(
                 color: const Color(
                   0xFF0064D2,
-                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-                blurRadius: 6, // Tingkat keburaman shadow
+                ).withOpacity(0.35), 
+                blurRadius: 6, 
                 offset: const Offset(
                   0,
                   4,
-                ), // Offset shadow (horizontal, vertical)
+                ), 
               ),
             ],
           ),
@@ -77,7 +77,7 @@ class CreditCardPaymentSection extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'V23435235564', // Ganti dengan data dinamis jika perlu
+                  'V23435235564', 
                   style: semiBold.copyWith(fontSize: 22),
                 ),
               ),
@@ -119,7 +119,7 @@ class CreditCardPaymentSection extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFEAF1FB), // Warna latar biru muda
+                  color: const Color(0xFFEAF1FB), 
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -132,16 +132,16 @@ class CreditCardPaymentSection extends StatelessWidget {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: const BorderSide(
-                            color: Color(0xFF0064D2), // Warna saat fokus
-                            width: 2, // Ketebalan border saat fokus
+                            color: Color(0xFF0064D2), 
+                            width: 2, 
                           ),
                         ),
                         hintText: '0000 0000 0000 0000',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: const BorderSide(
-                            color: Color(0xFF0064D2), // Warna saat fokus
-                            width: 2, // Ketebalan border saat fokus
+                            color: Color(0xFF0064D2), 
+                            width: 2,
                           ),
                         ),
                         contentPadding: const EdgeInsets.symmetric(
@@ -171,8 +171,8 @@ class CreditCardPaymentSection extends StatelessWidget {
                                     borderSide: const BorderSide(
                                       color: Color(
                                         0xFF0064D2,
-                                      ), // Warna saat fokus
-                                      width: 2, // Ketebalan border saat fokus
+                                      ), 
+                                      width: 2,
                                     ),
                                   ),
                                   border: OutlineInputBorder(
@@ -180,8 +180,8 @@ class CreditCardPaymentSection extends StatelessWidget {
                                     borderSide: const BorderSide(
                                       color: Color(
                                         0xFF0064D2,
-                                      ), // Warna saat fokus
-                                      width: 2, // Ketebalan border saat fokus
+                                      ),
+                                      width: 2, 
                                     ),
                                   ),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -208,8 +208,8 @@ class CreditCardPaymentSection extends StatelessWidget {
                                     borderSide: const BorderSide(
                                       color: Color(
                                         0xFF0064D2,
-                                      ), // Warna saat fokus
-                                      width: 2, // Ketebalan border saat fokus
+                                      ),
+                                      width: 2, 
                                     ),
                                   ),
                                   hintText: 'Contoh 123',

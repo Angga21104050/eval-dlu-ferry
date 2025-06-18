@@ -158,7 +158,6 @@ class LoginView extends GetView<LoginController> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Tambahkan logika login di sini
                         Get.offNamed('/home');
                         print('Tombol Lanjutkan ditekan');
                       },
@@ -195,14 +194,11 @@ class LoginView extends GetView<LoginController> {
                       const Expanded(child: Divider(color: Color(0xFFD0CBCB))),
                     ],
                   ),
-                  // Login dengan Google dan Facebook
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Tombol Google
                       InkWell(
                         onTap: () {
-                          // Tambahkan logika login dengan Google di sini
                           print('Login dengan Google');
                         },
                         child: Container(
@@ -211,7 +207,7 @@ class LoginView extends GetView<LoginController> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Image.asset(
-                            'assets/img/google-icon.png', // Ganti dengan path gambar ikon Google Anda
+                            'assets/img/google-icon.png',
                             height: 44,
                             width: 44,
                           ),

@@ -18,29 +18,27 @@ class TransactionSuccView extends GetView<TransactionSuccController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Checkmark Circle
             SizedBox(
-              width: 200, // Lebar area gambar
-              height: 200, // Tinggi area gambar
+              width: 200, 
+              height: 200,
               child: Center(
                 child: TweenAnimationBuilder<double>(
                   tween: Tween<double>(
                     begin: 0.5,
                     end: 1.0,
-                  ), // Animasi skala dari 0.5 ke 1.0
+                  ), 
                   duration: const Duration(milliseconds: 300), // Durasi animasi
                   builder: (BuildContext context, double scale, Widget? child) {
                     return Transform.scale(scale: scale, child: child);
                   },
                   child: Image.asset(
-                    'assets/img/success-check.png', // Ganti dengan jalur gambar sukses Anda
-                    width: 200, // Sesuaikan lebar gambar
-                    height: 200, // Sesuaikan tinggi gambar
+                    'assets/img/success-check.png', 
+                    width: 200, 
+                    height: 200, 
                     fit:
                         BoxFit
-                            .contain, // Cara gambar menyesuaikan diri dalam area
+                            .contain, 
                     errorBuilder: (context, error, stackTrace) {
-                      // Opsional: Widget yang ditampilkan jika gambar gagal dimuat
                       return const Icon(
                         Icons.error_outline,
                         size: 80,
@@ -60,7 +58,6 @@ class TransactionSuccView extends GetView<TransactionSuccController> {
             ),
             const SizedBox(height: 4),
 
-            // Thank You and Email Info Text
             Text(
               'Terima kasih atas pesanan Anda. Anda akan segera menerima konfirmasi melalui email.',
               style: medium.copyWith(
@@ -71,7 +68,6 @@ class TransactionSuccView extends GetView<TransactionSuccController> {
             ),
             const SizedBox(height: 16),
 
-            // Lihat Tiket Button
             SizedBox(
               width: 320,
               child: ElevatedButton(

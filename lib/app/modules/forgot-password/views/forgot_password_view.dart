@@ -10,7 +10,6 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
     return Scaffold(
       body: Stack(
         children: [
-          // Widget gambar dengan tinggi 380
           SizedBox(
             height: 412,
             width: double.infinity,

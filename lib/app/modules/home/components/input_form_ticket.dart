@@ -22,7 +22,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
   // mengcontrol fungsi calendar
   DateTime _selectedDepartureDate = DateTime.now();
   DateTime? _selectedReturnDate;
-  bool _isRoundTrip = false; // Mengontrol Pulang Pergi
+  bool _isRoundTrip = false; 
   // mengontrol fungsi jenis tiket
   List<String> _selectedTicketTypes = [];
   // mengontrol class tiket
@@ -38,7 +38,6 @@ class _InputFormTicketState extends State<InputFormTicket> {
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.circular(20),
-        // membuat shadow pada sisi bawah container
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
@@ -130,7 +129,6 @@ class _InputFormTicketState extends State<InputFormTicket> {
                   ),
                 ],
               ),
-              // tanggal pulang muncul jika value pulang pergi terisi
               if (_isRoundTrip)
                 DatePickerWidget(
                   initialDate: _selectedReturnDate ?? _selectedDepartureDate,
@@ -149,7 +147,7 @@ class _InputFormTicketState extends State<InputFormTicket> {
                   setState(() {
                     _selectedTicketTypes = selected;
                   });
-                }, // Add the required child parameter
+                }, 
               ),
               // membuat dropdown untuk memilih kelas
               if (_selectedTicketTypes.contains('Penumpang'))
@@ -196,15 +194,11 @@ class _InputFormTicketState extends State<InputFormTicket> {
                   // Debug: Print input sebelum filter
                   // print('Selected Departure Date: $_selectedDepartureDate');
                   // print('Selected Return Date: $_selectedReturnDate');
-                  // Memanggil fungsi pencarian tiket
                   homeController.searchTickets(
                     filteredTickets: homeController.filteredTickets,
                     selectedTicketTypes: _selectedTicketTypes,
                     departureDate: _selectedDepartureDate,
                   );
-
-                  // Navigasi ke halaman hasil pencarian
-                  // Navigasi hanya jika ada hasil
                   if (homeController.filteredTickets.isNotEmpty) {
                     Get.toNamed(
                       '/ticket-search-results',

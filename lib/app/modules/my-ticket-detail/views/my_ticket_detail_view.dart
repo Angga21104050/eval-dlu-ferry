@@ -14,7 +14,6 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
     return Scaffold(
       backgroundColor: Colors.grey.shade50,
       body: Stack(
-        // Menggunakan Stack untuk menumpuk AppBar di atas konten yang dapat di-scroll
         children: [
           NotificationListener<ScrollNotification>(
             onNotification: (scrollNotification) {
@@ -34,7 +33,6 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
                 children: [
                   Stack(
                     children: [
-                      // Your existing header
                       Container(
                         margin: EdgeInsets.only(bottom: 40),
                         height: 200,
@@ -188,7 +186,6 @@ class MyTicketDetailView extends GetView<MyTicketDetailController> {
             () =>
                 controller.isScrolled.value
                     ? Positioned(
-                      // Menggunakan Positioned untuk menempatkan AppBar di atas
                       top: 0,
                       left: 0,
                       right: 0,

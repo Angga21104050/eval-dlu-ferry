@@ -28,7 +28,6 @@ class _HeaderOrderTicketState extends State<HeaderOrderTicket> {
         });
       } else {
         _timer.cancel();
-        // Tambahkan aksi saat waktu habis (opsional)
       }
     });
   }
@@ -101,7 +100,6 @@ class _HeaderOrderTicketState extends State<HeaderOrderTicket> {
               ],
             ),
           ),
-          // Posisi Timer di kanan bawah
           Positioned(
             bottom: 35,
             right: 16,

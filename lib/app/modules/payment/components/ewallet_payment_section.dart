@@ -38,12 +38,12 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
               BoxShadow(
                 color: const Color(
                   0xFF0064D2,
-                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-                blurRadius: 6, // Tingkat keburaman shadow
+                ).withOpacity(0.35),
+                blurRadius: 6, 
                 offset: const Offset(
                   0,
                   4,
-                ), // Offset shadow (horizontal, vertical)
+                ), 
               ),
             ],
           ),
@@ -86,7 +86,7 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                   ),
                 ),
                 child: Text(
-                  'G23435235564', // Ganti dengan data dinamis jika perlu
+                  'G23435235564', 
                   style: semiBold.copyWith(fontSize: 22),
                 ),
               ),
@@ -136,7 +136,7 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                   ),
                 ),
                 child: Text(
-                  '08577345643', // Ganti dengan data dinamis jika perlu
+                  '08577345643', 
                   style: semiBold.copyWith(fontSize: 22),
                 ),
               ),
@@ -154,7 +154,6 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Logika konfirmasi pembayaran
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
@@ -186,12 +185,12 @@ class _EWalletPaymentSectionState extends State<EWalletPaymentSection> {
               BoxShadow(
                 color: const Color(
                   0xFF0064D2,
-                ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-                blurRadius: 6, // Tingkat keburaman shadow
+                ).withOpacity(0.35),
+                blurRadius: 6, 
                 offset: const Offset(
                   0,
                   4,
-                ), // Offset shadow (horizontal, vertical)
+                ), 
               ),
             ],
           ),

@@ -67,7 +67,7 @@ class ProfileItem extends StatelessWidget {
           const SizedBox(height: 1),
           Obx(
             () => Text(
-              value.value, // Akses nilai RxString dengan .value
+              value.value,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
           ),

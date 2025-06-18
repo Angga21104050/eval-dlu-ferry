@@ -4,7 +4,6 @@ class Register2Controller extends GetxController {
   //TODO: Implement Register2Controller
   var gender = 'Laki Laki'.obs;
 
-  // Fungsi untuk memperbarui gender saat pengguna memilih opsi
   void updateGender(String value) {
     gender.value = value;
   }

@@ -14,7 +14,6 @@ class Register2View extends GetView<Register2Controller> {
     return Scaffold(
       body: Stack(
         children: [
-          // Widget gambar dengan tinggi 380
           SizedBox(
             height: 412,
             width: double.infinity,
@@ -204,20 +203,18 @@ class Register2View extends GetView<Register2Controller> {
 
                   const SizedBox(height: 20),
 
-                  // Lupa Password
                   SizedBox(
                     height: 47,
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
                         Get.toNamed('/home');
-                        // Tambahkan logika login di sini
                         print('Tombol Lanjutkan ditekan');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(
                           0xFF0064D2,
-                        ), // Sesuaikan warna tombol
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),

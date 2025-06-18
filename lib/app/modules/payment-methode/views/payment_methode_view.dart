@@ -70,7 +70,6 @@ class PaymentMethodeView extends GetView<PaymentMethodeController> {
                     ),
                   ),
                 ),
-                //pindah ke sini untuk componeny metode pembayran dan tombol lanjutan
                 PaymentMethodeDropdown(),
                 TermsAndConditionsCard(),
                 SizedBox(height: 8),

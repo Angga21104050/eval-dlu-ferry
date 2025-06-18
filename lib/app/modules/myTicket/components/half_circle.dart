@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 class HalfCirclePainter extends CustomPainter {
   final Color color;
-  final bool isLeft; // Jika true, setengah lingkaran menghadap kanan; jika false, menghadap kiri
+  final bool isLeft; 
 
   HalfCirclePainter({required this.color, this.isLeft = true});
 
@@ -14,7 +14,7 @@ class HalfCirclePainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     final Rect oval = Rect.fromLTWH(
-      isLeft ? 0 : -size.width, // Sesuaikan posisi X berdasarkan arah
+      isLeft ? 0 : -size.width,
       0,
       size.width * 2,
       size.height,
@@ -22,8 +22,8 @@ class HalfCirclePainter extends CustomPainter {
 
     canvas.drawArc(
       oval,
-      isLeft ? -math.pi / 2 : math.pi / 2, // Sudut mulai (atas tengah)
-      math.pi, // Sweep angle (180 derajat)
+      isLeft ? -math.pi / 2 : math.pi / 2, 
+      math.pi, 
       false,
       paint,
     );
@@ -36,18 +36,17 @@ class HalfCirclePainter extends CustomPainter {
   }
 }
 
-// Widget pembungkus untuk memudahkan penggunaan
 class HalfCircle extends StatelessWidget {
   final Color color;
   final double radius;
-  final double height; // Tambahkan properti height
+  final double height; 
   final bool isLeft;
 
   const HalfCircle({
     super.key,
     required this.color,
     required this.radius,
-    this.height = 0, // Tambahkan nilai default untuk height (bisa disesuaikan)
+    this.height = 0, 
     this.isLeft = true,
   });
 
@@ -55,7 +54,7 @@ class HalfCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: radius * 2,
-      height: height > 0 ? height : radius, // Gunakan height jika diberikan, jika tidak gunakan radius
+      height: height > 0 ? height : radius, 
       child: CustomPaint(
         painter: HalfCirclePainter(color: color, isLeft: isLeft),
       ),

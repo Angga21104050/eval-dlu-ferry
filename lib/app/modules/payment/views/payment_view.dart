@@ -23,13 +23,12 @@ class PaymentView extends GetView<PaymentController> {
         children: [
           Background(),
           Column(
-            // Menggunakan Column sebagai parent untuk mengatur urutan
             children: [
               Container(
                 margin: const EdgeInsets.only(top: 30, bottom: 0),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
-                ), // Tambah padding horizontal
+                ), 
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
@@ -133,7 +132,6 @@ class PaymentView extends GetView<PaymentController> {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              // Logika konfirmasi pembayaran
                               Get.offNamed('/transaction-succ');
                             },
                             style: ElevatedButton.styleFrom(

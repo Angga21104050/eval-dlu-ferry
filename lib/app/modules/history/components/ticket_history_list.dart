@@ -31,19 +31,18 @@ class TicketHistoryList extends StatelessWidget {
                         BoxShadow(
                           color: Colors.black.withOpacity(
                             0.1,
-                          ), // Warna shadow dengan sedikit transparansi
-                          blurRadius: 6, // Tingkat keburaman shadow
+                          ), 
+                          blurRadius: 6,
                           offset: const Offset(
                             0,
                             2,
-                          ), // Offset shadow (horizontal, vertical)
+                          ),
                         ),
                       ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // 🔹 Kode Transaksi & Tanggal
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -79,7 +78,6 @@ class TicketHistoryList extends StatelessWidget {
                                 color: Color(0xFF757575),
                               ),
                             ),
-                            // 🔹 Status Badge
                             _buildStatusBadge(ticket['status']),
                           ],
                         ),
@@ -93,7 +91,6 @@ class TicketHistoryList extends StatelessWidget {
     );
   }
 
-  // 🔹 Widget Badge Status Modern
   Widget _buildStatusBadge(String? status) {
     Color bgColor;
     String displayText;

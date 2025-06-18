@@ -23,7 +23,7 @@ class HomeController extends GetxController {
 
   // data dummy kelas tiket
   final List<String> passengerClasses = [
-    'Semua Kelas', // Tambahkan "Semua Kelas" sebagai opsi default
+    'Semua Kelas', 
     ...dummyTicketTypes
         .firstWhere(
           (ticket) => ticket.type == 'Penumpang',
@@ -36,7 +36,7 @@ class HomeController extends GetxController {
   ];
 
   final List<String> vehicleClasses = [
-    'Semua Kelas', // Tambahkan "Semua Kelas" sebagai opsi default
+    'Semua Kelas', 
     ...dummyTicketTypes
         .firstWhere(
           (ticket) => ticket.type == 'Kendaraan',
@@ -49,7 +49,7 @@ class HomeController extends GetxController {
   ];
 
   final List<String> vipRoomClasses = [
-    'Semua Kelas', // Tambahkan "Semua Kelas" sebagai opsi default
+    'Semua Kelas', 
     ...dummyTicketTypes
         .firstWhere(
           (ticket) => ticket.type == 'Kamar VIP',
@@ -61,7 +61,6 @@ class HomeController extends GetxController {
         .sublist(1, 3),
   ];
 
-  // Tambahkan variabel untuk menyimpan kota keberangkatan & tujuan
   var fromCity = ''.obs;
   var toCity = ''.obs;
 
@@ -81,22 +80,18 @@ class HomeController extends GetxController {
 
   var departureDate = DateTime.now().obs;
 
-  // Tambahkan variabel untuk menyimpan hasil pencarian
   RxList<Map<String, dynamic>> filteredTickets = <Map<String, dynamic>>[].obs;
 
-  // Helper untuk normalisasi tanggal (abaikan komponen waktu)
   DateTime _normalizeDate(DateTime date) {
     return DateTime(date.year, date.month, date.day);
   }
 
-  // 🔍 Fungsi pencarian tiket
   void searchTickets({
     required RxList<Map<String, dynamic>> filteredTickets,
     required List<String> selectedTicketTypes,
     required DateTime departureDate,
   }) {
-    // Debug: Print data untuk verifikasi
-    // print('Filtering with:');
+
     // print('- From City: ${fromCity.value}');
     // print('- To City: ${toCity.value}');
     // print('- Departure Date: $departureDate');
@@ -106,23 +101,18 @@ class HomeController extends GetxController {
           final bool matchesPort =
               ticket['departurePort'] == fromCity.value &&
               ticket['arrivalPort'] == toCity.value;
-          // Gunakan casting as List<String> untuk memastikan tipe data benar sebelum menerapkan .any().
           final bool matchesType =
               selectedTicketTypes.isEmpty ||
               (ticket['ticketType'] is List<String> &&
                   (ticket['ticketType'] as List<String>).any(
                     (type) => selectedTicketTypes.contains(type),
                   ));
-          // Filter tanggal keberangkatan
-          // Gunakan _normalizeDate untuk perbandingan
           final bool matchesDepartureDate =
               _normalizeDate(ticket['departureDate']) ==
               _normalizeDate(departureDate);
 
           return matchesPort && matchesType && matchesDepartureDate;
         }).toList();
-
-    // print('Total tickets found: ${filteredTickets.length}');
   }
 
   @override

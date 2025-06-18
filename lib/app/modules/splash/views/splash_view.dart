@@ -1,10 +1,9 @@
 import 'package:dlu_project/app/constants/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dlu_project/app/routes/app_pages.dart'; // Pastikan path ini benar
+import 'package:dlu_project/app/routes/app_pages.dart';
 
 class SplashView extends StatefulWidget {
-  // Menggunakan StatefulWidget karena kita akan mengelola lifecycle
   const SplashView({super.key});
 
   @override
@@ -15,7 +14,6 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    // Logika delay dan navigasi langsung di View (TIDAK DISARANKAN)
     Future.delayed(const Duration(seconds: 3), () {
       Get.offAllNamed(Routes.LOGIN);
     });

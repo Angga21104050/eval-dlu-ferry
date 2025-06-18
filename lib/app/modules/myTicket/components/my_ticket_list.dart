@@ -23,7 +23,7 @@ class TicketList extends StatelessWidget {
               controller.ticketHistory.map((ticket) {
                 return Stack(
                   clipBehavior:
-                      Clip.none, // Izinkan widget keluar dari batas Stack
+                      Clip.none, 
                   children: [
                     Container(
                       width: double.infinity,
@@ -130,7 +130,6 @@ class TicketList extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             child: Stack(
-                              // Tambahkan Stack di sekitar garis putus-putus
                               clipBehavior: Clip.none,
                               children: [
                                 Row(

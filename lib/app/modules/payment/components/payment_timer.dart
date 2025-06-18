@@ -10,7 +10,7 @@ class PaymentTimer extends StatefulWidget {
 }
 
 class _PaymentTimerState extends State<PaymentTimer> {
-  Duration _duration = const Duration(hours: 1); // Ubah durasi menjadi 1 jam
+  Duration _duration = const Duration(hours: 1); 
   Timer? _timer;
 
   @override
@@ -32,7 +32,6 @@ class _PaymentTimerState extends State<PaymentTimer> {
           _duration = _duration - const Duration(seconds: 1);
         } else {
           _timer?.cancel();
-          // Tambahkan logika ketika waktu habis di sini
         }
       });
     });

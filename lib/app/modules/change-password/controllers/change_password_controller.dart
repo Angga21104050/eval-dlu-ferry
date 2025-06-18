@@ -17,14 +17,7 @@ class ChangePasswordController extends GetxController {
 
   Future<void> changePassword() async {
     if (formKey.currentState!.validate()) {
-      try {
-        // Implementasi logika ganti password
-        // Contoh:
-        // await AuthService().changePassword(
-        //   oldPasswordController.text,
-        //   newPasswordController.text,
-        // );
-        
+      try {        
         Get.back();
         Get.snackbar(
           'Berhasil',

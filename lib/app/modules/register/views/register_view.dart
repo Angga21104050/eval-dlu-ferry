@@ -10,7 +10,6 @@ class RegisterView extends GetView<RegisterController> {
     return Scaffold(
       body: Stack(
         children: [
-          // Widget gambar dengan tinggi 380
           SizedBox(
             height: 412,
             width: double.infinity,
@@ -82,7 +81,6 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   const SizedBox(height: 8),
 
-                  // Form Input Email / No. Telp
                   Text(
                     'Email (Sebagai Username)',
                     style: medium.copyWith(fontSize: 14),
@@ -180,7 +178,6 @@ class RegisterView extends GetView<RegisterController> {
                         ],
                       ),
                       Expanded(
-                        // Menggunakan Expanded agar teks mengisi sisa ruang
                         child: Text(
                           'Dengan menyetujui syarat dan ketentuan, Anda memasuki kontrak yang mengikat secara hukum dengan penyedia layanan.',
                           style: regular.copyWith(
@@ -199,7 +196,6 @@ class RegisterView extends GetView<RegisterController> {
                     child: ElevatedButton(
                       onPressed: () {
                         Get.toNamed('/register-2');
-                        // Tambahkan logika login di sini
                         print('Tombol Lanjutkan ditekan');
                       },
                       style: ElevatedButton.styleFrom(

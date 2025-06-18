@@ -11,7 +11,6 @@ class ProfileController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Muat data saat ProfileController diinisialisasi
   }
 
   @override

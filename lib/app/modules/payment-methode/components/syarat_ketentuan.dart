@@ -1,7 +1,5 @@
-// lib/app/modules/orderTicket/components/terms_and_conditions_card.dart
-
 import 'package:flutter/material.dart';
-import 'package:dlu_project/app/constants/text_style.dart'; // Pastikan path ini benar
+import 'package:dlu_project/app/constants/text_style.dart'; 
 
 class TermsAndConditionsCard extends StatelessWidget {
   const TermsAndConditionsCard({super.key});
@@ -18,9 +16,9 @@ class TermsAndConditionsCard extends StatelessWidget {
           BoxShadow(
             color: const Color(
               0xFF0064D2,
-            ).withOpacity(0.35), // Warna shadow dengan sedikit transparansi
-            blurRadius: 6, // Tingkat keburaman shadow
-            offset: const Offset(0, 4), // Offset shadow (horizontal, vertical)
+            ).withOpacity(0.35), 
+            blurRadius: 6, 
+            offset: const Offset(0, 4), 
           ),
         ],
       ),

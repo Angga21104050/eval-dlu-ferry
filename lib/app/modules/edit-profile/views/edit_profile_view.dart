@@ -19,11 +19,10 @@ class EditProfileView extends GetView<EditProfileController> {
               backgroundColor: Colors.blue.shade800,
               elevation: 0,
               leading: IconButton(
-                // Menggunakan IconButton untuk tombol back
                 icon: const Icon(
                   Icons.arrow_back,
                   color: Colors.white,
-                ), // Atur warna ikon
+                ),
                 onPressed: () {
                   Get.back();
                 },
@@ -45,9 +44,7 @@ class EditProfileView extends GetView<EditProfileController> {
                     child: CircleAvatar(
                       radius: 58,
                       backgroundImage:
-                      // image != null
-                      //     ? FileImage(image) as ImageProvider
-                      //     : const
+                      
                       AssetImage('assets/img/contoh.jpeg'),
                     ),
                   ),
